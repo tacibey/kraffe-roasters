@@ -5,24 +5,18 @@ import AuthBtn from "@components/ui/buttons/AuthBtn.astro";
 import ContactIconBlock from "@components/ui/blocks/ContactIconBlock.astro";
 import Icon from "@components/ui/icons/Icon.astro";
 import ReviewComponent from "@components/ui/blocks/ReviewComponent.astro";
-// import scaLogo from "@images/sca2-new.webp"; // KALDIRILDI
-// import ceLogoNew from "@images/ce-mark-new.avif"; // KALDIRILDI
-import type { ImageMetadata } from 'astro'; // Prop tipi için eklendi
+import scaLogo from "@images/sca2-new.webp";
+import ceLogoNew from "@images/ce-mark-new.avif";
+import type { ImageMetadata } from 'astro';
 
-// === YENİ GÖRSEL İMPORTU ===
-import contactPageCoverImage from "@images/contact-cover.avif"; // Kendi görsel yolunuzla güncelleyin
-// === /YENİ GÖRSEL İMPORTU ===
-
-// Prop Tanımı: Eğer bu bileşene dışarıdan avatar verisi göndermek isterseniz.
-// Bir önceki isteğinizde /contact.astro sayfasından amirAvatar gönderiliyordu.
-// Bu prop'u koruyalım, ama kullanılmıyorsa null/undefined olabilir.
+// Prop Tanımı
 interface Props {
-    amirAvatarData?: ImageMetadata; // Opsiyonel yapıldı
+    amirAvatarData?: ImageMetadata; // Bu prop /contact.astro'dan geliyor, o yüzden kalsın
 }
 const { amirAvatarData } = Astro.props;
 
 
-// Review bölümü için avatar kaynakları (Bu kısım ReviewComponent'e gönderilecek)
+// Review bölümü için avatar kaynakları
 const avatarSrcs: Array<string> = [
   "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
@@ -39,7 +33,7 @@ const formSubTitle: string = "We'll get back to you in 1-2 business days.";
 // Office verileri
 const officeHeading: string = "Our Office";
 const officeContent: string = "KRAFFE ROASTERS";
-const officeAddress: string = "5065 sok No: 28 Rafet Paşa District / Bornova / Izmir"; // Adres Türkçe kalmış, İngilizce veya genel bir format daha uygun olabilir.
+const officeAddress: string = "5065 sok No: 28 Rafet Paşa District / Bornova / Izmir";
 
 // Email verileri
 const emailHeading: string = "Contact us by email";
@@ -57,13 +51,14 @@ const recaptchaSiteKey = "6LeLrxwrAAAAABfZl7OIP3Yv0ibik2SANXaLixp6";
 const redirectUrl = "https://krafferoasters.com";
 
 const productOptions = [
-  "Dimi - Half kg batch capacity", "Primi - 1 kg batch capacity",
+  "Dimi - Half kg batch capacity",
+  "Primi - 1 kg batch capacity",
   "KRF-03", "KRF-06", "KRF-12", "KRF-15", "KRF-20",
-  "KRF-30", "KRF-60", "KRF-120", "KRF-180", "KRF-240", "Equipment" // Equipment eklendi
+  "KRF-30", "KRF-60", "KRF-120", "KRF-180", "KRF-240"
 ];
 
 const countryOptions = [
-  "Europe", "United States", "United Kingdom", "Russia", "South America", "Asia", "Other" // "Other" eklendi
+  "Europe", "United States", "United Kingdom", "Russia", "South America", "Asia"
 ];
 
 const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm text-neutral-700 placeholder:text-neutral-500 focus:border-neutral-200 focus:outline-hidden focus:ring-3 focus:ring-neutral-400 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-700/30 dark:text-neutral-300 dark:placeholder:text-neutral-400 dark:focus:ring-1";
@@ -78,50 +73,25 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
       <p class="mt-1 text-pretty text-lg text-neutral-600 dark:text-neutral-400">
         {subTitle}
       </p>
-      {/* === ESKİ LOGOLARIN OLDUĞU DIV KALDIRILDI VE YENİ GÖRSEL EKLENDİ === */}
-      <div class="mt-8 mb-12 lg:mb-16"> {/* mb-12 veya mb-16 ile altına boşluk eklendi */}
-        <Image 
-          src={contactPageCoverImage} 
-          alt="Kraffe Roasters product showcase" 
-          class="w-full h-auto max-h-[250px] sm:max-h-[300px] object-cover rounded-lg shadow-lg" 
-          loading="lazy"
-          widths={[400, 700, 1000, 1200]}
-          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 80vw, 1000px"
-        />
+      <div class="mt-8 flex items-center justify-center gap-x-8 sm:gap-x-12">
+        <Image src={ceLogoNew} alt="CE Marking Certification Logo" class="h-24 w-auto object-contain sm:h-32" loading="lazy"/>
+        <Image src={scaLogo} alt="Specialty Coffee Association Member Logo" class="h-24 w-auto object-contain sm:h-32" loading="lazy"/>
       </div>
-      {/* === /YENİ GÖRSEL === */}
     </div>
 
-    {/* ReviewComponent hala formun üstünde, logoların altında kalabilir veya yeri değiştirilebilir */}
-    {/* Eğer amirAvatarData prop'u contact.astro'dan geliyorsa ve bu ReviewComponent içinde kullanılacaksa bu mantık doğru */}
-    { amirAvatarData && (
-        <div class="mb-12 rounded-xl border border-neutral-200 bg-neutral-100 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-800 sm:p-6 lg:mt-0"> {/* lg:mt-0 eklendi, çünkü görselden sonra geliyor */}
-            <ReviewComponent
-            testimonialText="Incredibly user-friendly and provides consistent results every time."
-            testimonialAuthor="Amir Montazer"
-            testimonialRole="Etude Coffee Co."
-            testimonialAvatar={amirAvatarData}
-            testimonialAvatarAlt="Portrait of Amir Montazer"
-            avatars={avatarSrcs}
-            starCount={starCount}
-            rating={rating}
-            reviews={reviews}
-            />
-        </div>
-    )}
-
-
-    <div class="mt-0 grid items-start gap-6 lg:grid-cols-2 lg:gap-16"> {/* mt-12 kaldırıldı, artık Review veya yeni görselden sonra geliyor */}
+    <div class="mt-12 grid items-start gap-6 lg:mt-16 lg:grid-cols-2 lg:gap-16">
       {/* Sol Taraf: Form */}
       <div class="flex flex-col rounded-xl border border-neutral-200 bg-neutral-100 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-800 sm:p-6 lg:p-8">
         <h2 class="mb-8 text-xl font-semibold text-neutral-800 dark:text-neutral-200">
           {formTitle}
         </h2>
+
         <form action="https://api.staticforms.xyz/submit" method="POST">
           <input type="hidden" name="apiKey" value={staticFormsApiKey} />
           <input type="hidden" name="replyTo" value="@" />
           <input type="text" name="honeypot" style="display: none;" tabindex="-1" autocomplete="off"/>
           <input type="hidden" name="redirectTo" value={redirectUrl} />
+
           <div class="grid gap-4">
             <div>
               <label for="contact-name" class="sr-only">Name</label>
@@ -135,10 +105,37 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
               <label for="contact-email" class="sr-only">Email</label>
               <input type="email" id="contact-email" name="email" class={inputBaseClass} placeholder="Email" required autocomplete="email"/>
             </div>
+
+            {/* === TELEFON ALANI GÜNCELLENDİ === */}
             <div>
-              <label for="contact-phone" class="sr-only">Phone Number</label>
-              <input type="tel" id="contact-phone" name="phone" class={inputBaseClass} placeholder="Phone Number"/>
+              <label for="contact-phone-number" class="sr-only">Phone Number</label>
+              <div class="flex rounded-lg shadow-sm"> {/* Kapsayıcı div */}
+                {/* Ülke Kodu Ön Eki */}
+                <div class="px-3 inline-flex items-center min-w-fit rounded-s-lg border border-e-0 border-neutral-200 bg-neutral-200 dark:bg-neutral-700 dark:border-neutral-600">
+                  <span class="text-sm text-neutral-500 dark:text-neutral-400">+</span>
+                </div>
+                {/* Ülke Kodu Girişi */}
+                <input
+                  type="text"
+                  id="contact-country-code"
+                  name="$countryCode"
+                  class="py-3 px-4 block w-[80px] border-neutral-200 -ms-px text-sm focus:z-10 focus:border-orange-500 focus:ring-orange-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700/30 dark:border-neutral-600 dark:text-neutral-300 dark:focus:ring-orange-600 dark:placeholder-neutral-500"
+                  placeholder="Code"
+                  aria-label="Country code"
+                />
+                {/* Asıl Telefon Numarası Girişi */}
+                <input
+                  type="tel"
+                  id="contact-phone-number"
+                  name="phone"
+                  class={`${inputBaseClass} rounded-s-none`} // Sol köşe yuvarlaklığı kaldırıldı
+                  placeholder="Phone Number"
+                  aria-label="Phone number"
+                />
+              </div>
             </div>
+            {/* === /TELEFON ALANI GÜNCELLENDİ === */}
+
              <div>
                <label for="contact-country" class="sr-only">Select Country/Region</label>
                <select id="contact-country" name="$country" class={inputBaseClass + " cursor-pointer"}>
@@ -146,6 +143,7 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
                  {countryOptions.map(option => (
                    <option value={option}>{option}</option>
                  ))}
+                 <option value="Other">Other (Please specify in details)</option>
                </select>
              </div>
              <div>
@@ -176,14 +174,12 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
         </form>
       </div>
 
-      {/* Sağ Taraf: İkon Blokları (ReviewComponent'ten sonra gelecekse order değişebilir veya bu kısım aynen kalır) */}
-      {/* Eğer ReviewComponent formun üstünde kalacaksa, burası `mt-0` olabilir veya ReviewComponent'in altına göre ayarlanır.*/}
-      { !amirAvatarData && ( /* Eğer dışarıdan avatar gelmiyorsa, buraya ReviewComponent'i koyabiliriz */
-        <div class="rounded-xl border border-neutral-200 bg-neutral-100 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-800 sm:p-6 lg:order-first"> {/* lg:order-first ile sağ sütunu sola alabiliriz */}
-            <ReviewComponent avatars={avatarSrcs} starCount={starCount} rating={rating} reviews={reviews} />
+      {/* Sağ Taraf */}
+      <div class="space-y-8">
+        <div class="rounded-xl border border-neutral-200 bg-neutral-100 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-800 sm:p-6">
+           <ReviewComponent amirAvatarData={amirAvatarData} avatars={avatarSrcs} starCount={starCount} rating={rating} reviews={reviews} />
         </div>
-      )}
-      <div class={`space-y-6 divide-y divide-neutral-200 dark:divide-neutral-700 ${amirAvatarData ? '' : 'lg:order-last'}`}> {/* Avatar dışarıdan geliyorsa ikonlar sağda kalsın */}
+        <div class="space-y-6 divide-y divide-neutral-200 dark:divide-neutral-700">
           <div class="pt-6 first:pt-0">
              <ContactIconBlock heading={officeHeading} content={officeContent} isAddressVisible={true} addressContent={officeAddress}>
                <Icon name="mapPin" />
@@ -194,6 +190,7 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
                <Icon name="envelopeOpen" />
              </ContactIconBlock>
           </div>
+        </div>
       </div>
     </div>
   </div>
