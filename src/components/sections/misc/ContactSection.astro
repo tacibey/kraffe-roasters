@@ -5,7 +5,7 @@ import AuthBtn from "@components/ui/buttons/AuthBtn.astro";
 import ContactIconBlock from "@components/ui/blocks/ContactIconBlock.astro";
 import Icon from "@components/ui/icons/Icon.astro";
 import ReviewComponent from "@components/ui/blocks/ReviewComponent.astro";
-import kraffeContact from "@images/kraffe-contact.avif";
+import kraffeContact from "@images/kraffe-contact.avif"; // Bu görseli kullanıyorsunuz
 import type { ImageMetadata } from 'astro';
 
 // Prop Tanımı
@@ -52,12 +52,41 @@ const productOptions = [
   "Dimi - Half kg batch capacity",
   "Primi - 1 kg batch capacity",
   "KRF-03", "KRF-06", "KRF-12", "KRF-15", "KRF-20",
-  "KRF-30", "KRF-60", "KRF-120", "KRF-180", "KRF-240"
+  "KRF-30", "KRF-60", "KRF-120", "KRF-180", "KRF-240", "Equipment" // Equipment eklendi
 ];
 
-const countryOptions = [
-  "Europe", "United States", "United Kingdom", "Russia", "South America", "Asia"
-];
+// === ÜLKE LİSTESİ GÜNCELLENDİ ===
+const allCountries = [
+  "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan",
+  "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi",
+  "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo, Democratic Republic of the", "Congo, Republic of the", "Costa Rica", "Cote d'Ivoire", "Croatia", "Cuba", "Cyprus", "Czech Republic",
+  "Denmark", "Djibouti", "Dominica", "Dominican Republic",
+  "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia",
+  "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana",
+  "Haiti", "Honduras", "Hungary",
+  "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy",
+  "Jamaica", "Japan", "Jordan",
+  "Kazakhstan", "Kenya", "Kiribati", "Korea, North", "Korea, South", "Kosovo", "Kuwait", "Kyrgyzstan",
+  "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg",
+  "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar",
+  "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Macedonia", "Norway",
+  "Oman",
+  "Pakistan", "Palau", "Palestine State", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal",
+  "Qatar",
+  "Romania", "Russia", "Rwanda",
+  "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria",
+  "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu",
+  "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan",
+  "Vanuatu", "Vatican City", "Venezuela", "Vietnam",
+  "Yemen",
+  "Zambia", "Zimbabwe",
+  "Other" // Other seçeneği sonda kalsın
+].sort((a, b) => { // Alfabetik sıralama, "Other" sonda kalacak şekilde
+    if (a === "Other") return 1;
+    if (b === "Other") return -1;
+    return a.localeCompare(b);
+});
+// === /ÜLKE LİSTESİ ===
 
 const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm text-neutral-700 placeholder:text-neutral-500 focus:border-neutral-200 focus:outline-hidden focus:ring-3 focus:ring-neutral-400 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-700/30 dark:text-neutral-300 dark:placeholder:text-neutral-400 dark:focus:ring-1";
 ---
@@ -71,7 +100,9 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
       <p class="mt-1 text-pretty text-lg text-neutral-600 dark:text-neutral-400">
         {subTitle}
       </p>
-      <div class="mt-8 mx-auto max-w-[1500px] px-4 sm:px-6">
+      {/* Kapak görseli bir önceki mesajda kaldırılmıştı, o haliyle devam ediyorum */}
+      {/* Eğer geri eklenecekse, img src={kraffeContact} ... bloğu buraya gelebilir */}
+       <div class="mt-8 mx-auto max-w-[1500px] px-4 sm:px-6">
         <Image 
           src={kraffeContact} 
           alt="Contact cover image" 
@@ -83,7 +114,7 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
       </div>
     </div>
 
-    <div class="mt-12 grid items-start gap-6 lg:mt-16 lg:grid-cols-2 lg:gap-16">
+    <div class={`grid items-start gap-6 lg:grid-cols-2 lg:gap-16 ${amirAvatarData ? 'mt-12 lg:mt-16' : 'mt-12 lg:mt-16'}`}> {/* Review olsa da olmasa da aynı margin */}
       {/* Sol Taraf: Form */}
       <div class="flex flex-col rounded-xl border border-neutral-200 bg-neutral-100 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-800 sm:p-6 lg:p-8">
         <h2 class="mb-8 text-xl font-semibold text-neutral-800 dark:text-neutral-200">
@@ -109,8 +140,6 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
               <label for="contact-email" class="sr-only">Email</label>
               <input type="email" id="contact-email" name="email" class={inputBaseClass} placeholder="Email" required autocomplete="email"/>
             </div>
-
-            {/* Telefon Alanı */}
             <div>
               <label for="contact-phone-number" class="sr-only">Phone Number</label>
               <div class="flex rounded-lg shadow-sm">
@@ -136,16 +165,19 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
               </div>
             </div>
 
+            {/* === ÜLKE SEÇİMİ GÜNCELLENDİ === */}
             <div>
-              <label for="contact-country" class="sr-only">Select Country/Region</label>
+              <label for="contact-country" class="sr-only">Select Country</label> {/* "Region" kaldırıldı */}
               <select id="contact-country" name="$country" class={inputBaseClass + " cursor-pointer"}>
-                <option value="" disabled selected>Select Country/Region</option>
-                {countryOptions.map(option => (
-                  <option value={option}>{option}</option>
+                <option value="" disabled selected>Select Country</option> {/* "Region" kaldırıldı */}
+                {allCountries.map(country => ( // Yeni ülke listesi kullanılıyor
+                  <option value={country}>{country}</option>
                 ))}
-                <option value="Other">Other (Please specify in details)</option>
+                {/* "Other (Please specify in details)" seçeneği allCountries listesinin sonuna eklendiği için burada ayrıca eklemeye gerek yok */}
               </select>
             </div>
+            {/* === /ÜLKE SEÇİMİ === */}
+
             <div>
               <label for="contact-product" class="sr-only">Select Product</label>
               <select id="contact-product" name="$product" class={inputBaseClass + " cursor-pointer"}>
@@ -176,9 +208,11 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
 
       {/* Sağ Taraf */}
       <div class="space-y-8">
-        <div class="rounded-xl border border-neutral-200 bg-neutral-100 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-800 sm:p-6">
-           <ReviewComponent amirAvatarData={amirAvatarData} avatars={avatarSrcs} starCount={starCount} rating={rating} reviews={reviews} />
-        </div>
+        {amirAvatarData && ( /* Sadece amirAvatarData varsa bu ReviewComponent'i göster */
+            <div class="rounded-xl border border-neutral-200 bg-neutral-100 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-800 sm:p-6">
+                <ReviewComponent amirAvatarData={amirAvatarData} avatars={avatarSrcs} starCount={starCount} rating={rating} reviews={reviews} />
+            </div>
+        )}
         <div class="space-y-6 divide-y divide-neutral-200 dark:divide-neutral-700">
           <div class="pt-6 first:pt-0">
              <ContactIconBlock heading={officeHeading} content={officeContent} isAddressVisible={true} addressContent={officeAddress}>
