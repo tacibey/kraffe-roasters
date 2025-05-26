@@ -5,8 +5,7 @@ import AuthBtn from "@components/ui/buttons/AuthBtn.astro";
 import ContactIconBlock from "@components/ui/blocks/ContactIconBlock.astro";
 import Icon from "@components/ui/icons/Icon.astro";
 import ReviewComponent from "@components/ui/blocks/ReviewComponent.astro";
-import scaLogo from "@images/sca2-new.webp";
-import ceLogoNew from "@images/ce-mark-new.avif";
+import kraffeContact from "@images/kraffe-contact.avif";
 import type { ImageMetadata } from 'astro';
 
 // Prop Tanımı
@@ -73,9 +72,15 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
       <p class="mt-1 text-pretty text-lg text-neutral-600 dark:text-neutral-400">
         {subTitle}
       </p>
-      <div class="mt-8 flex items-center justify-center gap-x-8 sm:gap-x-12">
-        <Image src={ceLogoNew} alt="CE Marking Certification Logo" class="h-24 w-auto object-contain sm:h-32" loading="lazy"/>
-        <Image src={scaLogo} alt="Specialty Coffee Association Member Logo" class="h-24 w-auto object-contain sm:h-32" loading="lazy"/>
+      <div class="mt-8">
+        <Image 
+          src={kraffeContact} 
+          alt="Contact cover image" 
+          class="w-full h-[450px] object-cover rounded-xl" 
+          width={1500} 
+          height={700} 
+          loading="lazy"
+        />
       </div>
     </div>
 
