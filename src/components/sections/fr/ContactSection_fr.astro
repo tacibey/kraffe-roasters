@@ -8,57 +8,58 @@ import AuthBtn from "@components/ui/buttons/AuthBtn.astro";
 import ContactIconBlock from "@components/ui/blocks/ContactIconBlock.astro";
 import Icon from "@components/ui/icons/Icon.astro";
 import ReviewComponent from "@components/ui/blocks/ReviewComponent.astro";
-import kraffeContact from "@images/kraffe-contact.avif"; // İngilizce dosyadaki gibi
+import kraffeContact from "@images/kraffe-contact.avif"; // Bu görsel kullanılıyor
 
 interface Props {
-    amirAvatarData: ImageMetadata; // Bu prop /fr/contact.astro'dan geliyor
+    amirAvatarData?: ImageMetadata; // /fr/contact.astro'dan bu prop gelmeyebilir, opsiyonel yaptık
 }
 const { amirAvatarData } = Astro.props;
 
 // Review bölümü için avatar kaynakları (İngilizce ile aynı)
-const groupAvatarSrcs: Array<string> = [
+const avatarSrcs: Array<string> = [
   "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
 ];
 
-// Sabit metinler (Fransızca)
-const title: string = "👋 Découvrez votre nouvelle machine à torréfier"; // Örnek çeviri
-const subTitle: string = "⤹ Remplissez notre formulaire pour libérer tout le potentiel de vos grains de café"; // Örnek çeviri
-const formTitle: string = "Obtenez un devis maintenant →"; // Örnek çeviri
-const formSubTitleItalic: string = `(<span class="text-orange-500 dark:text-orange-400">2</span>/10 places restantes)`; // Bu zaten vardı
-const formResponseTime: string = "Nous vous répondrons dans un délai de 1 à 2 jours ouvrables.";
+// === SABİT METİNLER (FRANSIZCA ÇEVİRİLERİYLE) ===
+const title_fr: string = "👋 Découvrez votre nouvelle machine à torréfier";
+const subTitle_fr: string = "⤹ Remplissez notre formulaire pour libérer tout le potentiel de vos grains de café";
+const formTitle_fr: string = "Obtenez un devis maintenant →"; // İngilizce'deki "Get a quote now →" ile aynı
+const formSubTitle_fr: string = "Nous vous répondrons dans un délai de 1 à 2 jours ouvrables."; // İngilizce'deki "We'll get back to you in 1-2 business days."
 
 // Office verileri (Fransızca)
-const officeHeading: string = "Notre Bureau";
-const officeContent: string = "KRAFFE ROASTERS";
-const officeAddress: string = "Adalet, Manas Blv. No:39, Folkart Towers A Kule, Kat:34, D:3408, 35530 Bayraklı/İzmir"; // Adres çevirisi size kalmış
+const officeHeading_fr: string = "Notre Bureau";
+const officeContent_fr: string = "KRAFFE ROASTERS";
+const officeAddress_fr: string = "5065 sok No: 28 Rafet Pasa District / Bornova / Izmir"; // Adres aynı bırakıldı, gerekirse çevrilebilir
 
 // Email verileri (Fransızca)
-const emailHeading: string = "Contactez-nous par e-mail";
-const emailContent: string = "Vous préférez l'écrit ? Envoyez-nous un e-mail à";
-const emailLinkTitle: string = "info@krafferoasters.com"; // Genellikle değişmez
-const emailLinkURL: string = "mailto:info@krafferoasters.com"; // Genellikle değişmez
+const emailHeading_fr: string = "Contactez-nous par e-mail";
+const emailContent_fr: string = "Vous préférez l'écrit ? Envoyez-nous un e-mail à";
+const emailLinkTitle_fr: string = "info@krafferoasters.com"; // Değişmez
+const emailLinkURL_fr: string = "mailto:info@krafferoasters.com"; // Değişmez
 
-// Review verileri (Fransızca)
-const rating: string = `<span class="font-bold">4.8</span> / 5`;
-const starCount: number = 4;
-const reviews: string = `Approuvé par les <span class="font-bold">Torréfacteurs</span> du monde entier`;
+// Review verileri (Fransızca) - Bu ReviewComponent için, amirAvatarData ile gelen farklı
+const rating_fr: string = `<span class="font-bold">4.8</span> / 5`;
+const starCount_fr: number = 4;
+const reviews_fr: string = `Approuvé par les <span class="font-bold">Torréfactions</span> du Monde Entier`;
+// === /SABİT METİNLER ===
 
 const staticFormsApiKey = "sf_323gg5f098n8e9d9ch167dmh";
 const recaptchaSiteKey = "6LeLrxwrAAAAABfZl7OIP3Yv0ibik2SANXaLixp6";
-const redirectUrl = "https://krafferoasters.com/fr"; // Fransızca yönlendirme
+const redirectUrl = "https://krafferoasters.com/fr"; // Fransızca sayfaya yönlendirme
 
 // Ürün listesi (Fransızca)
-const productOptions_fr = [ // _fr son eki eklendi
-  "Dimi - Capacité de lot d'un demi-kg", "Primi - Capacité de lot de 1 kg",
-  "KRF-03", "KRF-06", "KRF-12", "KRF-15", "KRF-20", "KRF-30",
-  "KRF-60", "KRF-120", "KRF-180", "KRF-240", "Équipement" // Equipment -> Équipement
+const productOptions_fr = [
+  "Dimi - Capacité de lot d'un demi-kg",
+  "Primi - Capacité de lot de 1 kg",
+  "KRF-03", "KRF-06", "KRF-12", "KRF-15", "KRF-20",
+  "KRF-30", "KRF-60", "KRF-120", "KRF-180", "KRF-240", "Équipement"
 ];
 
-// === ÜLKE LİSTESİ (İNGİLİZCE İSİMLERLE) ===
-const allCountries = [ // İngilizce ContactSection.astro'daki listenin aynısı
+// === ÜLKE LİSTESİ (İNGİLİZCE İSİMLERLE, İSTEĞİNİZE GÖRE) ===
+const allCountries_en = [ // İngilizce ContactSection.astro'daki listenin aynısı
   "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan",
   "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi",
   "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo, Democratic Republic of the", "Congo, Republic of the", "Costa Rica", "Cote d'Ivoire", "Croatia", "Cuba", "Cyprus", "Czech Republic",
@@ -86,7 +87,7 @@ const allCountries = [ // İngilizce ContactSection.astro'daki listenin aynısı
 ].sort((a, b) => {
     if (a === "Other") return 1;
     if (b === "Other") return -1;
-    return a.localeCompare(b); // İngilizceye göre sıralama
+    return a.localeCompare(b);
 });
 // === /ÜLKE LİSTESİ ===
 
@@ -97,15 +98,15 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
   <div class="mx-auto max-w-2xl lg:max-w-5xl">
     <div class="text-center">
       <h1 class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight">
-        {title}
+        {title_fr}
       </h1>
       <p class="mt-1 text-pretty text-lg text-neutral-600 dark:text-neutral-400">
-        {subTitle}
+        {subTitle_fr}
       </p>
       <div class="mt-8 mx-auto max-w-[1500px] px-4 sm:px-6">
         <Image 
           src={kraffeContact} 
-          alt="Image de couverture pour contact Kraffe" 
+          alt="Image de couverture pour la page de contact Kraffe" 
           class="w-full h-auto object-cover rounded-xl aspect-[1500/700]"
           loading="lazy"
           widths={[600, 900, 1200, 1500]}
@@ -115,11 +116,11 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
     </div>
 
     <div class={`grid items-start gap-6 lg:grid-cols-2 lg:gap-16 ${amirAvatarData ? 'mt-12 lg:mt-16' : 'mt-12 lg:mt-16'}`}>
+      {/* Sol Taraf: Form */}
       <div class="flex flex-col rounded-xl border border-neutral-200 bg-neutral-100 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-800 sm:p-6 lg:p-8">
-        <div class="mb-8 text-center">
-            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200" set:html={formTitle} />
-            <p class="mt-1 text-sm italic text-neutral-600 dark:text-neutral-400" set:html={formSubTitleItalic} />
-        </div>
+        <h2 class="mb-8 text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+          {formTitle_fr}
+        </h2>
 
         <form action="https://api.staticforms.xyz/submit" method="POST">
           <input type="hidden" name="apiKey" value={staticFormsApiKey} />
@@ -140,6 +141,7 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
               <label for="contact-email-fr" class="sr-only">E-mail</label>
               <input type="email" id="contact-email-fr" name="email" class={inputBaseClass} placeholder="E-mail" required autocomplete="email"/>
             </div>
+
             <div>
               <label for="contact-phone-number-fr" class="sr-only">Numéro de téléphone</label>
               <div class="flex rounded-lg shadow-sm">
@@ -165,22 +167,20 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
               </div>
             </div>
 
-            {/* ÜLKE SEÇİMİ (İNGİLİZCE İSİMLERLE) */}
             <div>
               <label for="contact-country-fr" class="sr-only">Sélectionnez le pays</label>
               <select id="contact-country-fr" name="$country" class={inputBaseClass + " cursor-pointer"}>
                 <option value="" disabled selected>Sélectionnez le pays</option>
-                {allCountries.map(country => ( // İngilizce 'allCountries' listesi kullanılıyor
+                {allCountries_en.map(country => ( // İngilizce ülke listesi kullanılıyor
                   <option value={country}>{country}</option>
                 ))}
               </select>
             </div>
-
             <div>
               <label for="contact-product-fr" class="sr-only">Sélectionnez le produit</label>
               <select id="contact-product-fr" name="$product" class={inputBaseClass + " cursor-pointer"}>
                 <option value="" disabled selected>Sélectionnez le produit</option>
-                {productOptions_fr.map(option => ( // Fransızca ürün listesi
+                {productOptions_fr.map(option => (
                   <option value={option}>{option}</option>
                 ))}
               </select>
@@ -194,40 +194,43 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
             </div>
           </div>
           <div class="mt-4 grid">
-            <AuthBtn title="Envoyer le message" />
+            <AuthBtn title="Envoyer le Message" /> {/* "Send Message" -> "Envoyer le Message" */}
           </div>
           <div class="mt-3 text-center">
             <p class="text-sm text-neutral-600 dark:text-neutral-400">
-              {formResponseTime}
+              {formSubTitle_fr} {/* İngilizce `formSubTitle` yerine Fransızca `formSubTitle_fr` */}
             </p>
           </div>
         </form>
       </div>
 
+      {/* Sağ Taraf */}
       <div class="space-y-8">
         {amirAvatarData && (
             <div class="rounded-xl border border-neutral-200 bg-neutral-100 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-800 sm:p-6">
                 <ReviewComponent
-                testimonialText="Incroyablement convivial et fournit des résultats constants à chaque fois."
+                testimonialText="Incroyablement convivial et fournit des résultats constants à chaque fois." // Bu metin sabit kalmış, /fr/contact.astro'dan alınabilir
                 testimonialAuthor="Amir Montazer"
                 testimonialRole="Etude Coffee Co."
-                testimonialAvatar={amirAvatarData} // Bu prop /fr/contact.astro'dan geliyor
+                testimonialAvatar={amirAvatarData}
                 testimonialAvatarAlt="Portrait d'Amir Montazer"
-                avatars={groupAvatarSrcs}
-                starCount={starCount}
-                rating={rating}
-                reviews={reviews}
+                avatars={groupAvatarSrcs} // Bunlar da genel, çeviriye gerek yok
+                starCount={starCount_fr} // _fr eklendi
+                rating={rating_fr}       // _fr eklendi
+                reviews={reviews_fr}     // _fr eklendi
                 />
             </div>
         )}
-        <div class={`space-y-6 divide-y divide-neutral-200 dark:divide-neutral-700 ${!amirAvatarData ? 'lg:order-first' : '' }`}> {/* Eğer amirAvatarData yoksa bu blok sola geçsin */}
+        {/* Eğer amirAvatarData yoksa ve genel review component'i göstermek isteniyorsa, buraya eklenebilir. */}
+        {/* Şimdilik sadece amirAvatarData varsa gösteriliyor. */}
+        <div class={`space-y-6 divide-y divide-neutral-200 dark:divide-neutral-700 ${!amirAvatarData && ReviewComponent ? 'lg:order-first' : (amirAvatarData ? '' : 'lg:order-first')}`}>
           <div class="pt-6 first:pt-0">
-             <ContactIconBlock heading={officeHeading} content={officeContent} isAddressVisible={true} addressContent={officeAddress}>
+             <ContactIconBlock heading={officeHeading_fr} content={officeContent_fr} isAddressVisible={true} addressContent={officeAddress_fr}>
                <Icon name="mapPin" />
              </ContactIconBlock>
           </div>
           <div class="pt-6 first:pt-0">
-             <ContactIconBlock heading={emailHeading} content={emailContent} isLinkVisible={true} linkTitle={emailLinkTitle} linkURL={emailLinkURL}>
+             <ContactIconBlock heading={emailHeading_fr} content={emailContent_fr} isLinkVisible={true} linkTitle={emailLinkTitle_fr} linkURL={emailLinkURL_fr}>
                <Icon name="envelopeOpen" />
              </ContactIconBlock>
           </div>
