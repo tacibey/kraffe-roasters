@@ -1,96 +1,69 @@
 ---
-// src/components/sections/fr/ContactSection_fr.astro
-
 // Gerekli bileşenleri ve resimleri import et
 import { Image } from "astro:assets";
-import type { ImageMetadata } from 'astro';
+import type { ImageMetadata } from 'astro'; // ImageMetadata tipini import et
 import AuthBtn from "@components/ui/buttons/AuthBtn.astro";
 import ContactIconBlock from "@components/ui/blocks/ContactIconBlock.astro";
 import Icon from "@components/ui/icons/Icon.astro";
-import ReviewComponent from "@components/ui/blocks/ReviewComponent.astro";
-import kraffeContact from "@images/kraffe-contact.avif"; // Bu görsel kullanılıyor
+import ReviewComponent from "@components/ui/blocks/ReviewComponent.astro"; // Review bileşeni
+import scaLogo from "@images/sca2-new.webp";
+import ceLogoNew from "@images/ce-mark-new.avif";
 
+// Prop Tanımı: Fransızca sayfadan gelen avatar verisini alacak
 interface Props {
-    amirAvatarData?: ImageMetadata; // /fr/contact.astro'dan bu prop gelmeyebilir, opsiyonel yaptık
+    amirAvatarData: ImageMetadata; // Bu prop dışarıdan gelecek
 }
 const { amirAvatarData } = Astro.props;
 
-// Review bölümü için avatar kaynakları (İngilizce ile aynı)
-const avatarSrcs: Array<string> = [
+// Review bölümü için grup avatar kaynakları (İngilizce ile aynı)
+const groupAvatarSrcs: Array<string> = [
   "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
 ];
 
-// === SABİT METİNLER (FRANSIZCA ÇEVİRİLERİYLE) ===
-const title_fr: string = "👋 Découvrez votre nouvelle machine à torréfier";
-const subTitle_fr: string = "⤹ Remplissez notre formulaire pour libérer tout le potentiel de vos grains de café";
-const formTitle_fr: string = "Obtenez un devis maintenant →"; // İngilizce'deki "Get a quote now →" ile aynı
-const formSubTitle_fr: string = "Nous vous répondrons dans un délai de 1 à 2 jours ouvrables."; // İngilizce'deki "We'll get back to you in 1-2 business days."
+// === FRANSIZCA SABİT METİNLER ===
+const title_fr: string = "Votre nouvelle machine à torréfier est à portée de main";
+const subTitle_fr: string = "Remplissez notre formulaire pour révéler les secrets de vos grains de café 🌟";
+const formTitle_fr: string = "Définissez votre demande et obtenez un devis";
+const formSubTitle_fr: string = "Nous vous répondrons dans un délai de 1 à 2 jours ouvrables.";
 
-// Office verileri (Fransızca)
 const officeHeading_fr: string = "Notre Bureau";
 const officeContent_fr: string = "KRAFFE ROASTERS";
-const officeAddress_fr: string = "5065 sok No: 28 Rafet Pasa District / Bornova / Izmir"; // Adres aynı bırakıldı, gerekirse çevrilebilir
+// Adres aynı kalabilir veya yerelleştirilebilir
+const officeAddress_fr: string = "Adalet Mah. Manas Blv. No:39 Folkart Towers A Kule K:34 D:3408 Bayraklı / İzmir / TÜRKİYE";
 
-// Email verileri (Fransızca)
+
 const emailHeading_fr: string = "Contactez-nous par e-mail";
 const emailContent_fr: string = "Vous préférez l'écrit ? Envoyez-nous un e-mail à";
-const emailLinkTitle_fr: string = "info@krafferoasters.com"; // Değişmez
-const emailLinkURL_fr: string = "mailto:info@krafferoasters.com"; // Değişmez
+const emailLinkTitle_fr: string = "info@krafferoasters.com"; // E-posta adresi genellikle değişmez
+const emailLinkURL_fr: string = "mailto:info@krafferoasters.com";
 
-// Review verileri (Fransızca) - Bu ReviewComponent için, amirAvatarData ile gelen farklı
-const rating_fr: string = `<span class="font-bold">4.8</span> / 5`;
-const starCount_fr: number = 4;
-const reviews_fr: string = `Approuvé par les <span class="font-bold">Torréfactions</span> du Monde Entier`;
-// === /SABİT METİNLER ===
+const rating_fr: string = `<span class="font-bold">4.8</span> / 5`; // Rakamlar aynı kalır
+const starCount_fr: number = 4; // Yıldız sayısı aynı kalır
+const reviews_fr: string = `Approuvé par les <span class="font-bold">Torréfacteurs</span> du Monde Entier`; // Çevrildi
+// === /FRANSIZCA SABİT METİNLER ===
 
+// StaticForms bilgileri (API Key ve Recaptcha aynı kalır)
 const staticFormsApiKey = "sf_323gg5f098n8e9d9ch167dmh";
 const recaptchaSiteKey = "6LeLrxwrAAAAABfZl7OIP3Yv0ibik2SANXaLixp6";
-const redirectUrl = "https://krafferoasters.com/fr"; // Fransızca sayfaya yönlendirme
+const redirectUrl_fr = "https://krafferoasters.com/fr/"; // Yönlendirme URL'si Fransızca ana sayfaya
 
 // Ürün listesi (Fransızca)
 const productOptions_fr = [
-  "Dimi - Capacité de lot d'un demi-kg",
+  "Dimi - Capacité de lot de 0,5 kg",
   "Primi - Capacité de lot de 1 kg",
   "KRF-03", "KRF-06", "KRF-12", "KRF-15", "KRF-20",
-  "KRF-30", "KRF-60", "KRF-120", "KRF-180", "KRF-240", "Équipement"
+  "KRF-30", "KRF-60", "KRF-120", "KRF-180", "KRF-240"
 ];
 
-// === ÜLKE LİSTESİ (İNGİLİZCE İSİMLERLE, İSTEĞİNİZE GÖRE) ===
-const allCountries_en = [ // İngilizce ContactSection.astro'daki listenin aynısı
-  "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan",
-  "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi",
-  "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo, Democratic Republic of the", "Congo, Republic of the", "Costa Rica", "Cote d'Ivoire", "Croatia", "Cuba", "Cyprus", "Czech Republic",
-  "Denmark", "Djibouti", "Dominica", "Dominican Republic",
-  "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia",
-  "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana",
-  "Haiti", "Honduras", "Hungary",
-  "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy",
-  "Jamaica", "Japan", "Jordan",
-  "Kazakhstan", "Kenya", "Kiribati", "Korea, North", "Korea, South", "Kosovo", "Kuwait", "Kyrgyzstan",
-  "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg",
-  "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar",
-  "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Macedonia", "Norway",
-  "Oman",
-  "Pakistan", "Palau", "Palestine State", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal",
-  "Qatar",
-  "Romania", "Russia", "Rwanda",
-  "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria",
-  "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu",
-  "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan",
-  "Vanuatu", "Vatican City", "Venezuela", "Vietnam",
-  "Yemen",
-  "Zambia", "Zimbabwe",
-  "Other"
-].sort((a, b) => {
-    if (a === "Other") return 1;
-    if (b === "Other") return -1;
-    return a.localeCompare(b);
-});
-// === /ÜLKE LİSTESİ ===
+// Ülke/Bölge listesi (Fransızca)
+const countryOptions_fr = [
+  "Europe", "États-Unis", "Royaume-Uni", "Russie", "Amérique du Sud", "Asie", "Autre"
+];
 
+// Input ve Select elemanları için ortak stil sınıfları (aynı kalır)
 const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm text-neutral-700 placeholder:text-neutral-500 focus:border-neutral-200 focus:outline-hidden focus:ring-3 focus:ring-neutral-400 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-700/30 dark:text-neutral-300 dark:placeholder:text-neutral-400 dark:focus:ring-1";
 ---
 
@@ -103,19 +76,13 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
       <p class="mt-1 text-pretty text-lg text-neutral-600 dark:text-neutral-400">
         {subTitle_fr}
       </p>
-      <div class="mt-8 mx-auto max-w-[1500px] px-4 sm:px-6">
-        <Image 
-          src={kraffeContact} 
-          alt="Image de couverture pour la page de contact Kraffe" 
-          class="w-full h-auto object-cover rounded-xl aspect-[1500/700]"
-          loading="lazy"
-          widths={[600, 900, 1200, 1500]}
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1500px"
-        />
+      <div class="mt-8 flex items-center justify-center gap-x-8 sm:gap-x-12">
+        <Image src={ceLogoNew} alt="Logo de certification CE Marking" class="h-24 w-auto object-contain sm:h-32" loading="lazy"/>
+        <Image src={scaLogo} alt="Logo de membre de la Specialty Coffee Association" class="h-24 w-auto object-contain sm:h-32" loading="lazy"/>
       </div>
     </div>
 
-    <div class={`grid items-start gap-6 lg:grid-cols-2 lg:gap-16 ${amirAvatarData ? 'mt-12 lg:mt-16' : 'mt-12 lg:mt-16'}`}>
+    <div class="mt-12 grid items-start gap-6 lg:mt-16 lg:grid-cols-2 lg:gap-16">
       {/* Sol Taraf: Form */}
       <div class="flex flex-col rounded-xl border border-neutral-200 bg-neutral-100 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-800 sm:p-6 lg:p-8">
         <h2 class="mb-8 text-xl font-semibold text-neutral-800 dark:text-neutral-200">
@@ -126,7 +93,7 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
           <input type="hidden" name="apiKey" value={staticFormsApiKey} />
           <input type="hidden" name="replyTo" value="@" />
           <input type="text" name="honeypot" style="display: none;" tabindex="-1" autocomplete="off"/>
-          <input type="hidden" name="redirectTo" value={redirectUrl} />
+          <input type="hidden" name="redirectTo" value={redirectUrl_fr} />
 
           <div class="grid gap-4">
             <div>
@@ -141,50 +108,29 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
               <label for="contact-email-fr" class="sr-only">E-mail</label>
               <input type="email" id="contact-email-fr" name="email" class={inputBaseClass} placeholder="E-mail" required autocomplete="email"/>
             </div>
-
             <div>
-              <label for="contact-phone-number-fr" class="sr-only">Numéro de téléphone</label>
-              <div class="flex rounded-lg shadow-sm">
-                <div class="px-3 inline-flex items-center min-w-fit rounded-s-lg border border-e-0 border-neutral-200 bg-neutral-200 dark:bg-neutral-700 dark:border-neutral-600">
-                  <span class="text-sm text-neutral-500 dark:text-neutral-400">+</span>
-                </div>
-                <input
-                  type="text"
-                  id="contact-country-code-fr"
-                  name="$countryCode"
-                  class="py-3 px-4 block w-[80px] border-neutral-200 -ms-px text-sm focus:z-10 focus:border-orange-500 focus:ring-orange-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700/30 dark:border-neutral-600 dark:text-neutral-300 dark:focus:ring-orange-600 dark:placeholder-neutral-500"
-                  placeholder="Indicatif" 
-                  aria-label="Indicatif pays"
-                />
-                <input
-                  type="tel"
-                  id="contact-phone-number-fr"
-                  name="phone"
-                  class={`${inputBaseClass} rounded-s-none`}
-                  placeholder="Numéro de téléphone"
-                  aria-label="Numéro de téléphone"
-                />
-              </div>
+              <label for="contact-phone-fr" class="sr-only">Numéro de téléphone</label>
+              <input type="tel" id="contact-phone-fr" name="phone" class={inputBaseClass} placeholder="Numéro de téléphone"/>
             </div>
-
-            <div>
-              <label for="contact-country-fr" class="sr-only">Sélectionnez le pays</label>
-              <select id="contact-country-fr" name="$country" class={inputBaseClass + " cursor-pointer"}>
-                <option value="" disabled selected>Sélectionnez le pays</option>
-                {allCountries_en.map(country => ( // İngilizce ülke listesi kullanılıyor
-                  <option value={country}>{country}</option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label for="contact-product-fr" class="sr-only">Sélectionnez le produit</label>
-              <select id="contact-product-fr" name="$product" class={inputBaseClass + " cursor-pointer"}>
-                <option value="" disabled selected>Sélectionnez le produit</option>
-                {productOptions_fr.map(option => (
-                  <option value={option}>{option}</option>
-                ))}
-              </select>
-            </div>
+             <div>
+               <label for="contact-country-fr" class="sr-only">Sélectionnez le pays/la région</label>
+               <select id="contact-country-fr" name="$country" class={inputBaseClass + " cursor-pointer"}>
+                 <option value="" disabled selected>Sélectionnez le pays/la région</option>
+                 {countryOptions_fr.map(option => (
+                   <option value={option}>{option}</option>
+                 ))}
+                 <option value="Autre">Autre (Veuillez préciser dans les détails)</option>
+               </select>
+             </div>
+             <div>
+               <label for="contact-product-fr" class="sr-only">Sélectionnez le produit</label>
+               <select id="contact-product-fr" name="$product" class={inputBaseClass + " cursor-pointer"}>
+                 <option value="" disabled selected>Sélectionnez le produit</option>
+                 {productOptions_fr.map(option => (
+                   <option value={option}>{option}</option>
+                 ))}
+               </select>
+             </div>
             <div>
               <label for="contact-details-fr" class="sr-only">Détails</label>
               <textarea id="contact-details-fr" name="message" rows="4" class={inputBaseClass} placeholder="Détails" required></textarea>
@@ -193,37 +139,37 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
                 <div class="g-recaptcha" data-sitekey={recaptchaSiteKey}></div>
             </div>
           </div>
+
           <div class="mt-4 grid">
-            <AuthBtn title="Envoyer le Message" /> {/* "Send Message" -> "Envoyer le Message" */}
+            <AuthBtn title="Envoyer le Message" /> {/* Çevrildi */}
           </div>
           <div class="mt-3 text-center">
             <p class="text-sm text-neutral-600 dark:text-neutral-400">
-              {formSubTitle_fr} {/* İngilizce `formSubTitle` yerine Fransızca `formSubTitle_fr` */}
+              {formSubTitle_fr}
             </p>
           </div>
         </form>
       </div>
 
-      {/* Sağ Taraf */}
+      {/* Sağ Taraf: Önce Review, Sonra İkon Blokları */}
       <div class="space-y-8">
-        {amirAvatarData && (
-            <div class="rounded-xl border border-neutral-200 bg-neutral-100 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-800 sm:p-6">
-                <ReviewComponent
-                testimonialText="Incroyablement convivial et fournit des résultats constants à chaque fois." // Bu metin sabit kalmış, /fr/contact.astro'dan alınabilir
-                testimonialAuthor="Amir Montazer"
-                testimonialRole="Etude Coffee Co."
-                testimonialAvatar={amirAvatarData}
-                testimonialAvatarAlt="Portrait d'Amir Montazer"
-                avatars={groupAvatarSrcs} // Bunlar da genel, çeviriye gerek yok
-                starCount={starCount_fr} // _fr eklendi
-                rating={rating_fr}       // _fr eklendi
-                reviews={reviews_fr}     // _fr eklendi
-                />
-            </div>
-        )}
-        {/* Eğer amirAvatarData yoksa ve genel review component'i göstermek isteniyorsa, buraya eklenebilir. */}
-        {/* Şimdilik sadece amirAvatarData varsa gösteriliyor. */}
-        <div class={`space-y-6 divide-y divide-neutral-200 dark:divide-neutral-700 ${!amirAvatarData && ReviewComponent ? 'lg:order-first' : (amirAvatarData ? '' : 'lg:order-first')}`}>
+        <div class="rounded-xl border border-neutral-200 bg-neutral-100 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-800 sm:p-6">
+           <ReviewComponent
+             avatars={groupAvatarSrcs} {/* Grup avatarları aynı */}
+             starCount={starCount_fr}
+             rating={rating_fr}
+             reviews={reviews_fr}
+             testimonialText="Kraffe est incroyablement convivial et fournit des résultats constants à chaque fois." // Örnek çevrilmiş yorum
+             testimonialAuthor="Amir Montazer" // Bu prop'u ReviewComponent'ten kaldırmıştık, ama burada tekrar eklenmiş.
+                                             // Eğer ReviewComponent prop olarak almıyorsa, bu satırları silebilirsiniz.
+                                             // Ya da ReviewComponent'i bu prop'ları alacak şekilde güncelleyebilirsiniz.
+                                             // Şimdilik, bu prop'u amirAvatarData ile değiştirelim.
+             testimonialAvatar={amirAvatarData} // Prop'tan gelen veri
+             testimonialAvatarAlt="Portrait d'Amir Montazer" // Çevrildi
+             testimonialRole="Etude Coffee Co."
+           />
+        </div>
+        <div class="space-y-6 divide-y divide-neutral-200 dark:divide-neutral-700">
           <div class="pt-6 first:pt-0">
              <ContactIconBlock heading={officeHeading_fr} content={officeContent_fr} isAddressVisible={true} addressContent={officeAddress_fr}>
                <Icon name="mapPin" />
