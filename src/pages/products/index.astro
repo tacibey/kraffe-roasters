@@ -3,7 +3,6 @@
 import MainLayout from "@/layouts/MainLayout.astro";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 import CardSmall from "@components/ui/cards/CardSmall.astro";
-// import CardWide from "@components/ui/cards/CardWide.astro"; // Artık kullanılmıyor, silebilirsin veya yorumda bırakabilirsin
 import FeaturesStatsAlt from "@components/sections/features/FeaturesStatsAlt.astro";
 import TestimonialsSectionAlt from "@components/sections/testimonials/TestimonialsSectionAlt.astro";
 
@@ -37,9 +36,7 @@ const testimonials = [
       <p>📍 London, Bungay, UK</p>
     `,
     author: "Contact: Amir Montazer",
-    role: "🇬🇧",
-    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/etude.webp", 
-    avatarAlt: "Avatar of Amir Montazer from Etude Coffee",
+    role: "🇬🇧"
   },
   {
     content: `
@@ -49,9 +46,7 @@ const testimonials = [
       <p>📍 Paris, FRANCE</p>
     `,
     author: "Contact : Saad El Darazi",
-    role: "🇫🇷",
-    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/baroman.avif", // Bu resmi src/images/ altına eklemelisiniz
-    avatarAlt: "Avatar of Saad El Darazi from Baroman Torréfaction de Café",
+    role: "🇫🇷"
   },
   {
     content: `
@@ -61,9 +56,7 @@ const testimonials = [
       <p>📍 Shiraz, IRAN</p>
     `,
     author: "Contact : Amir Hezajifar",
-    role: "🇬🇮", // Cebelitarık bayrağı
-    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/roasbean.avif", // Bu görseli src/images/ altına eklemelisiniz
-    avatarAlt: "Avatar of Amir Hezajifar from Roasbean Coffee Roastery",
+    role: "🇬🇮"
   },
   {
     content: `
@@ -73,9 +66,7 @@ const testimonials = [
       <p>📍 Domžale, SLOVENIA</p>
     `,
     author: "Contact : Klemen Macek",
-    role: "🇸🇮",
-    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/Mariposa1.avif", // Bu resmi src/images/ altına eklemelisiniz
-    avatarAlt: "Avatar of Klemen Macek from Mariposa Coffee",
+    role: "🇸🇮"
   },
   {
     content: `
@@ -85,9 +76,7 @@ const testimonials = [
       <p>📍 Linz, AUSTRIA</p>
     `,
     author: "Contact : Hannes Stammler",
-    role: "🇦🇹",
-    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/hannes.webp", // Bu resmi src/images/ altına eklemelisiniz
-    avatarAlt: "Avatar of Hannes Stammler",
+    role: "🇦🇹"
   },
   {
     content: `
@@ -97,9 +86,7 @@ const testimonials = [
       <p>📍 Dunaszentpál, HUNGARY</p>
     `,
     author: "Contact : Safran Gergely",
-    role: "🇭🇺",
-    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/sanpaolo.avif", // Bu resmi src/images/ altına eklemelisiniz
-    avatarAlt: "Avatar of Safran Gergely from Sanpaolo Coffee Roaster",
+    role: "🇭🇺"
   },
   {
     content: `
@@ -108,10 +95,8 @@ const testimonials = [
       <p>Model: KRF-03</p>
       <p>📍 Baku, AZERBAIJAN</p>
     `,
-    author: "Contact : Камран Пирджанов", // Kiril alfabesiyle
-    role: "🇦🇿",
-    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/fika.webp", // Bu resmi src/images/ altına eklemelisiniz
-    avatarAlt: "Avatar from Fika Coffee",
+    author: "Contact : Камран Пирджанов",
+    role: "🇦🇿"
   },
   {
     content: `
@@ -121,9 +106,7 @@ const testimonials = [
       <p>📍 İzmir, TURKIYE</p>
     `,
     author: "Contact: Özlem Goral",
-    role: "🇹🇷",
-    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/kuanta.avif", // Bu resmi src/images/ altına eklemelisiniz
-    avatarAlt: "Avatar of Özlem Goral from Kuanta Coffee Roastery",
+    role: "🇹🇷"
   },
   {
     content: `
@@ -133,9 +116,7 @@ const testimonials = [
       <p>📍 New York, USA</p>
     `,
     author: "Contact : Salvatore Lo Castro",
-    role: "🇺🇸",
-    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/salvo.avif", // Bu resmi src/images/ altına eklemelisiniz
-    avatarAlt: "Avatar of Salvatore Lo Castro from Casa Salvo Roastery",
+    role: "🇺🇸"
   },
   {
     content: `
@@ -145,9 +126,7 @@ const testimonials = [
       <p>📍 Ćuprija, SERBIA</p>
     `,
     author: "Contact: Djordje Brankovic",
-    role: "🇷🇸",
-    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/duo.avif",
-    avatarAlt: "Avatar of Djordje Brankovic from Duo Pro Inzenjering",
+    role: "🇷🇸"
   },
 ];
 
@@ -162,7 +141,7 @@ const pageTitle: string = `Products | ${SITE.title}`;
     "@id": "https://krafferoasters.com/products",
     "url": "https://krafferoasters.com/products",
     "name": "Kraffe Roasters",
-          "description": "Master the Art of Roasting: Kraffe Commercial Coffee Roasting Machines. Achieve precision, durability, and consistency with KRAFFE industrial coffee roasters—designed for professionals and backed by lifetime support.",
+    "description": "Master the Art of Roasting: Kraffe Commercial Coffee Roasting Machines. Achieve precision, durability, and consistency with KRAFFE industrial coffee roasters—designed for professionals and backed by lifetime support.",
     "isPartOf": {
       "@type": "WebSite",
       "url": "https://krafferoasters.com",
@@ -193,20 +172,16 @@ const pageTitle: string = `Products | ${SITE.title}`;
       <PrimaryCTA title="▼ References" url="#testimonials" noArrow={true} />
     </div>
 
-    {/* === DEĞİŞEN BÖLÜM === */}
-    {/* Tüm ürünler için CardSmall kullanılıyor */}
     <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
       {
         product.map((product) => {
-          // if/else kaldırıldı, her zaman CardSmall döndürülüyor
           return <CardSmall product={product} />;
         })
       }
     </section>
-    {/* === /DEĞİŞEN BÖLÜM === */}
 
   </div>
-  <!--Features statistics section-->
+  
   <FeaturesStatsAlt
     title="Crafted for Roasting Perfection"
     subTitle="Each KRAFFE roaster is expertly engineered to deliver exceptional control, consistency between batches, and efficiency, allowing you to fully unlock the potential of every bean."
@@ -217,7 +192,7 @@ const pageTitle: string = `Products | ${SITE.title}`;
       "Integrated & Supported",
     ]}
   />
-  <!--Testimonials section-->
+  
   <TestimonialsSectionAlt
     title="KRAFFE Around the World"
     testimonials={testimonials}
