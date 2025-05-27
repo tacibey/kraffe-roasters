@@ -1,18 +1,14 @@
 ---
 // src/components/sections/testimonials/TestimonialsSectionAlt.astro
-import AvatarTestimonialSection from "../../ui/avatars/AvatarTestimonialSection.astro";
-// Image importu gerekmiyordu, çünkü content HTML olarak gelecek.
 
 // Define props from Astro
 const { title, testimonials } = Astro.props;
 
 // Define TypeScript interface for Testimonial
 interface Testimonial {
-  content: string; // Bu string HTML içerecek
+  content: string;
   author: string;
   role: string;
-  avatarSrc: string;
-  avatarAlt: string;
 }
 
 // Define TypeScript interface for props
@@ -40,27 +36,16 @@ interface Props {
     {
       testimonials.map((testimonial) => (
         <div class="flex h-auto">
-          <div class="flex flex-col rounded-xl bg-neutral-50 p-4 shadow-sm dark:bg-neutral-800 dark:border dark:border-neutral-700 md:p-6"> {/* Stil güncellendi */}
-            {/* === Testimonial content - set:html kullanıldı === */}
-            {/* Eskiden <p> vardı, şimdi doğrudan div ve set:html ile HTML içeriğini basıyoruz */}
-            {/* Prose sınıfları metnin daha iyi görünmesini sağlar */}
-            <div class="flex-auto prose prose-sm dark:prose-invert max-w-none mb-4" set:html={testimonial.content}>
-              {/* testimonial.content içindeki HTML buraya render edilecek */}
-            </div>
-            {/* === /Testimonial content === */}
+          <div class="flex flex-col rounded-xl bg-neutral-50 p-4 shadow-sm dark:bg-neutral-800 dark:border dark:border-neutral-700 md:p-6">
+            {/* Testimonial content */}
+            <div class="flex-auto prose prose-sm dark:prose-invert max-w-none mb-4" set:html={testimonial.content}></div>
 
-            {/* Yazar ve Avatar Bilgisi */}
-            {(testimonial.author || testimonial.avatarSrc) && (
-              <div class="mt-auto rounded-b-xl bg-neutral-100 p-3 dark:bg-neutral-700/60 md:px-5"> {/* mt-auto ile altbilgiyi aşağı iter, arka plan güncellendi */}
+            {/* Yazar Bilgisi */}
+            {(testimonial.author || testimonial.role) && (
+              <div class="mt-auto rounded-b-xl bg-neutral-100 p-3 dark:bg-neutral-700/60 md:px-5">
                 <div class="flex items-center">
-                  {testimonial.avatarSrc && (
-                    <AvatarTestimonialSection
-                      src={testimonial.avatarSrc}
-                      alt={testimonial.avatarAlt}
-                    />
-                  )}
                   {(testimonial.author || testimonial.role) && (
-                    <div class={`grow ${testimonial.avatarSrc ? 'ms-3' : ''}`}>
+                    <div class="grow">
                       {testimonial.author && (
                         <p class="text-sm font-semibold text-neutral-800 dark:text-neutral-200 sm:text-base">
                           {testimonial.author}
