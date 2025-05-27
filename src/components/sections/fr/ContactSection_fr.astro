@@ -1,66 +1,68 @@
 ---
 // src/components/sections/fr/ContactSection_fr.astro
 
+// Gerekli bileşenleri ve resimleri import et
 import { Image } from "astro:assets";
-import type { ImageMetadata } from 'astro';
 import AuthBtn from "@components/ui/buttons/AuthBtn.astro";
 import ContactIconBlock from "@components/ui/blocks/ContactIconBlock.astro";
 import Icon from "@components/ui/icons/Icon.astro";
 import ReviewComponent from "@components/ui/blocks/ReviewComponent.astro";
-import scaLogo from "@images/sca2-new.webp"; // Bu importlar kalabilir, HTML'de kullanılmıyorsa sorun olmaz
-import ceLogoNew from "@images/ce-mark-new.avif"; // Bu importlar kalabilir
+import kraffeContact from "@images/kraffe-contact.avif"; // Kapak resmi İngilizce ile aynı
+import type { ImageMetadata } from 'astro';
 
+// Prop Tanımı
 interface Props {
-    amirAvatarData: ImageMetadata;
+    amirAvatarData?: ImageMetadata; // /fr/contact.astro'dan gelecek
 }
 const { amirAvatarData } = Astro.props;
 
-const groupAvatarSrcs: Array<string> = [
+// Review bölümü için avatar kaynakları (İngilizce ile aynı)
+const avatarSrcs: Array<string> = [
   "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
 ];
 
-const title: string = "Contactez-nous"; // Fransızca başlık
-const subTitle: string = "Le désir d'atteindre les plus hauts standards de qualité !";
-const formTitle: string = `Soyez l'un des <span class="text-orange-500 dark:text-orange-400">10</span> premiers ce mois-ci, obtenez une consultation gratuite !`;
-const formSubTitleItalic: string = `(<span class="text-orange-500 dark:text-orange-400">2</span>/10 places restantes)`;
-const formResponseTime: string = "Nous vous répondrons dans un délai de 1 à 2 jours ouvrables.";
+// Sabit metinler (Fransızca)
+const title_fr: string = "👋 Découvrez votre nouvelle machine à torréfier";
+const subTitle_fr: string = "⤹ Remplissez notre formulaire pour libérer tout le potentiel de vos grains de café";
+const formTitle_fr: string = "Obtenez un devis maintenant →";
+const formSubTitle_fr: string = "Nous vous répondrons dans un délai de 1 à 2 jours ouvrables.";
 
-const officeHeading: string = "Notre Bureau";
-const officeContent: string = "KRAFFE ROASTERS";
-const officeAddress: string = "Adalet, Manas Blv. No:39, Folkart Towers A Kule, Kat:34, D:3408, 35530 Bayraklı/İzmir";
+const officeHeading_fr: string = "Notre Bureau";
+const officeContent_fr: string = "KRAFFE ROASTERS";
+const officeAddress_fr: string = "Adalet, Manas Blv. No:39, Folkart Towers A Kule, Kat:34, D:3408, 35530 Bayraklı/İzmir"; // Adresi Fransızca'ya uygun hale getirin
 
-const emailHeading: string = "Contactez-nous par e-mail";
-const emailContent: string = "Vous préférez l'écrit ? Envoyez-nous un e-mail à";
-const emailLinkTitle: string = "info@krafferoasters.com";
-const emailLinkURL: string = "mailto:info@krafferoasters.com";
+const emailHeading_fr: string = "Contactez-nous par e-mail";
+const emailContent_fr: string = "Vous préférez l'écrit ? Envoyez-nous un e-mail à";
+const emailLinkTitle_fr: string = "info@krafferoasters.com"; // Genellikle aynı kalır
+const emailLinkURL_fr: string = "mailto:info@krafferoasters.com"; // Genellikle aynı kalır
 
-const rating: string = `<span class="font-bold">4.8</span> / 5`;
-const starCount: number = 4;
-const reviews: string = `Approuvé par les <span class="font-bold">Torréfacteurs</span> du monde entier`;
+const rating_fr: string = `<span class="font-bold">4.8</span> / 5`; // Rakamlar aynı kalabilir
+const starCount_fr: number = 4;
+const reviews_fr: string = `Approuvé par les <span class="font-bold">Torréfacteurs</span> du Monde Entier`;
 
-const formsparkFormId_FR = "la0JBXKn3"; // Ya da Fransızca form için ayrı bir ID
-const botpoisonPublicKey_FR = "pk_237e0502-663f-4b6c-ab78-5a125646b975";
+const formsparkFormId_FR = "la0JBXKn3"; // Aynı veya farklı bir ID kullanabilirsiniz
+const botpoisonPublicKey_FR = "pk_237e0502-663f-4b6c-ab78-5a125646b975"; // Aynı public key kullanılabilir
 
-const productOptions = [
-  "Dimi - Capacité de lot d'un demi-kg", "Primi - Capacité de lot de 1 kg",
-  "KRF-03", "KRF-06", "KRF-12", "KRF-15", "KRF-20", "KRF-30",
-  "KRF-60", "KRF-120", "KRF-180", "KRF-240", "Équipement"
+const productOptions_fr = [ // Fransızca ürün seçenekleri
+  "Dimi - Capacité de lot d'un demi-kg",
+  "Primi - Capacité de lot de 1 kg",
+  "KRF-03", "KRF-06", "KRF-12", "KRF-15", "KRF-20",
+  "KRF-30", "KRF-60", "KRF-120", "KRF-180", "KRF-240", "Équipement"
 ];
 
-const allCountries = [
-  "Afghanistan", "Albanie", "Algérie", /* ... (tüm ülkeler Fransızca) ... */ "Zimbabwe", "Autre"
+// Ülke listesi (İngilizce bırakıldı, gerekirse çevrilebilir ama formda seçilen değer İngilizce olacaktır)
+const allCountries_fr = [
+  "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", /* ... (tüm ülkeler) ... */ "Zimbabwe", "Other"
 ].sort((a, b) => {
-    if (a === "Autre") return 1;
-    if (b === "Autre") return -1;
-    return a.localeCompare(b, 'fr'); // Fransızca sıralama
+    if (a === "Other") return 1;
+    if (b === "Other") return -1;
+    return a.localeCompare(b); // İngilizce sıralama
 });
 
-// === INPUTBASECLASS TANIMI BURADA OLMALI ===
-const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm text-neutral-700 placeholder:text-neutral-500 focus:border-neutral-200 focus:outline-hidden focus:ring-3 focus:ring-neutral-400 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-700/30 dark:text-neutral-300 dark:placeholder:text-neutral-400 dark:focus:ring-1";
-// === /INPUTBASECLASS TANIMI ===
+const inputBaseClass_fr = "block w-full rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm text-neutral-700 placeholder:text-neutral-500 focus:border-neutral-200 focus:outline-hidden focus:ring-3 focus:ring-neutral-400 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-700/30 dark:text-neutral-300 dark:placeholder:text-neutral-400 dark:focus:ring-1";
 ---
 
 {botpoisonPublicKey_FR && (
@@ -71,58 +73,50 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
   <div class="mx-auto max-w-2xl lg:max-w-5xl">
     <div class="text-center">
       <h1 class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight">
-        {title}
+        {title_fr}
       </h1>
       <p class="mt-1 text-pretty text-lg text-neutral-600 dark:text-neutral-400">
-        {subTitle}
+        {subTitle_fr}
       </p>
-      <div class="mt-8 flex items-center justify-center gap-x-8 sm:gap-x-12">
-        <Image src={ceLogoNew} alt="Logo de certification CE Marking" class="h-24 w-auto object-contain sm:h-32" loading="lazy"/>
-        <Image src={scaLogo} alt="Logo de membre de la Specialty Coffee Association" class="h-24 w-auto object-contain sm:h-32" loading="lazy"/>
-      </div>
-      <div class="mt-12 rounded-xl border border-neutral-200 bg-neutral-100 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-800 sm:p-6 lg:mt-16">
-         <ReviewComponent
-           testimonialText="Incroyablement convivial et fournit des résultats constants à chaque fois."
-           testimonialAuthor="Amir Montazer"
-           testimonialRole="Etude Coffee Co."
-           testimonialAvatar={amirAvatarData}
-           testimonialAvatarAlt="Portrait d'Amir Montazer"
-           avatars={groupAvatarSrcs}
-           starCount={starCount}
-           rating={rating}
-           reviews={reviews}
-         />
+       <div class="mt-8 mx-auto max-w-[1500px] px-4 sm:px-6">
+        <Image 
+          src={kraffeContact} 
+          alt="Contacter Kraffe Roasters pour des renseignements" 
+          class="w-full h-auto object-cover rounded-xl aspect-[1500/700]"
+          loading="lazy"
+          widths={[600, 900, 1200, 1500]}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1500px"
+        />
       </div>
     </div>
 
-    <div class="mt-8 grid items-start gap-6 lg:mt-10 lg:grid-cols-2 lg:gap-16">
+    <div class={`grid items-start gap-6 lg:grid-cols-2 lg:gap-16 ${amirAvatarData ? 'mt-12 lg:mt-16' : 'mt-12 lg:mt-16'}`}>
       <div class="flex flex-col rounded-xl border border-neutral-200 bg-neutral-100 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-800 sm:p-6 lg:p-8">
-        <div class="mb-8 text-center">
-            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200" set:html={formTitle} />
-            <p class="mt-1 text-sm italic text-neutral-600 dark:text-neutral-400" set:html={formSubTitleItalic} />
-        </div>
+        <h2 class="mb-8 text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+          {formTitle_fr}
+        </h2>
 
         <form
-          id="contact-form-kraffe-fr"
+          id="contact-form-kraffe-fr" {/* ID güncellendi */}
           action={`https://submit-form.com/${formsparkFormId_FR}`}
           method="POST"
           data-botpoison-public-key={botpoisonPublicKey_FR}
         >
           <input type="text" name="_honeypot" style="display: none;" tabindex="-1" autocomplete="off"/>
-          <input type="hidden" name="_redirect" value="https://krafferoasters.com/fr/thanks" />
+          <input type="hidden" name="_redirect" value="https://krafferoasters.com/fr/thanks" /> {/* Yönlendirme güncellendi */}
 
           <div class="grid gap-4">
             <div>
               <label for="contact-name-fr" class="sr-only">Nom</label>
-              <input type="text" id="contact-name-fr" name="name" class={inputBaseClass} placeholder="Nom" required />
+              <input type="text" id="contact-name-fr" name="name" class={inputBaseClass_fr} placeholder="Nom" required />
             </div>
             <div>
               <label for="contact-company-fr" class="sr-only">Société</label>
-              <input type="text" id="contact-company-fr" name="company" class={inputBaseClass} placeholder="Société" />
+              <input type="text" id="contact-company-fr" name="company" class={inputBaseClass_fr} placeholder="Société" />
             </div>
             <div>
               <label for="contact-email-fr" class="sr-only">E-mail</label>
-              <input type="email" id="contact-email-fr" name="email" class={inputBaseClass} placeholder="E-mail" required autocomplete="email"/>
+              <input type="email" id="contact-email-fr" name="email" class={inputBaseClass_fr} placeholder="E-mail" required autocomplete="email"/>
             </div>
             <div>
               <label for="contact-phone-number-fr" class="sr-only">Numéro de téléphone</label>
@@ -135,59 +129,81 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
                   id="contact-country-code-fr"
                   name="countryCode"
                   class="py-3 px-4 block w-[80px] border-neutral-200 -ms-px text-sm focus:z-10 focus:border-orange-500 focus:ring-orange-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700/30 dark:border-neutral-600 dark:text-neutral-300 dark:focus:ring-orange-600 dark:placeholder-neutral-500"
-                  placeholder="Indicatif" 
+                  placeholder="Indicatif"
                   aria-label="Indicatif pays"
                 />
                 <input
                   type="tel"
                   id="contact-phone-number-fr"
                   name="phone"
-                  class={`${inputBaseClass} rounded-s-none`}
+                  class={`${inputBaseClass_fr} rounded-s-none`}
                   placeholder="Numéro de téléphone"
                   aria-label="Numéro de téléphone"
                 />
               </div>
             </div>
-             <div>
-               <label for="contact-country-fr" class="sr-only">Sélectionnez le pays</label>
-               <select id="contact-country-fr" name="country" class={inputBaseClass + " cursor-pointer"}>
-                 <option value="" disabled selected>Sélectionnez le pays</option>
-                 {allCountries.map(country => ( <option value={country}>{country}</option> ))}
-               </select>
-             </div>
-             <div>
-               <label for="contact-product-fr" class="sr-only">Sélectionnez le produit</label>
-               <select id="contact-product-fr" name="product" class={inputBaseClass + " cursor-pointer"}>
-                 <option value="" disabled selected>Sélectionnez le produit</option>
-                 {productOptions.map(option => ( <option value={option}>{option}</option> ))}
-               </select>
-             </div>
+            <div>
+              <label for="contact-country-fr" class="sr-only">Sélectionnez le pays</label>
+              <select id="contact-country-fr" name="country" class={inputBaseClass_fr + " cursor-pointer"}>
+                <option value="" disabled selected>Sélectionnez le pays</option>
+                {allCountries_fr.map(country => ( // Fransızca değişken kullanıldı
+                  <option value={country}>{country}</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label for="contact-product-fr" class="sr-only">Sélectionnez le produit</label>
+              <select id="contact-product-fr" name="product" class={inputBaseClass_fr + " cursor-pointer"}>
+                <option value="" disabled selected>Sélectionnez le produit</option>
+                {productOptions_fr.map(option => ( // Fransızca değişken kullanıldı
+                  <option value={option}>{option}</option>
+                ))}
+              </select>
+            </div>
             <div>
               <label for="contact-details-fr" class="sr-only">Détails</label>
-              <textarea id="contact-details-fr" name="message" rows="4" class={inputBaseClass} placeholder="Détails" required></textarea>
+              <textarea id="contact-details-fr" name="message" rows="4" class={inputBaseClass_fr} placeholder="Détails" required></textarea>
             </div>
           </div>
           <div class="mt-4 grid">
-            <AuthBtn title="Envoyer le message" type="submit" id="contact-submit-button-fr" />
+            <AuthBtn title="Envoyer le Message" type="submit" id="contact-submit-button-fr" /> {/* Buton metni ve ID güncellendi */}
           </div>
           <div class="mt-3 text-center">
             <p class="text-sm text-neutral-600 dark:text-neutral-400">
-              {formResponseTime}
+              {formSubTitle_fr}
             </p>
           </div>
         </form>
       </div>
-      <div class="space-y-6 divide-y divide-neutral-200 dark:divide-neutral-700">
+
+      <div class="space-y-8">
+        {amirAvatarData && (
+            <div class="rounded-xl border border-neutral-200 bg-neutral-100 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-800 sm:p-6">
+                <ReviewComponent 
+                    amirAvatarData={amirAvatarData} 
+                    avatars={avatarSrcs} 
+                    starCount={starCount_fr} 
+                    rating={rating_fr} 
+                    reviews={reviews_fr}
+                    testimonialText="Incroyablement convivial et fournit des résultats constants à chaque fois." // Bu metin /fr/contact.astro'dan geliyordu
+                    testimonialAuthor="Amir Montazer"
+                    testimonialRole="Etude Coffee Co."
+                    testimonialAvatarAlt="Portrait d'Amir Montazer"
+                />
+            </div>
+        )}
+        <div class={`space-y-6 divide-y divide-neutral-200 dark:divide-neutral-700 ${!amirAvatarData ? 'mt-0' : ''}`}>
           <div class="pt-6 first:pt-0">
-             <ContactIconBlock heading={officeHeading} content={officeContent} isAddressVisible={true} addressContent={officeAddress}>
+             <ContactIconBlock heading={officeHeading_fr} content={officeContent_fr} isAddressVisible={true} addressContent={officeAddress_fr}>
                <Icon name="mapPin" />
              </ContactIconBlock>
           </div>
           <div class="pt-6 first:pt-0">
-             <ContactIconBlock heading={emailHeading} content={emailContent} isLinkVisible={true} linkTitle={emailLinkTitle} linkURL={emailLinkURL}>
+             <ContactIconBlock heading={emailHeading_fr} content={emailContent_fr} isLinkVisible={true} linkTitle={emailLinkTitle_fr} linkURL={emailLinkURL_fr}>
                <Icon name="envelopeOpen" />
              </ContactIconBlock>
           </div>
+        </div>
       </div>
     </div>
   </div>
