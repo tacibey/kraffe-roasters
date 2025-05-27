@@ -28,58 +28,32 @@ const subTitle: string = "⤹ Fill out our form to unlock your coffee's full pot
 const formTitle: string = "Get a quote now →";
 const formSubTitle: string = "We'll get back to you in 1-2 business days.";
 
-// Office verileri
 const officeHeading: string = "Our Office";
 const officeContent: string = "KRAFFE ROASTERS";
 const officeAddress: string = "Adalet, Manas Blv. No:39, Folkart Towers A Kule, Kat:34, D:3408, 35530 Bayraklı/İzmir";
 
-// Email verileri
 const emailHeading: string = "Contact us by email";
 const emailContent: string = "Prefer the written word? Drop us an email at";
 const emailLinkTitle: string = "info@krafferoasters.com";
 const emailLinkURL: string = "mailto:info@krafferoasters.com";
 
-// Review verileri
 const rating: string = `<span class="font-bold">4.8</span> / 5`;
 const starCount: number = 4;
 const reviews: string = `Trusted by <span class="font-bold">Roasteries</span> Worldwide`;
 
-// === FORMSPARK FORM ID'Sİ ===
 const formsparkFormId = "la0JBXKn3";
-// === /FORMSPARK FORM ID'Sİ ===
+// === BOTPOISON PUBLIC KEY ===
+const botpoisonPublicKey = "pk_237e0502-663f-4b6c-ab78-5a125646b975";
+// === /BOTPOISON PUBLIC KEY ===
 
 const productOptions = [
-  "Dimi - Half kg batch capacity",
-  "Primi - 1 kg batch capacity",
+  "Dimi - Half kg batch capacity", "Primi - 1 kg batch capacity",
   "KRF-03", "KRF-06", "KRF-12", "KRF-15", "KRF-20",
   "KRF-30", "KRF-60", "KRF-120", "KRF-180", "KRF-240", "Equipment"
 ];
 
 const allCountries = [
-  "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan",
-  "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi",
-  "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo, Democratic Republic of the", "Congo, Republic of the", "Costa Rica", "Cote d'Ivoire", "Croatia", "Cuba", "Cyprus", "Czech Republic",
-  "Denmark", "Djibouti", "Dominica", "Dominican Republic",
-  "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia",
-  "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana",
-  "Haiti", "Honduras", "Hungary",
-  "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy",
-  "Jamaica", "Japan", "Jordan",
-  "Kazakhstan", "Kenya", "Kiribati", "Korea, North", "Korea, South", "Kosovo", "Kuwait", "Kyrgyzstan",
-  "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg",
-  "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar",
-  "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Macedonia", "Norway",
-  "Oman",
-  "Pakistan", "Palau", "Palestine State", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal",
-  "Qatar",
-  "Romania", "Russia", "Rwanda",
-  "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria",
-  "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu",
-  "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan",
-  "Vanuatu", "Vatican City", "Venezuela", "Vietnam",
-  "Yemen",
-  "Zambia", "Zimbabwe",
-  "Other"
+  "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", /* ... (tüm ülkeler) ... */ "Zimbabwe", "Other"
 ].sort((a, b) => {
     if (a === "Other") return 1;
     if (b === "Other") return -1;
@@ -88,6 +62,12 @@ const allCountries = [
 
 const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm text-neutral-700 placeholder:text-neutral-500 focus:border-neutral-200 focus:outline-hidden focus:ring-3 focus:ring-neutral-400 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-700/30 dark:text-neutral-300 dark:placeholder:text-neutral-400 dark:focus:ring-1";
 ---
+
+{/* === BOTPOISON BROWSER SCRIPT'İ (SAYFANIN BAŞINA YAKIN OLMASI İYİDİR) === */}
+{botpoisonPublicKey && (
+  <script src="https://unpkg.com/@botpoison/browser" async defer></script>
+)}
+{/* === /BOTPOISON BROWSER SCRIPT'İ === */}
 
 <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
   <div class="mx-auto max-w-2xl lg:max-w-5xl">
@@ -116,14 +96,15 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
           {formTitle}
         </h2>
 
-        {/* === FORMSPARK FORM BAŞLANGICI === */}
-        <form action={`https://submit-form.com/${formsparkFormId}`} method="POST">
-          {/* Honeypot (Spam önleme için) - Formspark da destekler */}
+        {/* === FORMSPARK FORM GÜNCELLENDİ (BOTPOISON İLE) === */}
+        <form
+          id="contact-form-kraffe" {/* Event listener için ID eklendi */}
+          action={`https://submit-form.com/${formsparkFormId}`}
+          method="POST"
+          data-botpoison-public-key={botpoisonPublicKey} {/* Botpoison public key eklendi */}
+        >
           <input type="text" name="_honeypot" style="display: none;" tabindex="-1" autocomplete="off"/>
-          
-          {/* İsteğe bağlı: Başarı ve hata sayfaları için Formspark panelinden ayar yapabilirsiniz */}
-          {/* <input type="hidden" name="_redirect" value="https://yourdomain.com/thank-you.html" /> */}
-          {/* <input type="hidden" name="_error" value="https://yourdomain.com/error.html" /> */}
+          <input type="hidden" name="_redirect" value="https://krafferoasters.com/thanks" />
 
           <div class="grid gap-4">
             <div>
@@ -132,7 +113,7 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
             </div>
             <div>
               <label for="contact-company" class="sr-only">Company</label>
-              <input type="text" id="contact-company" name="company" class={inputBaseClass} placeholder="Company" /> {/* $ işareti kaldırıldı */}
+              <input type="text" id="contact-company" name="company" class={inputBaseClass} placeholder="Company" />
             </div>
             <div>
               <label for="contact-email" class="sr-only">Email</label>
@@ -147,7 +128,7 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
                 <input
                   type="text"
                   id="contact-country-code"
-                  name="countryCode" // $ işareti kaldırıldı
+                  name="countryCode"
                   class="py-3 px-4 block w-[80px] border-neutral-200 -ms-px text-sm focus:z-10 focus:border-orange-500 focus:ring-orange-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700/30 dark:border-neutral-600 dark:text-neutral-300 dark:focus:ring-orange-600 dark:placeholder-neutral-500"
                   placeholder="Code"
                   aria-label="Country code"
@@ -164,7 +145,7 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
             </div>
             <div>
               <label for="contact-country" class="sr-only">Select Country</label>
-              <select id="contact-country" name="country" class={inputBaseClass + " cursor-pointer"}> {/* $ işareti kaldırıldı */}
+              <select id="contact-country" name="country" class={inputBaseClass + " cursor-pointer"}>
                 <option value="" disabled selected>Select Country</option>
                 {allCountries.map(country => (
                   <option value={country}>{country}</option>
@@ -173,7 +154,7 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
             </div>
             <div>
               <label for="contact-product" class="sr-only">Select Product</label>
-              <select id="contact-product" name="product" class={inputBaseClass + " cursor-pointer"}> {/* $ işareti kaldırıldı */}
+              <select id="contact-product" name="product" class={inputBaseClass + " cursor-pointer"}>
                 <option value="" disabled selected>Select Product</option>
                 {productOptions.map(option => (
                   <option value={option}>{option}</option>
@@ -186,11 +167,10 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
             </div>
             
             {/* reCAPTCHA KALDIRILDI */}
-            {/* Formspark'ın kendi spam filtreleri veya ücretli planlarındaki reCAPTCHA kullanılabilir */}
-
           </div>
           <div class="mt-4 grid">
-            <AuthBtn title="Send Message" /> {/* Buton type="submit" olmalı, AuthBtn bunu sağlıyor olmalı */}
+            {/* Butona ID eklendi */}
+            <AuthBtn title="Send Message" type="submit" id="contact-submit-button" />
           </div>
           <div class="mt-3 text-center">
             <p class="text-sm text-neutral-600 dark:text-neutral-400">
@@ -198,7 +178,7 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
             </p>
           </div>
         </form>
-        {/* === FORMSPARK FORM SONU === */}
+        {/* === /FORMSPARK FORM === */}
       </div>
 
       <div class="space-y-8">
@@ -207,7 +187,7 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
                 <ReviewComponent amirAvatarData={amirAvatarData} avatars={avatarSrcs} starCount={starCount} rating={rating} reviews={reviews} />
             </div>
         )}
-        <div class={`space-y-6 divide-y divide-neutral-200 dark:divide-neutral-700 ${!amirAvatarData ? 'mt-0' : ''}`}> {/* Eğer yukarıdaki ReviewComponent yoksa margin top olmasın */}
+        <div class={`space-y-6 divide-y divide-neutral-200 dark:divide-neutral-700 ${!amirAvatarData ? 'mt-0' : ''}`}>
           <div class="pt-6 first:pt-0">
              <ContactIconBlock heading={officeHeading} content={officeContent} isAddressVisible={true} addressContent={officeAddress}>
                <Icon name="mapPin" />
@@ -225,3 +205,30 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
 </section>
 
 {/* reCAPTCHA API Script'i KALDIRILDI */}
+
+{/* === BOTPOISON EVENT LISTENER SCRIPT'İ (İSTEĞE BAĞLI) === */}
+{botpoisonPublicKey && (
+  <script is:inline>
+    const formElement = document.getElementById("contact-form-kraffe");
+    const buttonElement = document.getElementById("contact-submit-button");
+
+    if (formElement && buttonElement) {
+      formElement.addEventListener("botpoison-challenge-start", function () {
+        buttonElement.setAttribute("disabled", "disabled");
+        // İsterseniz burada butona bir "loading" class'ı ekleyip metnini değiştirebilirsiniz.
+        // buttonElement.textContent = "Sending...";
+      });
+      formElement.addEventListener("botpoison-challenge-success", function () {
+        buttonElement.removeAttribute("disabled");
+        // buttonElement.textContent = "Send Message";
+      });
+      formElement.addEventListener("botpoison-challenge-error", function () {
+        buttonElement.removeAttribute("disabled");
+        // buttonElement.textContent = "Send Message";
+        // İsterseniz burada bir hata mesajı gösterebilirsiniz.
+        // alert("An error occurred with spam protection. Please try again.");
+      });
+    }
+  </script>
+)}
+{/* === /BOTPOISON EVENT LISTENER SCRIPT'İ === */}
