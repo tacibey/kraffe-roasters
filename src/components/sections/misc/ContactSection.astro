@@ -5,7 +5,7 @@ import AuthBtn from "@components/ui/buttons/AuthBtn.astro";
 import ContactIconBlock from "@components/ui/blocks/ContactIconBlock.astro";
 import Icon from "@components/ui/icons/Icon.astro";
 import ReviewComponent from "@components/ui/blocks/ReviewComponent.astro";
-import kraffeContact from "@images/kraffe-contact.avif"; // Bu görseli kullanıyorsunuz
+import kraffeContact from "@images/kraffe-contact.avif";
 import type { ImageMetadata } from 'astro';
 
 // Prop Tanımı
@@ -31,7 +31,7 @@ const formSubTitle: string = "We'll get back to you in 1-2 business days.";
 // Office verileri
 const officeHeading: string = "Our Office";
 const officeContent: string = "KRAFFE ROASTERS";
-const officeAddress: string = "5065 sok No: 28 Rafet Pasa District / Bornova / Izmir";
+const officeAddress: string = "Adalet, Manas Blv. No:39, Folkart Towers A Kule, Kat:34, D:3408, 35530 Bayraklı/İzmir";
 
 // Email verileri
 const emailHeading: string = "Contact us by email";
@@ -44,18 +44,17 @@ const rating: string = `<span class="font-bold">4.8</span> / 5`;
 const starCount: number = 4;
 const reviews: string = `Trusted by <span class="font-bold">Roasteries</span> Worldwide`;
 
-const staticFormsApiKey = "sf_323gg5f098n8e9d9ch167dmh";
-const recaptchaSiteKey = "6LeLrxwrAAAAABfZl7OIP3Yv0ibik2SANXaLixp6";
-const redirectUrl = "https://krafferoasters.com";
+// === FORMSPARK FORM ID'Sİ ===
+const formsparkFormId = "la0JBXKn3";
+// === /FORMSPARK FORM ID'Sİ ===
 
 const productOptions = [
   "Dimi - Half kg batch capacity",
   "Primi - 1 kg batch capacity",
   "KRF-03", "KRF-06", "KRF-12", "KRF-15", "KRF-20",
-  "KRF-30", "KRF-60", "KRF-120", "KRF-180", "KRF-240", "Equipment" // Equipment eklendi
+  "KRF-30", "KRF-60", "KRF-120", "KRF-180", "KRF-240", "Equipment"
 ];
 
-// === ÜLKE LİSTESİ GÜNCELLENDİ ===
 const allCountries = [
   "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan",
   "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi",
@@ -80,13 +79,12 @@ const allCountries = [
   "Vanuatu", "Vatican City", "Venezuela", "Vietnam",
   "Yemen",
   "Zambia", "Zimbabwe",
-  "Other" // Other seçeneği sonda kalsın
-].sort((a, b) => { // Alfabetik sıralama, "Other" sonda kalacak şekilde
+  "Other"
+].sort((a, b) => {
     if (a === "Other") return 1;
     if (b === "Other") return -1;
     return a.localeCompare(b);
 });
-// === /ÜLKE LİSTESİ ===
 
 const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm text-neutral-700 placeholder:text-neutral-500 focus:border-neutral-200 focus:outline-hidden focus:ring-3 focus:ring-neutral-400 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-700/30 dark:text-neutral-300 dark:placeholder:text-neutral-400 dark:focus:ring-1";
 ---
@@ -100,12 +98,10 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
       <p class="mt-1 text-pretty text-lg text-neutral-600 dark:text-neutral-400">
         {subTitle}
       </p>
-      {/* Kapak görseli bir önceki mesajda kaldırılmıştı, o haliyle devam ediyorum */}
-      {/* Eğer geri eklenecekse, img src={kraffeContact} ... bloğu buraya gelebilir */}
        <div class="mt-8 mx-auto max-w-[1500px] px-4 sm:px-6">
         <Image 
           src={kraffeContact} 
-          alt="Contact cover image" 
+          alt="Contact Kraffe Roasters for inquiries" 
           class="w-full h-auto object-cover rounded-xl aspect-[1500/700]"
           loading="lazy"
           widths={[600, 900, 1200, 1500]}
@@ -114,18 +110,20 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
       </div>
     </div>
 
-    <div class={`grid items-start gap-6 lg:grid-cols-2 lg:gap-16 ${amirAvatarData ? 'mt-12 lg:mt-16' : 'mt-12 lg:mt-16'}`}> {/* Review olsa da olmasa da aynı margin */}
-      {/* Sol Taraf: Form */}
+    <div class={`grid items-start gap-6 lg:grid-cols-2 lg:gap-16 ${amirAvatarData ? 'mt-12 lg:mt-16' : 'mt-12 lg:mt-16'}`}>
       <div class="flex flex-col rounded-xl border border-neutral-200 bg-neutral-100 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-800 sm:p-6 lg:p-8">
         <h2 class="mb-8 text-xl font-semibold text-neutral-800 dark:text-neutral-200">
           {formTitle}
         </h2>
 
-        <form action="https://api.staticforms.xyz/submit" method="POST">
-          <input type="hidden" name="apiKey" value={staticFormsApiKey} />
-          <input type="hidden" name="replyTo" value="@" />
-          <input type="text" name="honeypot" style="display: none;" tabindex="-1" autocomplete="off"/>
-          <input type="hidden" name="redirectTo" value={redirectUrl} />
+        {/* === FORMSPARK FORM BAŞLANGICI === */}
+        <form action={`https://submit-form.com/${formsparkFormId}`} method="POST">
+          {/* Honeypot (Spam önleme için) - Formspark da destekler */}
+          <input type="text" name="_honeypot" style="display: none;" tabindex="-1" autocomplete="off"/>
+          
+          {/* İsteğe bağlı: Başarı ve hata sayfaları için Formspark panelinden ayar yapabilirsiniz */}
+          {/* <input type="hidden" name="_redirect" value="https://yourdomain.com/thank-you.html" /> */}
+          {/* <input type="hidden" name="_error" value="https://yourdomain.com/error.html" /> */}
 
           <div class="grid gap-4">
             <div>
@@ -134,7 +132,7 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
             </div>
             <div>
               <label for="contact-company" class="sr-only">Company</label>
-              <input type="text" id="contact-company" name="$company" class={inputBaseClass} placeholder="Company" />
+              <input type="text" id="contact-company" name="company" class={inputBaseClass} placeholder="Company" /> {/* $ işareti kaldırıldı */}
             </div>
             <div>
               <label for="contact-email" class="sr-only">Email</label>
@@ -149,7 +147,7 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
                 <input
                   type="text"
                   id="contact-country-code"
-                  name="$countryCode"
+                  name="countryCode" // $ işareti kaldırıldı
                   class="py-3 px-4 block w-[80px] border-neutral-200 -ms-px text-sm focus:z-10 focus:border-orange-500 focus:ring-orange-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700/30 dark:border-neutral-600 dark:text-neutral-300 dark:focus:ring-orange-600 dark:placeholder-neutral-500"
                   placeholder="Code"
                   aria-label="Country code"
@@ -164,23 +162,18 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
                 />
               </div>
             </div>
-
-            {/* === ÜLKE SEÇİMİ GÜNCELLENDİ === */}
             <div>
-              <label for="contact-country" class="sr-only">Select Country</label> {/* "Region" kaldırıldı */}
-              <select id="contact-country" name="$country" class={inputBaseClass + " cursor-pointer"}>
-                <option value="" disabled selected>Select Country</option> {/* "Region" kaldırıldı */}
-                {allCountries.map(country => ( // Yeni ülke listesi kullanılıyor
+              <label for="contact-country" class="sr-only">Select Country</label>
+              <select id="contact-country" name="country" class={inputBaseClass + " cursor-pointer"}> {/* $ işareti kaldırıldı */}
+                <option value="" disabled selected>Select Country</option>
+                {allCountries.map(country => (
                   <option value={country}>{country}</option>
                 ))}
-                {/* "Other (Please specify in details)" seçeneği allCountries listesinin sonuna eklendiği için burada ayrıca eklemeye gerek yok */}
               </select>
             </div>
-            {/* === /ÜLKE SEÇİMİ === */}
-
             <div>
               <label for="contact-product" class="sr-only">Select Product</label>
-              <select id="contact-product" name="$product" class={inputBaseClass + " cursor-pointer"}>
+              <select id="contact-product" name="product" class={inputBaseClass + " cursor-pointer"}> {/* $ işareti kaldırıldı */}
                 <option value="" disabled selected>Select Product</option>
                 {productOptions.map(option => (
                   <option value={option}>{option}</option>
@@ -191,12 +184,13 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
               <label for="contact-details" class="sr-only">Details</label>
               <textarea id="contact-details" name="message" rows="4" class={inputBaseClass} placeholder="Details" required></textarea>
             </div>
-            <div class="mt-2">
-                <div class="g-recaptcha" data-sitekey={recaptchaSiteKey}></div>
-            </div>
+            
+            {/* reCAPTCHA KALDIRILDI */}
+            {/* Formspark'ın kendi spam filtreleri veya ücretli planlarındaki reCAPTCHA kullanılabilir */}
+
           </div>
           <div class="mt-4 grid">
-            <AuthBtn title="Send Message" />
+            <AuthBtn title="Send Message" /> {/* Buton type="submit" olmalı, AuthBtn bunu sağlıyor olmalı */}
           </div>
           <div class="mt-3 text-center">
             <p class="text-sm text-neutral-600 dark:text-neutral-400">
@@ -204,16 +198,16 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
             </p>
           </div>
         </form>
+        {/* === FORMSPARK FORM SONU === */}
       </div>
 
-      {/* Sağ Taraf */}
       <div class="space-y-8">
-        {amirAvatarData && ( /* Sadece amirAvatarData varsa bu ReviewComponent'i göster */
+        {amirAvatarData && (
             <div class="rounded-xl border border-neutral-200 bg-neutral-100 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-800 sm:p-6">
                 <ReviewComponent amirAvatarData={amirAvatarData} avatars={avatarSrcs} starCount={starCount} rating={rating} reviews={reviews} />
             </div>
         )}
-        <div class="space-y-6 divide-y divide-neutral-200 dark:divide-neutral-700">
+        <div class={`space-y-6 divide-y divide-neutral-200 dark:divide-neutral-700 ${!amirAvatarData ? 'mt-0' : ''}`}> {/* Eğer yukarıdaki ReviewComponent yoksa margin top olmasın */}
           <div class="pt-6 first:pt-0">
              <ContactIconBlock heading={officeHeading} content={officeContent} isAddressVisible={true} addressContent={officeAddress}>
                <Icon name="mapPin" />
@@ -230,4 +224,4 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
   </div>
 </section>
 
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+{/* reCAPTCHA API Script'i KALDIRILDI */}
