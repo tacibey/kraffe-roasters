@@ -1,26 +1,109 @@
 ---
-// ... (diğer importlar ve değişkenler aynı) ...
-// === BOTPOISON PUBLIC KEY ===
-const botpoisonPublicKey_FR = "pk_237e0502-663f-4b6c-ab78-5a125646b975"; // Aynı key kullanılabilir
-// === /BOTPOISON PUBLIC KEY ===
-const formsparkFormId_FR = "la0JBXKn3"; // Aynı veya farklı ID
-// ... (diğer Fransızca metinler) ...
+// src/components/sections/fr/ContactSection_fr.astro
+
+import { Image } from "astro:assets";
+import type { ImageMetadata } from 'astro';
+import AuthBtn from "@components/ui/buttons/AuthBtn.astro";
+import ContactIconBlock from "@components/ui/blocks/ContactIconBlock.astro";
+import Icon from "@components/ui/icons/Icon.astro";
+import ReviewComponent from "@components/ui/blocks/ReviewComponent.astro";
+import scaLogo from "@images/sca2-new.webp"; // Bu importlar kalabilir, HTML'de kullanılmıyorsa sorun olmaz
+import ceLogoNew from "@images/ce-mark-new.avif"; // Bu importlar kalabilir
+
+interface Props {
+    amirAvatarData: ImageMetadata;
+}
+const { amirAvatarData } = Astro.props;
+
+const groupAvatarSrcs: Array<string> = [
+  "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+  "https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+  "https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80",
+  "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+];
+
+const title: string = "Contactez-nous"; // Fransızca başlık
+const subTitle: string = "Le désir d'atteindre les plus hauts standards de qualité !";
+const formTitle: string = `Soyez l'un des <span class="text-orange-500 dark:text-orange-400">10</span> premiers ce mois-ci, obtenez une consultation gratuite !`;
+const formSubTitleItalic: string = `(<span class="text-orange-500 dark:text-orange-400">2</span>/10 places restantes)`;
+const formResponseTime: string = "Nous vous répondrons dans un délai de 1 à 2 jours ouvrables.";
+
+const officeHeading: string = "Notre Bureau";
+const officeContent: string = "KRAFFE ROASTERS";
+const officeAddress: string = "Adalet, Manas Blv. No:39, Folkart Towers A Kule, Kat:34, D:3408, 35530 Bayraklı/İzmir";
+
+const emailHeading: string = "Contactez-nous par e-mail";
+const emailContent: string = "Vous préférez l'écrit ? Envoyez-nous un e-mail à";
+const emailLinkTitle: string = "info@krafferoasters.com";
+const emailLinkURL: string = "mailto:info@krafferoasters.com";
+
+const rating: string = `<span class="font-bold">4.8</span> / 5`;
+const starCount: number = 4;
+const reviews: string = `Approuvé par les <span class="font-bold">Torréfacteurs</span> du monde entier`;
+
+const formsparkFormId_FR = "la0JBXKn3"; // Ya da Fransızca form için ayrı bir ID
+const botpoisonPublicKey_FR = "pk_237e0502-663f-4b6c-ab78-5a125646b975";
+
+const productOptions = [
+  "Dimi - Capacité de lot d'un demi-kg", "Primi - Capacité de lot de 1 kg",
+  "KRF-03", "KRF-06", "KRF-12", "KRF-15", "KRF-20", "KRF-30",
+  "KRF-60", "KRF-120", "KRF-180", "KRF-240", "Équipement"
+];
+
+const allCountries = [
+  "Afghanistan", "Albanie", "Algérie", /* ... (tüm ülkeler Fransızca) ... */ "Zimbabwe", "Autre"
+].sort((a, b) => {
+    if (a === "Autre") return 1;
+    if (b === "Autre") return -1;
+    return a.localeCompare(b, 'fr'); // Fransızca sıralama
+});
+
+// === INPUTBASECLASS TANIMI BURADA OLMALI ===
+const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm text-neutral-700 placeholder:text-neutral-500 focus:border-neutral-200 focus:outline-hidden focus:ring-3 focus:ring-neutral-400 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-700/30 dark:text-neutral-300 dark:placeholder:text-neutral-400 dark:focus:ring-1";
+// === /INPUTBASECLASS TANIMI ===
 ---
 
-{/* === BOTPOISON BROWSER SCRIPT'İ (SAYFANIN BAŞINA YAKIN OLMASI İYİDİR) === */}
 {botpoisonPublicKey_FR && (
   <script src="https://unpkg.com/@botpoison/browser" async defer></script>
 )}
-{/* === /BOTPOISON BROWSER SCRIPT'İ === */}
 
 <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-  {/* ... (sayfanın üst kısmı aynı) ... */}
+  <div class="mx-auto max-w-2xl lg:max-w-5xl">
+    <div class="text-center">
+      <h1 class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight">
+        {title}
+      </h1>
+      <p class="mt-1 text-pretty text-lg text-neutral-600 dark:text-neutral-400">
+        {subTitle}
+      </p>
+      <div class="mt-8 flex items-center justify-center gap-x-8 sm:gap-x-12">
+        <Image src={ceLogoNew} alt="Logo de certification CE Marking" class="h-24 w-auto object-contain sm:h-32" loading="lazy"/>
+        <Image src={scaLogo} alt="Logo de membre de la Specialty Coffee Association" class="h-24 w-auto object-contain sm:h-32" loading="lazy"/>
+      </div>
+      <div class="mt-12 rounded-xl border border-neutral-200 bg-neutral-100 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-800 sm:p-6 lg:mt-16">
+         <ReviewComponent
+           testimonialText="Incroyablement convivial et fournit des résultats constants à chaque fois."
+           testimonialAuthor="Amir Montazer"
+           testimonialRole="Etude Coffee Co."
+           testimonialAvatar={amirAvatarData}
+           testimonialAvatarAlt="Portrait d'Amir Montazer"
+           avatars={groupAvatarSrcs}
+           starCount={starCount}
+           rating={rating}
+           reviews={reviews}
+         />
+      </div>
+    </div>
+
     <div class="mt-8 grid items-start gap-6 lg:mt-10 lg:grid-cols-2 lg:gap-16">
       <div class="flex flex-col rounded-xl border border-neutral-200 bg-neutral-100 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-800 sm:p-6 lg:p-8">
-        {/* ... (form başlığı aynı) ... */}
+        <div class="mb-8 text-center">
+            <h2 class="text-xl font-semibold text-neutral-800 dark:text-neutral-200" set:html={formTitle} />
+            <p class="mt-1 text-sm italic text-neutral-600 dark:text-neutral-400" set:html={formSubTitleItalic} />
+        </div>
 
         <form
-          id="contact-form-kraffe-fr" {/* Farklı ID */}
+          id="contact-form-kraffe-fr"
           action={`https://submit-form.com/${formsparkFormId_FR}`}
           method="POST"
           data-botpoison-public-key={botpoisonPublicKey_FR}
@@ -29,8 +112,19 @@ const formsparkFormId_FR = "la0JBXKn3"; // Aynı veya farklı ID
           <input type="hidden" name="_redirect" value="https://krafferoasters.com/fr/thanks" />
 
           <div class="grid gap-4">
-            {/* ... (Fransızca form alanları aynı, ID'ler -fr ile) ... */}
-             <div>
+            <div>
+              <label for="contact-name-fr" class="sr-only">Nom</label>
+              <input type="text" id="contact-name-fr" name="name" class={inputBaseClass} placeholder="Nom" required />
+            </div>
+            <div>
+              <label for="contact-company-fr" class="sr-only">Société</label>
+              <input type="text" id="contact-company-fr" name="company" class={inputBaseClass} placeholder="Société" />
+            </div>
+            <div>
+              <label for="contact-email-fr" class="sr-only">E-mail</label>
+              <input type="email" id="contact-email-fr" name="email" class={inputBaseClass} placeholder="E-mail" required autocomplete="email"/>
+            </div>
+            <div>
               <label for="contact-phone-number-fr" class="sr-only">Numéro de téléphone</label>
               <div class="flex rounded-lg shadow-sm">
                 <div class="px-3 inline-flex items-center min-w-fit rounded-s-lg border border-e-0 border-neutral-200 bg-neutral-200 dark:bg-neutral-700 dark:border-neutral-600">
@@ -54,23 +148,51 @@ const formsparkFormId_FR = "la0JBXKn3"; // Aynı veya farklı ID
                 />
               </div>
             </div>
-            {/* ... (diğer form alanları) ... */}
-            {/* reCAPTCHA alanı zaten silinmişti */}
+             <div>
+               <label for="contact-country-fr" class="sr-only">Sélectionnez le pays</label>
+               <select id="contact-country-fr" name="country" class={inputBaseClass + " cursor-pointer"}>
+                 <option value="" disabled selected>Sélectionnez le pays</option>
+                 {allCountries.map(country => ( <option value={country}>{country}</option> ))}
+               </select>
+             </div>
+             <div>
+               <label for="contact-product-fr" class="sr-only">Sélectionnez le produit</label>
+               <select id="contact-product-fr" name="product" class={inputBaseClass + " cursor-pointer"}>
+                 <option value="" disabled selected>Sélectionnez le produit</option>
+                 {productOptions.map(option => ( <option value={option}>{option}</option> ))}
+               </select>
+             </div>
+            <div>
+              <label for="contact-details-fr" class="sr-only">Détails</label>
+              <textarea id="contact-details-fr" name="message" rows="4" class={inputBaseClass} placeholder="Détails" required></textarea>
+            </div>
           </div>
           <div class="mt-4 grid">
-            <AuthBtn title="Envoyer le message" type="submit" id="contact-submit-button-fr" /> {/* Farklı ID */}
+            <AuthBtn title="Envoyer le message" type="submit" id="contact-submit-button-fr" />
           </div>
-          {/* ... (form altı metni) ... */}
+          <div class="mt-3 text-center">
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+              {formResponseTime}
+            </p>
+          </div>
         </form>
       </div>
-      {/* ... (sağ taraf aynı) ... */}
+      <div class="space-y-6 divide-y divide-neutral-200 dark:divide-neutral-700">
+          <div class="pt-6 first:pt-0">
+             <ContactIconBlock heading={officeHeading} content={officeContent} isAddressVisible={true} addressContent={officeAddress}>
+               <Icon name="mapPin" />
+             </ContactIconBlock>
+          </div>
+          <div class="pt-6 first:pt-0">
+             <ContactIconBlock heading={emailHeading} content={emailContent} isLinkVisible={true} linkTitle={emailLinkTitle} linkURL={emailLinkURL}>
+               <Icon name="envelopeOpen" />
+             </ContactIconBlock>
+          </div>
+      </div>
     </div>
-  {/* ... (sayfanın kalanı aynı) ... */}
+  </div>
 </section>
 
-{/* reCAPTCHA script'i zaten silinmişti */}
-
-{/* === BOTPOISON EVENT LISTENER SCRIPT'İ (FRANSIZCA - İSTEĞE BAĞLI) === */}
 {botpoisonPublicKey_FR && (
   <script is:inline>
     const formElement_fr = document.getElementById("contact-form-kraffe-fr");
@@ -89,4 +211,3 @@ const formsparkFormId_FR = "la0JBXKn3"; // Aynı veya farklı ID
     }
   </script>
 )}
-{/* === /BOTPOISON EVENT LISTENER SCRIPT'İ === */}
