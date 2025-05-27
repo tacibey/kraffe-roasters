@@ -1,0 +1,142 @@
+---
+// src/pages/thanks.astro
+
+// Gerekli bileşenleri import et
+import MainLayout from "@/layouts/MainLayout.astro";
+import MainSection from "@components/ui/blocks/MainSection.astro";
+import LeftSection from "@components/ui/blocks/LeftSection.astro";
+import FeaturesStats from "@components/sections/features/FeaturesStats.astro";
+import { SITE } from "@data/constants";
+import type { ImageMetadata } from 'astro';
+import { Image } from "astro:assets";
+
+// About sayfasındaki görselleri ve article yapısını koruyoruz,
+// isterseniz bu bölümleri kaldırabilir veya farklı içerikle değiştirebilirsiniz.
+import imgPlaceholder1 from "@images/etude-kraffe.avif";
+import imgPlaceholder2 from "@images/kraffeabout.avif";
+
+interface Article {
+  isRightSection: boolean;
+  title: string;
+  subTitle: string;
+  btnExists?: boolean;
+  btnTitle?: string;
+  btnURL?: string;
+  img: ImageMetadata;
+  imgAlt: string;
+}
+
+const articles: Article[] = [
+  {
+    isRightSection: false,
+    title: "Why Kraffe Roasters",
+    subTitle: `
+      <p>At KRAFFE ROASTERS, we believe that features considered “optional” elsewhere should be standard. That’s why every Kraffe machine includes:</p>
+      <ul class="list-disc list-inside mt-2 space-y-1 text-neutral-600 dark:text-neutral-400">
+        <li>Precision engineering for batch-to-batch consistency</li>
+        <li>High thermal insulation and advanced variable control systems</li>
+        <li>Complete factory testing and a strict quality control process</li>
+        <li>Built with long-term durability and operational efficiency in mind</li>
+      </ul>
+      <p class="mt-2">Whether you need a 1 kg sample roaster or a 240 kg industrial coffee roaster, every KRAFFE machine delivers consistent roasting performance and lasting value for your business.</p>
+    `,
+    img: imgPlaceholder1,
+    imgAlt: "Kraffe Roasters design schematic overlayed on roasted coffee beans",
+    btnExists: true,
+    btnTitle: "Explore Products", // Buton metni "Explore Products" olabilir
+    btnURL: "/products",      // Buton linki "/products" olabilir
+  },
+  {
+    isRightSection: false,
+    title: "Our Commitment to You",
+    subTitle: `
+      <p>KRAFFE ROASTERS offers the fastest customer support in the industry. We understand that every minute matters in coffee production, which is why we guarantee:</p>
+      <ul class="list-disc list-inside mt-2 space-y-1 text-neutral-600 dark:text-neutral-400">
+        <li>24-hour response time to all customer requests</li>
+        <li>24/7 direct access to our quality assurance engineers — not sales reps</li>
+        <li>Fast diagnostics, parts support, and remote troubleshooting</li>
+        <li>A global support network that keeps your operation running</li>
+      </ul>
+      <p class="mt-2">Durable. Consistent. Fast. That’s more than our promise — it’s our standard.</p>
+    `,
+    img: imgPlaceholder2,
+    imgAlt: "Technician performing maintenance on a Kraffe Roaster",
+    btnExists: false,
+  },
+];
+
+const featuresStatsTitle: string = "Our Core Principles";
+const featuresStatsSubTitle: string = "These pillars define the Kraffe Roasters experience, ensuring quality, reliability, and partnership.";
+const featuresStatsMainStatTitle: string = "Partnership";
+const featuresStatsMainStatSubTitle: string = "We believe in building lifetime relationships with our clients, becoming part of your success story.";
+const statsData = [
+    { stat: "100%", description: "Quality Assurance: Rigorous testing before shipment." },
+    { stat: "Flexible", description: "Solution-Oriented Design: Tailored to your roastery's unique needs." },
+    { stat: "Intuitive", description: "User-Friendly: Simple setup, operation, and maintenance." },
+    { stat: "7/24", description: "Lifetime Support: Dedicated, fast assistance whenever you need it." },
+];
+
+// === SAYFA BAŞLIĞI VE İÇERİK GÜNCELLENDİ ===
+const pageTitle: string = `Thank You | ${SITE.title}`;
+const thankYouMainTitle: string = "Thank You!";
+const thankYouMainSubTitle: string = "Thank you for your interest in Kraffe Roasters. We will get back to you within 1-2 business days. We look forward to meeting you and being a part of your coffee roasting journey!";
+// === /SAYFA BAŞLIĞI VE İÇERİK ===
+---
+
+<MainLayout
+  title={pageTitle}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage", // Veya daha spesifik bir tip "ContactPage" sonrası için "WebPage" uygun.
+    "@id": `${SITE.url}/thanks`, // Canonical URL güncellendi
+    "url": `${SITE.url}/thanks`,   // URL güncellendi
+    "name": `Thank You - Kraffe Roasters`, // Sayfa adı güncellendi
+    "description": "Thank you for contacting Kraffe Roasters. We will be in touch shortly.", // Meta description güncellendi
+    "isPartOf": {
+        "@type": "WebSite",
+        "url": SITE.url,
+        "name": SITE.title,
+        "description": SITE.description
+    },
+    "inLanguage": "en-US"
+  }}
+>
+  {/* Giriş Bölümü - Başlık ve alt başlık "Thank You" mesajı ile güncellendi */}
+  <MainSection
+    title={thankYouMainTitle}
+    subTitle={thankYouMainSubTitle}
+    btnExists={false} {/* Teşekkür sayfasında butona gerek yok */}
+  />
+
+  {/* 
+    Aşağıdaki bölümler (articles ve FeaturesStats) "About Us" sayfasından alındı.
+    Teşekkür sayfanızda bu kadar detaylı bilgiye ihtiyaç duymayabilirsiniz.
+    Eğer bu bölümleri teşekkür sayfasında göstermek istemiyorsanız, 
+    aşağıdaki `{articles.map...}` ve `<FeaturesStats... />` bloklarını silebilirsiniz.
+    Sadece basit bir teşekkür mesajı yeterliyse, sadece yukarıdaki <MainSection /> kalabilir.
+  */}
+
+  {/* İçerik Bölümleri ("About Us" sayfasından) */}
+  {
+    articles.map(article => (
+        <LeftSection
+          title={article.title}
+          subTitle={article.subTitle}
+          img={article.img}
+          imgAlt={article.imgAlt}
+          btnExists={article.btnExists}
+          btnTitle={article.btnTitle}
+          btnURL={article.btnURL}
+        />
+    ))
+  }
+
+  {/* İstatistik Bölümü ("About Us" sayfasından) */}
+  <FeaturesStats
+    title={featuresStatsTitle}
+    subTitle={featuresStatsSubTitle}
+    mainStatTitle={featuresStatsMainStatTitle}
+    mainStatSubTitle={featuresStatsMainStatSubTitle}
+    stats={statsData}
+  />
+</MainLayout>
