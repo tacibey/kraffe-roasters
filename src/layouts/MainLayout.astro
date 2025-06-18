@@ -5,7 +5,6 @@ import Meta from "@components/Meta.astro";
 import Navbar from "@components/sections/navbar&footer/Navbar.astro";
 import FooterSection from "@components/sections/navbar&footer/FooterSection.astro";
 import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro";
-import ConsentBanner from '@components/ConsentBanner.astro';
 import { SITE } from "@data/constants";
 import "@styles/global.css";
 import { getRelativeLocaleUrl } from "astro:i18n";
@@ -31,11 +30,13 @@ const gtmContainerId = "GTM-PZZBN787";
     <Meta meta={meta} structuredData={structuredData} />
     <title>{title}</title>
     
+    <!-- BANNER'IN STİL DOSYASI DOĞRUDAN BURAYA EKLENDİ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.css" />
+
     <script>
       import "@scripts/lenisSmoothScroll.js";
       import "preline/preline.js";
     </script>
-
   </head>
   <body
     class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800"
@@ -69,12 +70,71 @@ const gtmContainerId = "GTM-PZZBN787";
         <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtmContainerId}`} height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     )}
     
-    <ConsentBanner />
+    <!-- BANNER'IN KENDİSİ VE ÇALIŞTIRMA KODU DOĞRUDAN BURAYA EKLENDİ -->
+    <script is:inline src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.umd.js"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
 
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied',
+        'wait_for_update': 500
+      });
+
+      CookieConsent.run({
+        current_lang: document.documentElement.lang || 'en',
+        autoclear_cookies: true,
+        page_scripts: true,
+        onFirstAction: (p) => gtag('consent', 'update', {'analytics_storage': p.accepted_categories.includes('analytics') ? 'granted' : 'denied'}),
+        onChange: ({cookie}) => gtag('consent', 'update', {'analytics_storage': cookie.categories.includes('analytics') ? 'granted' : 'denied'}),
+        gui_options: { consent_modal: { layout: 'box', position: 'bottom right' }, settings_modal: { layout: 'box' }},
+        languages: {
+          'en': {
+            consent_modal: {
+              title: '🍪 We use cookies!',
+              description: 'We use cookies to ensure the basic functionalities of the website and to enhance your online experience. For more details, please see our <a href="/privacy-policy" class="cc-link">Privacy Policy</a>.',
+              primary_btn: { text: 'Accept all', role: 'accept_all' },
+              secondary_btn: { text: 'Settings', role: 'settings' }
+            },
+            settings_modal: {
+              title: 'Cookie Preferences',
+              save_settings_btn: 'Save settings',
+              accept_all_btn: 'Accept all',
+              reject_all_btn: 'Reject all',
+              blocks: [
+                { title: 'Necessary Cookies', description: 'These cookies are essential for the proper functioning of the website.', toggle: { value: 'necessary', enabled: true, readonly: true }},
+                { title: 'Analytics & Performance Cookies', description: 'These cookies allow us to measure traffic and user behavior to improve our services.', toggle: { value: 'analytics', enabled: false, readonly: false }}
+              ]
+            }
+          },
+          'fr': {
+            consent_modal: {
+              title: '🍪 Nous utilisons des cookies !',
+              description: 'Nous utilisons des cookies pour faire fonctionner notre site. Avec votre consentement, nous pouvons utiliser des cookies non essentiels pour améliorer l\'expérience. Voir notre <a href="/fr/privacy-policy" class="cc-link">Politique de Confidentialité</a>.',
+              primary_btn: { text: 'Tout accepter', role: 'accept_all' },
+              secondary_btn: { text: 'Paramètres', role: 'settings' }
+            },
+            settings_modal: {
+              title: 'Préférences de cookies',
+              save_settings_btn: 'Enregistrer',
+              accept_all_btn: 'Tout accepter',
+              reject_all_btn: 'Tout rejeter',
+              blocks: [
+                { title: 'Cookies Nécessaires', description: 'Ces cookies sont essentiels au bon fonctionnement du site web.', toggle: { value: 'necessary', enabled: true, readonly: true }},
+                { title: 'Cookies d\'Analyse', description: 'Ces cookies nous permettent de mesurer le trafic pour améliorer nos services.', toggle: { value: 'analytics', enabled: false, readonly: false }}
+              ]
+            }
+          }
+        }
+      });
+    </script>
+    
     <style>
       .scrollbar-hide::-webkit-scrollbar { display: none; }
       .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
-
   </body>
 </html>
