@@ -1,9 +1,8 @@
 ---
-// src/pages/index.astro
+// src/pages/index.astro (Final Version with Advanced Schema)
 
 // Gerekli bileşenleri ve verileri import et
 import MainLayout from "@/layouts/MainLayout.astro";
-// import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro"; // <<<< BU SATIR SİLİNDİ
 import HeroSection from "@components/sections/landing/HeroSection.astro";
 import HeroSectionAlt from "@components/sections/landing/HeroSectionAlt.astro";
 import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
@@ -11,15 +10,21 @@ import FeaturesNavs from "@components/sections/features/FeaturesNavs.astro";
 import TestimonialsSection from "@components/sections/testimonials/TestimonialsSection.astro";
 import PricingSection from "@components/sections/pricing/PricingSection.astro";
 import FAQ from "@components/sections/misc/FAQ.astro";
+
+// Görsel importları
 import heroImage from "@images/hero-kraffe.avif";
-import faqs from "@data/faqs.json";
-import features from "@data/features.json";
-import pricing from "@data/pricing.json";
 import thermalControlImage from "@images/features5.avif";
 import precisionSystemImage from "@images/sample-coffee-roaster.webp";
 import smartIntegrationImage from "@images/kf2.avif";
-import { partnersData } from "@/data_files/constants";
 import amirAvatar from "@images/Amir+Montazer.avif";
+import logoForSchema from "@images/kraffe-logo.png"; // Schema için logo importu
+
+// Veri dosyalarını import et
+import faqsData from "@data/faqs.json";
+import features from "@data/features.json";
+import pricing from "@data/pricing.json";
+import { SITE, OG } from "@data/constants"; // SITE ve OG import edildi
+import { getImage } from "astro:assets";
 
 const avatarSrcs: Array<string> = [
   "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
@@ -27,19 +32,83 @@ const avatarSrcs: Array<string> = [
   "https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
 ];
+
+// === SEO ve SCHEMA İÇİN DEĞİŞKENLER ===
+const pageTitle = SITE.title;
+const metaDescription = SITE.description;
+
+// Logo ve sosyal medya görselinin tam URL'sini alalım
+const logoImage = await getImage({ src: logoForSchema, format: 'png' });
+const socialImage = await getImage({ src: OG.image, width: 1200, height: 600, format: 'png' });
+const logoUrl = new URL(logoImage.src, Astro.site).href;
+const socialImageUrl = new URL(socialImage.src, Astro.site).href;
+
+
+// JSON verisinden FAQPage şeması için `mainEntity` oluşturma
+const faqEntities = faqsData.faqs.map(faq => ({
+  "@type": "Question",
+  "name": faq.question,
+  "acceptedAnswer": {
+    "@type": "Answer",
+    "text": faq.answer
+  }
+}));
+
+// Gelişmiş Schema.org yapısı
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Kraffe Roasters",
+      "url": SITE.url,
+      "logo": logoUrl,
+      "sameAs": [
+        "https://www.facebook.com/krafferoasters",
+        "https://www.instagram.com/krafferoasters/"
+        // Varsa diğer sosyal medya linkleri eklenebilir
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+90-XXX-XXX-XXXX", // Telefon numaranızı ekleyin
+        "contactType": "customer service"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "url": SITE.url,
+      "name": SITE.title,
+      "description": SITE.description,
+      "publisher": {
+        "@type": "Organization",
+        "name": "Kraffe Roasters",
+        "logo": {
+          "@type": "ImageObject",
+          "url": logoUrl
+        }
+      }
+    },
+    {
+      "@type": "CollectionPage",
+      "name": "Kraffe Roasters - Commercial & Industrial Coffee Roasting Machines",
+      "url": SITE.url,
+      "description": metaDescription,
+      "image": socialImageUrl,
+      "mainEntity": {
+        "@type": "FAQPage",
+        "mainEntity": faqEntities
+      }
+    }
+  ]
+};
 ---
 
-<MainLayout>
-  {/* Banner çağrısı SİLİNDİ */}
-  {/*
-  <AnnouncementBanner
-    btnId="dismiss-button"
-    btnTitle="Get Offer"
-    url="/contact"
-  />
-   */}
-
-    <HeroSection
+<MainLayout
+  title={pageTitle}
+  meta={metaDescription}
+  structuredData={structuredData}
+>
+  <HeroSection
     title=`Master the Art of Roasting: <span class="text-yellow-500 dark:text-yellow-400">KRAFFE Commercial Coffee Roasting Machines</span>`
     subTitle="Achieve precision, durability, and consistency with KRAFFE industrial coffee roasters—designed for professionals and backed by lifetime support."
     primaryBtn="Explore Our Machines"
@@ -55,60 +124,57 @@ const avatarSrcs: Array<string> = [
     alt="Detailed view of a commercial Kraffe industrial coffee roasting machine"
   />
 
-    <FeaturesGeneral
+  <FeaturesGeneral
     title="Crafted for Roasting Perfection"
     subTitle="KRAFFE ROASTERS expertly engineered to deliver exceptional control, consistency between batches, and efficiency, allowing you to fully unlock the potential of every bean."
     features={features}
   />
 
-    <FeaturesNavs
+  <FeaturesNavs
     title=`Inside the KRAFFE ROASTERS: <span class="text-yellow-500 dark:text-yellow-400">Where Precision Meets Power</span>`
      tabs={[
-   {
-     heading: "Roast with Confidence—No Matter the Conditions",
-     content:
-       "Take full control of heat transfer with KRAFFE’s advanced thermal control system, 3mm precision thermocouples, and improved heat insulation, ensuring consistent performance in any environment.",
-     svg: "dashboard",
-     src: thermalControlImage,
-     alt: "Close-up view of Kraffe Roaster's double-walled drum insulation", // <-- YENİ ALT METİN
-     first: true,
-   },
-   {
-     heading: "Precision Roasting System",
-     content:
-       "Roasting to Perfection. Achieve flawless results with KRAFFE’s modulated premix burner, precise airflow, and sensitive drum speed controls for perfect, consistent roasts every time.",
-     svg: "dashboard", // Bu ikon adını Kraffe'ye uygun bir ikonla değiştirebiliriz (örn: "sliders" veya "adjustments")
-     src: precisionSystemImage,
-     alt: "Detailed shot of Kraffe Roaster's precision burner system", // <-- YENİ ALT METİN
-     second: true, // Bu stili korumak isteyip istemediğinize bağlı
-   },
-   {
-     heading: "Smart Integration for Your Roastery",
-     content:
-       "Work with commonly used software like Cropster and Artisan, eliminating the need for unnecessary software while ensuring customizable control and precise roasting performance.",
-     svg: "dashboard",
-     src: smartIntegrationImage, // <-- YENİ DEĞİŞKEN
-     alt: "Screenshot showing Kraffe Roaster software integration with Cropster/Artisan", // <-- YENİ ALT METİN
-   },
- ]}
+       {
+         heading: "Roast with Confidence—No Matter the Conditions",
+         content:
+           "Take full control of heat transfer with KRAFFE’s advanced thermal control system, 3mm precision thermocouples, and improved heat insulation, ensuring consistent performance in any environment.",
+         svg: "dashboard",
+         src: thermalControlImage,
+         alt: "Close-up view of Kraffe Roaster's double-walled drum insulation",
+         first: true,
+       },
+       {
+         heading: "Precision Roasting System",
+         content:
+           "Roasting to Perfection. Achieve flawless results with KRAFFE’s modulated premix burner, precise airflow, and sensitive drum speed controls for perfect, consistent roasts every time.",
+         svg: "dashboard",
+         src: precisionSystemImage,
+         alt: "Detailed shot of Kraffe Roaster's precision burner system",
+         second: true,
+       },
+       {
+         heading: "Smart Integration for Your Roastery",
+         content:
+           "Work with commonly used software like Cropster and Artisan, eliminating the need for unnecessary software while ensuring customizable control and precise roasting performance.",
+         svg: "dashboard",
+         src: smartIntegrationImage,
+         alt: "Screenshot showing Kraffe Roaster software integration with Cropster/Artisan",
+       },
+     ]}
   />
 
-    <TestimonialsSection
+  <TestimonialsSection
     title="Trusted by Professional Roasters"
     subTitle="Hear why leading roasteries choose KRAFFE ROASTERS for quality, consistency, and support."
     testimonials={[
-   {
-     content:
-       "The machine is incredibly user-friendly and delivers consistent results every time. The roasting process is efficient and precise, allowing me to achieve the perfect roast for my coffee beans.",
-     author: "Amir Montazer",
-     role: "Etude Coffee Co.",
-     avatarSrc: amirAvatar, // <-- Yeni import edilen değişken
-     avatarAlt: "Portrait of Amir Montazer" // <-- Yeni alt metin eklendi
-   },
-
-     // Add more testimonials here if available
-     // { content: "...", author: "...", role: "...", avatarSrc: "..." },
-   ]}
+       {
+         content:
+           "The machine is incredibly user-friendly and delivers consistent results every time. The roasting process is efficient and precise, allowing me to achieve the perfect roast for my coffee beans.",
+         author: "Amir Montazer",
+         role: "Etude Coffee Co.",
+         avatarSrc: amirAvatar,
+         avatarAlt: "Portrait of Amir Montazer"
+       },
+     ]}
     statistics={[
        {
          count: "100% Quality Assurance",
@@ -133,15 +199,14 @@ const avatarSrcs: Array<string> = [
      ]}
   />
 
-    <PricingSection pricing={pricing} />
+  <PricingSection pricing={pricing} />
 
-    <FAQ title="Frequently<br />Asked Questions" faqs={faqs} />
+  <FAQ title="Frequently<br />Asked Questions" faqs={faqsData} />
 
-    <HeroSectionAlt
-  title="Let's Design Your Machine"
-  subTitle="Contact us and our experts will study best fitting KRAFFE model with you."
-  url="/contact"
-  btnTitle="Contact Us" //
-/>
-
+  <HeroSectionAlt
+    title="Let's Design Your Machine"
+    subTitle="Contact us and our experts will study best fitting KRAFFE model with you."
+    url="/contact"
+    btnTitle="Contact Us"
+  />
 </MainLayout>
