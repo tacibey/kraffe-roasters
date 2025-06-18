@@ -28,26 +28,12 @@ const gtmContainerId = "GTM-PZZBN787";
 
 <html lang={lang} class="dark scrollbar-hide lenis lenis-smooth scroll-pt-16">
   <head>
-    {/* Meta etiketleri ve diğer başlık bilgileri */}
     <Meta meta={meta} structuredData={structuredData} />
     <title>{title}</title>
     
-    {/* Kritik CSS */}
-    <style is:inline>
-      h1.block { display: block; }
-      h1.text-balance { text-wrap: balance; }
-      h1.text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
-      h1.font-bold { font-weight: 700; }
-      h1.tracking-tight { letter-spacing: -0.025em; }
-      html.scroll-pt-16 { scroll-padding-top: 4rem; }
-      html.scrollbar-hide::-webkit-scrollbar { display: none; }
-      html.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-    </style>
-    
-    {/* === TÜM SCRIPTLER BURAYA TAŞINDI === */}
-    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
     <script>
       import "@scripts/lenisSmoothScroll.js";
+      import "preline/preline.js";
     </script>
 
   </head>
@@ -69,9 +55,7 @@ const gtmContainerId = "GTM-PZZBN787";
 
     <FooterSection />
 
-    {/* Yalnızca GTM ve Consent Banner burada kalacak */}
-
-    {/* Google Tag Manager (Onay Modu ile Uyumlu) */}
+    {/* GTM script'i analytics onayı beklenecek şekilde ayarlandı */}
     {gtmContainerId && (
         <script type="text/plain" data-cookiecategory="analytics" define:vars={{ gtmContainerId }}>
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -85,8 +69,12 @@ const gtmContainerId = "GTM-PZZBN787";
         <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtmContainerId}`} height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     )}
     
-    {/* Çerez Banner Bileşeni */}
     <ConsentBanner />
+
+    <style>
+      .scrollbar-hide::-webkit-scrollbar { display: none; }
+      .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
 
   </body>
 </html>
