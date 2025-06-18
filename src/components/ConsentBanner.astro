@@ -1,6 +1,145 @@
-{/* src/components/ConsentBanner.astro (GEÇİCİ TEST VERSİYONU) */}
+{/* src/components/ConsentBanner.astro (NİHAİ VE DÜZELTİLMİŞ VERSİYON) */}
 
-<div id="cookie-banner-test" style="position: fixed; bottom: 1rem; right: 1rem; background-color: #FACC15; color: #1f2937; padding: 1rem; border-radius: 0.5rem; z-index: 9999; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-  <h3 style="font-size: 1.125rem; font-weight: bold;">🍪 TEST BANNER</h3>
-  <p style="margin-top: 0.5rem;">If you can see this, the component is loading correctly. The issue is with the script inside.</p>
-</div>
+<!-- Cookie Consent kütüphanesinin stil dosyasını link etiketiyle yüklüyoruz -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.css" />
+
+<!-- 
+  Astro'da script'leri yönetmenin en güvenli yolu, dışarıdan gelen script'leri is:inline içine import etmektir.
+  Bu, Astro'nun build sürecinde script'i doğru bir şekilde ele almasını sağlar.
+-->
+<script is:inline>
+  // Google Onay Modu'nu (Consent Mode) varsayılan olarak "reddedildi" durumuna getiren fonksiyon
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
+
+  // dataLayer'ın mevcut olduğundan emin oluyoruz.
+  window.dataLayer = window.dataLayer || [];
+
+  // Kullanıcı herhangi bir seçim yapmadan ÖNCE tüm onay türlerini varsayılan olarak reddediyoruz.
+  // Bu, scriptlerin kullanıcı onayı olmadan çalışmasını engeller.
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied',
+    'functionality_storage': 'denied',
+    'personalization_storage': 'denied',
+    'security_storage': 'denied',
+    'wait_for_update': 500
+  });
+
+  // Dış kütüphaneyi dinamik olarak import ediyoruz.
+  // Bu, sayfa tamamen yüklendikten sonra çalışarak olası çakışmaları önler.
+  import('https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.esm.js')
+    .then(({ CookieConsent }) => {
+      // Kütüphane başarıyla yüklendikten sonra banner'ı çalıştır
+      CookieConsent.run({
+        gui_options: {
+          consent_modal: {
+            layout: 'box',
+            position: 'bottom right',
+            transition: 'slide'
+          },
+          settings_modal: {
+            layout: 'box',
+            transition: 'slide'
+          }
+        },
+
+        // Astro'nun dil özelliğini kullanarak banner dilini otomatik ayarla
+        current_lang: document.documentElement.lang || 'en',
+        autoclear_cookies: true,
+        page_scripts: true,
+
+        // Kullanıcı bir seçim yaptığında (ilk etkileşim)
+        onFirstAction: (user_preferences, cookie) => {
+          const hasAnalyticsConsent = user_preferences.accepted_categories.includes('analytics');
+          gtag('consent', 'update', {
+            'analytics_storage': hasAnalyticsConsent ? 'granted' : 'denied'
+          });
+        },
+
+        // Kullanıcı ayarları değiştirdiğinde
+        onChange: (cookie, changed_preferences) => {
+          const hasAnalyticsConsent = cookie.categories.includes('analytics');
+          gtag('consent', 'update', {
+            'analytics_storage': hasAnalyticsConsent ? 'granted' : 'denied'
+          });
+        },
+
+        languages: {
+          'en': {
+            consent_modal: {
+              title: '🍪 We value your privacy',
+              description: 'We use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want. For more details, please see our <a href="/privacy-policy" class="cc-link">Privacy Policy</a>.',
+              primary_btn: {
+                text: 'Accept all',
+                role: 'accept_all'
+              },
+              secondary_btn: {
+                text: 'Settings',
+                role: 'settings'
+              },
+              // Reject all butonu kaldırıldı, kullanıcıyı ayarlara yönlendirmek daha iyi bir UX
+            },
+            settings_modal: {
+              title: 'Cookie Preferences',
+              save_settings_btn: 'Save settings',
+              accept_all_btn: 'Accept all',
+              reject_all_btn: 'Reject all',
+              close_btn_label: 'Close',
+              blocks: [{
+                title: 'Cookie Usage',
+                description: 'We use cookies to ensure basic website functionality and to improve your online experience. Click on the different category headings to find out more. You can choose to opt-out of each category.'
+              }, {
+                title: 'Strictly Necessary Cookies',
+                description: 'These cookies are essential for the proper functioning of the website. Without these cookies, the website would not work properly.',
+                toggle: { value: 'necessary', enabled: true, readonly: true }
+              }, {
+                title: 'Performance and Analytics Cookies',
+                description: 'These cookies collect information about how you use the website, which pages you visited, and which links you clicked on. All data is anonymized and cannot be used to identify you.',
+                toggle: { value: 'analytics', enabled: false, readonly: false }
+              }]
+            }
+          },
+          'fr': {
+            consent_modal: {
+              title: '🍪 Nous respectons votre vie privée',
+              description: 'Nous utilisons des cookies pour assurer les fonctionnalités de base du site et pour améliorer votre expérience en ligne. Vous pouvez choisir d\'activer/désactiver chaque catégorie quand vous le souhaitez. Pour plus de détails, consultez notre <a href="/fr/privacy-policy" class="cc-link">Politique de Confidentialité</a>.',
+              primary_btn: {
+                text: 'Tout accepter',
+                role: 'accept_all'
+              },
+              secondary_btn: {
+                text: 'Paramètres',
+                role: 'settings'
+              }
+            },
+            settings_modal: {
+              title: 'Préférences de cookies',
+              save_settings_btn: 'Enregistrer',
+              accept_all_btn: 'Tout accepter',
+              reject_all_btn: 'Tout rejeter',
+              close_btn_label: 'Fermer',
+              blocks: [{
+                title: 'Utilisation des cookies',
+                description: 'Nous utilisons des cookies pour assurer les fonctionnalités de base du site et pour améliorer votre expérience en ligne. Cliquez sur les différentes catégories pour en savoir plus. Vous pouvez choisir de désactiver chaque catégorie.'
+              }, {
+                title: 'Cookies Strictement Nécessaires',
+                description: 'Ces cookies sont essentiels au bon fonctionnement du site web. Sans ces cookies, le site ne fonctionnerait pas correctement.',
+                toggle: { value: 'necessary', enabled: true, readonly: true }
+              }, {
+                title: 'Cookies de Performance et d\'Analyse',
+                description: 'Ces cookies collectent des informations sur la manière dont vous utilisez le site, les pages que vous avez visitées et les liens sur lesquels vous avez cliqué. Toutes les données sont anonymisées et ne peuvent pas être utilisées pour vous identifier.',
+                toggle: { value: 'analytics', enabled: false, readonly: false }
+              }]
+            }
+          }
+        }
+      });
+    })
+    .catch(() => {
+      console.error('CookieConsent script failed to load.');
+    });
+</script>
