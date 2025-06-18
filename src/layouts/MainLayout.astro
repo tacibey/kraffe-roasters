@@ -30,17 +30,16 @@ const gtmContainerId = "GTM-PZZBN787";
     <Meta meta={meta} structuredData={structuredData} />
     <title>{title}</title>
     
-    {/* Banner'ın STİL dosyası burada kalabilir */}
+    {/* Çerez Banner'ının Stil Dosyası */}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.css" />
 
+    {/* Lenis Scroll Script'i */}
     <script>
       import "@scripts/lenisSmoothScroll.js";
-      import "preline/preline.js";
     </script>
   </head>
-  <body
-    class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800"
-  >
+  <body class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800">
+
     <div class="mx-auto max-w-(--breakpoint-2xl) px-4 sm:px-6 lg:px-8">
       <Navbar />
       <main>
@@ -56,39 +55,35 @@ const gtmContainerId = "GTM-PZZBN787";
 
     <FooterSection />
 
+    {/* Preline script'i, diğer tüm script'lerden ÖNCE body sonunda yüklenmeli */}
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+
     {/* GTM script'i analytics onayı beklenecek şekilde ayarlandı */}
     {gtmContainerId && (
         <script type="text/plain" data-cookiecategory="analytics" define:vars={{ gtmContainerId }}>
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer',gtmContainerId);
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer',gtmContainerId);
         </script>
     )}
     {gtmContainerId && (
         <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtmContainerId}`} height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     )}
     
-    {/* BANNER'I ÇALIŞTIRAN YENİ VE GÜVENLİ YAPI */}
+    {/* Çerez Banner'ı script'i, Preline'dan SONRA çalışacak */}
+    <script is:inline src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.umd.js" defer></script>
     <script is:inline>
-        // Önce varsayılan onay durumunu ayarla
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('consent', 'default', {
-            'ad_storage': 'denied',
-            'ad_user_data': 'denied',
-            'ad_personalization': 'denied',
-            'analytics_storage': 'denied',
-            'wait_for_update': 500
-        });
+        document.addEventListener('DOMContentLoaded', function () {
+            // Varsayılan onay durumunu ayarla
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('consent', 'default', {
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'analytics_storage': 'denied',
+                'wait_for_update': 500
+            });
 
-        // Banner script'ini oluştur ve sayfaya ekle
-        const ccScript = document.createElement('script');
-        ccScript.src = 'https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.umd.js';
-        
-        // Script yüklendiğinde (onload) banner'ı çalıştıracak fonksiyonu tanımla
-        ccScript.onload = function () {
+            // Banner'ı çalıştır
             CookieConsent.run({
                 current_lang: document.documentElement.lang || 'en',
                 autoclear_cookies: true,
@@ -104,13 +99,10 @@ const gtmContainerId = "GTM-PZZBN787";
                 gui_options: { consent_modal: { layout: 'box', position: 'bottom right' }, settings_modal: { layout: 'box' }},
                 languages: {
                     'en': { consent_modal: { title: '🍪 We use cookies!', description: 'We use cookies to ensure our site works. With your consent, we may also use non-essential cookies to improve user experience. See our <a href="/privacy-policy" class="cc-link">Privacy Policy</a>.', primary_btn: { text: 'Accept all', role: 'accept_all' }, secondary_btn: { text: 'Settings', role: 'settings' } }, settings_modal: { title: 'Cookie Preferences', save_settings_btn: 'Save settings', accept_all_btn: 'Accept all', reject_all_btn: 'Reject all', blocks: [ { title: 'Strictly Necessary Cookies', description: 'These cookies are essential for the proper functioning of the website.', toggle: { value: 'necessary', enabled: true, readonly: true }}, { title: 'Analytics & Performance Cookies', description: 'These cookies allow us to measure traffic and user behavior to improve our services.', toggle: { value: 'analytics', enabled: false, readonly: false }} ] } },
-                    'fr': { consent_modal: { title: '🍪 Nous utilisons des cookies !', description: 'Nous utilisons des cookies pour faire fonctionner notre site. Avec votre consentement, nous utilisons aussi des cookies non essentiels pour améliorer l\'expérience. Voir notre <a href="/fr/privacy-policy" class="cc-link">Politique de Confidentialité</a>.', primary_btn: { text: 'Tout accepter', role: 'accept_all' }, secondary_btn: { text: 'Paramètres', role: 'settings' } }, settings_modal: { title: 'Préférences de cookies', save_settings_btn: 'Enregistrer', accept_all_btn: 'Tout accepter', reject_all_btn: 'Tout rejeter', blocks: [ { title: 'Cookies Nécessaires', description: 'Ces cookies sont essentiels au bon fonctionnement du site web.', toggle: { value: 'necessary', enabled: true, readonly: true }}, { title: 'Cookies d\'Analyse', description: 'Ces cookies nous permettent de mesurer le trafic pour améliorer nos services.', toggle: { value: 'analytics', enabled: false, readonly: false }} ] } }
+                    'fr': { consent_modal: { title: '🍪 Nous utilisons des cookies !', description: 'Nous utilisons des cookies pour faire fonctionner notre site. Avec votre consentement, nous pouvons aussi utiliser des cookies non essentiels. Voir notre <a href="/fr/privacy-policy" class="cc-link">Politique de Confidentialité</a>.', primary_btn: { text: 'Tout accepter', role: 'accept_all' }, secondary_btn: { text: 'Paramètres', role: 'settings' } }, settings_modal: { title: 'Préférences de cookies', save_settings_btn: 'Enregistrer', accept_all_btn: 'Tout accepter', reject_all_btn: 'Tout rejeter', blocks: [ { title: 'Cookies Nécessaires', description: 'Ces cookies sont essentiels au bon fonctionnement du site.', toggle: { value: 'necessary', enabled: true, readonly: true }}, { title: 'Cookies d\'Analyse', description: 'Ces cookies nous permettent de mesurer le trafic.', toggle: { value: 'analytics', enabled: false, readonly: false }} ] } }
                 }
             });
-        };
-        
-        // Oluşturulan script'i body'nin sonuna ekle
-        document.body.appendChild(ccScript);
+        });
     </script>
     
     <style>
