@@ -1,0 +1,154 @@
+{/* src/components/ConsentBanner.astro */}
+
+<!-- Cookie Consent by Orestbida - https://github.com/orestbida/cookieconsent -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.css" />
+<script type="module" src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.esm.js"></script>
+
+<script is:inline>
+    // Google Onay Modu'nu (Consent Mode) varsayılan olarak "reddedildi" durumuna getiren fonksiyon
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    // Kullanıcı herhangi bir seçim yapmadan ÖNCE tüm onay türlerini varsayılan olarak reddediyoruz.
+    // Bu, scriptlerin kullanıcı onayı olmadan çalışmasını engeller.
+    gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied',
+        'functionality_storage': 'denied',
+        'personalization_storage': 'denied',
+        'security_storage': 'denied',
+        'wait_for_update': 500 // Milisaniye cinsinden, etiketlerin tetiklenmeden önce onay güncellemesini beklemesi için
+    });
+
+    // Google Tag Manager'a bu varsayılan durumu bildir
+    window.dataLayer = window.dataLayer || [];
+    dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+
+    // CookieConsent kütüphanesini başlat
+    CookieConsent.run({
+        // Astro'nun dil özelliğini kullanarak banner dilini otomatik ayarla
+        current_lang: document.documentElement.lang,
+        autoclear_cookies: true,
+        page_scripts: true,
+
+        // Kullanıcı seçim yaptığında veya ayarları değiştirdiğinde Google Onay Modu'nu güncelle
+        onFirstAction: function(user_preferences, cookie){
+            const hasAnalyticsConsent = user_preferences.accepted_categories.includes('analytics');
+            gtag('consent', 'update', {
+                'analytics_storage': hasAnalyticsConsent ? 'granted' : 'denied'
+            });
+        },
+
+        onChange: function (cookie, changed_preferences) {
+            const hasAnalyticsConsent = changed_preferences.accepted_categories.includes('analytics');
+            gtag('consent', 'update', {
+                'analytics_storage': hasAnalyticsConsent ? 'granted' : 'denied'
+            });
+        },
+
+        gui_options: {
+            consent_modal: {
+                layout: 'box',
+                position: 'bottom right',
+                transition: 'slide'
+            },
+            settings_modal: {
+                layout: 'box',
+                transition: 'slide'
+            }
+        },
+
+        // Banner metinlerini İngilizce ve Fransızca olarak tanımla
+        languages: {
+            'en': {
+                consent_modal: {
+                    title: '🍪 We use cookies!',
+                    description: 'This website uses essential cookies to ensure its proper operation and tracking cookies to understand how you interact with it. The latter will be set only after consent. <a href="/privacy-policy" class="cc-link">Privacy Policy</a>',
+                    primary_btn: {
+                        text: 'Accept all',
+                        role: 'accept_all'
+                    },
+                    secondary_btn: {
+                        text: 'Reject all',
+                        role: 'reject_all'
+                    }
+                },
+                settings_modal: {
+                    title: 'Cookie Preferences',
+                    save_settings_btn: 'Save settings',
+                    accept_all_btn: 'Accept all',
+                    reject_all_btn: 'Reject all',
+                    close_btn_label: 'Close',
+                    blocks: [
+                        {
+                            title: 'Cookie Usage',
+                            description: 'We use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want.'
+                        }, {
+                            title: 'Strictly Necessary Cookies',
+                            description: 'These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly.',
+                            toggle: {
+                                value: 'necessary',
+                                enabled: true,
+                                readonly: true
+                            }
+                        }, {
+                            title: 'Analytics Cookies',
+                            description: 'These cookies collect information about how you use the website, which pages you visited, and which links you clicked on. All of the data is anonymized and cannot be used to identify you.',
+                            toggle: {
+                                value: 'analytics',
+                                enabled: false,
+                                readonly: false
+                            },
+                        }
+                    ]
+                }
+            },
+            'fr': {
+                consent_modal: {
+                    title: '🍪 Nous utilisons des cookies !',
+                    description: 'Ce site web utilise des cookies essentiels pour assurer son bon fonctionnement et des cookies de suivi pour comprendre comment vous interagissez avec lui. Ces derniers ne seront installés qu\'après votre consentement. <a href="/fr/privacy-policy" class="cc-link">Politique de Confidentialité</a>',
+                    primary_btn: {
+                        text: 'Tout accepter',
+                        role: 'accept_all'
+                    },
+                    secondary_btn: {
+                        text: 'Tout rejeter',
+                        role: 'reject_all'
+                    }
+                },
+                settings_modal: {
+                    title: 'Préférences de cookies',
+                    save_settings_btn: 'Enregistrer les paramètres',
+                    accept_all_btn: 'Tout accepter',
+                    reject_all_btn: 'Tout rejeter',
+                    close_btn_label: 'Fermer',
+                    blocks: [
+                        {
+                            title: 'Utilisation des cookies',
+                            description: 'Nous utilisons des cookies pour assurer les fonctionnalités de base du site web et pour améliorer votre expérience en ligne. Vous pouvez choisir pour chaque catégorie d\'accepter ou de refuser quand vous le souhaitez.'
+                        }, {
+                            title: 'Cookies Strictement Nécessaires',
+                            description: 'Ces cookies sont essentiels au bon fonctionnement de mon site web. Sans ces cookies, le site ne fonctionnerait pas correctement.',
+                            toggle: {
+                                value: 'necessary',
+                                enabled: true,
+                                readonly: true
+                            }
+                        }, {
+                            title: 'Cookies Analytiques',
+                            description: 'Ces cookies collectent des informations sur la manière dont vous utilisez le site, les pages que vous avez visitées et les liens sur lesquels vous avez cliqué. Toutes les données sont anonymisées et ne peuvent pas être utilisées pour vous identifier.',
+                            toggle: {
+                                value: 'analytics',
+                                enabled: false,
+                                readonly: false
+                            },
+                        }
+                    ]
+                }
+            }
+        }
+    });
+</script>
