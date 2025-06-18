@@ -1,10 +1,10 @@
 ---
 // src/pages/privacy-policy.astro
 import MainLayout from "@/layouts/MainLayout.astro";
-import { SITE } from "@/data/constants";
+// import { SITE } from "@/data/constants"; <-- BU SATIR SİLİNDİ
 import { getRelativeLocaleUrl } from "astro:i18n";
 
-const pageTitle = `Privacy Policy | ${SITE.title}`;
+const pageTitle = `Privacy Policy | Kraffe Roasters`; // SITE.title yerine doğrudan metin yazıldı
 const contactPageUrl = getRelativeLocaleUrl('en', 'contact');
 ---
 
