@@ -1,1 +1,113 @@
+{/* src/components/ConsentBanner.astro (SON VERSİYON) */}
 
+<!-- Gerekli CSS ve JS dosyalarını doğrudan CDN'den yüklüyoruz -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.css" />
+<script type="module" src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.esm.js"></script>
+
+<!-- Banner'ı yapılandıran ve Google Consent Mode'u yöneten script -->
+<script is:inline>
+  // Scriptin birden çok kez çalışmasını önlemek için bir kontrol
+  if (!window.consentBannerInitialized) {
+    window.consentBannerInitialized = true;
+
+    // dataLayer'ın mevcut olduğundan emin oluyoruz.
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    // Varsayılan olarak tüm onayları reddet
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'wait_for_update': 500
+    });
+    
+    // CookieConsent kütüphanesi yüklendiğinde banner'ı çalıştır
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.CookieConsent) {
+        window.CookieConsent.run({
+          current_lang: document.documentElement.lang || 'en',
+          autoclear_cookies: true,
+          page_scripts: true,
+
+          onFirstAction: (user_preferences) => {
+            const analyticsGranted = user_preferences.accepted_categories.includes('analytics');
+            gtag('consent', 'update', {
+              'analytics_storage': analyticsGranted ? 'granted' : 'denied'
+            });
+          },
+
+          onChange: ({ cookie }) => {
+            const analyticsGranted = cookie.categories.includes('analytics');
+            gtag('consent', 'update', {
+              'analytics_storage': analyticsGranted ? 'granted' : 'denied'
+            });
+          },
+
+          gui_options: {
+            consent_modal: { layout: 'box', position: 'bottom right' },
+            settings_modal: { layout: 'box' }
+          },
+
+          languages: {
+            'en': {
+              consent_modal: {
+                title: '🍪 We use cookies!',
+                description: 'We use essential cookies to make our site work. With your consent, we may also use non-essential cookies to improve user experience and analyze website traffic. <a href="/privacy-policy" class="cc-link">Privacy Policy</a>',
+                primary_btn: { text: 'Accept all', role: 'accept_all' },
+                secondary_btn: { text: 'Settings', role: 'settings' }
+              },
+              settings_modal: {
+                title: 'Cookie Preferences',
+                save_settings_btn: 'Save settings',
+                accept_all_btn: 'Accept all',
+                reject_all_btn: 'Reject all',
+                blocks: [
+                  {
+                    title: 'Strictly Necessary Cookies',
+                    description: 'These cookies are essential for the proper functioning of the website.',
+                    toggle: { value: 'necessary', enabled: true, readonly: true }
+                  },
+                  {
+                    title: 'Analytics & Performance Cookies',
+                    description: 'These cookies allow us to measure traffic and user behavior to improve our services.',
+                    toggle: { value: 'analytics', enabled: false, readonly: false }
+                  }
+                ]
+              }
+            },
+            'fr': {
+              consent_modal: {
+                title: '🍪 Nous utilisons des cookies !',
+                description: 'Nous utilisons des cookies essentiels pour faire fonctionner notre site. Avec votre consentement, nous pouvons également utiliser des cookies non essentiels pour améliorer l\'expérience utilisateur et analyser le trafic du site. <a href="/fr/privacy-policy" class="cc-link">Politique de Confidentialité</a>',
+                primary_btn: { text: 'Tout accepter', role: 'accept_all' },
+                secondary_btn: { text: 'Paramètres', role: 'settings' }
+              },
+              settings_modal: {
+                title: 'Préférences de cookies',
+                save_settings_btn: 'Enregistrer',
+                accept_all_btn: 'Tout accepter',
+                reject_all_btn: 'Tout rejeter',
+                blocks: [
+                  {
+                    title: 'Cookies Strictement Nécessaires',
+                    description: 'Ces cookies sont essentiels au bon fonctionnement du site web.',
+                    toggle: { value: 'necessary', enabled: true, readonly: true }
+                  },
+                  {
+                    title: 'Cookies d\'Analyse et de Performance',
+                    description: 'Ces cookies nous permettent de mesurer le trafic et le comportement des utilisateurs pour améliorer nos services.',
+                    toggle: { value: 'analytics', enabled: false, readonly: false }
+                  }
+                ]
+              }
+            }
+          }
+        });
+      }
+    });
+  }
+</script>
