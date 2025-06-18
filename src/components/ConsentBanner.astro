@@ -1,22 +1,19 @@
-{/* src/components/ConsentBanner.astro (SON VERSİYON) */}
+{/* src/components/ConsentBanner.astro (SON VE KESİN ÇÖZÜM) */}
 
-<!-- Gerekli CSS ve JS dosyalarını doğrudan CDN'den yüklüyoruz -->
+<!-- ASTRO BUILD OPTIMIZASYONUNU ENGELLEMEK IÇIN YORUM SATIRI -->
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.css" />
 <script type="module" src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.esm.js"></script>
 
-<!-- Banner'ı yapılandıran ve Google Consent Mode'u yöneten script -->
 <script is:inline>
-  // Scriptin birden çok kez çalışmasını önlemek için bir kontrol
   if (!window.consentBannerInitialized) {
     window.consentBannerInitialized = true;
 
-    // dataLayer'ın mevcut olduğundan emin oluyoruz.
     window.dataLayer = window.dataLayer || [];
     function gtag() {
       dataLayer.push(arguments);
     }
 
-    // Varsayılan olarak tüm onayları reddet
     gtag('consent', 'default', {
       'ad_storage': 'denied',
       'ad_user_data': 'denied',
@@ -25,7 +22,6 @@
       'wait_for_update': 500
     });
     
-    // CookieConsent kütüphanesi yüklendiğinde banner'ı çalıştır
     window.addEventListener('DOMContentLoaded', () => {
       if (window.CookieConsent) {
         window.CookieConsent.run({
@@ -72,7 +68,7 @@
                     toggle: { value: 'necessary', enabled: true, readonly: true }
                   },
                   {
-                    title: 'Analytics & Performance Cookies',
+                    title: 'Performance and Analytics Cookies',
                     description: 'These cookies allow us to measure traffic and user behavior to improve our services.',
                     toggle: { value: 'analytics', enabled: false, readonly: false }
                   }
