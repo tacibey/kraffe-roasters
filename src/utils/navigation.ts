@@ -1,5 +1,3 @@
-// src/utils/navigation.ts
-
 const navBarLinks = [
   { name: "Home", url: "/" },
   { name: "Products", url: "/products" },
@@ -22,13 +20,14 @@ const footerLinks = [
       { name: "About us", url: "/about" },
       { name: "Blog", url: "/blog" },
       { name: "Contact Us", url: "/contact" },
-      { name: "Privacy Policy", url: "/privacy-policy" }, // <-- EKLENEN SATIR
     ],
   },
 ];
 
 const socialLinks = {
   facebook: "https://www.facebook.com/krafferoasters",
+  x: "https://x.com/krafferoasters",
+  github: "https://github.com/mearashadowfax/ScrewFast",
   google: "#",
   slack: "#",
   instagram: "https://www.instagram.com/krafferoasters/"
