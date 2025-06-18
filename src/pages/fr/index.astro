@@ -1,5 +1,5 @@
 ---
-// src/pages/fr/index.astro (Final Version with Advanced Schema)
+// src/pages/fr/index.astro (Corrected Final Version)
 
 // Gerekli bileşenleri ve verileri import et
 import MainLayout from "@/layouts/MainLayout.astro";
@@ -17,9 +17,9 @@ import thermalControlImage from "@images/features5.avif";
 import precisionSystemImage from "@images/sample-coffee-roaster.webp";
 import smartIntegrationImage from "@images/kf2.avif";
 import amirAvatar from "@images/Amir+Montazer.avif";
-import logoForSchema from "@images/kraffe-logo.png"; // Schema için logo
+import logoForSchema from "@images/kraffe-logo.png";
 
-// FRANSızca veri dosyaları
+// DOĞRU FRANSIZCA VERİ DOSYALARI IMPORT EDİLDİ
 import faqs_fr from "@data/fr/faqs.json";
 import features_fr from "@data/fr/features.json";
 import pricing_fr from "@data/fr/pricing.json";
@@ -35,7 +35,7 @@ const avatarSrcs: Array<string> = [
   "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
 ];
 
-// === FRANSIZCA METİNLER ===
+// === FRANSIZCA METİNLER (Değişiklik yok) ===
 const heroTitle_fr = `Maîtrisez l'Art de la Torréfaction : <span class="text-yellow-500 dark:text-yellow-400">Machines à Torréfier Commerciales KRAFFE</span>`;
 const heroSubTitle_fr = "Obtenez précision, durabilité et constance avec les torréfacteurs industriels KRAFFE — conçus pour les professionnels et soutenus par une assistance à vie.";
 const heroPrimaryBtn_fr = "Explorer Nos Machines";
@@ -95,16 +95,16 @@ const structuredData_fr = {
       ],
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+90-533-566-7061",
+        "telephone": "+90-533-566-7061", // Lütfen kendi telefon numaranızla güncelleyin
         "contactType": "customer service",
-        "areaServed": "FR", // Hedef bölgeyi belirtmek iyi bir pratiktir
-        "availableLanguage": "French" // Sunulan dil
+        "areaServed": "FR",
+        "availableLanguage": "French"
       }
     },
     {
       "@type": "WebSite",
       "url": `${SITE.url}/fr`,
-      "name": `Kraffe Roasters France`, // Dile özel site adı
+      "name": `Kraffe Roasters France`,
       "description": metaDescription_fr,
       "publisher": {
         "@type": "Organization",
@@ -114,7 +114,7 @@ const structuredData_fr = {
           "url": logoUrl
         }
       },
-      "inLanguage": "fr-FR" // Dil kodu
+      "inLanguage": "fr-FR"
     },
     {
       "@type": "CollectionPage",
