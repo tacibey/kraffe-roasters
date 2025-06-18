@@ -29,10 +29,109 @@ const gtmContainerId = "GTM-PZZBN787";
 
 <html lang={lang} class="dark scrollbar-hide lenis lenis-smooth scroll-pt-16">
   <head>
-    {/* Meta etiketleri ve diğer başlık bilgileri */}
+    <!-- START: Silktide Cookie Consent Banner & Google Consent Mode -->
+    <script is:inline>
+      // Define dataLayer and the gtag function.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+
+      // Set default consent to 'denied' before the user makes a choice.
+      // This is the most important step for Google Consent Mode v2.
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied',
+        'wait_for_update': 500 // Waits 500ms for consent update
+      });
+    </script>
+    
+    <link rel="stylesheet" id="silktide-consent-manager-css" href="/cookie-banner/css/silktide-consent-manager.css">
+    <script src="/cookie-banner/js/silktide-consent-manager.js"></script>
+    <script is:inline>
+      silktideCookieBannerManager.updateCookieBannerConfig({
+        background: {
+          showBackground: true
+        },
+        cookieIcon: {
+          position: "bottomLeft"
+        },
+        cookieTypes: [
+          {
+            id: "necessary",
+            name: "Necessary",
+            description: "<p>These cookies are necessary for the website to function properly and cannot be switched off. They help with things like logging in and setting your privacy preferences.</p>",
+            required: true,
+          },
+          {
+            id: "analytics",
+            name: "Analytical",
+            description: "<p>These cookies help us improve the site by tracking which pages are most popular and how visitors move around the site.</p>",
+            defaultValue: true,
+            onAccept: function() {
+              gtag('consent', 'update', {
+                analytics_storage: 'granted',
+              });
+              dataLayer.push({
+                'event': 'consent_accepted_analytics',
+              });
+            },
+            onReject: function() {
+              gtag('consent', 'update', {
+                analytics_storage: 'denied',
+              });
+            }
+          },
+          {
+            id: "advertising",
+            name: "Advertising",
+            description: "<p>These cookies provide extra features and personalization to improve your experience. They may be set by us or by partners whose services we use.</p>",
+            onAccept: function() {
+              gtag('consent', 'update', {
+                ad_storage: 'granted',
+                ad_user_data: 'granted',
+                ad_personalization: 'granted',
+              });
+              dataLayer.push({
+                'event': 'consent_accepted_advertising',
+              });
+            },
+            onReject: function() {
+              gtag('consent', 'update', {
+                ad_storage: 'denied',
+                ad_user_data: 'denied',
+                ad_personalization: 'denied',
+              });
+            }
+          }
+        ],
+        text: {
+          banner: {
+            description: "<p>We use cookies on our site to enhance your user experience, provide personalized content, and analyze our traffic. <a href=\"/cookie-policy\" target=\"_blank\">Cookie Policy.</a></p>",
+            acceptAllButtonText: "Accept all",
+            acceptAllButtonAccessibleLabel: "Accept all cookies",
+            rejectNonEssentialButtonText: "Reject non-essential",
+            rejectNonEssentialButtonAccessibleLabel: "Reject non-essential",
+            preferencesButtonText: "Preferences",
+            preferencesButtonAccessibleLabel: "Toggle preferences"
+          },
+          preferences: {
+            title: "Customize your cookie preferences",
+            description: "<p>We respect your right to privacy. You can choose not to allow some types of cookies. Your cookie preferences will apply across our website.</p>",
+            creditLinkText: "Get this banner for free",
+            creditLinkAccessibleLabel: "Get this banner for free"
+          }
+        },
+        position: {
+          banner: "bottomLeft"
+        }
+      });
+    </script>
+    <!-- END: Silktide Cookie Consent Banner & Google Consent Mode -->
+
+    {/* Orijinal Meta ve Başlık Bilgileriniz */}
     <Meta meta={meta} structuredData={structuredData} />
     <title>{title}</title>
-    
     <style is:inline>
       h1.block { display: block; }
       h1.text-balance { text-wrap: balance; }
@@ -44,11 +143,9 @@ const gtmContainerId = "GTM-PZZBN787";
       html.scrollbar-hide::-webkit-scrollbar { display: none; }
       html.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
-    
     <script>
       import "@scripts/lenisSmoothScroll.js";
     </script>
-
   </head>
   <body
     class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800"
@@ -81,7 +178,7 @@ const gtmContainerId = "GTM-PZZBN787";
       }
     </style>
 
-    {/* Orijinal Google Tag Manager Kodunuz */}
+    {/* Orijinal Google Tag Manager Kodunuz burada kalabilir */}
     {gtmContainerId && (
       <script async defer define:vars={{ gtmContainerId }}>
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -94,6 +191,5 @@ const gtmContainerId = "GTM-PZZBN787";
     {gtmContainerId && (
       <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtmContainerId}`} height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     )}
-
   </body>
 </html>
