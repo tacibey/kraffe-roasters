@@ -1,4 +1,5 @@
-// An array of links for navigation bar
+// src/utils/navigation.ts
+
 const navBarLinks = [
   { name: "Home", url: "/" },
   { name: "Products", url: "/products" },
@@ -6,7 +7,7 @@ const navBarLinks = [
   { name: "Blog", url: "/blog" },
   { name: "Contact Us", url: "/contact" },
 ];
-// An array of links for footer
+
 const footerLinks = [
   {
     section: "Ecosystem",
@@ -21,16 +22,16 @@ const footerLinks = [
       { name: "About us", url: "/about" },
       { name: "Blog", url: "/blog" },
       { name: "Contact Us", url: "/contact" },
+      { name: "Privacy Policy", url: "/privacy-policy" }, // <-- EKLENEN SATIR
     ],
   },
 ];
-// An object of links for social icons
+
 const socialLinks = {
-  facebook: "https://www.facebook.com/kraffe.roasters",
-  x: "https://twitter.com/",
-  github: "https://github.com/mearashadowfax/ScrewFast",
-  google: "https://www.google.com/",
-  slack: "https://slack.com/",
+  facebook: "https://www.facebook.com/krafferoasters",
+  google: "#",
+  slack: "#",
+  instagram: "https://www.instagram.com/krafferoasters/"
 };
 
 export default {
