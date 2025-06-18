@@ -4,7 +4,8 @@
 import Meta from "@components/Meta.astro";
 import Navbar from "@components/sections/navbar&footer/Navbar.astro";
 import FooterSection from "@components/sections/navbar&footer/FooterSection.astro";
-import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro"; // AnnouncementBanner hala kullanılıyor
+import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro";
+import ConsentBanner from '@components/ConsentBanner.astro'; // === YENİ BİLEŞEN IMPORTU ===
 import { SITE } from "@data/constants";
 import "@styles/global.css";
 import { getRelativeLocaleUrl } from "astro:i18n";
@@ -20,7 +21,7 @@ interface Props {
 
 const currentLang = Astro.currentLocale || 'en';
 const contactUrl = getRelativeLocaleUrl(currentLang, 'contact');
-const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer'; // AnnouncementBanner için hala kullanılabilir
+const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
 
 // === GOOGLE TAG MANAGER CONTAINER ID ===
 const gtmContainerId = "GTM-PZZBN787";
@@ -33,36 +34,16 @@ const gtmContainerId = "GTM-PZZBN787";
     <Meta meta={meta} structuredData={structuredData} />
     <title>{title}</title>
     
-    {/* KRİTİK CSS BAŞLANGICI - PERFORMANSI DÜŞÜRMEYECEK, SADECE GEREKLİ KONTRAST DÜZELTMELERİ */}
+    {/* KRİTİK CSS BAŞLANGICI */}
     <style is:inline>
-      /* Bu CSS, sitenizin temel renklerini hemen sağlar. */
-      /* Diğer tüm stiller global.css'den yüklenecektir. */
-      
-      /* GENEL METİN RENKLERİ İÇİN KONTRAST DÜZELTMELERİ (KOYU MOD) */
-      /* Pagespeed raporunda belirtilen düşük kontrastlı text-neutral-700/600/800 gibi genel metinleri iyileştirir */
-      /* Bu kısım kaldırılmıştır, zira tüm yazıların sarı olmasına neden oluyordu. */
-      /* Tailwind CSS'in ve global.css'in varsayılan renklerini kullanacaktır. */
-
-      /* Sarı butonlardaki metin rengi artık SecondaryCTA.astro içinde yönetiliyor. */
-      /* Bu yüzden buradaki "#floating-offer-button" ve ".bg-yellow-400" vb. kurallarını kaldırıyoruz */
-      /* Çakışmayı önlemek ve tek bir yerden yönetmek için. */
-
-
-      /* Sayfa arka plan stilleri - Tailwind sınıflarına bırakılmıştır. */
-      /* body.bg-neutral-200 ve html.dark body.dark\:bg-neutral-800 gibi sınıflar kullanılacaktır. */
-
-      /* Kritik LCP elementi (H1) stilleri - bunlar performans düşüşüne neden olmamalıdır */
       h1.block { display: block; }
       h1.text-balance { text-wrap: balance; }
       h1.text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
       h1.font-bold { font-weight: 700; }
       h1.tracking-tight { letter-spacing: -0.025em; }
-
-      /* Gerekli diğer temel HTML stilleri */
       html.scroll-pt-16 { scroll-padding-top: 4rem; }
       html.scrollbar-hide::-webkit-scrollbar { display: none; }
       html.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-
     </style>
     {/* KRİTİK CSS BİTİŞİ */}
     
@@ -82,15 +63,17 @@ const gtmContainerId = "GTM-PZZBN787";
       </main>
     </div>
 
-    {/* AnnouncementBanner hala var ama butonu SecondaryCTA.astro kullanıyor */}
     <AnnouncementBanner
-      btnId="floating-offer-button" // Bu ID artık CSS tarafından kullanılmayacak
+      btnId="floating-offer-button"
       btnTitle={buttonText}
       url={contactUrl}
     />
 
     <FooterSection />
 
+    {/* === MEVCUT GTM KODU SİLİNDİ VE YENİSİ AŞAĞIYA EKLENDİ === */}
+
+    {/* === ONCE KONSOLİDE SCRIPTLER === */}
     <script>
       import "preline/preline.js";
     </script>
@@ -104,21 +87,23 @@ const gtmContainerId = "GTM-PZZBN787";
       }
     </style>
 
-    {/* === GOOGLE TAG MANAGER KODU (BODY SONU) BAŞLANGICI === */}
+    {/* === YENİ GOOGLE TAG MANAGER KODU BAŞLANGICI (ONAY MODU İLE UYUMLU) === */}
     {gtmContainerId && (
-      <script async defer define:vars={{ gtmContainerId }}>
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer',gtmContainerId);
-      </script>
+        <script type="text/plain" data-cookiecategory="analytics" define:vars={{ gtmContainerId }}>
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer',gtmContainerId);
+        </script>
     )}
-    {/* === GOOGLE TAG MANAGER (NOSCRIPT) KODU (BODY SONU) === */}
     {gtmContainerId && (
-      <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtmContainerId}`} height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtmContainerId}`} height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     )}
-    {/* === /GOOGLE TAG MANAGER KODU (BODY SONU) SONU === */}
+    {/* === /YENİ GOOGLE TAG MANAGER KODU SONU === */}
+    
+    {/* === YENİ ÇEREZ BANNER BİLEŞENİ === */}
+    <ConsentBanner />
 
   </body>
 </html>
