@@ -1,5 +1,5 @@
 ---
-// src/pages/fr/index.astro
+// src/pages/fr/index.astro (Final Version with Advanced Schema)
 
 // Gerekli bileşenleri ve verileri import et
 import MainLayout from "@/layouts/MainLayout.astro";
@@ -11,23 +11,24 @@ import TestimonialsSection from "@components/sections/testimonials/TestimonialsS
 import PricingSection from "@components/sections/pricing/PricingSection.astro";
 import FAQ from "@components/sections/misc/FAQ.astro";
 
-// Görsel importları (İngilizce ile aynı varsayılıyor)
+// Görsel importları
 import heroImage from "@images/hero-kraffe.avif";
 import thermalControlImage from "@images/features5.avif";
 import precisionSystemImage from "@images/sample-coffee-roaster.webp";
 import smartIntegrationImage from "@images/kf2.avif";
 import amirAvatar from "@images/Amir+Montazer.avif";
+import logoForSchema from "@images/kraffe-logo.png"; // Schema için logo
 
-// === FRANSIZCA VERİ DOSYALARI IMPORT EDİLİYOR ===
+// FRANSızca veri dosyaları
 import faqs_fr from "@data/fr/faqs.json";
-import features_fr from "@data/fr/features.json"; // Eğer @data/fr/features.json varsa
+import features_fr from "@data/fr/features.json";
 import pricing_fr from "@data/fr/pricing.json";
-// === /FRANSIZCA VERİ DOSYALARI ===
 
-// partnersData constants.ts'den geliyor, dil ayrımı yoksa aynı kalabilir
-// import { partnersData } from "@/data_files/constants"; // Kullanılmıyorsa kaldırılabilir
+// Genel veri dosyaları
+import { SITE, OG } from "@data/constants";
+import { getImage } from "astro:assets";
 
-const avatarSrcs: Array<string> = [ // Bu genel avatarlar, dil ayrımı yoksa aynı kalabilir
+const avatarSrcs: Array<string> = [
   "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80",
@@ -40,92 +41,110 @@ const heroSubTitle_fr = "Obtenez précision, durabilité et constance avec les t
 const heroPrimaryBtn_fr = "Explorer Nos Machines";
 const heroSecondaryBtn_fr = "Demander un Devis";
 const heroReviews_fr = `Reconnus par les <span class="font-bold">Torréfacteurs</span> du Monde Entier`;
-
 const featuresGeneralTitle_fr = "Conçus pour la Perfection de la Torréfaction";
 const featuresGeneralSubTitle_fr = "Les TORRÉFACTEURS KRAFFE sont savamment conçus pour offrir un contrôle exceptionnel, une constance entre les lots et une efficacité, vous permettant de libérer pleinement le potentiel de chaque grain.";
-
 const featuresNavsTitle_fr = `Au Cœur des TORRÉFACTEURS KRAFFE : <span class="text-yellow-500 dark:text-yellow-400">Où la Précision Rencontre la Puissance</span>`;
 const featuresNavsTabs_fr = [
-   {
-     heading: "Torréfiez en Toute Confiance — Quelles que Soient les Conditions",
-     content:
-       "Prenez le contrôle total du transfert de chaleur avec le système de contrôle thermique avancé de KRAFFE, des thermocouples de précision de 3 mm et une isolation thermique améliorée, garantissant des performances constantes dans n'importe quel environnement.",
-     svg: "dashboard", // İkon adı aynı kalabilir
-     src: thermalControlImage,
-     alt: "Vue rapprochée de l'isolation du tambour à double paroi du torréfacteur Kraffe",
-     first: true,
-   },
-   {
-     heading: "Système de Torréfaction de Précision",
-     content:
-       "La Torréfaction à la Perfection. Obtenez des résultats impeccables avec le brûleur prémélangé modulé de KRAFFE, un flux d'air précis et des commandes sensibles de la vitesse du tambour pour des torréfactions parfaites et constantes à chaque fois.",
-     svg: "dashboard",
-     src: precisionSystemImage,
-     alt: "Prise de vue détaillée du système de brûleur de précision du torréfacteur Kraffe",
-     second: true,
-   },
-   {
-     heading: "Intégration Intelligente pour Votre Torréfaction",
-     content:
-       "Travaillez avec des logiciels couramment utilisés comme Cropster et Artisan, éliminant le besoin de logiciels inutiles tout en garantissant un contrôle personnalisable et des performances de torréfaction précises.",
-     svg: "dashboard",
-     src: smartIntegrationImage,
-     alt: "Capture d'écran montrant l'intégration logicielle du torréfacteur Kraffe avec Cropster/Artisan",
-   },
+   { heading: "Torréfiez en Toute Confiance — Quelles que Soient les Conditions", content: "Prenez le contrôle total du transfert de chaleur avec le système de contrôle thermique avancé de KRAFFE, des thermocouples de précision de 3 mm et une isolation thermique améliorée, garantissant des performances constantes dans n'importe quel environnement.", svg: "dashboard", src: thermalControlImage, alt: "Vue rapprochée de l'isolation du tambour à double paroi du torréfacteur Kraffe", first: true },
+   { heading: "Système de Torréfaction de Précision", content: "La Torréfaction à la Perfection. Obtenez des résultats impeccables avec le brûleur prémélangé modulé de KRAFFE, un flux d'air précis et des commandes sensibles de la vitesse du tambour pour des torréfactions parfaites et constantes à chaque fois.", svg: "dashboard", src: precisionSystemImage, alt: "Prise de vue détaillée du système de brûleur de précision du torréfacteur Kraffe", second: true },
+   { heading: "Intégration Intelligente pour Votre Torréfaction", content: "Travaillez avec des logiciels couramment utilisés comme Cropster et Artisan, éliminant le besoin de logiciels inutiles tout en garantissant un contrôle personnalisable et des performances de torréfaction précises.", svg: "dashboard", src: smartIntegrationImage, alt: "Capture d'écran montrant l'intégration logicielle du torréfacteur Kraffe avec Cropster/Artisan" },
 ];
-
 const testimonialsTitle_fr = "Approuvé par les Torréfacteurs Professionnels";
 const testimonialsSubTitle_fr = "Découvrez pourquoi les principales torréfactions choisissent KRAFFE ROASTERS pour la qualité, la constance et le support.";
-const testimonialsData_fr = [
-  {
-    content:
-      "La machine est incroyablement conviviale et fournit des résultats constants à chaque fois. Le processus de torréfaction est efficace et précis, me permettant d'obtenir la torréfaction parfaite pour mes grains de café.",
-    author: "Amir Montazer",
-    role: "Etude Coffee Co.",
-    avatarSrc: amirAvatar,
-    avatarAlt: "Portrait d'Amir Montazer"
-  },
+const testimonialsData_fr = [{ content: "La machine est incroyablement conviviale et fournit des résultats constants à chaque fois. Le processus de torréfaction est efficace et précis, me permettant d'obtenir la torréfaction parfaite pour mes grains de café.", author: "Amir Montazer", role: "Etude Coffee Co.", avatarSrc: amirAvatar, avatarAlt: "Portrait d'Amir Montazer" }];
+const statisticsData_fr = [
+    { count: "Assurance Qualité à 100%", description: "Chaque machine est minutieusement testée pour le contrôle qualité avant expédition afin de garantir des performances de premier ordre." },
+    { count: "Conception Orientée Solution", description: "Une approche flexible adaptée pour répondre aux besoins uniques de votre torréfaction." },
+    { count: "Convivial", description: "Conçu pour une expérience fluide à chaque étape — configuration simple, fonctionnement intuitif et entretien sans effort." },
+    { count: "Support à Vie 7j/7 24h/24", description: "Support à vie dédié de notre équipe orientée solution, avec une réponse rapide chaque fois que vous avez besoin d'assistance." },
 ];
-const statisticsData_fr = [ // İstatistik açıklamalarını da çevirmek gerekebilir
-      {
-        count: "Assurance Qualité à 100%",
-        description:
-          "Chaque machine est minutieusement testée pour le contrôle qualité avant expédition afin de garantir des performances de premier ordre.",
-      },
-      {
-        count: "Conception Orientée Solution",
-        description:
-          "Une approche flexible adaptée pour répondre aux besoins uniques de votre torréfaction.",
-      },
-      {
-        count: "Convivial",
-        description:
-          "Conçu pour une expérience fluide à chaque étape — configuration simple, fonctionnement intuitif et entretien sans effort.",
-      },
-      {
-        count: "Support à Vie 7j/7 24h/24",
-        description:
-          "Support à vie dédié de notre équipe orientée solution, avec une réponse rapide chaque fois que vous avez besoin d'assistance.",
-      },
-];
-
 const faqTitle_fr = "Questions<br />Fréquemment Posées";
-
 const heroAltTitle_fr = "Concevons Votre Machine Ensemble";
 const heroAltSubTitle_fr = "Contactez-nous et nos experts étudierons avec vous le modèle KRAFFE le mieux adapté.";
 const heroAltBtnTitle_fr = "Contactez-Nous";
 
-// === /FRANSIZCA METİNLER ===
+// === SEO ve SCHEMA İÇİN FRANSIZCA DEĞİŞKENLER ===
+const pageTitle_fr_seo = `Kraffe Roasters | Machines à Torréfier Commerciales et Industrielles`;
+const metaDescription_fr = "Découvrez les machines à torréfier le café commerciales et industrielles de Kraffe Roasters. Conçues pour la précision, la durabilité et la constance. Assistance à vie.";
+
+const logoImage = await getImage({ src: logoForSchema, format: 'png' });
+const socialImage = await getImage({ src: OG.image, width: 1200, height: 600, format: 'png' });
+const logoUrl = new URL(logoImage.src, Astro.site).href;
+const socialImageUrl = new URL(socialImage.src, Astro.site).href;
+
+const faqEntities_fr = faqs_fr.faqs.map(faq => ({
+  "@type": "Question",
+  "name": faq.question,
+  "acceptedAnswer": {
+    "@type": "Answer",
+    "text": faq.answer
+  }
+}));
+
+const structuredData_fr = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Kraffe Roasters",
+      "url": `${SITE.url}/fr`,
+      "logo": logoUrl,
+      "sameAs": [
+        "https://www.facebook.com/krafferoasters",
+        "https://www.instagram.com/kraffe.roasters/"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+90-533-566-7061",
+        "contactType": "customer service",
+        "areaServed": "FR", // Hedef bölgeyi belirtmek iyi bir pratiktir
+        "availableLanguage": "French" // Sunulan dil
+      }
+    },
+    {
+      "@type": "WebSite",
+      "url": `${SITE.url}/fr`,
+      "name": `Kraffe Roasters France`, // Dile özel site adı
+      "description": metaDescription_fr,
+      "publisher": {
+        "@type": "Organization",
+        "name": "Kraffe Roasters",
+        "logo": {
+          "@type": "ImageObject",
+          "url": logoUrl
+        }
+      },
+      "inLanguage": "fr-FR" // Dil kodu
+    },
+    {
+      "@type": "CollectionPage",
+      "name": `Kraffe Roasters - Machines à Torréfier Commerciales et Industrielles`,
+      "url": `${SITE.url}/fr`,
+      "description": metaDescription_fr,
+      "image": socialImageUrl,
+      "inLanguage": "fr-FR",
+      "mainEntity": {
+        "@type": "FAQPage",
+        "mainEntity": faqEntities_fr
+      }
+    }
+  ]
+};
 ---
 
-<MainLayout lang="fr"> {/* lang="fr" eklendi */}
+<MainLayout
+  title={pageTitle_fr_seo}
+  meta={metaDescription_fr}
+  structuredData={structuredData_fr}
+  lang="fr"
+>
     <HeroSection
     title={heroTitle_fr}
     subTitle={heroSubTitle_fr}
     primaryBtn={heroPrimaryBtn_fr}
-    primaryBtnURL="/fr/products" {/* URL güncellendi */}
+    primaryBtnURL="/fr/products"
     secondaryBtn={heroSecondaryBtn_fr}
-    secondaryBtnURL="/fr/contact" {/* URL güncellendi */}
+    secondaryBtnURL="/fr/contact"
     withReview={true}
     avatars={avatarSrcs}
     rating=`<span class="font-bold">4.8</span> / 5`
@@ -138,7 +157,7 @@ const heroAltBtnTitle_fr = "Contactez-Nous";
     <FeaturesGeneral
     title={featuresGeneralTitle_fr}
     subTitle={featuresGeneralSubTitle_fr}
-    features={features_fr} {/* Fransızca features verisi */}
+    features={features_fr}
   />
 
     <FeaturesNavs
@@ -153,14 +172,14 @@ const heroAltBtnTitle_fr = "Contactez-Nous";
     statistics={statisticsData_fr}
   />
 
-    <PricingSection pricing={pricing_fr} /> {/* Fransızca pricing verisi */}
+    <PricingSection pricing={pricing_fr} />
 
-    <FAQ title={faqTitle_fr} faqs={faqs_fr} /> {/* Fransızca faqs verisi */}
+    <FAQ title={faqTitle_fr} faqs={faqs_fr} />
 
     <HeroSectionAlt
     title={heroAltTitle_fr}
     subTitle={heroAltSubTitle_fr}
-    url="/fr/contact" {/* URL güncellendi */}
+    url="/fr/contact"
     btnTitle={heroAltBtnTitle_fr}
 />
 </MainLayout>
