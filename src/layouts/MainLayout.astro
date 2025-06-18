@@ -1,10 +1,10 @@
 ---
-// src/layouts/MainLayout.astro (TÜM KOD GÖMÜLÜ VERSİYON)
+// src/layouts/MainLayout.astro
 
 import Meta from "@components/Meta.astro";
 import Navbar from "@components/sections/navbar&footer/Navbar.astro";
 import FooterSection from "@components/sections/navbar&footer/FooterSection.astro";
-import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro";
+import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro"; // AnnouncementBanner hala kullanılıyor
 import { SITE } from "@data/constants";
 import "@styles/global.css";
 import { getRelativeLocaleUrl } from "astro:i18n";
@@ -20,24 +20,105 @@ interface Props {
 
 const currentLang = Astro.currentLocale || 'en';
 const contactUrl = getRelativeLocaleUrl(currentLang, 'contact');
-const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
+const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer'; // AnnouncementBanner için hala kullanılabilir
 
+// === GOOGLE TAG MANAGER CONTAINER ID ===
 const gtmContainerId = "GTM-PZZBN787";
+// === /GOOGLE TAG MANAGER CONTAINER ID ===
 ---
 
 <html lang={lang} class="dark scrollbar-hide lenis lenis-smooth scroll-pt-16">
   <head>
+    {/* Meta etiketleri ve diğer başlık bilgileri */}
     <Meta meta={meta} structuredData={structuredData} />
     <title>{title}</title>
+    
+    {/* KRİTİK CSS BAŞLANGICI - PERFORMANSI DÜŞÜRMEYECEK, SADECE GEREKLİ KONTRAST DÜZELTMELERİ */}
+    <style is:inline>
+      /* Bu CSS, sitenizin temel renklerini hemen sağlar. */
+      /* Diğer tüm stiller global.css'den yüklenecektir. */
+      
+      /* GENEL METİN RENKLERİ İÇİN KONTRAST DÜZELTMELERİ (KOYU MOD) */
+      /* Pagespeed raporunda belirtilen düşük kontrastlı text-neutral-700/600/800 gibi genel metinleri iyileştirir */
+      /* Bu kısım kaldırılmıştır, zira tüm yazıların sarı olmasına neden oluyordu. */
+      /* Tailwind CSS'in ve global.css'in varsayılan renklerini kullanacaktır. */
 
+      /* Sarı butonlardaki metin rengi artık SecondaryCTA.astro içinde yönetiliyor. */
+      /* Bu yüzden buradaki "#floating-offer-button" ve ".bg-yellow-400" vb. kurallarını kaldırıyoruz */
+      /* Çakışmayı önlemek ve tek bir yerden yönetmek için. */
+
+
+      /* Sayfa arka plan stilleri - Tailwind sınıflarına bırakılmıştır. */
+      /* body.bg-neutral-200 ve html.dark body.dark\:bg-neutral-800 gibi sınıflar kullanılacaktır. */
+
+      /* Kritik LCP elementi (H1) stilleri - bunlar performans düşüşüne neden olmamalıdır */
+      h1.block { display: block; }
+      h1.text-balance { text-wrap: balance; }
+      h1.text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+      h1.font-bold { font-weight: 700; }
+      h1.tracking-tight { letter-spacing: -0.025em; }
+
+      /* Gerekli diğer temel HTML stilleri */
+      html.scroll-pt-16 { scroll-padding-top: 4rem; }
+      html.scrollbar-hide::-webkit-scrollbar { display: none; }
+      html.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+    </style>
+    {/* KRİTİK CSS BİTİŞİ */}
+    
+    {/* Lenis smooth scroll scripti */}
     <script>
       import "@scripts/lenisSmoothScroll.js";
-      import "preline/preline.js";
     </script>
 
-    {/* KÜTÜPHANENİN CSS KODU DOĞRUDAN GÖMÜLDÜ */}
-    <style is:inline>
-      :root{--cc-bg: #fff;--cc-text: #2d4156;--cc-btn-primary-bg: #21a16a;--cc-btn-primary-text: #fff;--cc-btn-primary-hover-bg: #188756;--cc-btn-secondary-bg: #eaeff2;--cc-btn-secondary-text: #2d4156;--cc-btn-secondary-hover-bg: #d8dee3;--cc-cat-title: #2d4156;--cc-toggle-bg-off: #919ea9;--cc-toggle-bg-on: var(--cc-btn-primary-bg);--cc-toggle-bg-readonly: #d5dae0;--cc-toggle-knob-bg: #fff;--cc-toggle-knob-icon-color: #536375;--cc-block-text: #536375;--cc-separator-border-color: #e5e9ec;--cc-link: var(--cc-btn-primary-bg)}.cc-theme-dark{--cc-bg: #1a222b;--cc-text: #d9e1e8;--cc-btn-primary-bg: #21a16a;--cc-btn-primary-text: #fff;--cc-btn-primary-hover-bg: #188756;--cc-btn-secondary-bg: #34404f;--cc-btn-secondary-text: #d9e1e8;--cc-btn-secondary-hover-bg: #3f4e5f;--cc-cat-title: #d9e1e8;--cc-toggle-bg-off: #4e5c6d;--cc-toggle-bg-on: var(--cc-btn-primary-bg);--cc-toggle-bg-readonly: #4e5c6d;--cc-toggle-knob-bg: #c1c9d1;--cc-toggle-knob-icon-color: #4e5c6d;--cc-block-text: #96a1ad;--cc-separator-border-color: #2c3643;--cc-link: var(--cc-btn-primary-bg)}#cc-main .c-tgl:checked~.c-tgl-btn .c-tgl-on,div:not(.force--show)>.c-tgl:checked~.c-tgl-btn .c-tgl-on{transform:translateX(0)}#cc-main .c-tgl:checked~.c-tgl-btn .c-tgl-off,div:not(.force--show)>.c-tgl:checked~.c-tgl-btn .c-tgl-off{transform:translateX(-100%)}#cc-main .c-tgl:checked+.c-tgl-btn,div:not(.force--show)>.c-tgl:checked+.c-tgl-btn{background:var(--cc-toggle-bg-on)}#cc-main .c-tgl-btn,div:not(.force--show)>.c-tgl-btn{background:var(--cc-toggle-bg-off)}#cc-main .c-tgl--readonly:checked+.c-tgl-btn,div:not(.force--show)>.c-tgl--readonly:checked+.c-tgl-btn,#cc-main .c-tgl--readonly+.c-tgl-btn,div:not(.force--show)>.c-tgl--readonly+.c-tgl-btn{background:var(--cc-toggle-bg-readonly)}#cc-main{position:fixed;z-index:100;font-size:16px;font-family:inherit}#cc-main .cm-wrapper{position:fixed;transition-property:opacity,transform;transition-timing-function:ease;transition-duration:.3s;opacity:0}#cc-main .cm-wrapper.cm--visible{opacity:1;transform:translateY(0)}#cc-main .cm--slide-from-top{transform:translateY(-2rem)}#cc-main .cm--slide-from-bottom{transform:translateY(2rem)}#cc-main .cm{background-color:var(--cc-bg);color:var(--cc-text);border-radius:.5rem;padding:1.25rem 1.5rem;box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)}#cc-main .cm__content{max-height:8.8rem;margin:.75rem 0;font-size:.92em;line-height:1.5;overflow:auto}#cc-main .cm__content p{margin-bottom:.5rem}#cc-main a,#cc-main a:visited{text-decoration:underline;color:var(--cc-link);transition:color .15s ease}#cc-main a:hover{color:var(--cc-btn-primary-hover-bg)}#cc-main .cm__title{font-size:1.25rem;font-weight:700}#cc-main .cm-layout--box-top-left,#cc-main .cm-layout--box-bottom-left{left:1.5rem}#cc-main .cm-layout--box-top-right,#cc-main .cm-layout--box-bottom-right{right:1.5rem}#cc-main .cm-layout--box-top-center,#cc-main .cm-layout--box-bottom-center{left:50%;transform:translateX(-50%)}#cc-main .cm-layout--box-bottom-left,#cc-main .cm-layout--box-bottom-right,#cc-main .cm-layout--box-bottom-center{bottom:1.5rem}#cc-main .cm-layout--box-top-left,#cc-main .cm-layout--box-top-right,#cc-main .cm-layout--box-top-center{top:1.5rem}#cc-main .cm-layout--box{width:24rem;max-width:calc(100% - 3rem)}#cc-main .cm-layout--bar{inset-inline:0}#cc-main .cm-layout--bar .cm{width:100%;border-radius:0;padding-inline:3rem}#cc-main .cm-layout--bar-bottom{bottom:0}#cc-main .cm-layout--bar-top{top:0}#cc-main .cm-btn{border:none;padding:.75rem 1.25rem;font-size:.9375rem;border-radius:.4rem;font-weight:600;transition:background-color .15s ease;cursor:pointer}#cc-main .cm-btn--primary{color:var(--cc-btn-primary-text);background:var(--cc-btn-primary-bg)}#cc-main .cm-btn--primary:hover{background:var(--cc-btn-primary-hover-bg)}#cc-main .cm-btn--secondary{color:var(--cc-btn-secondary-text);background:var(--cc-btn-secondary-bg)}#cc-main .cm-btn--secondary:hover{background:var(--cc-btn-secondary-hover-bg)}#cc-main .cm__btn-group{display:flex;gap:.75rem}#cc-main .sm-wrapper{position:fixed;transition-property:opacity,transform;transition-timing-function:ease;transition-duration:.3s;opacity:0}#cc-main .sm-wrapper.sm--visible{opacity:1;transform:translateY(0)}#cc-main .sm--slide-from-top{transform:translateY(-2rem)}#cc-main .sm--slide-from-bottom{transform:translateY(2rem)}#cc-main .sm{background-color:var(--cc-bg);color:var(--cc-text);border-radius:.5rem;padding:1.25rem 1.5rem;box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)}#cc-main .sm__header{display:flex;align-items:center;padding-bottom:1.25rem}#cc-main .sm__title{font-size:1.25rem;font-weight:700}#cc-main .sm__close{margin-left:auto;border-radius:9999px;width:2.25rem;height:2.25rem;border:none;background-color:transparent;display:flex;justify-content:center;align-items:center;cursor:pointer;transition:background-color .15s ease}#cc-main .sm__close:hover{background:var(--cc-btn-secondary-hover-bg)}#cc-main .sm__close svg{width:1.25rem;height:1.25rem}#cc-main .sm__close path{stroke:var(--cc-text);stroke-width:3}#cc-main .sm__content{max-height:calc(100vh - 20rem);overflow-y:auto;font-size:.95em}#cc-main .sm-layout--box{width:36rem;max-width:calc(100vw - 3rem)}#cc-main .sm-layout--bar{inset-inline:0}#cc-main .sm-layout--bar .sm{width:100%;height:100%;border-radius:0}#cc-main .sm-layout--box-top-left,#cc-main .sm-layout--box-bottom-left{left:1.5rem}#cc-main .sm-layout--box-top-right,#cc-main .sm-layout--box-bottom-right{right:1.5rem}#cc-main .sm-layout--box-top-center,#cc-main .sm-layout--box-bottom-center{left:50%;transform:translateX(-50%)}#cc-main .sm-layout--box-bottom-left,#cc-main .sm-layout--box-bottom-right,#cc-main .sm-layout--box-bottom-center{bottom:1.5rem}#cc-main .sm-layout--box-top-left,#cc-main .sm-layout--box-top-right,#cc-main .sm-layout--box-top-center{top:1.5rem}#cc-main .sm__footer{display:flex;gap:1rem;padding-top:1.25rem}#cc-main .c-bl{padding-block:1rem;border-bottom:2px solid var(--cc-separator-border-color)}#cc-main .c-bl:last-child{border-bottom:none}#cc-main .c-bl__title{margin:0;font-size:1.125rem;font-weight:600;color:var(--cc-cat-title);margin-bottom:.5rem}#cc-main .c-bl__desc{color:var(--cc-block-text);line-height:1.5}#cc-main .c-tgl{display:none}#cc-main .c-tgl-btn{width:2.75rem;height:1.5rem;border-radius:9999px;position:relative;transition:.2s ease}#cc-main .c-tgl-btn:before{content:"";position:absolute;left:.25rem;height:1.25rem;width:1.25rem;background:var(--cc-toggle-knob-bg);border-radius:9999px;top:50%;transform:translateY(-50%);transition:.2s ease}#cc-main .c-tgl:checked+.c-tgl-btn:before{left:calc(100% - 1.25rem - .25rem)}#cc-main .c-bl__right{margin-left:auto}#cc-main .c-bl .c-tgl-wrapper{position:relative;width:3rem;height:1.5rem}#cc-main .c-tgl-btn{overflow:hidden}#cc-main .c-tgl-on,#cc-main .c-tgl-off{position:absolute;top:50%;color:var(--cc-toggle-knob-icon-color);left:0;transform:translateY(-50%);width:100%;height:100%;display:flex;justify-content:center;align-items:center;transition:.2s ease}#cc-main .c-tgl-on{transform:translateX(100%)}#cc-main .c-tgl-on svg,#cc-main .c-tgl-off svg{width:1rem;height:1rem}#cc-main .c-bl__header{display:flex;align-items:center;margin-bottom:.75rem}
+  </head>
+  <body
+    class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800"
+  >
+    <div class="mx-auto max-w-(--breakpoint-2xl) px-4 sm:px-6 lg:px-8">
+      <Navbar />
+      <main>
+        <slot /> {/* Sayfa içeriği buraya gelecek */}
+      </main>
+    </div>
+
+    {/* AnnouncementBanner hala var ama butonu SecondaryCTA.astro kullanıyor */}
+    <AnnouncementBanner
+      btnId="floating-offer-button" // Bu ID artık CSS tarafından kullanılmayacak
+      btnTitle={buttonText}
+      url={contactUrl}
+    />
+
+    <FooterSection />
+
+    <script>
+      import "preline/preline.js";
+    </script>
+    <style>
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
     </style>
+
+    {/* === GOOGLE TAG MANAGER KODU (BODY SONU) BAŞLANGICI === */}
+    {gtmContainerId && (
+      <script async defer define:vars={{ gtmContainerId }}>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer',gtmContainerId);
+      </script>
+    )}
+    {/* === GOOGLE TAG MANAGER (NOSCRIPT) KODU (BODY SONU) === */}
+    {gtmContainerId && (
+      <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtmContainerId}`} height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    )}
+    {/* === /GOOGLE TAG MANAGER KODU (BODY SONU) SONU === */}
+
   </body>
 </html>
