@@ -1,5 +1,5 @@
 ---
-// src/pages/index.astro (Final Version with Advanced Schema)
+// src/pages/index.astro (Corrected Final Version)
 
 // Gerekli bileşenleri ve verileri import et
 import MainLayout from "@/layouts/MainLayout.astro";
@@ -17,13 +17,13 @@ import thermalControlImage from "@images/features5.avif";
 import precisionSystemImage from "@images/sample-coffee-roaster.webp";
 import smartIntegrationImage from "@images/kf2.avif";
 import amirAvatar from "@images/Amir+Montazer.avif";
-import logoForSchema from "@images/kraffe-logo.png"; // Schema için logo importu
+import logoForSchema from "@images/kraffe-logo.png";
 
-// Veri dosyalarını import et
+// DOĞRU VERİ DOSYALARI IMPORT EDİLDİ
 import faqsData from "@data/faqs.json";
 import features from "@data/features.json";
 import pricing from "@data/pricing.json";
-import { SITE, OG } from "@data/constants"; // SITE ve OG import edildi
+import { SITE, OG } from "@data/constants";
 import { getImage } from "astro:assets";
 
 const avatarSrcs: Array<string> = [
@@ -37,12 +37,10 @@ const avatarSrcs: Array<string> = [
 const pageTitle = SITE.title;
 const metaDescription = SITE.description;
 
-// Logo ve sosyal medya görselinin tam URL'sini alalım
 const logoImage = await getImage({ src: logoForSchema, format: 'png' });
 const socialImage = await getImage({ src: OG.image, width: 1200, height: 600, format: 'png' });
 const logoUrl = new URL(logoImage.src, Astro.site).href;
 const socialImageUrl = new URL(socialImage.src, Astro.site).href;
-
 
 // JSON verisinden FAQPage şeması için `mainEntity` oluşturma
 const faqEntities = faqsData.faqs.map(faq => ({
@@ -66,11 +64,10 @@ const structuredData = {
       "sameAs": [
         "https://www.facebook.com/krafferoasters",
         "https://www.instagram.com/kraffe.roasters/"
-        // Varsa diğer sosyal medya linkleri eklenebilir
       ],
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+90-533-566-7061",
+        "telephone": "+90-533-566-7061", 
         "contactType": "customer service"
       }
     },
@@ -108,7 +105,7 @@ const structuredData = {
   meta={metaDescription}
   structuredData={structuredData}
 >
-  <HeroSection
+    <HeroSection
     title=`Master the Art of Roasting: <span class="text-yellow-500 dark:text-yellow-400">KRAFFE Commercial Coffee Roasting Machines</span>`
     subTitle="Achieve precision, durability, and consistency with KRAFFE industrial coffee roasters—designed for professionals and backed by lifetime support."
     primaryBtn="Explore Our Machines"
@@ -124,13 +121,13 @@ const structuredData = {
     alt="Detailed view of a commercial Kraffe industrial coffee roasting machine"
   />
 
-  <FeaturesGeneral
+    <FeaturesGeneral
     title="Crafted for Roasting Perfection"
     subTitle="KRAFFE ROASTERS expertly engineered to deliver exceptional control, consistency between batches, and efficiency, allowing you to fully unlock the potential of every bean."
     features={features}
   />
 
-  <FeaturesNavs
+    <FeaturesNavs
     title=`Inside the KRAFFE ROASTERS: <span class="text-yellow-500 dark:text-yellow-400">Where Precision Meets Power</span>`
      tabs={[
        {
@@ -162,7 +159,7 @@ const structuredData = {
      ]}
   />
 
-  <TestimonialsSection
+    <TestimonialsSection
     title="Trusted by Professional Roasters"
     subTitle="Hear why leading roasteries choose KRAFFE ROASTERS for quality, consistency, and support."
     testimonials={[
@@ -199,14 +196,15 @@ const structuredData = {
      ]}
   />
 
-  <PricingSection pricing={pricing} />
+    <PricingSection pricing={pricing} />
 
-  <FAQ title="Frequently<br />Asked Questions" faqs={faqsData} />
+    <FAQ title="Frequently<br />Asked Questions" faqs={faqsData} />
 
-  <HeroSectionAlt
+    <HeroSectionAlt
     title="Let's Design Your Machine"
     subTitle="Contact us and our experts will study best fitting KRAFFE model with you."
     url="/contact"
     btnTitle="Contact Us"
   />
+
 </MainLayout>
