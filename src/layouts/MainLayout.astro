@@ -5,7 +5,7 @@ import Meta from "@components/Meta.astro";
 import Navbar from "@components/sections/navbar&footer/Navbar.astro";
 import FooterSection from "@components/sections/navbar&footer/FooterSection.astro";
 import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro";
-import ConsentBanner from '@components/ConsentBanner.astro'; // === YENİ BİLEŞEN IMPORTU ===
+import ConsentBanner from '@components/ConsentBanner.astro';
 import { SITE } from "@data/constants";
 import "@styles/global.css";
 import { getRelativeLocaleUrl } from "astro:i18n";
@@ -23,9 +23,7 @@ const currentLang = Astro.currentLocale || 'en';
 const contactUrl = getRelativeLocaleUrl(currentLang, 'contact');
 const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
 
-// === GOOGLE TAG MANAGER CONTAINER ID ===
 const gtmContainerId = "GTM-PZZBN787";
-// === /GOOGLE TAG MANAGER CONTAINER ID ===
 ---
 
 <html lang={lang} class="dark scrollbar-hide lenis lenis-smooth scroll-pt-16">
@@ -34,7 +32,7 @@ const gtmContainerId = "GTM-PZZBN787";
     <Meta meta={meta} structuredData={structuredData} />
     <title>{title}</title>
     
-    {/* KRİTİK CSS BAŞLANGICI */}
+    {/* Kritik CSS */}
     <style is:inline>
       h1.block { display: block; }
       h1.text-balance { text-wrap: balance; }
@@ -45,9 +43,9 @@ const gtmContainerId = "GTM-PZZBN787";
       html.scrollbar-hide::-webkit-scrollbar { display: none; }
       html.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
-    {/* KRİTİK CSS BİTİŞİ */}
     
-    {/* Lenis smooth scroll scripti */}
+    {/* === TÜM SCRIPTLER BURAYA TAŞINDI === */}
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
     <script>
       import "@scripts/lenisSmoothScroll.js";
     </script>
@@ -59,7 +57,7 @@ const gtmContainerId = "GTM-PZZBN787";
     <div class="mx-auto max-w-(--breakpoint-2xl) px-4 sm:px-6 lg:px-8">
       <Navbar />
       <main>
-        <slot /> {/* Sayfa içeriği buraya gelecek */}
+        <slot />
       </main>
     </div>
 
@@ -71,23 +69,9 @@ const gtmContainerId = "GTM-PZZBN787";
 
     <FooterSection />
 
-    {/* === MEVCUT GTM KODU SİLİNDİ VE YENİSİ AŞAĞIYA EKLENDİ === */}
+    {/* Yalnızca GTM ve Consent Banner burada kalacak */}
 
-    {/* === ONCE KONSOLİDE SCRIPTLER === */}
-    <script>
-      import "preline/preline.js";
-    </script>
-    <style>
-      .scrollbar-hide::-webkit-scrollbar {
-        display: none;
-      }
-      .scrollbar-hide {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-    </style>
-
-    {/* === YENİ GOOGLE TAG MANAGER KODU BAŞLANGICI (ONAY MODU İLE UYUMLU) === */}
+    {/* Google Tag Manager (Onay Modu ile Uyumlu) */}
     {gtmContainerId && (
         <script type="text/plain" data-cookiecategory="analytics" define:vars={{ gtmContainerId }}>
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -100,9 +84,8 @@ const gtmContainerId = "GTM-PZZBN787";
     {gtmContainerId && (
         <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtmContainerId}`} height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     )}
-    {/* === /YENİ GOOGLE TAG MANAGER KODU SONU === */}
     
-    {/* === YENİ ÇEREZ BANNER BİLEŞENİ === */}
+    {/* Çerez Banner Bileşeni */}
     <ConsentBanner />
 
   </body>
