@@ -1,5 +1,5 @@
 ---
-// src/pages/products/[...slug].astro (FINAL & ANIMATED)
+// src/pages/products/[...slug].astro (FIXED & IMPROVED)
 
 import MainLayout from "@/layouts/MainLayout.astro";
 import ProductTabBtn from "@components/ui/buttons/ProductTabBtn.astro";
@@ -10,17 +10,11 @@ import { getCollection } from "astro:content";
 import { SITE } from "@data/constants";
 import type { CollectionEntry } from 'astro:content';
 
-// Global declaration for gsap animation library
-declare global {
-  interface Window {
-    gsap: any;
-  }
-}
-
 export async function getStaticPaths() {
   const productEntries = await getCollection("products", ({ id }) => id.startsWith("en/"));
   return productEntries.map((product) => {
-    const slug = product.id.replace(/^en\//, "");
+    // DOSYA ADI DEĞİŞTİĞİ İÇİN ROTA PARAMETRESİ 'slug' OLARAK GÜNCELLENDİ
+    const slug = product.id.replace(/^en\//, ""); 
     return {
       params: { slug: slug },
       props: { product },
@@ -57,7 +51,10 @@ const relatedProductsTitle = "Check Out Our Other Machines";
     "name": product.data.title,
     "image": mainImageUrl,
     "description": metaDescription,
-    "brand": { "@type": "Brand", "name": "Kraffe Roasters" },
+    "brand": {
+      "@type": "Brand",
+      "name": "Kraffe Roasters"
+    },
     "sku": `KRF-${product.data.main.id}`,
     "offers": {
       "@type": "Offer",
@@ -69,17 +66,15 @@ const relatedProductsTitle = "Check Out Our Other Machines";
     }
   }}
 >
-  <!-- ANİMASYON PERDESİ GERİ EKLENDİ -->
-  <div id="overlay" class="fixed inset-0 z-50 bg-neutral-200 dark:bg-neutral-800"></div>
-
+  <!-- BOZUK ANİMASYON PERDESİ TAMAMEN KALDIRILDI -->
   <section class="mx-auto grid max-w-[85rem] grid-cols-1 items-center gap-8 px-4 py-10 sm:px-6 md:grid-cols-2 lg:px-8 lg:py-14 2xl:max-w-full">
     <div class="md:col-span-1">
       <div>
-        <p id="fadeText" class="mb-8 max-w-prose text-pretty font-light text-neutral-700 dark:text-neutral-300 sm:text-xl">
+        <p class="mb-8 max-w-prose text-pretty font-light text-neutral-700 dark:text-neutral-300 sm:text-xl">
           {product.data.main.content}
         </p>
       </div>
-      <div id="fadeInUp">
+      <div>
         <h1 class="block text-4xl font-bold tracking-tighter text-neutral-800 dark:text-neutral-200 sm:text-5xl md:text-6xl lg:text-7xl">
           {product.data.title}
         </h1>
@@ -90,7 +85,6 @@ const relatedProductsTitle = "Check Out Our Other Machines";
     </div>
     <div class="md:col-span-1">
       <Image
-        id="fadeInMoveRight"
         src={product.data.main.imgMain}
         class="w-full h-auto rounded-lg"
         alt={product.data.main.imgAlt}
@@ -107,46 +101,142 @@ const relatedProductsTitle = "Check Out Our Other Machines";
       ))}
     </nav>
     <div class="mt-12 md:mt-16">
-        <!-- TAB İÇERİKLERİ BURADA (Değişiklik yok) -->
-        <!-- ... -->
+      <div id="tabs-with-card-1" role="tabpanel">
+        <div class="mx-auto max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8 lg:pb-14">
+          <div class="grid gap-12 md:grid-cols-2">
+            <div>
+              <h2 class="text-balance text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:leading-tight lg:text-4xl">
+                {product.data.longDescription.title}
+              </h2>
+              <p class="mt-3 text-pretty text-neutral-600 dark:text-neutral-400">
+                {product.data.longDescription.subTitle}
+              </p>
+              <p class="mt-5">
+                <PrimaryCTA title={contactButtonTitle} url={product.data.longDescription.btnURL} />
+              </p>
+            </div>
+            <div class="space-y-6 lg:space-y-10">
+              {product.data.descriptionList.map((list) => (
+                <div class="flex">
+                  <div>
+                    <h3 class="text-base font-bold text-neutral-800 dark:text-neutral-200 sm:text-lg">{list.title}</h3>
+                    <p class="mt-1 text-neutral-600 dark:text-neutral-400">{list.subTitle}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="tabs-with-card-2" class="hidden" role="tabpanel">
+        <div class="mx-auto max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8 lg:pb-14">
+          <div class="grid w-full grid-cols-1 gap-x-16 md:grid-cols-2">
+            <div class="max-w-md space-y-6">
+              {product.data.specificationsLeft.map((spec) => (
+                <div>
+                  <h3 class="block font-bold text-neutral-800 dark:text-neutral-200">{spec.title}</h3>
+                  <p class="text-neutral-600 dark:text-neutral-400" set:html={spec.subTitle}></p>
+                </div>
+              ))}
+            </div>
+            {product.data.specificationsRight ? (
+              <div class="mt-6 max-w-md space-y-6 md:ml-auto md:mt-0">
+                {product.data.specificationsRight?.map((spec) => (
+                  <div>
+                    <h3 class="block font-bold text-neutral-800 dark:text-neutral-200">{spec.title}</h3>
+                    <p class="text-neutral-600 dark:text-neutral-400">{spec.subTitle}</p>
+                  </div>
+                ))}
+              </div>
+            ) : product.data.tableData ? (
+              <div class="mt-6 space-y-6 md:ml-auto md:mt-0">
+                <div class="flex flex-col"><div class="-m-1.5 overflow-x-auto"><div class="inline-block min-w-full p-1.5 align-middle"><div class="overflow-hidden">
+                  <table class="min-w-full divide-y divide-neutral-300 dark:divide-neutral-700">
+                    <thead><tr>{product.data.tableData?.[0].feature?.map((header) => (<th scope="col" class="px-6 py-3 text-start text-xs font-medium uppercase text-neutral-500 dark:text-neutral-500">{header}</th>))}</tr></thead>
+                    <tbody class="divide-y divide-neutral-300 dark:divide-neutral-700">
+                      {product.data.tableData?.map((row) => row.description.map((rowData) => (<tr key={rowData.join('-')}>{rowData.map((cellValue, index) => (<td key={index} class="whitespace-nowrap px-6 py-4 text-sm font-medium text-neutral-600 dark:text-neutral-400">{cellValue}</td>))}</tr>)))}
+                    </tbody>
+                  </table>
+                </div></div></div></div>
+              </div>
+            ) : null}
+          </div>
+        </div>
+      </div>
+      <div id="tabs-with-card-3" class="hidden" role="tabpanel">
+        <div class="mx-auto mb-20 flex w-full md:mb-28 2xl:w-4/5">
+          <div class="relative left-12 top-12 z-10 overflow-hidden rounded-xl shadow-lg md:left-12 md:top-16 md:-ml-12 lg:ml-0">
+            {product.data.blueprints?.first && <Image src={product.data.blueprints.first} class="h-full w-full object-cover object-center" alt="Blueprint Illustration" format={"avif"} />}
+          </div>
+          <div class="relative right-12 overflow-hidden rounded-xl shadow-xl">
+            {product.data.blueprints?.second && <Image src={product.data.blueprints.second} class="h-full w-full object-cover object-center" alt="Blueprint Illustration" format={"avif"} />}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
   {(prevProduct || nextProduct) && (
     <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-        <!-- ... -->
+      <h2 class="text-2xl font-bold text-neutral-800 dark:text-neutral-200 text-center mb-8">{relatedProductsTitle}</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-center">
+        {prevProduct && (<div class="flex justify-center sm:justify-end"><CardSmall product={prevProduct} productLocale="en" /></div>)}
+        {!prevProduct && nextProduct && <div class="hidden sm:block"></div>}
+        {nextProduct && (<div class="flex justify-center sm:justify-start"><CardSmall product={nextProduct} productLocale="en" /></div>)}
+      </div>
     </section>
   )}
 </MainLayout>
 
-<!-- ANİMASYON SCRIPT'İ GERİ EKLENDİ -->
+<!-- SEKME GEÇİŞLERİ İÇİN GEREKLİ OLAN SCRIPT BURADA KALIYOR -->
 <script>
-  import { gsap } from "gsap";
+  document.addEventListener("DOMContentLoaded", function () {
+    function setButtonInactive(btn, activeButton) {
+      if (btn !== activeButton) {
+        btn.classList.remove("active", "bg-neutral-100", "hover:border-transparent", "dark:bg-white/[.05]");
+        const tabId = btn.getAttribute("data-target");
+        if (tabId) {
+          const contentElement = document.querySelector(tabId);
+          if (contentElement) contentElement.classList.add("hidden");
+        }
+        changeHeadingStyle(btn, ["text-neutral-800", "dark:text-neutral-200"], ["text-orange-400", "dark:text-orange-300"]);
+      }
+    }
 
-  type AnimationSettings = {
-    autoAlpha?: number;
-    y?: number;
-    x?: number;
-    willChange?: string;
-  };
+    function activateButton(button) {
+      button.classList.add("active", "bg-neutral-100", "hover:border-transparent", "dark:bg-white/[.05]");
+      const tabId = button.getAttribute("data-target");
+      if (tabId) {
+        const contentElementToShow = document.querySelector(tabId);
+        if (contentElementToShow) contentElementToShow.classList.remove("hidden");
+      }
+      changeHeadingStyle(button, ["text-orange-400", "dark:text-orange-300"], ["text-neutral-800", "dark:text-neutral-200"]);
+    }
 
-  function setElementAnimationDefaults(id: string, settings: AnimationSettings) {
-    gsap.set(id, settings);
-  }
+    function changeHeadingStyle(button, addClasses, removeClasses) {
+      let heading = button.querySelector("span");
+      if (heading) {
+        heading.classList.remove(...removeClasses);
+        heading.classList.add(...addClasses);
+      }
+    }
 
-  setElementAnimationDefaults("#fadeText", { autoAlpha: 0, y: 50, willChange: "transform, opacity" });
-  setElementAnimationDefaults("#fadeInUp", { autoAlpha: 0, y: 50, willChange: "transform, opacity" });
-  setElementAnimationDefaults("#fadeInMoveRight", { autoAlpha: 0, x: 300, willChange: "transform, opacity" });
+    const tabButtons = document.querySelectorAll("[data-target]");
 
-  let timeline = gsap.timeline({ defaults: { overwrite: "auto" } });
+    if (tabButtons.length > 0) {
+      activateButton(tabButtons[0]);
+      tabButtons.forEach((btn, index) => {
+         if (index !== 0) {
+            changeHeadingStyle(btn, ["text-neutral-800", "dark:text-neutral-200"], ["text-orange-400", "dark:text-orange-300"]);
+         }
+      });
+    }
 
-  timeline.to("#fadeText", { duration: 1.5, autoAlpha: 1, y: 0, delay: 1, ease: "power2.out" });
-  timeline.to("#fadeInUp", { duration: 1.5, autoAlpha: 1, y: 0, ease: "power2.out" }, "-=1.2");
-  timeline.to("#fadeInMoveRight", { duration: 1.5, autoAlpha: 1, x: 0, ease: "power2.inOut" }, "-=1.4");
-  timeline.to("#overlay", { duration: 1, autoAlpha: 0, delay: 0.2 });
-</script>
-
-<!-- SEKME SCRIPT'İ BURADA (Değişiklik yok) -->
-<script>
-  // ... (Mevcut, çalışan tab script'iniz)
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        tabButtons.forEach((btn) => setButtonInactive(btn, button));
+        activateButton(button);
+      });
+    });
+  });
 </script>
