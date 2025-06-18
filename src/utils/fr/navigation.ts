@@ -1,5 +1,3 @@
-// src/utils/fr/navigation.ts
-
 const navBarLinks = [
   { name: "Accueil", url: "/fr" },
   { name: "Produits", url: "/fr/products" },
@@ -20,19 +18,18 @@ const footerLinks = [
     links: [
       { name: "À propos de nous", url: "/fr/about" },
       { name: "Blog", url: "/fr/blog" },
-      { name: "Contact", url: "/fr/contact" }, // URL'yi doğru formatta güncelledim.
-      { name: "Politique de Confidentialité", url: "/fr/privacy-policy" }, // <-- EKLENEN SATIR
+      { name: "Contact", url: "/fr/contact" },
     ],
   },
 ];
 
 const socialLinks = {
   facebook: "https://www.facebook.com/krafferoasters",
-  x: "#", // Bu linkleri kendinize göre güncelleyebilirsiniz.
+  x: "#",
   github: "#",
   google: "#",
   slack: "#",
-  instagram: "https://www.instagram.com/krafferoasters/" // Instagram linki buraya da eklendi.
+  instagram: "https://www.instagram.com/krafferoasters/"
 };
 
 export default {
