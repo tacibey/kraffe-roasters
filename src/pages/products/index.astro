@@ -1,4 +1,6 @@
 ---
+// src/pages/products/index.astro
+
 // Importing necessary components
 import MainLayout from "@/layouts/MainLayout.astro";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
@@ -22,7 +24,7 @@ const product: CollectionEntry<"products">[] = (
 );
 
 // Define variables for page content
-const title: string = "Products";
+const title: string = "Commercial & Industrial Coffee Roasters";
 const subTitle: string =
   "All Kraffe Roasters machines are 100% tested on every production step, from design phase till shipment. Regardless of temperature limits and batch scales, Kraffe Roasters may provide a full control on your process and will give the opportunity to reveal your talent on roasting.";
 
@@ -130,23 +132,25 @@ const testimonials = [
   },
 ];
 
-const pageTitle: string = `Products | ${SITE.title}`;
+const pageTitle: string = `All Products | ${SITE.title}`;
+const metaDescription: string = "Explore the full range of Kraffe Roasters. From 0.5kg sample roasters to 240kg industrial machines, find the perfect commercial coffee roaster for your needs.";
 ---
 
 <MainLayout
   title={pageTitle}
+  meta={metaDescription}
   structuredData={{
     "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": "CollectionPage",
     "@id": "https://krafferoasters.com/products",
     "url": "https://krafferoasters.com/products",
-    "name": "Kraffe Roasters",
-    "description": "Master the Art of Roasting: Kraffe Commercial Coffee Roasting Machines. Achieve precision, durability, and consistency with KRAFFE industrial coffee roasters—designed for professionals and backed by lifetime support.",
+    "name": "Commercial & Industrial Coffee Roasters | Kraffe Roasters",
+    "description": metaDescription,
     "isPartOf": {
       "@type": "WebSite",
       "url": "https://krafferoasters.com",
-      "name": "Kraffe Roasters",
-      "description": "Master the Art of Roasting: Kraffe Commercial Coffee Roasting Machines. Achieve precision, durability, and consistency with KRAFFE industrial coffee roasters—designed for professionals and backed by lifetime support."
+      "name": SITE.title,
+      "description": SITE.description
     },
     "inLanguage": "en-US"
   }}
