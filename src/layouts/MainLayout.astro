@@ -1,10 +1,9 @@
----
 // src/layouts/MainLayout.astro
 
 import Meta from "@components/Meta.astro";
 import Navbar from "@components/sections/navbar&footer/Navbar.astro";
 import FooterSection from "@components/sections/navbar&footer/FooterSection.astro";
-import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro"; // AnnouncementBanner hala kullanılıyor
+import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro";
 import { SITE } from "@data/constants";
 import "@styles/global.css";
 import { getRelativeLocaleUrl } from "astro:i18n";
@@ -20,7 +19,7 @@ interface Props {
 
 const currentLang = Astro.currentLocale || 'en';
 const contactUrl = getRelativeLocaleUrl(currentLang, 'contact');
-const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer'; // AnnouncementBanner için hala kullanılabilir
+const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
 
 // === GOOGLE TAG MANAGER CONTAINER ID ===
 const gtmContainerId = "GTM-PZZBN787";
@@ -32,12 +31,12 @@ const gtmContainerId = "GTM-PZZBN787";
     {/* Meta etiketleri ve diğer başlık bilgileri */}
     <Meta meta={meta} structuredData={structuredData} />
     <title>{title}</title>
-    
+
     {/* KRİTİK CSS BAŞLANGICI - PERFORMANSI DÜŞÜRMEYECEK, SADECE GEREKLİ KONTRAST DÜZELTMELERİ */}
     <style is:inline>
       /* Bu CSS, sitenizin temel renklerini hemen sağlar. */
       /* Diğer tüm stiller global.css'den yüklenecektir. */
-      
+
       /* GENEL METİN RENKLERİ İÇİN KONTRAST DÜZELTMELERİ (KOYU MOD) */
       /* Pagespeed raporunda belirtilen düşük kontrastlı text-neutral-700/600/800 gibi genel metinleri iyileştirir */
       /* Bu kısım kaldırılmıştır, zira tüm yazıların sarı olmasına neden oluyordu. */
@@ -46,7 +45,6 @@ const gtmContainerId = "GTM-PZZBN787";
       /* Sarı butonlardaki metin rengi artık SecondaryCTA.astro içinde yönetiliyor. */
       /* Bu yüzden buradaki "#floating-offer-button" ve ".bg-yellow-400" vb. kurallarını kaldırıyoruz */
       /* Çakışmayı önlemek ve tek bir yerden yönetmek için. */
-
 
       /* Sayfa arka plan stilleri - Tailwind sınıflarına bırakılmıştır. */
       /* body.bg-neutral-200 ve html.dark body.dark\:bg-neutral-800 gibi sınıflar kullanılacaktır. */
@@ -70,6 +68,30 @@ const gtmContainerId = "GTM-PZZBN787";
     <script>
       import "@scripts/lenisSmoothScroll.js";
     </script>
+
+    {/*
+      Consent Mode için varsayılan rıza ayarlarını GTM yüklenmeden önce tanımlıyoruz.
+      Bu kod, Google etiketlerinin varsayılan olarak depolama iznini reddetmesini sağlar.
+      Kullanıcı onay verdiğinde GTM içindeki ayarlar bu durumu güncelleyecektir.
+    */}
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'functionality_storage': 'denied',
+        'personalization_storage': 'denied',
+        'security_storage': 'granted', // Güvenlik çerezleri genellikle her zaman onaylıdır
+        'wait_for_update': 500 // Opsiyonel: Onay güncellenene kadar 500ms bekler
+      });
+    </script>
+
+    {/* === GOOGLE TAG MANAGER KODU (HEAD) BAŞLANGICI === */}
+    {gtmContainerId && (
+      <script async src={`https://www.googletagmanager.com/gtm.js?id=${gtmContainerId}`}></script>
+    )}
+    {/* === /GOOGLE TAG MANAGER KODU (HEAD) SONU === */}
 
   </head>
   <body
@@ -104,16 +126,6 @@ const gtmContainerId = "GTM-PZZBN787";
       }
     </style>
 
-    {/* === GOOGLE TAG MANAGER KODU (BODY SONU) BAŞLANGICI === */}
-    {gtmContainerId && (
-      <script async defer define:vars={{ gtmContainerId }}>
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer',gtmContainerId);
-      </script>
-    )}
     {/* === GOOGLE TAG MANAGER (NOSCRIPT) KODU (BODY SONU) === */}
     {gtmContainerId && (
       <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtmContainerId}`} height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
