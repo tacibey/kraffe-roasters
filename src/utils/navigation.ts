@@ -30,7 +30,7 @@ const socialLinks = {
   github: "https://github.com/mearashadowfax/ScrewFast",
   google: "#",
   slack: "#",
-  instagram: "https://www.instagram.com/krafferoasters/"
+  instagram: "https://www.instagram.com/kraffe.roasters/"
 };
 
 export default {
