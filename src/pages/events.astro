@@ -1,0 +1,91 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import { SITE } from "@data/constants";
+import { Image } from "astro:assets";
+
+// --- GÖRSELLERİNİZİ BURAYA IMPORT EDİN ---
+// Bu görselleri src/images/events/ klasörüne eklemeyi unutmayın.
+// İsimlerini kendi dosya isimlerinizle değiştirebilirsiniz.
+import eventPhoto1 from "@images/events/woc-geneva-1.avif";
+import eventPhoto2 from "@images/events/woc-geneva-2.avif";
+import eventPhoto3 from "@images/events/woc-geneva-3.avif";
+import eventPhoto4 from "@images/events/woc-geneva-4.avif";
+import eventPhoto5 from "@images/events/woc-geneva-5.avif";
+import eventPhoto6 from "@images/events/woc-geneva-6.avif";
+
+// Sayfa Başlığı ve SEO Bilgileri
+const pageTitle = `Events | ${SITE.title}`;
+const metaDescription = "Join Kraffe Roasters for a memorable recap of World of Coffee 2025 in Geneva. Discover insights on the latest commercial coffee roaster technologies and community highlights from the SCA-organized event.";
+
+// Etkinlik metni
+const eventContent = `
+  <p class="mb-4">At the end of June, the annual <strong>World of Coffee 2025</strong> exhibition, organized by the Specialty Coffee Association (SCA), took place in Geneva, Switzerland, welcoming guests from across the globe.</p>
+  <p class="mb-4">The event was held at PALEXPO, an exhibition center nestled in a vast green park. We would like to thank the SCA team for choosing such a convenient and beautiful venue. Its proximity to Geneva Airport was a significant advantage for both visitors and exhibitors. Most of the official hotels were located between Palexpo and the airport, making it possible to walk to the venue in just 20 minutes through the picturesque, tree-lined streets of Geneva. For those who preferred, shuttle buses were also available.</p>
+  <p class="mb-4">The day before the exhibition opened, we walked through the park to Palexpo to check on our stand. The exhibition hall was impressively large and spacious. By midday, crates of equipment began arriving at the various booths. Our <strong>commercial coffee roaster</strong> was delivered quickly, and we were able to set it up at our stand. Thanks to the efficiency and support of the technical staff, the installation went smoothly and required little effort. Everything was ready for the grand opening.</p>
+  <p class="mb-4">On the first day, the venue welcomed its initial wave of visitors — not only coffee enthusiasts heading to the Coffee Village for a flavorful cup, but also professionals interested in coffee equipment. We were delighted to engage with attendees, answering questions and sharing the technical details of our <strong>commercial coffee roasting machine</strong>. Some visitors even came just to take photos of our striking red machine.</p>
+  <p class="mb-4">The second day of the exhibition was much busier, with a noticeable increase in guests from not only Switzerland and neighboring countries, but also from more distant regions. The exhibition hall came alive early in the morning with music and applause as the coffee brewing championships kicked off — a true highlight of the event.</p>
+  <p class="mb-8">The third and final day, which fell on a Saturday, brought a more casual and festive atmosphere. The venue filled with young people and coffee lovers who took advantage of the weekend to experience the event. They came for great coffee, exciting new products, and the chance to participate in various fun competitions.</p>
+  <p class="mb-4">As the day came to a close and the event officially ended, we began packing up our booth and waited for our crates to be collected for shipment. Just like at the start, the SCA’s excellent coordination made the packing and shipping process fast and efficient.</p>
+  <p>And so concluded another inspiring edition of World of Coffee — a vibrant meeting of coffee lovers and equipment makers in beautiful Geneva. Thank you to all our visitors and the amazing organizers. See you next time!</p>
+`;
+---
+
+<MainLayout
+  title={pageTitle}
+  meta={metaDescription}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "World of Coffee 2025 in Geneva: A Memorable Gathering",
+    "startDate": "2025-06-26",
+    "endDate": "2025-06-28",
+    "description": metaDescription,
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": "PALEXPO",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Geneva",
+        "addressCountry": "CH"
+      }
+    },
+    "image": [
+       new URL(eventPhoto1.src, Astro.site).href,
+       new URL(eventPhoto2.src, Astro.site).href
+     ],
+    "organizer": {
+      "@type": "Organization",
+      "name": "Specialty Coffee Association (SCA)",
+      "url": "https://sca.coffee/"
+    },
+    "performer": {
+      "@type": "Organization",
+      "name": "Kraffe Roasters",
+      "url": "https://krafferoasters.com"
+    }
+  }}
+>
+  <section class="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      
+      <!-- Başlık -->
+      <h1 class="text-balance">World of Coffee 2025 in Geneva: A Memorable Gathering of the Global Coffee Community</h1>
+      
+      <!-- Metin İçeriği -->
+      <article set:html={eventContent} />
+
+      <!-- Fotoğraf Galerisi -->
+      <div class="not-prose mt-12 grid grid-cols-2 gap-4 md:grid-cols-3">
+        <Image src={eventPhoto1} alt="Kraffe Roasters booth at World of Coffee Geneva" class="rounded-lg shadow-md" loading="lazy" />
+        <Image src={eventPhoto2} alt="Visitors checking out the commercial coffee roaster" class="rounded-lg shadow-md" loading="lazy" />
+        <Image src={eventPhoto3} alt="The vibrant atmosphere of Palexpo" class="rounded-lg shadow-md" loading="lazy" />
+        <Image src={eventPhoto4} alt="Kraffe's red commercial coffee roasting machine" class="rounded-lg shadow-md" loading="lazy" />
+        <Image src={eventPhoto5} alt="Coffee brewing championship stage" class="rounded-lg shadow-md" loading="lazy" />
+        <Image src={eventPhoto6} alt="Team photo at the Kraffe Roasters stand" class="rounded-lg shadow-md" loading="lazy" />
+      </div>
+
+    </div>
+  </section>
+</MainLayout>
