@@ -1,0 +1,152 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import { SITE } from "@data/constants";
+import { Image } from "astro:assets";
+
+// --- GÖRSELLERİNİZİ BURAYA IMPORT EDİN ---
+// Bu dosyaların `src/images/events/` klasöründe olduğundan emin olun.
+import topImage from "@images/events/woc-geneva-4.avif";
+import middleImage from "@images/events/woc-geneva-3.avif";
+
+import galleryPhoto1 from "@images/events/woc-geneva-1.avif";
+import galleryPhoto2 from "@images/events/woc-geneva-2.avif";
+import galleryPhoto3 from "@images/events/woc-geneva-3.avif";
+import galleryPhoto4 from "@images/events/woc-geneva-4.avif";
+import galleryPhoto5 from "@images/events/woc-geneva-5.avif";
+import galleryPhoto6 from "@images/events/woc-geneva-6.avif";
+
+// --- SAYFA İÇERİĞİ VE SEO (FRANSIZCA) ---
+const pageTitle = `Événements | ${SITE.title}`;
+const metaDescription = "Rejoignez Kraffe Roasters pour un récapitulatif mémorable du World of Coffee 2025 à Genève. Découvrez les dernières technologies de torréfacteurs commerciaux et les temps forts de la communauté lors de l'événement organisé par la SCA.";
+
+// Metni, araya görsel eklemek için parçalara ayırdık.
+const introText = `
+  <p class="mb-4">Fin juin, la communauté mondiale du café s'est réunie pour le salon annuel <strong>World of Coffee 2025</strong> à Genève, en Suisse, un événement essentiel organisé par la <a href="https://www.worldofcoffee.org/" target="_blank" rel="nofollow noopener noreferrer" class="text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 underline">Specialty Coffee Association (SCA)</a>. Chez Kraffe Roasters, nous étions ravis de participer et de nous connecter avec des amis, des partenaires et des amateurs de café du monde entier.</p>
+  <p class="mb-4">L'événement s'est tenu à PALEXPO, un centre d'exposition moderne niché dans un vaste parc verdoyant. Nous tenons à remercier l'équipe de la SCA d'avoir choisi un lieu aussi pratique et magnifique. Sa proximité avec l'aéroport de Genève était un avantage considérable pour les visiteurs et les exposants. La plupart des hôtels officiels étaient situés entre Palexpo et l'aéroport, permettant à beaucoup de se rendre au salon en seulement 20 minutes à pied à travers les rues pittoresques et arborées de Genève. Pour ceux qui préféraient, des navettes étaient également disponibles.</p>
+`;
+
+const mainContent = `
+  <p class="mb-4">La veille de l'ouverture du salon, nous avons traversé le parc jusqu'à Palexpo pour vérifier notre stand. Le hall d'exposition était incroyablement grand et spacieux. À la mi-journée, les caisses de matériel ont commencé à arriver sur les différents stands. Notre <a href="/fr/products" class="text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 underline"><strong>torréfacteur commercial</strong></a> a été livré rapidement, et nous avons pu l'installer sur notre stand. Grâce à l'efficacité et au soutien du personnel technique, l'installation s'est déroulée sans problème et a nécessité peu d'efforts. Tout était prêt pour la grande ouverture.</p>
+  <p class="mb-4">Le premier jour, le salon a accueilli sa première vague de visiteurs. C'était merveilleux de voir non seulement des passionnés de café se diriger vers le Coffee Village pour une tasse savoureuse, mais aussi des professionnels de l'industrie désireux de découvrir les derniers équipements. Nous avons été ravis d'échanger avec les participants, de répondre à leurs questions et de partager les détails techniques de notre <strong>machine à torréfier commerciale</strong>. Certains visiteurs sont même venus spécialement pour admirer et photographier notre machine rouge éclatante.</p>
+  <p class="mb-4">Le deuxième jour du salon a été beaucoup plus animé, avec une augmentation notable du nombre d'invités venant non seulement de Suisse et des pays voisins, mais aussi de régions plus éloignées. Le hall d'exposition s'est animé tôt le matin avec de la musique et des applaudissements alors que les championnats de préparation de café commençaient — un véritable temps fort de l'événement. Nous avons eu des conversations fantastiques sur tous les sujets, de la torréfaction d'échantillons aux exigences d'un <strong>torréfacteur industriel</strong> à grand volume.</p>
+  <p class="mb-8">Le troisième et dernier jour, un samedi, a apporté une atmosphère plus décontractée et festive. Le lieu s'est rempli de jeunes et d'amateurs de café qui ont profité du week-end pour vivre l'événement. Ils sont venus pour un excellent café, de nouveaux produits passionnants et la chance de participer à diverses compétitions amusantes.</p>
+  <p class="mb-4">Alors que la journée touchait à sa fin et que l'événement se terminait officiellement, nous avons commencé à remballer notre stand et à attendre que nos caisses soient récupérées pour l'expédition. Tout comme au début, l'excellente coordination de la SCA a rendu le processus d'emballage et d'expédition rapide et efficace.</p>
+  <p>C'est ainsi que s'est conclue une autre édition inspirante de World of Coffee — une rencontre vibrante d'amateurs de café et de fabricants d'équipements dans la belle ville de Genève. Merci à tous nos visiteurs et aux incroyables organisateurs. À la prochaine !</p>
+`;
+
+const tags = ["World of Coffee", "Genève 2025", "SCA", "torréfacteur commercial", "événements café", "Kraffe Roasters"];
+
+const galleryImages = [
+    { src: galleryPhoto1, alt: "Stand de Kraffe Roasters au World of Coffee à Genève" },
+    { src: galleryPhoto2, alt: "Visiteurs examinant le torréfacteur commercial" },
+    { src: galleryPhoto4, alt: "Machine à torréfier commerciale rouge de Kraffe" },
+    { src: galleryPhoto5, alt: "Scène du championnat de préparation de café" },
+];
+---
+
+<MainLayout
+  title={pageTitle}
+  meta={metaDescription}
+  lang="fr"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": Astro.url.href
+    },
+    "headline": "World of Coffee 2025 à Genève : Un Rassemblement Mémorable",
+    "image": new URL(topImage.src, Astro.site).href,
+    "datePublished": "2025-07-05T08:00:00+00:00",
+    "dateModified": new Date().toISOString(),
+    "author": {
+      "@type": "Organization",
+      "name": "Kraffe Roasters"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Kraffe Roasters",
+      "logo": {
+        "@type": "ImageObject",
+        "url": new URL("/kraffe-logo.png", Astro.site).href
+      }
+    },
+    "description": metaDescription,
+    "keywords": tags.join(", "),
+    "inLanguage": "fr-FR"
+  }}
+>
+  <!-- Galeri için Gerekli CSS Dosyaları (CDN'den) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-zoom.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-thumbnail.min.css" />
+
+  <section class="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      
+      <h1 class="text-balance">World of Coffee 2025 à Genève : Un Rassemblement Mémorable de la Communauté Mondiale du Café</h1>
+      
+      <div class="not-prose my-8">
+        <Image src={topImage} alt="L'équipe et le stand de Kraffe Roasters au World of Coffee à Genève 2025" class="w-full h-auto rounded-xl shadow-lg" loading="eager" />
+      </div>
+
+      <article set:html={introText} />
+      
+      <div class="not-prose my-8">
+        <Image src={middleImage} alt="Une atmosphère vibrante au centre d'exposition Palexpo" class="w-full h-auto rounded-xl shadow-lg" loading="lazy"/>
+      </div>
+
+      <article set:html={mainContent} />
+
+      <h2 class="mt-12">Galerie de l'Événement</h2>
+      <div id="lightgallery-container" class="not-prose mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
+        {galleryImages.map(img => (
+          <a
+            href={img.src.src}
+            data-sub-html={`<h4>${img.alt}</h4>`}
+            class="group block overflow-hidden rounded-lg shadow-md focus:outline-none focus:ring-4 focus:ring-orange-400 focus:ring-offset-2 dark:focus:ring-offset-neutral-800"
+          >
+            <Image 
+              src={img.src} 
+              alt={img.alt} 
+              class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110" 
+              loading="lazy" 
+            />
+          </a>
+        ))}
+      </div>
+
+      <div class="not-prose mt-12 border-t border-neutral-200 dark:border-neutral-700 pt-6">
+        <h3 class="text-lg font-semibold">Étiquettes:</h3>
+        <div class="flex flex-wrap gap-2 mt-2">
+          {tags.map(tag => (
+            <span class="inline-flex items-center gap-x-1.5 rounded-full bg-neutral-100 px-3 py-1.5 text-xs font-medium text-neutral-800 dark:bg-neutral-700 dark:text-neutral-200">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </section>
+</MainLayout>
+
+<!-- Galeri için Gerekli JS Dosyaları (CDN'den) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/zoom/lg-zoom.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/thumbnail/lg-thumbnail.min.js" defer></script>
+
+<!-- Galeri'yi çalıştıran script -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const galleryContainer = document.getElementById('lightgallery-container');
+    if (galleryContainer) {
+      (window as any).lightGallery(galleryContainer, {
+        plugins: [(window as any).lgZoom, (window as any).lgThumbnail],
+        speed: 500,
+        download: false,
+        selector: 'a',
+      });
+    }
+  });
+</script>
