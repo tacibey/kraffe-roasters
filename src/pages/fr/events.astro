@@ -4,7 +4,6 @@ import { SITE } from "@data/constants";
 import { Image } from "astro:assets";
 
 // --- GÖRSELLERİNİZİ BURAYA IMPORT EDİN ---
-// Bu dosyaların `src/images/events/` klasöründe olduğundan emin olun.
 import topImage from "@images/events/woc-geneva-4.avif";
 import middleImage from "@images/events/woc-geneva-3.avif";
 
@@ -16,10 +15,9 @@ import galleryPhoto5 from "@images/events/woc-geneva-5.avif";
 import galleryPhoto6 from "@images/events/woc-geneva-6.avif";
 
 // --- SAYFA İÇERİĞİ VE SEO (FRANSIZCA) ---
-const pageTitle = `Événements | ${SITE.title}`;
+const pageTitle = `Kraffe Roasters au World of Coffee Genève 2025 | ${SITE.title}`;
 const metaDescription = "Rejoignez Kraffe Roasters pour un récapitulatif mémorable du World of Coffee 2025 à Genève. Découvrez les dernières technologies de torréfacteurs commerciaux et les temps forts de la communauté lors de l'événement organisé par la SCA.";
 
-// Metni, araya görsel eklemek için parçalara ayırdık.
 const introText = `
   <p class="mb-4">Fin juin, la communauté mondiale du café s'est réunie pour le salon annuel <strong>World of Coffee 2025</strong> à Genève, en Suisse, un événement essentiel organisé par la <a href="https://www.worldofcoffee.org/" target="_blank" rel="nofollow noopener noreferrer" class="text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 underline">Specialty Coffee Association (SCA)</a>. Chez Kraffe Roasters, nous étions ravis de participer et de nous connecter avec des amis, des partenaires et des amateurs de café du monde entier.</p>
   <p class="mb-4">L'événement s'est tenu à PALEXPO, un centre d'exposition moderne niché dans un vaste parc verdoyant. Nous tenons à remercier l'équipe de la SCA d'avoir choisi un lieu aussi pratique et magnifique. Sa proximité avec l'aéroport de Genève était un avantage considérable pour les visiteurs et les exposants. La plupart des hôtels officiels étaient situés entre Palexpo et l'aéroport, permettant à beaucoup de se rendre au salon en seulement 20 minutes à pied à travers les rues pittoresques et arborées de Genève. Pour ceux qui préféraient, des navettes étaient également disponibles.</p>
@@ -36,11 +34,14 @@ const mainContent = `
 
 const tags = ["World of Coffee", "Genève 2025", "SCA", "torréfacteur commercial", "événements café", "Kraffe Roasters"];
 
+// Galeri için görsel listesi (6 görselin tümü eklendi)
 const galleryImages = [
     { src: galleryPhoto1, alt: "Stand de Kraffe Roasters au World of Coffee à Genève" },
     { src: galleryPhoto2, alt: "Visiteurs examinant le torréfacteur commercial" },
+    { src: galleryPhoto3, alt: "Une atmosphère vibrante au centre d'exposition Palexpo" },
     { src: galleryPhoto4, alt: "Machine à torréfier commerciale rouge de Kraffe" },
     { src: galleryPhoto5, alt: "Scène du championnat de préparation de café" },
+    { src: galleryPhoto6, alt: "Photo d'équipe au stand Kraffe Roasters" },
 ];
 ---
 
@@ -99,7 +100,7 @@ const galleryImages = [
       <article set:html={mainContent} />
 
       <h2 class="mt-12">Galerie de l'Événement</h2>
-      <div id="lightgallery-container" class="not-prose mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
+      <div id="lightgallery-container" class="not-prose mt-6 grid grid-cols-2 gap-4 md:grid-cols-3">
         {galleryImages.map(img => (
           <a
             href={img.src.src}
