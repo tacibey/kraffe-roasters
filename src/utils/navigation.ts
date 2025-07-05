@@ -2,6 +2,7 @@ const navBarLinks = [
   { name: "Home", url: "/" },
   { name: "Products", url: "/products" },
   { name: "About Us", url: "/about" },
+  { name: "Events", url: "/events" }, // YENİ EKLENDİ
   { name: "Blog", url: "/blog" },
   { name: "Contact Us", url: "/contact" },
 ];
@@ -18,6 +19,7 @@ const footerLinks = [
     section: "Company",
     links: [
       { name: "About us", url: "/about" },
+      { name: "Events", url: "/events" }, // YENİ EKLENDİ
       { name: "Blog", url: "/blog" },
       { name: "Contact Us", url: "/contact" },
     ],
@@ -27,10 +29,10 @@ const footerLinks = [
 const socialLinks = {
   facebook: "https://www.facebook.com/krafferoasters",
   x: "https://x.com/krafferoasters",
-  github: "https://github.com/mearashadowfax/ScrewFast",
+  github: "#",
   google: "#",
   slack: "#",
-  instagram: "https://www.instagram.com/kraffe.roasters/"
+  instagram: "https://www.instagram.com/kraffe.roasters/",
 };
 
 export default {
