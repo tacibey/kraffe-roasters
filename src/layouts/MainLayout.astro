@@ -22,9 +22,7 @@ const currentLang = Astro.currentLocale || 'en';
 const contactUrl = getRelativeLocaleUrl(currentLang, 'contact');
 const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
 
-// === GOOGLE TAG MANAGER CONTAINER ID ===
-const gtmContainerId = "GTM-PZZBN787";
-// === /GOOGLE TAG MANAGER CONTAINER ID ===
+// NOT: Eski GTM ID değişkeni buradan kaldırıldı.
 ---
 
 <html lang={lang} class="dark scrollbar-hide lenis lenis-smooth scroll-pt-16">
@@ -181,18 +179,18 @@ const gtmContainerId = "GTM-PZZBN787";
       }
     </style>
 
-    {/* Orijinal Google Tag Manager Kodunuz burada kalabilir */}
-    {gtmContainerId && (
-      <script async defer define:vars={{ gtmContainerId }}>
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer',gtmContainerId);
-      </script>
-    )}
-    {gtmContainerId && (
-      <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtmContainerId}`} height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    )}
+    <!-- Google Tag Manager -->
+    <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KFH3PNCV');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KFH3PNCV"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
   </body>
 </html>
