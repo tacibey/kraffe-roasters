@@ -24,7 +24,7 @@ const avatarSrcs: Array<string> = [
 
 // Sabit metinler
 const title: string = "👋 Meet your new roasting machine";
-const subTitle: string = "⤹ Fill out our form to unlock your coffee's full potential";
+const subTitle: string = `<span class="text-orange-600 dark:text-orange-400">⤹ Fill out our form</span> to unlock your coffee's full potential`;
 const formTitle: string = "Get a quote now →";
 const formSubTitle: string = "We'll get back to you in 1-2 business days.";
 
@@ -94,9 +94,8 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
       <h1 class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight">
         {title}
       </h1>
-      <p class="mt-1 text-pretty text-lg text-neutral-600 dark:text-neutral-400">
-        {subTitle}
-      </p>
+      <p class="mt-1 text-pretty text-lg text-neutral-600 dark:text-neutral-400" set:html={subTitle}>
+</p>
        <div class="mt-8 mx-auto max-w-[1500px] px-4 sm:px-6">
         <Image 
           src={kraffeContact} 
