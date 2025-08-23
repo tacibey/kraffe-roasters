@@ -32,15 +32,13 @@ const officeHeading: string = "Our Office";
 const officeContent: string = "KRAFFE ROASTERS";
 const officeAddress: string = "Adalet, Manas Blv. No:39, Folkart Towers A Kule, Kat:34, D:3408, 35530 Bayraklı/İzmir";
 
-const emailHeading: string = "Contact us by email";
-const emailContent: string = "Prefer the written word? Drop us an email at";
+// DEĞİŞİKLİK BURADA BAŞLIYOR
+const contactHeading: string = "Contact us";
 const emailLinkTitle: string = "info@krafferoasters.com";
 const emailLinkURL: string = "mailto:info@krafferoasters.com";
-
-const phoneHeading: string = "Call us";
-const phoneContent: string = "Our lines are open during business hours at";
-const phoneLinkTitle: string = "+90 555 123 45 67"; // KENDİ NUMARANLA DEĞİŞTİR
-const phoneLinkURL: string = "tel:+905551234567"; // KENDİ NUMARANLA DEĞİŞTİR
+const phoneLinkTitle: string = "+90 533 566 7061"; // KENDİ NUMARANLA DEĞİŞTİR
+const phoneLinkURL: string = "tel:+905335667061"; // KENDİ NUMARANLA DEĞİŞTİR
+// DEĞİŞİKLİK BURADA BİTİYOR
 
 const rating: string = `<span class="font-bold">4.8</span> / 5`;
 const starCount: number = 4;
@@ -75,7 +73,7 @@ const allCountries = [
   "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa",
   "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia",
   "Solomon Islands", "Somalia", "South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden",
-  "Switzerland", "Syria", "Taiwan", "Tajikian", "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia",
+  "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia",
   "Turkiye", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan",
   "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe", "Other"
 ].sort((a, b) => {
@@ -211,30 +209,33 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
             </div>
         )}
         <div class={`space-y-6 divide-y divide-neutral-200 dark:divide-neutral-700 ${!amirAvatarData ? 'mt-0' : ''}`}>
-  {/* Office Block */}
-  <div class="pt-6 first:pt-0">
-    <ContactIconBlock heading={officeHeading} content={officeContent} isAddressVisible={true} addressContent={officeAddress}>
-      <Icon name="mapPin" />
-    </ContactIconBlock>
-  </div>
-  {/* Email Block */}
-  <div class="pt-6">
-    <ContactIconBlock heading={emailHeading} content={emailContent} isLinkVisible={true} linkTitle={emailLinkTitle} linkURL={emailLinkURL}>
-      <Icon name="envelopeOpen" />
-    </ContactIconBlock>
-  </div>
-  {/* Phone Block */}
-  <div class="pt-6">
-    <ContactIconBlock heading={phoneHeading} content={phoneContent} isLinkVisible={true} linkTitle={phoneLinkTitle} linkURL={phoneLinkURL}>
-      <Icon name="phone" />
-    </ContactIconBlock>
-  </div>
-</div>
           <div class="pt-6 first:pt-0">
-             <ContactIconBlock heading={phoneHeading} content={phoneContent} isLinkVisible={true} linkTitle={phoneLinkTitle} linkURL={phoneLinkURL}>
-               <Icon name="phone" />
+             <ContactIconBlock heading={officeHeading} content={officeContent} isAddressVisible={true} addressContent={officeAddress}>
+               <Icon name="mapPin" />
              </ContactIconBlock>
           </div>
+          
+          <!-- DEĞİŞİKLİK BURADA BAŞLIYOR -->
+          <div class="pt-6">
+            <div class="flex gap-x-5">
+              <div class="shrink-0">
+                <Icon name="envelopeOpen" />
+              </div>
+              <div class="grow">
+                <h4 class="text-lg font-semibold text-neutral-800 dark:text-neutral-200">
+                  {contactHeading}
+                </h4>
+                <a href={emailLinkURL} class="mt-1 block text-sm text-orange-600 hover:text-orange-700 dark:text-orange-400 dark:hover:text-orange-500">
+                  {emailLinkTitle}
+                </a>
+                <a href={phoneLinkURL} class="mt-1 block text-sm text-orange-600 hover:text-orange-700 dark:text-orange-400 dark:hover:text-orange-500">
+                  {phoneLinkTitle}
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- DEĞİŞİKLİK BURADA BİTİYOR -->
+
         </div>
       </div>
     </div>
@@ -252,18 +253,12 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
     if (formElement && buttonElement) {
       formElement.addEventListener("botpoison-challenge-start", function () {
         buttonElement.setAttribute("disabled", "disabled");
-        // İsterseniz burada butona bir "loading" class'ı ekleyip metnini değiştirebilirsiniz.
-        // buttonElement.textContent = "Sending...";
       });
       formElement.addEventListener("botpoison-challenge-success", function () {
         buttonElement.removeAttribute("disabled");
-        // buttonElement.textContent = "Send Message";
       });
       formElement.addEventListener("botpoison-challenge-error", function () {
         buttonElement.removeAttribute("disabled");
-        // buttonElement.textContent = "Send Message";
-        // İsterseniz burada bir hata mesajı gösterebilirsiniz.
-        // alert("An error occurred with spam protection. Please try again.");
       });
     }
   </script>
