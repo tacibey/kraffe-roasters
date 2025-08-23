@@ -52,8 +52,9 @@ const canonicalUrl = "https://krafferoasters.com/contact"; // Hedef domain
 
     // 2. Butonu stillendir (cookie ikonu gibi)
     whatsappButton.style.position = 'fixed';
-    whatsappButton.style.bottom = '20px'; // Cookie ikonuyla aynı hizada
-    whatsappButton.style.right = '80px';  // Cookie ikonunun solunda (20px + 10px boşluk + 50px ikon genişliği)
+    whatsappButton.style.bottom = '20px';
+    whatsappButton.style.left = '50%'; // DEĞİŞİKLİK
+    whatsappButton.style.transform = 'translateX(-50%)'; // DEĞİŞİKLİK
     whatsappButton.style.width = '50px';
     whatsappButton.style.height = '50px';
     whatsappButton.style.backgroundColor = '#25D366'; // WhatsApp yeşili
@@ -62,12 +63,12 @@ const canonicalUrl = "https://krafferoasters.com/contact"; // Hedef domain
     whatsappButton.style.alignItems = 'center';
     whatsappButton.style.justifyContent = 'center';
     whatsappButton.style.boxShadow = '0 4px 14px rgba(0,0,0,0.2)';
-    whatsappButton.style.zIndex = '9998'; // Cookie ikonundan bir tık altta
+    whatsappButton.style.zIndex = '9998';
     whatsappButton.style.transition = 'transform 0.2s ease-in-out';
 
     // Üzerine gelince hafifçe büyüsün
-    whatsappButton.onmouseover = () => { whatsappButton.style.transform = 'scale(1.1)'; };
-    whatsappButton.onmouseout = () => { whatsappButton.style.transform = 'scale(1)'; };
+    whatsappButton.onmouseover = () => { whatsappButton.style.transform = 'translateX(-50%) scale(1.1)'; }; // DEĞİŞİKLİK
+    whatsappButton.onmouseout = () => { whatsappButton.style.transform = 'translateX(-50%) scale(1)'; }; // DEĞİŞİKLİK
 
     // 3. İçine WhatsApp SVG ikonunu ekle
     whatsappButton.innerHTML = `
