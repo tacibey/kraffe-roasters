@@ -37,6 +37,11 @@ const emailContent: string = "Prefer the written word? Drop us an email at";
 const emailLinkTitle: string = "info@krafferoasters.com";
 const emailLinkURL: string = "mailto:info@krafferoasters.com";
 
+const phoneHeading: string = "Call us";
+const phoneContent: string = "Our lines are open during business hours at";
+const phoneLinkTitle: string = "+90 555 123 45 67"; // KENDİ NUMARANLA DEĞİŞTİR
+const phoneLinkURL: string = "tel:+905551234567"; // KENDİ NUMARANLA DEĞİŞTİR
+
 const rating: string = `<span class="font-bold">4.8</span> / 5`;
 const starCount: number = 4;
 const reviews: string = `Trusted by <span class="font-bold">Roasteries</span> Worldwide`;
@@ -70,7 +75,7 @@ const allCountries = [
   "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa",
   "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia",
   "Solomon Islands", "Somalia", "South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden",
-  "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia",
+  "Switzerland", "Syria", "Taiwan", "Tajikian", "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia",
   "Turkiye", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan",
   "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe", "Other"
 ].sort((a, b) => {
@@ -95,7 +100,7 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
         {title}
       </h1>
       <p class="mt-1 text-pretty text-lg text-neutral-600 dark:text-neutral-400" set:html={subTitle}>
-</p>
+      </p>
        <div class="mt-8 mx-auto max-w-[1500px] px-4 sm:px-6">
         <Image 
           src={kraffeContact} 
@@ -214,6 +219,11 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
           <div class="pt-6 first:pt-0">
              <ContactIconBlock heading={emailHeading} content={emailContent} isLinkVisible={true} linkTitle={emailLinkTitle} linkURL={emailLinkURL}>
                <Icon name="envelopeOpen" />
+             </ContactIconBlock>
+          </div>
+          <div class="pt-6 first:pt-0">
+             <ContactIconBlock heading={phoneHeading} content={phoneContent} isLinkVisible={true} linkTitle={phoneLinkTitle} linkURL={phoneLinkURL}>
+               <Icon name="phone" />
              </ContactIconBlock>
           </div>
         </div>
