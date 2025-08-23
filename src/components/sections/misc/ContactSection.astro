@@ -211,16 +211,25 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
             </div>
         )}
         <div class={`space-y-6 divide-y divide-neutral-200 dark:divide-neutral-700 ${!amirAvatarData ? 'mt-0' : ''}`}>
-          <div class="pt-6 first:pt-0">
-             <ContactIconBlock heading={officeHeading} content={officeContent} isAddressVisible={true} addressContent={officeAddress}>
-               <Icon name="mapPin" />
-             </ContactIconBlock>
-          </div>
-          <div class="pt-6 first:pt-0">
-             <ContactIconBlock heading={emailHeading} content={emailContent} isLinkVisible={true} linkTitle={emailLinkTitle} linkURL={emailLinkURL}>
-               <Icon name="envelopeOpen" />
-             </ContactIconBlock>
-          </div>
+  {/* Office Block */}
+  <div class="pt-6 first:pt-0">
+    <ContactIconBlock heading={officeHeading} content={officeContent} isAddressVisible={true} addressContent={officeAddress}>
+      <Icon name="mapPin" />
+    </ContactIconBlock>
+  </div>
+  {/* Email Block */}
+  <div class="pt-6">
+    <ContactIconBlock heading={emailHeading} content={emailContent} isLinkVisible={true} linkTitle={emailLinkTitle} linkURL={emailLinkURL}>
+      <Icon name="envelopeOpen" />
+    </ContactIconBlock>
+  </div>
+  {/* Phone Block */}
+  <div class="pt-6">
+    <ContactIconBlock heading={phoneHeading} content={phoneContent} isLinkVisible={true} linkTitle={phoneLinkTitle} linkURL={phoneLinkURL}>
+      <Icon name="phone" />
+    </ContactIconBlock>
+  </div>
+</div>
           <div class="pt-6 first:pt-0">
              <ContactIconBlock heading={phoneHeading} content={phoneContent} isLinkVisible={true} linkTitle={phoneLinkTitle} linkURL={phoneLinkURL}>
                <Icon name="phone" />
