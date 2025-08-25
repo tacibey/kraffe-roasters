@@ -1,3 +1,5 @@
+// src/pages/robots.txt.ts
+
 // https://docs.astro.build/en/guides/integrations-guide/sitemap/#usage
 import type { APIRoute } from 'astro';
 
@@ -18,7 +20,8 @@ Allow: /
 Crawl-delay: 2
 
 User-agent: *
-Allow: / # Buradaki Disallow: / satırını Allow: / olarak değiştirdik.
+Allow: /
+Disallow: /_astro/ # YENİ KURAL BURADA
 
 Sitemap: ${new URL('sitemap-index.xml', import.meta.env.SITE).href}
 `.trim();
