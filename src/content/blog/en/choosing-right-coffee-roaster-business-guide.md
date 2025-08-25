@@ -1,6 +1,6 @@
 ---
-title: "Choosing the Right Coffee Roaster for Your Business: A Comprehensive Guide"
-description: "Navigate the complexities of selecting a coffee roaster. This guide covers capacity, budget, roast styles, sustainability, and support to help you make the best choice."
+title: "Key Factors to Consider When Starting a Roastery Business"
+description: "Starting a roastery? Our guide covers key business factors to consider, from choosing the right capacity roaster to budget and space planning."
 author: "Kraffe Technics"
 authorImage: "@/images/blog/kraffe-technic.avif"
 authorImageAlt: "Kraffe Technics Team Avatar"
@@ -73,4 +73,4 @@ Connect with the broader coffee world:
 
 Choosing the right coffee roaster for your business is a pivotal decision that requires careful consideration of capacity, budget, roasting style, roaster types, energy efficiency, ongoing support, and industry networking. By thoroughly evaluating these factors and aligning them with your business goals and values, you can make an informed choice that sets the foundation for success in the competitive coffee industry.
 
-Invest the time and effort to research, compare options, and consult with experts. Finding the perfect coffee roaster, like those offered by [Kraffe Roasters](/products/), will empower you to elevate your coffee offerings, delight your customers, and contribute to the long-term sustainability and growth of your business.
+Ready to find the perfect machine for your business? Explore our full range of [commercial and industrial coffee roasters](/products/).
