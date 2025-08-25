@@ -8,6 +8,7 @@ import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro"
 import { SITE } from "@data/constants";
 import "@styles/global.css";
 import { getRelativeLocaleUrl } from "astro:i18n";
+import { ORGANIZATION_SCHEMA } from "@data_files/site_meta.ts";
 
 const { title = SITE.title, meta, structuredData, lang = "en" } = Astro.props;
 
@@ -133,6 +134,8 @@ const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
     {/* Orijinal Meta ve Başlık Bilgileriniz */}
     <Meta meta={meta} structuredData={structuredData} />
     <title>{title}</title>
+<!-- Organization Schema -->
+<script type="application/ld+json" set:html={JSON.stringify(ORGANIZATION_SCHEMA)} />
     <style is:inline>
       h1.block { display: block; }
       h1.text-balance { text-wrap: balance; }
