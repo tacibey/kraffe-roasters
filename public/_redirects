@@ -103,3 +103,29 @@ http://yeni.krafferoasters.com/*      https://krafferoasters.com/    301!
 # KANNIBALIZASYON ÖNLEME
 /services/            /products/        301!
 
+# --- CRAWLED - NOT INDEXED (TAM LİSTE) DÜZELTMELERİ ---
+
+# Eski WordPress Kategori/Tag/Feed Sayfaları (Tümü blog anasayfasına)
+/tag/coffee-roasting/                 /blog/    301!
+/tag/coffee-roasting-techniques/      /blog/    301!
+/tag/support/feed/                    /blog/    301!
+/tag/support/                         /blog/    301!
+/tag/sprudge-feature/feed/            /blog/    301!
+/tag/sprudge-feature/                 /blog/    301!
+/tag/coffee-roasting-process/         /blog/    301!
+/category/coffee-roasting/            /blog/    301!
+
+# Eski WordPress Ürün/Kategori URL'leri
+/equipment/destoner/                              /products/destoner-equipment/    301!
+/coffee-roasters/industrial-roasters/             /products/                       301!
+/drum-roasters/sample-roasters                    /products/                       301!
+/drum-roasters/shop-roasters/kraffe-krf-15/       /products/krf-15/                301!
+/drum-roasters/shop-roasters/kraffe-krf-03/       /products/krf-03/                301!
+/drum-roasters/industrial-roasters/kraffe-krf-180/ /products/krf-180/              301!
+
+# Eski WordPress Blog URL'i
+/unleashing-the-art-of-coffee-roasting-with-the-primi-sample-roaster/ /blog/unleashing-the-art-of-coffee-roasting-with-primi-sample-roaster/ 301!
+
+# Alakasız Dil ve Eski Sayfalar
+/kaffeerostmaschinen/                 /products/    301!
+/services/                            /products/    301!
