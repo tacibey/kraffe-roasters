@@ -101,13 +101,16 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
       </p>
        <div class="mt-8 mx-auto max-w-[1500px] px-4 sm:px-6">
         <Image 
-          src={kraffeContact} 
-          alt="Contact Kraffe Roasters for inquiries" 
-          class="w-full h-auto object-cover rounded-xl aspect-[1500/700]"
-          loading="lazy"
-          widths={[600, 900, 1200, 1500]}
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1500px"
-        />
+  src={kraffeContact} 
+  alt="Contact Kraffe Roasters for a quote on commercial coffee roasters" 
+  class="w-full h-auto object-cover rounded-xl aspect-[1500/700]"
+  loading="eager"
+  format="avif"
+  width={kraffeContact.width}
+  height={kraffeContact.height}
+  widths={[480, 768, 1024, 1500]}
+  sizes="100vw"
+/>
       </div>
     </div>
 
