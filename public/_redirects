@@ -1,3 +1,8 @@
+# Redirect www to non-www and http to https
+https://www.krafferoasters.com/*    https://krafferoasters.com/:splat    301!
+http://www.krafferoasters.com/*     https://krafferoasters.com/:splat    301!
+http://krafferoasters.com/*         https://krafferoasters.com/:splat    301!
+
 # TEMEL SAYFA YÖNLENDİRMELERİ
 
 /contact-us/          /contact/         301!
