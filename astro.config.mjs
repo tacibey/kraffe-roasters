@@ -25,7 +25,14 @@ export default defineConfig({
   prefetch: true,
   integrations: [
     sitemap({
-      // i18n bloğu burada olmayacak, Astro'nun genel i18n ayarını kullanacak
+      // DEĞİŞİKLİK BURADA: Sitemap'e dilleri manuel olarak bildiriyoruz.
+      i18n: {
+        defaultLocale: 'en',
+        locales: {
+          en: 'en',
+          fr: 'fr',
+        },
+      },
     }),
     // starlight({...}), // Starlight kaldırıldı
     compressor({
