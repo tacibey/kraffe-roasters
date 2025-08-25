@@ -99,3 +99,7 @@ http://yeni.krafferoasters.com/*      https://krafferoasters.com/    301!
 # Yabancı Dildeki Alakasız Sayfalar
 /mejores-tostadores-de-cafe-para-uso-comercial-e-industrial/ /products/    301!
 /torrefacteurs-innovants-pour-professionnels/               /fr/products/ 301!```
+
+# KANNIBALIZASYON ÖNLEME
+/services/            /products/        301!
+
