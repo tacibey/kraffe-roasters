@@ -35,7 +35,7 @@ interface Props {
   starCount?: number;
   rating?: string;
   reviews?: string;
-  src?: any;
+  src?: any; // Image object from import
   alt?: string;
 }
 ---
@@ -79,16 +79,22 @@ interface Props {
   <!-- Hero Image Section -->
   <div class="flex w-full">
       <div class="top-12 overflow-hidden">
-	{src && alt &&
-	<Image
+  {src && alt &&
+  <Image
         src={src}
         alt={alt}
         class="h-full w-full scale-110 object-cover object-center"
         draggable={"false"}
         loading={"eager"}
         format={"avif"}
-	 />
-	}
+        
+        <!-- DEĞİŞİKLİKLER BURADA -->
+        width={src.width}
+        height={src.height}
+        widths={[480, 768, 1024, src.width]}
+        sizes="(max-width: 768px) 100vw, 50vw"
+   />
+  }
     </div>
   </div>
 </section>
