@@ -1,0 +1,22 @@
+---
+// src/components/HreflangLinks.astro
+const { url } = Astro;
+const site = Astro.site as URL;
+
+// Mevcut path'i al ve /fr/ prefix'ini (varsa) kaldırarak base path'i bul
+const currentPathname = url.pathname;
+const isFrench = currentPathname.startsWith('/fr');
+const basePath = isFrench ? currentPathname.substring(3) : currentPathname;
+
+// Her iki dil için de tam URL'leri oluştur
+// Ana sayfa için özel durum: basePath boşsa '/' kullan
+const englishPath = basePath || '/';
+const frenchPath = `/fr${basePath || '/'}`;
+
+const englishUrl = new URL(englishPath, site).href;
+const frenchUrl = new URL(frenchPath, site).href;
+---
+
+<link rel="alternate" hreflang="en" href={englishUrl} />
+<link rel="alternate" hreflang="fr" href={frenchUrl} />
+<link rel="alternate" hreflang="x-default" href={englishUrl} />
