@@ -4,9 +4,11 @@
 import Meta from "@components/Meta.astro";
 import Navbar from "@components/sections/navbar&footer/Navbar.astro";
 import FooterSection from "@components/sections/navbar&footer/FooterSection.astro";
+import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro";
 import { SITE } from "@data/constants";
 import "@styles/global.css";
-import { ORGANIZATION_SCHEMA } from "@data_files/site_meta.ts";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { ORGANIZATION_SCHEMA } from "../data_files/site_meta.ts";
 
 const { title = SITE.title, meta, structuredData, lang = "en" } = Astro.props;
 
@@ -16,6 +18,12 @@ interface Props {
   structuredData?: object;
   lang?: string;
 }
+
+const currentLang = Astro.currentLocale || 'en';
+const contactUrl = getRelativeLocaleUrl(currentLang, 'contact');
+const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
+
+// NOT: Eski GTM ID değişkeni buradan kaldırıldı.
 ---
 
 <html lang={lang} class="dark scrollbar-hide lenis lenis-smooth scroll-pt-16">
@@ -27,17 +35,21 @@ interface Props {
       function gtag(){dataLayer.push(arguments);}
 
       // Set default consent to 'denied' before the user makes a choice.
+      // This is the most important step for Google Consent Mode v2.
       gtag('consent', 'default', {
         'ad_storage': 'denied',
         'ad_user_data': 'denied',
         'ad_personalization': 'denied',
         'analytics_storage': 'denied',
-        'wait_for_update': 500
+        'wait_for_update': 500 // Waits 500ms for consent update
       });
     </script>
     
     <link rel="stylesheet" id="silktide-consent-manager-css" href="/cookie-banner/css/silktide-consent-manager.css">
+    
+    <!-- DEĞİŞİKLİK BURADA: is:raw eklendi -->
     <script src="/cookie-banner/js/silktide-consent-manager.js" is:raw></script>
+    
     <script is:inline>
       silktideCookieBannerManager.updateCookieBannerConfig({
         background: {
@@ -119,12 +131,11 @@ interface Props {
     </script>
     <!-- END: Silktide Cookie Consent Banner & Google Consent Mode -->
 
+    {/* Orijinal Meta ve Başlık Bilgileriniz */}
     <Meta meta={meta} structuredData={structuredData} />
     <title>{title}</title>
-
-    <!-- Organization Schema -->
-    <script type="application/ld+json" set:html={JSON.stringify(ORGANIZATION_SCHEMA)} />
-
+<!-- Organization Schema -->
+<script type="application/ld+json" set:html={JSON.stringify(ORGANIZATION_SCHEMA)} />
     <style is:inline>
       h1.block { display: block; }
       h1.text-balance { text-wrap: balance; }
@@ -150,32 +161,11 @@ interface Props {
       </main>
     </div>
 
-    <!-- YENİ FLOATING ACTION BUTTONS -->
-    <div class="fixed bottom-5 left-1/2 z-50 flex -translate-x-1/2 items-center gap-3">
-      <!-- Call Button -->
-      <a
-        href="tel:+905335667061"
-        class="flex h-14 w-14 items-center justify-center rounded-full bg-blue-500 text-white shadow-lg transition-transform hover:scale-110 hover:bg-blue-600"
-        aria-label="Call Us"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M6.62 10.79a15.5 15.5 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.24.2 2.45.57 3.57.11.35.02.74-.25 1.02l-2.2 2.2z"></path>
-        </svg>
-      </a>
-
-      <!-- WhatsApp Button -->
-      <a
-        href="https://wa.me/+905335667061?text=Hello%20Kraffe%20Roasters,%20I%20would%20like%20to%20get%20more%20information."
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-white shadow-lg transition-transform hover:scale-110 hover:bg-green-600"
-        aria-label="Contact us on WhatsApp"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.267.655 4.398 1.908 6.161l-1.317 4.816 4.919-1.295z"></path>
-        </svg>
-      </a>
-    </div>
+    <AnnouncementBanner
+      btnId="floating-offer-button"
+      btnTitle={buttonText}
+      url={contactUrl}
+    />
 
     <FooterSection />
 
