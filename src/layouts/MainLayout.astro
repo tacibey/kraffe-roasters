@@ -22,32 +22,29 @@ interface Props {
 const currentLang = Astro.currentLocale || 'en';
 const contactUrl = getRelativeLocaleUrl(currentLang, 'contact');
 const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
-
-// NOT: Eski GTM ID değişkeni buradan kaldırıldı.
 ---
 
 <html lang={lang} class="dark scrollbar-hide lenis lenis-smooth scroll-pt-16">
   <head>
     <!-- START: Silktide Cookie Consent Banner & Google Consent Mode -->
     <script is:inline>
-      // Define dataLayer and the gtag function.
+      // dataLayer ve gtag fonksiyonunu tanımla.
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
 
-      // Set default consent to 'denied' before the user makes a choice.
-      // This is the most important step for Google Consent Mode v2.
+      // Kullanıcı seçim yapmadan önce varsayılan izin durumunu 'reddedildi' olarak ayarla.
+      // Bu, Google Consent Mode v2 için en kritik adımdır.
       gtag('consent', 'default', {
         'ad_storage': 'denied',
         'ad_user_data': 'denied',
         'ad_personalization': 'denied',
         'analytics_storage': 'denied',
-        'wait_for_update': 500 // Waits 500ms for consent update
+        'wait_for_update': 500 // İzin güncellemesi için 500ms bekler
       });
     </script>
     
     <link rel="stylesheet" id="silktide-consent-manager-css" href="/cookie-banner/css/silktide-consent-manager.css">
     
-    <!-- DEĞİŞİKLİK BURADA: is:raw eklendi -->
     <script src="/cookie-banner/js/silktide-consent-manager.js" is:raw></script>
     
     <script is:inline>
@@ -131,11 +128,22 @@ const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
     </script>
     <!-- END: Silktide Cookie Consent Banner & Google Consent Mode -->
 
+    <!-- DEĞİŞİKLİK BURADA: GTM Script'i body'den buraya taşındı -->
+    <!-- Google Tag Manager -->
+    <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KFH3PNCV');</script>
+    <!-- End Google Tag Manager -->
+
     {/* Orijinal Meta ve Başlık Bilgileriniz */}
     <Meta meta={meta} structuredData={structuredData} />
     <title>{title}</title>
-<!-- Organization Schema -->
-<script type="application/ld+json" set:html={JSON.stringify(ORGANIZATION_SCHEMA)} />
+    
+    <!-- Organization Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(ORGANIZATION_SCHEMA)} />
+
     <style is:inline>
       h1.block { display: block; }
       h1.text-balance { text-wrap: balance; }
@@ -154,6 +162,11 @@ const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
   <body
     class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800"
   >
+    <!-- Google Tag Manager (noscript) - Burası doğru yerde -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KFH3PNCV"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
     <div class="mx-auto max-w-(--breakpoint-2xl) px-4 sm:px-6 lg:px-8">
       <Navbar />
       <main>
@@ -182,18 +195,7 @@ const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
       }
     </style>
 
-    <!-- Google Tag Manager -->
-    <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KFH3PNCV');</script>
-    <!-- End Google Tag Manager -->
-
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KFH3PNCV"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    <!-- DEĞİŞİKLİK BURADA: GTM Script'i buradan kaldırıldı ve head'e taşındı -->
 
   </body>
 </html>
