@@ -8,16 +8,26 @@ import amirAvatar from "@images/Amir+Montazer.avif";
 // Sabit metinler ve ayarlar
 const title: string = "Get a Custom Quote for the Roaster That Will Define Your Coffee.";
 const subTitle: string = "Tell us about your needs in 60 seconds. Our experts will send you a personalized, no-obligation quote within 24 hours.";
-const formTitle: string = "Start Here";
-const formSubTitle: string = "We will get back to you within 24 hours."; // DEĞİŞİKLİK
+const formSubTitle: string = "We will get back to you within 24 hours.";
 
 const formsparkFormId = "la0JBXKn3"; // Formspark ID'niz
 const botpoisonPublicKey = "pk_237e0502-663f-4b6c-ab78-5a125646b975";
 
+// DEĞİŞİKLİK: Ürün isimleri daha açıklayıcı hale getirildi.
 const productOptions = [
-  "Dimi - Half kg batch capacity", "Primi - 1 kg batch capacity",
-  "KRF-03", "KRF-06", "KRF-12", "KRF-15", "KRF-20",
-  "KRF-30", "KRF-60", "KRF-120", "KRF-180", "KRF-240", "Equipment"
+  "Dimi - Half kg batch capacity",
+  "Primi - 1 kg batch capacity",
+  "KRF-03: 3kg Batch Roaster",
+  "KRF-06: 6kg Batch Roaster",
+  "KRF-12: 12kg Batch Roaster",
+  "KRF-15: 15kg Batch Roaster",
+  "KRF-20: 20kg Batch Roaster",
+  "KRF-30: 30kg Batch Roaster",
+  "KRF-60: 60kg Batch Roaster",
+  "KRF-120: 120kg Batch Roaster",
+  "KRF-180: 180kg Batch Roaster",
+  "KRF-240: 240kg Batch Roaster",
+  "Equipment"
 ];
 
 const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm text-neutral-700 placeholder:text-neutral-500 focus:border-neutral-200 focus:outline-hidden focus:ring-3 focus:ring-neutral-400 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-700/30 dark:text-neutral-300 dark:placeholder:text-neutral-400 dark:focus:ring-1";
@@ -52,9 +62,7 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
     <!-- Form Alanı -->
     <div class="mt-12">
       <div class="flex flex-col rounded-xl border border-neutral-200 bg-neutral-100 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-800 sm:p-6 lg:p-8">
-        <h2 class="mb-8 text-center text-xl font-semibold text-neutral-800 dark:text-neutral-200">
-          {formTitle}
-        </h2>
+        <!-- DEĞİŞİKLİK: "Start Here" başlığı kaldırıldı -->
 
         <form
           id="offer-form-kraffe"
@@ -67,13 +75,17 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
           <input type="hidden" name="form_source" value="Offer Page" />
 
           <div class="grid gap-4">
-            <!-- SADECE GEREKLİ ALANLAR -->
+            <!-- DEĞİŞİKLİK: "Name" alanı eklendi -->
+            <div>
+              <label for="offer-name" class="sr-only">Name</label>
+              <input type="text" id="offer-name" name="name" class={inputBaseClass} placeholder="Name" required />
+            </div>
+            
             <div>
               <label for="offer-email" class="sr-only">Email</label>
               <input type="email" id="offer-email" name="email" class={inputBaseClass} placeholder="Email" required autocomplete="email"/>
             </div>
             
-            <!-- DEĞİŞİKLİK: ÜLKE KODLU TELEFON ALANI -->
             <div>
               <label for="offer-phone-number" class="sr-only">Phone Number</label>
               <div class="flex rounded-lg shadow-sm">
@@ -110,7 +122,7 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
             </div>
             <div>
               <label for="offer-details" class="sr-only">Details</label>
-              <textarea id="offer-details" name="message" rows="4" class={inputBaseClass} placeholder="Tell us about your needs..." required></textarea> <!-- DEĞİŞİKLİK -->
+              <textarea id="offer-details" name="message" rows="4" class={inputBaseClass} placeholder="Tell us about your needs..." required></textarea>
             </div>
           </div>
           <div class="mt-4 grid">
