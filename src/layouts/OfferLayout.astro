@@ -1,0 +1,50 @@
+---
+// src/layouts/OfferLayout.astro
+// Bu layout, footer OLMADAN sadece navbar'ı içerir.
+// Dönüşüm hunisinden kaçışları engellemek için tasarlandı.
+
+import Meta from "@components/Meta.astro";
+import Navbar from "@components/sections/navbar&footer/Navbar.astro";
+import { SITE } from "@data/constants";
+import "@styles/global.css";
+import { ORGANIZATION_SCHEMA } from "@data_files/site_meta.ts";
+
+const { title = SITE.title, meta, structuredData, lang = "en" } = Astro.props;
+
+interface Props {
+  title?: string;
+  meta?: string;
+  structuredData?: object;
+  lang?: string;
+}
+---
+
+<html lang={lang} class="dark scrollbar-hide lenis lenis-smooth scroll-pt-16">
+  <head>
+    <!-- Gerekli tüm meta ve script'ler burada -->
+    <Meta meta={meta} structuredData={structuredData} />
+    <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(ORGANIZATION_SCHEMA)} />
+    <style is:inline>
+      html.scrollbar-hide::-webkit-scrollbar { display: none; }
+      html.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+    <script>
+      import "@scripts/lenisSmoothScroll.js";
+    </script>
+  </head>
+  <body
+    class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800"
+  >
+    <div class="mx-auto max-w-(--breakpoint-2xl) px-4 sm:px-6 lg:px-8">
+      <Navbar />
+      <main>
+        <slot />
+      </main>
+    </div>
+    <!-- FOOTER BURADA YOK -->
+    <script>
+      import "preline/preline.js";
+    </script>
+  </body>
+</html>
