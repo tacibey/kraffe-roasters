@@ -9,7 +9,7 @@ import amirAvatar from "@images/Amir+Montazer.avif";
 const title: string = "Get a Custom Quote for the Roaster That Will Define Your Coffee.";
 const subTitle: string = "Tell us about your needs in 60 seconds. Our experts will send you a personalized, no-obligation quote within 24 hours.";
 const formTitle: string = "Start Here";
-const formSubTitle: string = "We respect your privacy.";
+const formSubTitle: string = "We will get back to you within 24 hours."; // DEĞİŞİKLİK
 
 const formsparkFormId = "la0JBXKn3"; // Formspark ID'niz
 const botpoisonPublicKey = "pk_237e0502-663f-4b6c-ab78-5a125646b975";
@@ -72,10 +72,33 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
               <label for="offer-email" class="sr-only">Email</label>
               <input type="email" id="offer-email" name="email" class={inputBaseClass} placeholder="Email" required autocomplete="email"/>
             </div>
+            
+            <!-- DEĞİŞİKLİK: ÜLKE KODLU TELEFON ALANI -->
             <div>
               <label for="offer-phone-number" class="sr-only">Phone Number</label>
-              <input type="tel" id="offer-phone-number" name="phone" class={inputBaseClass} placeholder="Phone Number" />
+              <div class="flex rounded-lg shadow-sm">
+                <div class="inline-flex min-w-fit items-center rounded-s-lg border border-e-0 border-neutral-200 bg-neutral-200 px-3 dark:border-neutral-600 dark:bg-neutral-700">
+                  <span class="text-sm text-neutral-500 dark:text-neutral-400">+</span>
+                </div>
+                <input
+                  type="text"
+                  id="offer-country-code"
+                  name="countryCode"
+                  class="block w-[80px] border-neutral-200 py-3 pl-4 pr-2 text-sm focus:z-10 focus:border-orange-500 focus:ring-orange-500 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-700/30 dark:text-neutral-300 dark:placeholder-neutral-500 dark:focus:ring-orange-600"
+                  placeholder="Code"
+                  aria-label="Country code"
+                />
+                <input
+                  type="tel"
+                  id="offer-phone-number"
+                  name="phone"
+                  class={`${inputBaseClass} rounded-s-none`}
+                  placeholder="Phone Number"
+                  aria-label="Phone number"
+                />
+              </div>
             </div>
+
             <div>
               <label for="offer-product" class="sr-only">Select Product</label>
               <select id="offer-product" name="product" class={inputBaseClass + " cursor-pointer"}>
@@ -87,7 +110,7 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
             </div>
             <div>
               <label for="offer-details" class="sr-only">Details</label>
-              <textarea id="offer-details" name="message" rows="4" class={inputBaseClass} placeholder="Tell us about your project..." required></textarea>
+              <textarea id="offer-details" name="message" rows="4" class={inputBaseClass} placeholder="Tell us about your needs..." required></textarea> <!-- DEĞİŞİKLİK -->
             </div>
           </div>
           <div class="mt-4 grid">
