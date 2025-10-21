@@ -1,0 +1,128 @@
+---
+// src/components/sections/misc/OfferSection.astro
+import { Image } from "astro:assets";
+import AuthBtn from "@components/ui/buttons/AuthBtn.astro";
+import SecondaryCTA from "@components/ui/buttons/SecondaryCTA.astro";
+import amirAvatar from "@images/Amir+Montazer.avif";
+
+// Sabit metinler ve ayarlar
+const title: string = "Get a Custom Quote for the Roaster That Will Define Your Coffee.";
+const subTitle: string = "Tell us about your needs in 60 seconds. Our experts will send you a personalized, no-obligation quote within 24 hours.";
+const formTitle: string = "Start Here";
+const formSubTitle: string = "We respect your privacy.";
+
+const formsparkFormId = "la0JBXKn3"; // Formspark ID'niz
+const botpoisonPublicKey = "pk_237e0502-663f-4b6c-ab78-5a125646b975";
+
+const productOptions = [
+  "Dimi - Half kg batch capacity", "Primi - 1 kg batch capacity",
+  "KRF-03", "KRF-06", "KRF-12", "KRF-15", "KRF-20",
+  "KRF-30", "KRF-60", "KRF-120", "KRF-180", "KRF-240", "Equipment"
+];
+
+const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm text-neutral-700 placeholder:text-neutral-500 focus:border-neutral-200 focus:outline-hidden focus:ring-3 focus:ring-neutral-400 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-700/30 dark:text-neutral-300 dark:placeholder:text-neutral-400 dark:focus:ring-1";
+---
+
+{botpoisonPublicKey && (
+  <script src="https://unpkg.com/@botpoison/browser" async defer></script>
+)}
+
+<section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+  <div class="mx-auto max-w-2xl">
+    <!-- Başlık ve Alt Başlık -->
+    <div class="text-center">
+      <h1 class="text-balance text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight">
+        {title}
+      </h1>
+      <p class="mt-3 text-pretty text-lg text-neutral-600 dark:text-neutral-400">
+        {subTitle}
+      </p>
+    </div>
+
+    <!-- Alternatif Butonlar -->
+    <div class="mt-8 grid grid-cols-1 gap-3 text-center sm:grid-cols-2 sm:items-center">
+      <a href="/products" class="block rounded-lg border-2 border-neutral-800 px-6 py-3 text-sm font-semibold text-neutral-800 transition-colors hover:bg-neutral-800 hover:text-white dark:border-neutral-200 dark:text-neutral-200 dark:hover:bg-neutral-200 dark:hover:text-neutral-800">
+        Visit Products
+      </a>
+      <a href="https://wa.me/+905335667061?text=Hello%20Kraffe,%20I'd%20like%20to%20get%20a%20quote." target="_blank" rel="noopener noreferrer" class="block rounded-lg bg-green-500 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-green-600">
+        Get Offer via WhatsApp
+      </a>
+    </div>
+
+    <!-- Form Alanı -->
+    <div class="mt-12">
+      <div class="flex flex-col rounded-xl border border-neutral-200 bg-neutral-100 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-800 sm:p-6 lg:p-8">
+        <h2 class="mb-8 text-center text-xl font-semibold text-neutral-800 dark:text-neutral-200">
+          {formTitle}
+        </h2>
+
+        <form
+          id="offer-form-kraffe"
+          action={`https://submit-form.com/${formsparkFormId}`}
+          method="POST"
+          data-botpoison-public-key={botpoisonPublicKey}
+        >
+          <input type="text" name="_honeypot" style="display: none;" tabindex="-1" autocomplete="off"/>
+          <input type="hidden" name="_redirect" value="https://krafferoasters.com/thanks" />
+          <input type="hidden" name="form_source" value="Offer Page" />
+
+          <div class="grid gap-4">
+            <!-- SADECE GEREKLİ ALANLAR -->
+            <div>
+              <label for="offer-email" class="sr-only">Email</label>
+              <input type="email" id="offer-email" name="email" class={inputBaseClass} placeholder="Email" required autocomplete="email"/>
+            </div>
+            <div>
+              <label for="offer-phone-number" class="sr-only">Phone Number</label>
+              <input type="tel" id="offer-phone-number" name="phone" class={inputBaseClass} placeholder="Phone Number" />
+            </div>
+            <div>
+              <label for="offer-product" class="sr-only">Select Product</label>
+              <select id="offer-product" name="product" class={inputBaseClass + " cursor-pointer"}>
+                <option value="" disabled selected>Which product are you interested in?</option>
+                {productOptions.map(option => (
+                  <option value={option}>{option}</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label for="offer-details" class="sr-only">Details</label>
+              <textarea id="offer-details" name="message" rows="4" class={inputBaseClass} placeholder="Tell us about your project..." required></textarea>
+            </div>
+          </div>
+          <div class="mt-4 grid">
+            <AuthBtn title="Get My Free Quote" type="submit" id="offer-submit-button" />
+          </div>
+          <div class="mt-3 text-center">
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">
+              {formSubTitle}
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Social Proof -->
+    <div class="mt-12 text-center">
+        <Image src={amirAvatar} alt="Amir Montazer from Etude Coffee Co." class="mx-auto h-24 w-24 rounded-full" width="96" height="96" />
+        <div class="mt-4">
+            <p class="text-lg text-neutral-700 dark:text-neutral-300">"The machine is incredibly user-friendly and delivers consistent results every time. The roasting process is efficient and precise, allowing me to achieve the perfect roast for my coffee beans."</p>
+            <p class="mt-2 font-semibold text-neutral-800 dark:text-neutral-200">Amir Montazer</p>
+            <p class="text-sm text-neutral-600 dark:text-neutral-400">Etude Coffee Co.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+{botpoisonPublicKey && (
+  <script is:inline>
+    const formElement = document.getElementById("offer-form-kraffe");
+    const buttonElement = document.getElementById("offer-submit-button");
+
+    if (formElement && buttonElement) {
+      formElement.addEventListener("botpoison-challenge-start", () => buttonElement.setAttribute("disabled", "disabled"));
+      formElement.addEventListener("botpoison-challenge-success", () => buttonElement.removeAttribute("disabled"));
+      formElement.addEventListener("botpoison-challenge-error", () => buttonElement.removeAttribute("disabled"));
+    }
+  </script>
+)}
