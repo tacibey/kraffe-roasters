@@ -1,0 +1,37 @@
+---
+// src/pages/offer.astro
+
+import OfferLayout from "@/layouts/OfferLayout.astro";
+import OfferSection from "@components/sections/misc/OfferSection.astro";
+import { SITE } from "@data/constants";
+
+const pageTitle: string = `Get a Custom Quote | ${SITE.title}`;
+const canonicalUrl = "https://krafferoasters.com/offer";
+---
+
+<OfferLayout
+  title={pageTitle}
+  lang="en"
+  meta={{
+    title: `Get a Custom Quote for Your Coffee Roaster`,
+    description: "Tell us your needs and get a personalized, no-obligation quote for a Kraffe roaster within 24 hours. Start your journey to the perfect roast today.",
+    canonical: canonicalUrl,
+  }}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": canonicalUrl,
+    "url": canonicalUrl,
+    "name": `Kraffe Roasters Custom Quote`,
+    "description": "Get a personalized, no-obligation quote for a Kraffe roaster.",
+    "isPartOf": {
+        "@type": "WebSite",
+        "url": "https://krafferoasters.com",
+        "name": SITE.title,
+        "description": SITE.description
+    },
+    "inLanguage": "en-US"
+  }}
+>
+  <OfferSection />
+</OfferLayout>
