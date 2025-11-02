@@ -198,6 +198,19 @@ const inputBaseClass = "block w-full rounded-lg border border-neutral-200 bg-neu
                 <ReviewComponent amirAvatarData={amirAvatarData} avatars={avatarSrcs} starCount={starCount} rating={rating} reviews={reviews} />
             </div>
         )}
+
+        <!-- YENİ YORUM BÖLÜMÜNÜ BURAYA YAPIŞTIR -->
+<div class="text-center">
+  <blockquote class="text-lg italic text-neutral-700 dark:text-neutral-300">
+    "Versatile, precise, and reliable, Kraffe easily adapts to different roasting styles with full control over every profile curve. Calibration is straightforward, and its seamless Artisan integration ensures efficient data management and consistent roasts."
+  </blockquote>
+  <cite class="mt-4 block font-semibold not-italic text-neutral-800 dark:text-neutral-200">
+    A Kraffe User from Spain
+  </cite>
+</div>
+
+
+
         <div class={`space-y-6 divide-y divide-neutral-200 dark:divide-neutral-700 ${!amirAvatarData ? 'mt-0' : ''}`}>
           <div class="pt-6 first:pt-0">
              <ContactIconBlock heading={officeHeading} content={officeContent} isAddressVisible={true} addressContent={officeAddress}>
