@@ -4,6 +4,7 @@
 import OfferLayout from "@/layouts/OfferLayout.astro";
 import OfferSection from "@components/sections/misc/OfferSection.astro";
 import { SITE } from "@data/constants";
+import Icon from "@components/ui/icons/Icon.astro"; // İkon bileşeni import edildi
 
 const pageTitle: string = `Get a Custom Quote | ${SITE.title}`;
 const canonicalUrl = "https://krafferoasters.com/offer";
@@ -34,4 +35,22 @@ const canonicalUrl = "https://krafferoasters.com/offer";
   }}
 >
   <OfferSection />
+
+  <!-- YENİ EKLENEN BÖLÜM BAŞLANGICI -->
+  <section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <div class="rounded-lg bg-white p-6 text-center shadow-lg dark:bg-neutral-700">
+      <h2 class="text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-100">
+        Looking for a Local Partner?
+      </h2>
+      <p class="mt-3 text-lg text-neutral-600 dark:text-neutral-300">
+        Want to get in contact with a local dealer? Visit our dealers page to find an authorized reseller near you.
+      </p>
+      <a href="/dealers" class="mt-6 inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-orange-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-orange-600 disabled:pointer-events-none disabled:opacity-50">
+        Find a Dealer
+        <Icon name="arrowRightStatic" class="h-4 w-4" />
+      </a>
+    </div>
+  </section>
+  <!-- YENİ EKLENEN BÖLÜM SONU -->
+
 </OfferLayout>
