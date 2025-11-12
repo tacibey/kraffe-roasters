@@ -1,10 +1,13 @@
 ---
+// src/pages/fr/contact.astro
+
 // Gerekli bileşenleri ve verileri import et
 import MainLayout from "@/layouts/MainLayout.astro";
 // Fransızca için ayrı bir ContactSection bileşeni olduğunu varsayıyoruz
 import ContactSection_fr from "@components/sections/fr/ContactSection_fr.astro";
 import { SITE } from "@data/constants"; // SITE sabiti kullanılacak
 import amirAvatar from "@images/Amir+Montazer.avif"; // Amir'in avatarı import edildi (her iki dil için aynı varsayılıyor)
+import Icon from "@components/ui/icons/Icon.astro"; // İkon bileşeni import edildi
 
 // Sayfa başlığını Kraffe Roasters'a göre ayarla (Fransızca)
 const pageTitle_fr: string = `Nous Contacter | ${SITE.title}`;
@@ -15,23 +18,38 @@ const canonicalUrl_fr = `${SITE.url}/fr/contact`; // SITE.url kullanılmalı
 
 <MainLayout
   title={pageTitle_fr}
-  lang="fr" {/* Dil etiketi eklendi */}
+  lang="fr"
   structuredData={{
     "@context": "https://schema.org",
-    "@type": "ContactPage", // Tip ContactPage olarak güncellendi
+    "@type": "ContactPage",
     "@id": canonicalUrl_fr,
     "url": canonicalUrl_fr,
-    "name": `Contacter Kraffe Roasters | Machines à Torréfier Commerciales et Industrielles`, // Sayfa adı çevrildi
-    "description": "Contactez Kraffe Roasters pour toute question concernant nos machines à torréfier commerciales et industrielles, nos équipements ou nos services. Demandez un devis ou une consultation.", // Meta description çevrildi
+    "name": `Contacter Kraffe Roasters | Machines à Torréfier Commerciales et Industrielles`,
+    "description": "Contactez Kraffe Roasters pour toute question concernant nos machines à torréfier commerciales et industrielles, nos équipements ou nos services. Demandez un devis ou une consultation.",
     "isPartOf": {
         "@type": "WebSite",
-        "url": `${SITE.url}/fr`, // Ana site FR URL'si
-        "name": SITE.title, // constants.ts'den alınacak
-        "description": SITE.description // constants.ts'den alınacak (İngilizce kalabilir veya çevrilebilir)
+        "url": `${SITE.url}/fr`,
+        "name": SITE.title,
+        "description": SITE.description
     },
-    "inLanguage": "fr-FR" // Dil kodu güncellendi
+    "inLanguage": "fr-FR"
   }}
 >
-  {/* ContactSection_fr bileşenine amirAvatar verisi prop olarak geçirildi */}
   <ContactSection_fr amirAvatarData={amirAvatar} />
+
+  <section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <div class="rounded-lg bg-white p-6 text-center shadow-lg dark:bg-neutral-700">
+      <h2 class="text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-100">
+        Vous cherchez un partenaire local ?
+      </h2>
+      <p class="mt-3 text-lg text-neutral-600 dark:text-neutral-300">
+        Vous souhaitez contacter un revendeur local ? Visitez notre page des revendeurs pour trouver un partenaire agréé près de chez vous.
+      </p>
+      <a href="/fr/dealers" class="mt-6 inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-orange-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-orange-600 disabled:pointer-events-none disabled:opacity-50">
+        Trouver un Revendeur
+        <Icon name="arrowRightStatic" class="h-4 w-4" />
+      </a>
+    </div>
+  </section>
+
 </MainLayout>
