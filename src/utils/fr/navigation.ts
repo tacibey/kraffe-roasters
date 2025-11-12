@@ -1,9 +1,12 @@
+// src/utils/fr/navigation.ts
+
 const navBarLinks = [
   { name: "Accueil", url: "/fr" },
   { name: "Produits", url: "/fr/products" },
   { name: "À propos", url: "/fr/about" },
-  { name: "Événements", url: "/fr/events" }, // YENİ EKLENDİ
+  { name: "Événements", url: "/fr/events" },
   { name: "Blog", url: "/fr/blog" },
+  { name: "Revendeurs", url: "/fr/dealers" }, // YENİ EKLENDİ
   { name: "Contact", url: "/fr/contact" },
 ];
 
@@ -18,8 +21,9 @@ const footerLinks = [
     section: "Société",
     links: [
       { name: "À propos de nous", url: "/fr/about" },
-      { name: "Événements", url: "/fr/events" }, // YENİ EKLENDİ
+      { name: "Événements", url: "/fr/events" },
       { name: "Blog", url: "/fr/blog" },
+      { name: "Revendeurs", url: "/fr/dealers" }, // YENİ EKLENDİ
       { name: "Contact", url: "/fr/contact" },
     ],
   },
