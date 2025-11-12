@@ -1,0 +1,55 @@
+---
+// src/pages/dealers.astro
+
+import MainLayout from "@layouts/MainLayout.astro";
+import MainSection from "@components/ui/blocks/MainSection.astro";
+import DealerCard from "@components/ui/cards/DealerCard.astro";
+
+// Gelecekte yeni bayiler eklemek için bu listeyi düzenlemeniz yeterlidir.
+const dealers = [
+  {
+    name: "Abdullah Ali Al-Bowait",
+    company: "Burj Pisa Trading Est.",
+    phone: "+966 54 596 5639",
+    email: "sqa2022@gmail.com",
+    country: "Saudi Arabia",
+  },
+  // Örnek: Gelecekte yeni bir bayi eklendiğinde böyle görünecek
+  // {
+  //   name: "Jane Smith",
+  //   company: "European Roaster Hub",
+  //   phone: "+49 123 456 7890",
+  //   email: "jane.s@example.com",
+  //   country: "Germany",
+  // },
+];
+
+const meta = {
+  title: "Kraffe Roasters Dealers | Authorized Resellers",
+  description: "Find authorized Kraffe Roasters dealers and partners in your region. Get in touch with our official resellers for sales, support, and services.",
+};
+---
+
+<MainLayout meta={meta}>
+  <MainSection
+    title="Our Authorized Dealers"
+    subTitle="Connect with our official partners around the world. They are equipped to provide you with our coffee roasting machines and dedicated support."
+  />
+  
+  <!-- Bayi Kartları Bölümü -->
+  <section class="mx-auto -mt-8 max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8 lg:pb-14">
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        dealers.map((dealer) => (
+          <DealerCard
+            name={dealer.name}
+            company={dealer.company}
+            phone={dealer.phone}
+            email={dealer.email}
+            country={dealer.country}
+          />
+        ))
+      }
+    </div>
+  </section>
+</MainLayout>
