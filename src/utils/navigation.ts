@@ -1,9 +1,12 @@
+// src/utils/navigation.ts
+
 const navBarLinks = [
   { name: "Home", url: "/" },
   { name: "Products", url: "/products" },
   { name: "About Us", url: "/about" },
-  { name: "Events", url: "/events" }, // YENİ EKLENDİ
+  { name: "Events", url: "/events" },
   { name: "Blog", url: "/blog" },
+  { name: "Dealers", url: "/dealers" }, // YENİ EKLENDİ
   { name: "Contact Us", url: "/contact" },
 ];
 
@@ -19,8 +22,9 @@ const footerLinks = [
     section: "Company",
     links: [
       { name: "About us", url: "/about" },
-      { name: "Events", url: "/events" }, // YENİ EKLENDİ
+      { name: "Events", url: "/events" },
       { name: "Blog", url: "/blog" },
+      { name: "Dealers", url: "/dealers" }, // YENİ EKLENDİ
       { name: "Contact Us", url: "/contact" },
     ],
   },
