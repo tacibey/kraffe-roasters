@@ -1,11 +1,9 @@
 ---
 // src/pages/fr/dealers.astro
 
-// --- DÜZELTME BAŞLANGICI: Kısayol (@) yerine göreceli yollar kullanıldı ---
 import MainLayout from "../../layouts/MainLayout.astro";
 import MainSection from "../../components/ui/blocks/MainSection.astro";
 import DealerCard from "../../components/ui/cards/DealerCard.astro";
-// --- DÜZELTME SONU ---
 
 const dealers = [
   {
@@ -13,7 +11,8 @@ const dealers = [
     company: "Burj Pisa Trading Est.",
     phone: "+966 54 596 5639",
     email: "sqa2022@gmail.com",
-    country: "Arabie Saoudite",
+    // --- DEĞİŞİKLİK BURADA: 'country' metni güncellendi ---
+    country: "SAUDI ARABIA - MIDDLE EAST - NORTH AFRICA",
   },
 ];
 
@@ -29,7 +28,6 @@ const meta = {
     subTitle="Contactez nos partenaires officiels à travers le monde. Ils sont équipés pour vous fournir nos machines à torréfier le café et un support dédié."
   />
 
-  <!-- Bayi Kartları Bölümü -->
   <section class="mx-auto -mt-8 max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8 lg:pb-14">
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {
