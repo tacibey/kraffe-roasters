@@ -1,0 +1,39 @@
+---
+// src/components/ui/cards/DealerCard.astro
+
+import Icon from "@components/ui/icons/Icon.astro";
+
+export interface Props {
+  name: string;
+  company: string;
+  phone: string;
+  email: string;
+  country: string;
+}
+
+const { name, company, phone, email, country } = Astro.props;
+---
+
+<div class="flex h-full flex-col rounded-lg bg-white p-6 shadow-lg transition-shadow duration-300 hover:shadow-xl dark:bg-neutral-700">
+  <div class="flex-grow">
+    <p class="mb-2 text-sm font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-400">{country}</p>
+    <h3 class="text-2xl font-bold text-neutral-800 dark:text-neutral-100">{name}</h3>
+    <p class="mt-1 text-base text-neutral-600 dark:text-neutral-300">{company}</p>
+  </div>
+  <div class="mt-4 border-t border-neutral-200 pt-4 dark:border-neutral-600">
+    <ul class="space-y-3">
+      <li>
+        <a href={`tel:${phone.replace(/\s/g, "")}`} class="group flex items-center text-neutral-700 transition-colors hover:text-blue-600 dark:text-neutral-200 dark:hover:text-blue-400">
+          <Icon name="phone" class="mr-3 h-5 w-5 text-neutral-500 transition-colors group-hover:text-blue-600 dark:text-neutral-400 dark:group-hover:text-blue-400" />
+          <span>{phone}</span>
+        </a>
+      </li>
+      <li>
+        <a href={`mailto:${email}`} class="group flex items-center text-neutral-700 transition-colors hover:text-blue-600 dark:text-neutral-200 dark:hover:text-blue-400">
+          <Icon name="mail" class="mr-3 h-5 w-5 text-neutral-500 transition-colors group-hover:text-blue-600 dark:text-neutral-400 dark:group-hover:text-blue-400" />
+          <span>{email}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
