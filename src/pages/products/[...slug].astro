@@ -1,5 +1,5 @@
 ---
-// src/pages/products/[...slug].astro (FIXED & IMPROVED)
+// src/pages/products/[...slug].astro
 
 import MainLayout from "@/layouts/MainLayout.astro";
 import ProductTabBtn from "@components/ui/buttons/ProductTabBtn.astro";
@@ -13,7 +13,6 @@ import type { CollectionEntry } from 'astro:content';
 export async function getStaticPaths() {
   const productEntries = await getCollection("products", ({ id }) => id.startsWith("en/"));
   return productEntries.map((product) => {
-    // DOSYA ADI DEĞİŞTİĞİ İÇİN ROTA PARAMETRESİ 'slug' OLARAK GÜNCELLENDİ
     const slug = product.id.replace(/^en\//, ""); 
     return {
       params: { slug: slug },
@@ -27,6 +26,7 @@ interface Props {
 }
 
 const { product } = Astro.props;
+const { main } = product.data; // Kısayol için main objesini alalım
 
 const allEnglishProducts = (await getCollection("products", ({ id }) => id.startsWith("en/")))
   .sort((a, b) => a.data.main.id - b.data.main.id);
@@ -36,8 +36,12 @@ const nextProduct = currentIndex < allEnglishProducts.length - 1 ? allEnglishPro
 
 const pageTitle: string = `${product.data.title} | ${SITE.title}`;
 const metaDescription: string = `Explore the features and specifications of the ${product.data.title}, a ${product.data.description}. Perfect for ${product.data.main.content.substring(0, 100).split(' ').slice(0, -1).join(' ')}...`;
-const mainImage = await getImage({src: product.data.main.imgMain, format: 'avif'});
+
+// Schema için ana resim, slider varsa ilkini, yoksa imgMain'i kullanır
+const schemaImageSrc = main.imageSlider?.[0] ?? main.imgMain;
+const mainImage = await getImage({src: schemaImageSrc, format: 'avif'});
 const mainImageUrl = new URL(mainImage.src, Astro.site).href;
+
 const contactButtonTitle = "Request Info";
 const relatedProductsTitle = "Check Out Our Other Machines";
 ---
@@ -66,12 +70,11 @@ const relatedProductsTitle = "Check Out Our Other Machines";
     }
   }}
 >
-  <!-- BOZUK ANİMASYON PERDESİ TAMAMEN KALDIRILDI -->
   <section class="mx-auto grid max-w-[85rem] grid-cols-1 items-center gap-8 px-4 py-10 sm:px-6 md:grid-cols-2 lg:px-8 lg:py-14 2xl:max-w-full">
     <div class="md:col-span-1">
       <div>
         <p class="mb-8 max-w-prose text-pretty font-light text-neutral-700 dark:text-neutral-300 sm:text-xl">
-          {product.data.main.content}
+          {main.content}
         </p>
       </div>
       <div>
@@ -83,17 +86,58 @@ const relatedProductsTitle = "Check Out Our Other Machines";
         </p>
       </div>
     </div>
+
+    <!-- === GÖRSEL BÖLÜMÜ DEĞİŞİKLİĞİ BAŞLANGICI === -->
     <div class="md:col-span-1">
-      <Image
-        src={product.data.main.imgMain}
-        class="w-full h-auto rounded-lg"
-        alt={product.data.main.imgAlt}
-        format={"avif"}
-        loading={"eager"}
-      />
+      {main.imageSlider && main.imageSlider.length > 0 ? (
+        <!-- EĞER SLIDER RESİMLERİ VARSA, PRELINE CAROUSEL'İ GÖSTER -->
+        <div data-hs-carousel='{"loadingClasses": "opacity-0", "isAutoPlay": true}' class="relative mx-auto max-w-md">
+          <div class="hs-carousel relative overflow-hidden w-full min-h-[550px] bg-white rounded-lg">
+            <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-0">
+              {main.imageSlider.map((image, index) => (
+                <div class="hs-carousel-slide">
+                  <div class="flex justify-center h-full bg-gray-100 dark:bg-neutral-900 p-6">
+                     <Image
+                        src={image}
+                        class="h-full w-full object-contain"
+                        alt={`${main.imgAlt} - View ${index + 1}`}
+                        format={"avif"}
+                        loading={index === 0 ? "eager" : "lazy"}
+                      />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <button type="button" class="hs-carousel-prev hs-carousel-arrow absolute top-1/2 start-0 transform -translate-y-1/2 z-10 flex justify-center items-center w-10 h-10 bg-white/20 text-white hover:bg-white/30 rounded-full -ms-5">
+            <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button type="button" class="hs-carousel-next hs-carousel-arrow absolute top-1/2 end-0 transform -translate-y-1/2 z-10 flex justify-center items-center w-10 h-10 bg-white/20 text-white hover:bg-white/30 rounded-full -me-5">
+            <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+
+          <div class="hs-carousel-pagination flex justify-center absolute bottom-3 start-0 end-0 space-x-2">
+            {main.imageSlider.map(() => (
+              <span class="hs-carousel-active:bg-orange-500 hs-carousel-active:border-orange-500 w-3 h-3 border border-gray-400 rounded-full cursor-pointer"></span>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <!-- EĞER SLIDER RESMİ YOKSA, ESKİ TEKİL RESMİ GÖSTER -->
+        <Image
+          src={main.imgMain}
+          class="w-full h-auto rounded-lg"
+          alt={main.imgAlt}
+          format={"avif"}
+          loading={"eager"}
+        />
+      )}
     </div>
+    <!-- === GÖRSEL BÖLÜMÜ DEĞİŞİKLİĞİ SONU === -->
   </section>
 
+  <!-- Sayfanın geri kalanı aynı, dokunulmadı -->
   <div class="mx-auto max-w-[85rem] px-4 pt-10 sm:px-6 lg:px-8 lg:pt-14">
     <nav class="mx-auto grid max-w-6xl gap-y-px sm:flex sm:gap-x-4 sm:gap-y-0" aria-label="Tabs" role="tablist">
       {product.data.tabs.map((tab, index) => (
@@ -188,8 +232,8 @@ const relatedProductsTitle = "Check Out Our Other Machines";
   )}
 </MainLayout>
 
-<!-- SEKME GEÇİŞLERİ İÇİN GEREKLİ OLAN SCRIPT BURADA KALIYOR -->
 <script>
+  // Mevcut scriptinizde hiçbir değişiklik yapılmadı.
   document.addEventListener("DOMContentLoaded", function () {
     function setButtonInactive(btn, activeButton) {
       if (btn !== activeButton) {
