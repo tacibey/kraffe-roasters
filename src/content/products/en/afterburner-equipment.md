@@ -6,14 +6,16 @@ main:
   content: |
     KRAFFE designs and offers you the best fitting product and after you start to use the products, KRAFFE offers you a 7/24 online customer support.
   imgCard: "@/images/EQUIPMENTS2.avif"
-  # --- DEĞİŞİKLİK BAŞLANGICI ---
-  # imgMain kaldırıldı ve yerine imageSlider eklendi
+  # --- DÜZELTME BAŞLANGICI ---
+  # Zorunlu alan olan imgMain, slider'ın ilk resmi olarak geri eklendi.
+  imgMain: "@/images/afterburner1.avif" 
+  # imageSlider alanı slider'ı oluşturmak için korunuyor.
   imageSlider:
     - "@/images/afterburner1.avif"
     - "@/images/afterburner2.avif"
     - "@/images/afterburner3.avif"
     - "@/images/afterburner4.avif"
-  # --- DEĞİŞİKLİK SONU ---
+  # --- DÜZELTME SONU ---
   imgAlt: "KRAFFE Equipments Afterburner"
 tabs:
   - id: "tabs-with-card-item-1"
