@@ -43,8 +43,6 @@ const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
       });
     </script>
     
-    {/* --- DEĞİŞİKLİK BAŞLANGICI --- */}
-
     <!-- Google Tag Manager (Meta Ajansı) -->
     <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -53,7 +51,7 @@ const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
     })(window,document,'script','dataLayer','GTM-WGJTKJSG');</script>
     <!-- End Google Tag Manager (Meta Ajansı) -->
 
-    <!-- Google Tag Manager (Google Reklam Ajansı) - EKLENDİ -->
+    <!-- Google Tag Manager (Google Reklam Ajansı) -->
     <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -61,98 +59,14 @@ const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
     })(window,document,'script','dataLayer','GTM-KFH3PNCV');</script>
     <!-- End Google Tag Manager (Google Reklam Ajansı) -->
 
-    {/* --- DEĞİŞİKLİK SONU --- */}
+    <!-- HACK: Yeni Cookie Banner CSS (CDN) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.css">
 
-
-    <!-- Silktide Banner Kodları (Dokunulmadı) -->
-    <link rel="stylesheet" id="silktide-consent-manager-css" href="/cookie-banner/css/silktide-consent-manager.css">
-    <script src="/cookie-banner/js/silktide-consent-manager.js" is:raw></script>
-    <script is:inline>
-      silktideCookieBannerManager.updateCookieBannerConfig({
-        background: {
-          showBackground: true
-        },
-        cookieIcon: {
-          position: "bottomLeft"
-        },
-        cookieTypes: [
-          {
-            id: "necessary",
-            name: "Necessary",
-            description: "<p>These cookies are necessary for the website to function properly and cannot be switched off. They help with things like logging in and setting your privacy preferences.</p>",
-            required: true,
-          },
-          {
-            id: "analytics",
-            name: "Analytical",
-            description: "<p>These cookies help us improve the site by tracking which pages are most popular and how visitors move around the site.</p>",
-            defaultValue: true,
-            onAccept: function() {
-              gtag('consent', 'update', {
-                analytics_storage: 'granted',
-              });
-              dataLayer.push({
-                'event': 'consent_accepted_analytics',
-              });
-            },
-            onReject: function() {
-              gtag('consent', 'update', {
-                analytics_storage: 'denied',
-              });
-            }
-          },
-          {
-            id: "advertising",
-            name: "Advertising",
-            description: "<p>These cookies provide extra features and personalization to improve your experience. They may be set by us or by partners whose services we use.</p>",
-            onAccept: function() {
-              gtag('consent', 'update', {
-                ad_storage: 'granted',
-                ad_user_data: 'granted',
-                ad_personalization: 'granted',
-              });
-              dataLayer.push({
-                'event': 'consent_accepted_advertising',
-              });
-            },
-            onReject: function() {
-              gtag('consent', 'update', {
-                ad_storage: 'denied',
-                ad_user_data: 'denied',
-                ad_personalization: 'denied',
-              });
-            }
-          }
-        ],
-        text: {
-          banner: {
-            description: "<p>We use cookies on our site to enhance your user experience, provide personalized content, and analyze our traffic. <a href=\"/cookie-policy\" target=\"_blank\">Cookie Policy.</a></p>",
-            acceptAllButtonText: "Accept all",
-            acceptAllButtonAccessibleLabel: "Accept all cookies",
-            rejectNonEssentialButtonText: "Reject non-essential",
-            rejectNonEssentialButtonAccessibleLabel: "Reject non-essential",
-            preferencesButtonText: "Preferences",
-            preferencesButtonAccessibleLabel: "Toggle preferences"
-          },
-          preferences: {
-            title: "Customize your cookie preferences",
-            description: "<p>We respect your right to privacy. You can choose not to allow some types of cookies. Your cookie preferences will apply across our website.</p>",
-            creditLinkText: "Get this banner for free",
-            creditLinkAccessibleLabel: "Get this banner for free"
-          }
-        },
-        position: {
-          banner: "bottomLeft"
-        }
-      });
-    </script>
-    <!-- END: Consent & Banner -->
-
-    {/* Orijinal Meta ve Başlık Bilgileriniz (Dokunulmadı) */}
+    {/* Orijinal Meta ve Başlık Bilgileriniz */}
     <Meta meta={meta} structuredData={structuredData} />
     <title>{title}</title>
     
-    <!-- Organization Schema (Dokunulmadı) -->
+    <!-- Organization Schema -->
     <script type="application/ld+json" set:html={JSON.stringify(ORGANIZATION_SCHEMA)} />
 
     <style is:inline>
@@ -173,20 +87,16 @@ const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
   <body
     class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700 dark:bg-neutral-800"
   >
-    {/* --- DEĞİŞİKLİK BAŞLANGICI --- */}
-
     <!-- Google Tag Manager (noscript) (Meta Ajansı) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WGJTKJSG"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) (Meta Ajansı) -->
 
-    <!-- Google Tag Manager (noscript) (Google Reklam Ajansı) - EKLENDİ -->
+    <!-- Google Tag Manager (noscript) (Google Reklam Ajansı) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KFH3PNCV"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) (Google Reklam Ajansı) -->
     
-    {/* --- DEĞİŞİKLİK SONU --- */}
-
     <div class="mx-auto max-w-(--breakpoint-2xl) px-4 sm:px-6 lg:px-8">
       <Navbar />
       <main>
@@ -212,6 +122,150 @@ const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
       .scrollbar-hide {
         -ms-overflow-style: none;
         scrollbar-width: none;
+      }
+    </style>
+
+    <!-- HACK: Cookie Consent Script & Configuration -->
+    <script type="module">
+      import * as CookieConsent from "https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.esm.js";
+
+      // GTM Consent Update Fonksiyonu
+      function updateGtmConsent(categories) {
+        const consentState = {
+          'ad_storage': categories.includes('advertising') ? 'granted' : 'denied',
+          'ad_user_data': categories.includes('advertising') ? 'granted' : 'denied',
+          'ad_personalization': categories.includes('advertising') ? 'granted' : 'denied',
+          'analytics_storage': categories.includes('analytics') ? 'granted' : 'denied'
+        };
+
+        // GTM'e durumu bildir
+        if (typeof window.gtag === 'function') {
+            window.gtag('consent', 'update', consentState);
+        }
+        
+        // Event fırlat (GTM trigger için)
+        window.dataLayer.push({
+          'event': 'consent_update',
+          'consent_status': consentState
+        });
+      }
+
+      CookieConsent.run({
+        guiOptions: {
+          consentModal: {
+            layout: 'box',
+            position: 'bottom left',
+            equalWeightButtons: false,
+            flipButtons: false
+          },
+          preferencesModal: {
+            layout: 'box',
+            position: 'right',
+            equalWeightButtons: false,
+            flipButtons: false
+          }
+        },
+        categories: {
+          necessary: {
+            readOnly: true,
+            enabled: true
+          },
+          analytics: {
+            // HACK: Varsayılan olarak SEÇİLİ gelsin
+            enabled: true,
+            autoClear: false
+          },
+          advertising: {
+            // HACK: Varsayılan olarak SEÇİLİ gelsin
+            enabled: true,
+            autoClear: false
+          }
+        },
+        language: {
+          default: 'en',
+          translations: {
+            en: {
+              consentModal: {
+                title: 'We value your privacy 🍪',
+                description: 'We use cookies to enhance your experience, provide personalized content, and analyze our traffic.',
+                acceptAllBtn: 'Accept All', // HACK: Sadece bu ve yönet butonu var. Reddet yok.
+                showPreferencesBtn: 'Manage Preferences',
+                footer: '<a href="/cookie-policy">Cookie Policy</a>'
+              },
+              preferencesModal: {
+                title: 'Cookie Preferences',
+                acceptAllBtn: 'Accept All',
+                acceptNecessaryBtn: 'Reject All', // Bu buton ayarlarda görünür ama ana ekranda görünmez
+                savePreferencesBtn: 'Save Preferences',
+                closeIconLabel: 'Close',
+                sections: [
+                  {
+                    title: 'Strictly Necessary',
+                    description: 'These cookies are essential for the proper functioning of the website.',
+                    linkedCategory: 'necessary'
+                  },
+                  {
+                    title: 'Performance & Analytics',
+                    description: 'These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site.',
+                    linkedCategory: 'analytics'
+                  },
+                  {
+                    title: 'Advertisement & Targeting',
+                    description: 'These cookies may be set through our site by our advertising partners to build a profile of your interests.',
+                    linkedCategory: 'advertising'
+                  }
+                ]
+              }
+            }
+          }
+        },
+        onConsent: ({ cookie }) => {
+          updateGtmConsent(cookie.categories);
+        },
+        onChange: ({ cookie }) => {
+          updateGtmConsent(cookie.categories);
+        }
+      });
+    </script>
+
+    <!-- HACK: Kraffe Roasters Özel Tasarım CSS'i -->
+    <style is:global>
+      :root {
+        --cc-bg: #1a1a1a; /* Koyu arka plan */
+        --cc-text: #e5e5e5;
+        --cc-btn-primary-bg: #F25F29; /* Kraffe Turuncusu */
+        --cc-btn-primary-text: #ffffff;
+        --cc-btn-primary-hover-bg: #d14d1f;
+        --cc-btn-secondary-bg: #333333;
+        --cc-btn-secondary-text: #ffffff;
+        --cc-btn-secondary-hover-bg: #444444;
+        --cc-toggle-on-bg: #F25F29; /* Toggle açık rengi */
+        --cc-font-family: inherit;
+      }
+
+      /* Ana Banner'da "Gerekli" veya "Reddet" butonunu gizle */
+      #cc-main .cm__btn[data-role="necessary"] {
+        display: none !important;
+      }
+
+      /* Butonları biraz daha köşeli yap (Kraffe tarzı) */
+      #cc-main .cm__btn {
+        border-radius: 4px;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 0.05em;
+      }
+
+      /* Kabul et butonu parlasın */
+      #cc-main .cm__btn[data-role="all"] {
+        background-color: var(--cc-btn-primary-bg);
+        color: var(--cc-btn-primary-text);
+      }
+      
+      /* Link rengi */
+      #cc-main a {
+        color: #F25F29;
       }
     </style>
 
