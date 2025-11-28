@@ -1,4 +1,6 @@
 ---
+// src/components/sections/landing/HeroSection.astro
+
 // Import the necessary dependencies
 import { Image } from "astro:assets";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
@@ -74,15 +76,15 @@ interface Props {
     { withReview ? (
     <ReviewComponent avatars={avatars} starCount={starCount} rating={rating} reviews={reviews} />
     ) : "" }
-<!-- YENİ YORUM BÖLÜMÜNÜ BURAYA YAPIŞTIR -->
-<div class="mt-6 text-center lg:mt-10">
-  <blockquote class="text-lg italic text-neutral-700 dark:text-neutral-300">
-    "Versatile, precise, and reliable, Kraffe easily adapts to different roasting styles with full control over every profile curve. Calibration is straightforward, and its seamless Artisan integration ensures efficient data management and consistent roasts."
-  </blockquote>
-  <cite class="mt-4 block font-semibold not-italic text-neutral-800 dark:text-neutral-200">
-    Mauri Mesa 🇪🇸 Papayo Coffee Roasters
-  </cite>
-</div>
+
+    <div class="mt-6 text-center lg:mt-10">
+      <blockquote class="text-lg italic text-neutral-700 dark:text-neutral-300">
+        "Versatile, precise, and reliable, Kraffe easily adapts to different roasting styles with full control over every profile curve. Calibration is straightforward, and its seamless Artisan integration ensures efficient data management and consistent roasts."
+      </blockquote>
+      <cite class="mt-4 block font-semibold not-italic text-neutral-800 dark:text-neutral-200">
+        Mauri Mesa 🇪🇸 Papayo Coffee Roasters
+      </cite>
+    </div>
 
   </div>
   <!-- Hero Image Section -->
@@ -96,12 +98,11 @@ interface Props {
         draggable={"false"}
         loading={"eager"}
         format={"avif"}
-        
-        <!-- DEĞİŞİKLİKLER BURADA -->
-        width={src.width}
-        height={src.height}
-        widths={[480, 768, 1024, src.width]}
-        sizes="(max-width: 768px) 100vw, 50vw"
+        /* --- OPTİMİZASYON BAŞLANGICI --- */
+        /* Mobilde küçük, masaüstünde büyük resim yükle */
+        widths={[480, 768, 1024, 1440]}
+        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 800px"
+        /* --- OPTİMİZASYON SONU --- */
    />
   }
     </div>
