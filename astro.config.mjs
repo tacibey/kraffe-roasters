@@ -9,14 +9,7 @@ import mdx from "@astrojs/mdx";
 // https://astro.build/config
 export default defineConfig({
   site: "https://krafferoasters.com",
-  // --- EKLENEN KISIM BAŞLANGICI ---
-  // URL sonlarına her zaman / ekler. Örn: krafferoasters.com/products/
-  // Bu, duplicate content sorununu kökten çözer.
-  trailingSlash: 'always',
-  build: {
-    format: 'directory'
-  },
-  // --- EKLENEN KISIM SONU ---
+  // trailingSlash ve build ayarları kaldırıldı, build hatası çözüldü.
   image: {
     domains: ["images.unsplash.com"],
   },
