@@ -5,6 +5,7 @@ import MainLayout from "@/layouts/MainLayout.astro";
 import ProductTabBtn from "@components/ui/buttons/ProductTabBtn.astro";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 import CardSmall from "@components/ui/cards/CardSmall.astro";
+import Breadcrumbs from "@components/ui/Breadcrumbs.astro"; // YENİ IMPORT
 import { Image, getImage } from "astro:assets";
 import { getCollection } from "astro:content";
 import { SITE } from "@data/constants";
@@ -34,16 +35,22 @@ const currentIndex = allEnglishProducts.findIndex(p => p.id === product.id);
 const prevProduct = currentIndex > 0 ? allEnglishProducts[currentIndex - 1] : null;
 const nextProduct = currentIndex < allEnglishProducts.length - 1 ? allEnglishProducts[currentIndex + 1] : null;
 
-const pageTitle: string = `${product.data.title} | ${SITE.title}`;
-const metaDescription: string = `Explore the features and specifications of the ${product.data.title}, a ${product.data.description}. Perfect for ${product.data.main.content.substring(0, 100).split(' ').slice(0, -1).join(' ')}...`;
+// SEO HACK: Title'ı güçlendiriyoruz. Sadece model adı değil, anahtar kelimeyi de geçiriyoruz.
+const pageTitle: string = `${product.data.title} Coffee Roasting Machines | ${SITE.title}`;
+const metaDescription: string = `Discover ${product.data.title}. ${product.data.description}. Engineered for precision and consistency. Perfect for ${product.data.main.content.substring(0, 100).split(' ').slice(0, -1).join(' ')}...`;
 
-// Slider varsa ilk resmi, yoksa ana resmi schemaImageSrc olarak belirle
 const schemaImageSrc = (main.imageSlider && main.imageSlider.length > 0) ? main.imageSlider[0] : main.imgMain;
 const mainImage = await getImage({src: schemaImageSrc, format: 'avif'});
 const mainImageUrl = new URL(mainImage.src, Astro.site).href;
 
 const contactButtonTitle = "Request Info";
 const relatedProductsTitle = "Check Out Our Other Machines";
+
+// Breadcrumb verisi
+const breadcrumbItems = [
+  { label: "Products", href: "/products" },
+  { label: product.data.title, href: `/products/${product.id.replace(/^en\//, "")}` }
+];
 ---
 
 <MainLayout 
@@ -64,12 +71,15 @@ const relatedProductsTitle = "Check Out Our Other Machines";
       "@type": "Offer",
       "url": Astro.url.href,
       "priceCurrency": "USD",
-      "price": "0",
+      // "price": "0", // BU SATIR SİLİNDİ - Google'ı yanıltmamak için.
       "availability": "https://schema.org/InStock",
       "itemCondition": "https://schema.org/NewCondition"
     }
   }}
 >
+  <!-- Breadcrumbs Eklendi -->
+  <Breadcrumbs items={breadcrumbItems} />
+
   <section class="mx-auto grid max-w-[85rem] grid-cols-1 items-center gap-8 px-4 py-10 sm:px-6 md:grid-cols-2 lg:px-8 lg:py-14 2xl:max-w-full">
     <div class="md:col-span-1">
       <div>
@@ -78,6 +88,7 @@ const relatedProductsTitle = "Check Out Our Other Machines";
         </p>
       </div>
       <div>
+        <!-- H1 Tag'i SEO için kritik. Model adı + kısa açıklama -->
         <h1 class="block text-4xl font-bold tracking-tighter text-neutral-800 dark:text-neutral-200 sm:text-5xl md:text-6xl lg:text-7xl">
           {product.data.title}
         </h1>
@@ -278,7 +289,6 @@ const relatedProductsTitle = "Check Out Our Other Machines";
     });
   });
 
-  // Slider'ın başlatılması için gerekli kod
   document.addEventListener('astro:page-load', () => {
     setTimeout(() => {
       // @ts-ignore
