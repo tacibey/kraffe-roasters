@@ -37,7 +37,8 @@ const nextProduct = currentIndex < allEnglishProducts.length - 1 ? allEnglishPro
 const pageTitle: string = `${product.data.title} | ${SITE.title}`;
 const metaDescription: string = `Explore the features and specifications of the ${product.data.title}, a ${product.data.description}. Perfect for ${product.data.main.content.substring(0, 100).split(' ').slice(0, -1).join(' ')}...`;
 
-const schemaImageSrc = main.imageSlider?.[0] ?? main.imgMain;
+// Slider varsa ilk resmi, yoksa ana resmi schemaImageSrc olarak belirle
+const schemaImageSrc = (main.imageSlider && main.imageSlider.length > 0) ? main.imageSlider[0] : main.imgMain;
 const mainImage = await getImage({src: schemaImageSrc, format: 'avif'});
 const mainImageUrl = new URL(mainImage.src, Astro.site).href;
 
@@ -227,7 +228,6 @@ const relatedProductsTitle = "Check Out Our Other Machines";
 </MainLayout>
 
 <script>
-  // Mevcut sekme (tab) script'i
   document.addEventListener("DOMContentLoaded", function () {
     function setButtonInactive(btn, activeButton) {
       if (btn !== activeButton) {
@@ -278,13 +278,14 @@ const relatedProductsTitle = "Check Out Our Other Machines";
     });
   });
 
-  // --- YENİ EKLENEN SLIDER SCRIPT'İ ---
-  // Astro'nun sayfa geçişlerinden sonra Preline bileşenlerini (slider dahil) yeniden başlatmasını sağlar.
+  // Slider'ın başlatılması için gerekli kod
   document.addEventListener('astro:page-load', () => {
     setTimeout(() => {
+      // @ts-ignore
       if (window.HSStaticMethods) {
+        // @ts-ignore
         window.HSStaticMethods.autoInit();
       }
-    }, 100); // DOM'un tamamen hazır olduğundan emin olmak için küçük bir gecikme
+    }, 100);
   });
 </script>
