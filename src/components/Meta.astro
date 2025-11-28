@@ -1,9 +1,11 @@
 ---
+// src/components/Meta.astro
+
 import { getImage } from "astro:assets";
 import { OG, SEO, SITE } from "@data/constants";
 import faviconSvgSrc from "@images/icon.svg";
 import faviconSrc from "@images/icon2.png";
-import HreflangLinks from "@components/HreflangLinks.astro"; // YENİ COMPONENT'İ IMPORT ET
+import HreflangLinks from "@components/HreflangLinks.astro";
 
 const defaultProps = {
   meta: SITE.description,
@@ -17,7 +19,20 @@ const {
 
 const URL = `${Astro.site}`;
 const author = SITE.author;
-const canonical = Astro.url.href;
+
+// --- DÜZELTME BAŞLANGICI ---
+// Canonical URL oluşturma mantığı:
+// 1. Astro.site (https://krafferoasters.com) temel alınır.
+// 2. Mevcut sayfa yolu (pathname) eklenir.
+// 3. Query parametreleri (?fbclid=...) ASLA eklenmez.
+// 4. Trailing slash (sona / koyma) garanti edilir.
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+if (!canonicalURL.pathname.endsWith('/')) {
+  canonicalURL.pathname += '/';
+}
+const canonical = canonicalURL.href;
+// --- DÜZELTME SONU ---
+
 const ogTitle = OG.title;
 const ogDescription = OG.description;
 const socialImageRes = await getImage({
@@ -58,12 +73,12 @@ const appleTouchIcon = await getImage({
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <link rel="canonical" href={canonical} />
 
-<!-- YENİ HREFLANG COMPONENT'İNİ BURAYA EKLE -->
 <HreflangLinks />
 
 <!-- Facebook Meta Tags -->
 <meta property="og:locale" content="en_US" />
-<meta property="og:url" content={URL} />
+<meta property="og:url" content={canonical} /> 
+<!-- og:url de canonical ile aynı olmalı -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content={ogTitle} />
 <meta property="og:site_name" content={SITE.title} />
@@ -76,7 +91,8 @@ const appleTouchIcon = await getImage({
 <!-- Twitter Meta Tags -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:domain" content={URL} />
-<meta property="twitter:url" content={URL} />
+<meta property="twitter:url" content={canonical} />
+<!-- twitter:url de canonical ile aynı olmalı -->
 <meta name="twitter:title" content={ogTitle} />
 <meta name="twitter:description" content={ogDescription} />
 <meta name="twitter:image" content={socialImage} />
