@@ -1,31 +1,35 @@
+// astro.config.mjs
+
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
-// import starlight from "@astrojs/starlight"; // Starlight kaldırıldı
 import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://krafferoasters.com",
+  // --- EKLENEN KISIM BAŞLANGICI ---
+  // URL sonlarına her zaman / ekler. Örn: krafferoasters.com/products/
+  // Bu, duplicate content sorununu kökten çözer.
+  trailingSlash: 'always',
+  build: {
+    format: 'directory'
+  },
+  // --- EKLENEN KISIM SONU ---
   image: {
     domains: ["images.unsplash.com"],
   },
-  // Ana i18n bloğu aktif edilebilir, çünkü sitemap bunu kullanabilir
   i18n: {
     defaultLocale: "en",
-    locales: ["en", "fr"], // Sadece kullandığınız diller
+    locales: ["en", "fr"],
     routing: {
-      prefixDefaultLocale: false, // Varsayılan dilde /en/ öneki olmasın
+      prefixDefaultLocale: false,
     },
-    // fallback: { // Gerekirse
-    //   fr: "en",
-    // },
   },
   prefetch: true,
   integrations: [
     sitemap({
-      // DEĞİŞİKLİK BURADA: Sitemap'e dilleri manuel olarak bildiriyoruz.
       i18n: {
         defaultLocale: 'en',
         locales: {
@@ -34,7 +38,6 @@ export default defineConfig({
         },
       },
     }),
-    // starlight({...}), // Starlight kaldırıldı
     compressor({
       gzip: false,
       brotli: true,
