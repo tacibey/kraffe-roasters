@@ -1,131 +1,96 @@
-# Redirect www to non-www and http to https
+# --- DOMAIN & HTTPS YÖNLENDİRMELERİ ---
 https://www.krafferoasters.com/*    https://krafferoasters.com/:splat    301!
 http://www.krafferoasters.com/*     https://krafferoasters.com/:splat    301!
 http://krafferoasters.com/*         https://krafferoasters.com/:splat    301!
 
-# TEMEL SAYFA YÖNLENDİRMELERİ
+# --- TEMEL SAYFALAR ---
+/contact-us/          /contact/         301
+/about-us/            /about/           301
+/contact-form/        /contact/         301
+/contact-form         /contact/         301
+/privacy-policy-2/    /cookie-policy/   301
+/privacy-policy/      /cookie-policy/   301
+/services/            /products/        301
+/kaffeerostmaschinen/ /products/        301
+/shop/                /products/        301
 
-/contact-us/          /contact/         301!
-/about-us/            /about/           301!
+# --- FRANSIZCA DÜZELTMELER ---
+/fr/contact-form/     /fr/contact/      301
+/fr/privacy-policy/   /fr/cookie-policy/ 301
+/torrefacteurs-innovants-pour-professionnels/ /fr/products/ 301
 
-# KATEGORİ SAYFASI YÖNLENDİRMELERİ (Tümü /products/ altına)
-/drum-roasters/                           /products/        301!
-/drum-roasters/sample-roasters/           /products/        301!
-/drum-roasters/shop-roasters/             /products/        301!
-/drum-roasters/industrial-roasters/       /products/        301!
-/equipment/                               /products/        301! # Ekipman ana sayfası da /products/ altına
+# --- ÜRÜN DETAY YÖNLENDİRMELERİ (ESKİ -> YENİ) ---
+# Sample Roasters
+/drum-roasters/sample-roasters/kraffe-dimi/   /products/dimi/   301
+/drum-roasters/sample-roasters/kraffe-dimi    /products/dimi/   301
+/drum-roasters/sample-roasters/kraffe-primi/  /products/primi/  301
+/drum-roasters/sample-roasters/kraffe-primi   /products/primi/  301
 
-# BLOG YAZISI YÖNLENDİRMELERİ
-# Eski URL (WordPress)                                       Yeni URL (Astro)
-/exploring-different-coffee-roasting-methods-traditional-vs-modern-approaches/  /blog/exploring-different-coffee-roasting-methods/    301!
-/choosing-the-right-coffee-roaster-for-your-business-a-comprehensive-guide/      /blog/choosing-right-coffee-roaster-business-guide/     301!
-/a-journey-of-excellence-in-coffee-roasting/                                     /blog/etude-coffee-sprudge-recognition-kraffe-partnership/ 301!
-/coffee-bean-roaster-unlocking-coffees-true-potential-for-exceptional-roasting/  /blog/kraffe-coffee-bean-roaster-guide/               301!
-/mastering-the-art-of-coffee-roasting/                                           /blog/mastering-art-of-coffee-roasting/                 301!
-# /choosing-the-perfect-bean-roasting-machine/  -> YENİ KARŞILIĞI LİSTEDE YOK, ŞİMDİLİK /blog/ ANA SAYFASINA YÖNLENDİRELİM VEYA EN YAKIN YAZIYA
-/choosing-the-perfect-bean-roasting-machine/                                     /blog/art-of-coffee-roasting-machines-guide/            301! # En yakın konu bu gibi duruyor
-/unleashing-the-art-of-coffee-roasting-with-the-primi-sample-roaster/            /blog/unleashing-the-art-of-coffee-roasting-with-primi-sample-roaster/ 301!
-/a-comprehensive-guide-to-creating-coffee-roasting-profiles/                     /blog/how-to-create-coffee-roasting-profiles/           301!
+# Shop Roasters
+/drum-roasters/shop-roasters/kraffe-krf-03/   /products/krf-03/ 301
+/drum-roasters/shop-roasters/kraffe-krf-03    /products/krf-03/ 301
+/drum-roasters/shop-roasters/kraffe-krf-06/   /products/krf-06/ 301
+/drum-roasters/shop-roasters/kraffe-krf-06    /products/krf-06/ 301
+/drum-roasters/shop-roasters/kraffe-krf-12/   /products/krf-12/ 301
+/drum-roasters/shop-roasters/kraffe-krf-12    /products/krf-12/ 301
+/drum-roasters/shop-roasters/kraffe-krf-15/   /products/krf-15/ 301
+/drum-roasters/shop-roasters/kraffe-krf-15    /products/krf-15/ 301
+/drum-roasters/shop-roasters/kraffe-krf-20/   /products/krf-20/ 301
+/drum-roasters/shop-roasters/kraffe-krf-20    /products/krf-20/ 301
 
+# Industrial Roasters
+/drum-roasters/industrial-roasters/kraffe-krf-30/   /products/krf-30/   301
+/drum-roasters/industrial-roasters/kraffe-krf-30    /products/krf-30/   301
+/drum-roasters/industrial-roasters/kraffe-krf-60/   /products/krf-60/   301
+/drum-roasters/industrial-roasters/kraffe-krf-60    /products/krf-60/   301
+/drum-roasters/industrial-roasters/kraffe-krf-120/  /products/krf-120/  301
+/drum-roasters/industrial-roasters/kraffe-krf-120   /products/krf-120/  301
+/drum-roasters/industrial-roasters/kraffe-krf-180/  /products/krf-180/  301
+/drum-roasters/industrial-roasters/kraffe-krf-180   /products/krf-180/  301
+/drum-roasters/industrial-roasters/kraffe-krf-240/  /products/krf-240/  301
+/drum-roasters/industrial-roasters/kraffe-krf-240   /products/krf-240/  301
 
-# ÜRÜN SAYFASI YÖNLENDİRMELERİ
-# Eski URL (WordPress)                                       Yeni URL (Astro)
-/drum-roasters/sample-roasters/kraffe-dimi/                  /products/dimi/                                         301!
-/drum-roasters/sample-roasters/kraffe-primi/                 /products/primi/                                        301!
-/drum-roasters/shop-roasters/kraffe-krf-03/                  /products/krf-03/                                       301!
-/drum-roasters/shop-roasters/kraffe-krf-06/                  /products/krf-06/                                       301!
-/drum-roasters/shop-roasters/kraffe-krf-12/                  /products/krf-12/                                       301!
-/drum-roasters/shop-roasters/kraffe-krf-15/                  /products/krf-15/                                       301!
-/drum-roasters/shop-roasters/kraffe-krf-20/                  /products/krf-20/                                       301!
-/drum-roasters/industrial-roasters/kraffe-krf-30/            /products/krf-30/                                       301!
-/drum-roasters/industrial-roasters/kraffe-krf-60/            /products/krf-60/                                       301!
-/drum-roasters/industrial-roasters/kraffe-krf-120/           /products/krf-120/                                      301!
-/drum-roasters/industrial-roasters/kraffe-krf-180/           /products/krf-180/                                      301!
-/drum-roasters/industrial-roasters/kraffe-krf-240/           /products/krf-240/                                      301!
-/equipment/destoner/                                         /products/destoner-equipment/                           301!
-/equipment/afterburner/                                      /products/afterburner-equipment/                        301!
-/equipment/loader/                                           /products/loader-equipment/                             301!
+# Equipment
+/equipment/destoner/      /products/destoner-equipment/     301
+/equipment/destoner       /products/destoner-equipment/     301
+/equipment/afterburner/   /products/afterburner-equipment/  301
+/equipment/afterburner    /products/afterburner-equipment/  301
+/equipment/loader/        /products/loader-equipment/       301
+/equipment/loader         /products/loader-equipment/       301
 
+# --- KATEGORİ GENEL YÖNLENDİRMELERİ (EN ALTA KOYDUK Kİ ÖZEL OLANLARI EZMESİN) ---
+/drum-roasters/*          /products/    301
+/coffee-roasters/*        /products/    301
+/equipment/*              /products/    301
+/mejores-tostadores-de-cafe-para-uso-comercial-e-industrial/ /products/ 301
 
-# --- KIRIK LİNK (404) YÖNLENDİRMELERİ ---
+# --- BLOG YAZILARI (ESKİ WP -> YENİ ASTRO) ---
+/exploring-different-coffee-roasting-methods-traditional-vs-modern-approaches/  /blog/exploring-different-coffee-roasting-methods/    301
+/choosing-the-right-coffee-roaster-for-your-business-a-comprehensive-guide/      /blog/choosing-right-coffee-roaster-business-guide/     301
+/a-journey-of-excellence-in-coffee-roasting/                                     /blog/etude-coffee-sprudge-recognition-kraffe-partnership/ 301
+/coffee-bean-roaster-unlocking-coffees-true-potential-for-exceptional-roasting/  /blog/kraffe-coffee-bean-roaster-guide/               301
+/mastering-the-art-of-coffee-roasting/                                           /blog/mastering-art-of-coffee-roasting/                 301
+/choosing-the-perfect-bean-roasting-machine/                                     /blog/art-of-coffee-roasting-machines-guide/            301
+/unleashing-the-art-of-coffee-roasting-with-the-primi-sample-roaster/            /blog/unleashing-the-art-of-coffee-roasting-with-primi-sample-roaster/ 301
+/a-comprehensive-guide-to-creating-coffee-roasting-profiles/                     /blog/how-to-create-coffee-roasting-profiles/           301
+/choosing-the-perfect-coffee-roasting-machine/                                   /blog/choosing-right-coffee-roaster-business-guide/     301
+/blog/comprehensive-guide-to-coffee-roasting-profiles/                           /blog/how-to-create-coffee-roasting-profiles/           301
+/blog/mastering-art-of-coffee-roasting/                                          /blog/mastering-art-coffee-roasting/                    301
 
-# Subdomain Yönlendirmesi
-http://yeni.krafferoasters.com/*      https://krafferoasters.com/    301!
+# --- FRANSIZCA BLOG DÜZELTMELERİ ---
+/fr/blog/art-of-coffee-roasting-machines-guide/         /fr/blog/art-torrefaction-cafe-machines/                                301
+/fr/blog/exploring-different-coffee-roasting-methods/   /fr/blog/explorer-methodes-torrefaction-cafe/                           301
+/fr/blog/how-to-create-coffee-roasting-profiles/        /fr/blog/guide-complet-creation-profils-torrefaction-cafe/              301
+/fr/blog/choosing-right-coffee-roaster-business-guide/  /fr/blog/choisir-bon-torrefacteur-guide-entreprise/                     301
+/fr/blog/etude-coffee-sprudge-recognition-kraffe-partnership/ /fr/blog/parcours-excellence-torrefaction-etude-coffee-sprudge/     301
+/insights/liberer-potentiel-torrefaction-synergie-precision-technologie-expertise/ /fr/insights/liberer-potentiel-torrefaction-synergie-precision-technologie-expertise/ 301
+/blog/maitriser-art-torrefaction-guide-creation-profil/ /fr/blog/maitriser-art-torrefaction-guide-creation-profil/              301
+/blog/art-torrefaction-cafe-machines/                   /fr/blog/art-torrefaction-cafe-machines/                                301
+/blog/guide-complet-creation-profils-torrefaction-cafe/ /fr/blog/guide-complet-creation-profils-torrefaction-cafe/              301
+/blog/explorer-methodes-torrefaction-cafe/              /fr/blog/explorer-methodes-torrefaction-cafe/                           301
 
-# Genel ve Politika Sayfaları
-/privacy-policy-2/                    /cookie-policy/                301!
-/privacy-policy/                      /cookie-policy/                301!
-/fr/privacy-policy/                   /fr/cookie-policy/             301! # Fransızca versiyonu varsayıyoruz
-/shop/                                /products/                     301!
-/fr/contact-form/                     /fr/contact/                   301!
-
-# Artık Var Olmayan Tag, Author ve Feed Sayfaları (Tümü blog anasayfasına)
-/tag/coffee-industry/                 /blog/                         301!
-/tag/sensory-analysis/                /blog/                         301!
-/tag/traditional-coffee-roasting/     /blog/                         301!
-/tag/infrared-roasting/               /blog/                         301!
-/tag/choosing-a-roaster/              /blog/                         301!
-/author/kraffe-technics/              /blog/                         301!
-/author/kraffe_yeni/                  /blog/                         301!
-/feed/                                /blog/                         301!
-
-# Eski Ürün ve Kategori URL'leri
-/coffee-roasters/industrial-roasters/kraffe-krf-120   /products/krf-120/   301!
-/drum-roasters/shop-roasters/kraffe-krf-10/           /products/           301!
-/drum-roasters/shop-roasters/kraffe-krf-02/           /products/           301!
-/drum-roasters/shop-roasters/kraffe-krf-10            /products/           301!
-/drum-roasters/shop-roasters/kraffe-krf-02            /products/           301!
-/coffee-roasters/sample-roasters/                     /products/           301!
-/coffee-roasters/sample-roasters                      /products/           301!
-/coffee-roasters/industrial-roasters                  /products/           301!
-/krf-06/                                              /products/krf-06/    301!
-
-# Dili Karışmış veya URL'i Değişmiş Blog/Insight Yazıları
-/fr/blog/art-of-coffee-roasting-machines-guide/         /fr/blog/art-torrefaction-cafe-machines/                                301!
-/fr/blog/exploring-different-coffee-roasting-methods/   /fr/blog/explorer-methodes-torrefaction-cafe/                           301!
-/fr/blog/how-to-create-coffee-roasting-profiles/        /fr/blog/guide-complet-creation-profils-torrefaction-cafe/              301!
-/fr/blog/choosing-right-coffee-roaster-business-guide/  /fr/blog/choisir-bon-torrefacteur-guide-entreprise/                     301!
-/fr/blog/etude-coffee-sprudge-recognition-kraffe-partnership/ /fr/blog/parcours-excellence-torrefaction-etude-coffee-sprudge/     301!
-/insights/liberer-potentiel-torrefaction-synergie-precision-technologie-expertise/ /fr/insights/liberer-potentiel-torrefaction-synergie-precision-technologie-expertise/ 301!
-/blog/maitriser-art-torrefaction-guide-creation-profil/ /fr/blog/maitriser-art-torrefaction-guide-creation-profil/              301!
-/blog/art-torrefaction-cafe-machines/                   /fr/blog/art-torrefaction-cafe-machines/                                301!
-/blog/guide-complet-creation-profils-torrefaction-cafe/ /fr/blog/guide-complet-creation-profils-torrefaction-cafe/              301!
-/blog/explorer-methodes-torrefaction-cafe/              /fr/blog/explorer-methodes-torrefaction-cafe/                           301!
-/blog/unleashing-art-of-coffee-roasting-primi-sample-roaster/ /blog/unleashing-the-art-of-coffee-roasting-with-primi-sample-roaster/ 301!
-/blog/comprehensive-guide-to-coffee-roasting-profiles/  /blog/how-to-create-coffee-roasting-profiles/                           301!
-/blog/mastering-art-of-coffee-roasting/                 /blog/mastering-art-coffee-roasting/                                    301!
-/choosing-the-perfect-coffee-roasting-machine/          /blog/choosing-right-coffee-roaster-business-guide/                     301!
-
-# Yabancı Dildeki Alakasız Sayfalar
-/mejores-tostadores-de-cafe-para-uso-comercial-e-industrial/ /products/    301!
-/torrefacteurs-innovants-pour-professionnels/               /fr/products/ 301!```
-
-# KANNIBALIZASYON ÖNLEME
-/services/            /products/        301!
-
-# --- CRAWLED - NOT INDEXED (TAM LİSTE) DÜZELTMELERİ ---
-
-# Eski WordPress Kategori/Tag/Feed Sayfaları (Tümü blog anasayfasına)
-/tag/coffee-roasting/                 /blog/    301!
-/tag/coffee-roasting-techniques/      /blog/    301!
-/tag/support/feed/                    /blog/    301!
-/tag/support/                         /blog/    301!
-/tag/sprudge-feature/feed/            /blog/    301!
-/tag/sprudge-feature/                 /blog/    301!
-/tag/coffee-roasting-process/         /blog/    301!
-/category/coffee-roasting/            /blog/    301!
-
-# Eski WordPress Ürün/Kategori URL'leri
-/equipment/destoner/                              /products/destoner-equipment/    301!
-/coffee-roasters/industrial-roasters/             /products/                       301!
-/drum-roasters/sample-roasters                    /products/                       301!
-/drum-roasters/shop-roasters/kraffe-krf-15/       /products/krf-15/                301!
-/drum-roasters/shop-roasters/kraffe-krf-03/       /products/krf-03/                301!
-/drum-roasters/industrial-roasters/kraffe-krf-180/ /products/krf-180/              301!
-
-# Eski WordPress Blog URL'i
-/unleashing-the-art-of-coffee-roasting-with-the-primi-sample-roaster/ /blog/unleashing-the-art-of-coffee-roasting-with-primi-sample-roaster/ 301!
-
-# Alakasız Dil ve Eski Sayfalar
-/kaffeerostmaschinen/                 /products/    301!
-/services/                            /products/    301!
+# --- WORDPRESS ÇÖP TEMİZLİĞİ (TAG/CATEGORY/AUTHOR/FEED) ---
+/tag/*        /blog/    301
+/category/*   /blog/    301
+/author/*     /blog/    301
+/feed/*       /blog/    301
