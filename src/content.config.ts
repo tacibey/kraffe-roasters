@@ -1,3 +1,5 @@
+// src/content.config.ts
+
 // https://docs.astro.build/en/guides/content-collections/#defining-collections
 
 import { z, defineCollection } from 'astro:content';
@@ -6,7 +8,7 @@ import { glob } from 'astro/loaders';
 
 const productsCollection = defineCollection({
   loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/products" }),
-    schema: ({ image }) => z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     description: z.string(),
     main: z.object({
@@ -15,6 +17,9 @@ const productsCollection = defineCollection({
       imgCard: image(),
       imgMain: image(),
       imgAlt: z.string(),
+      // --- EKLENEN KISIM BAŞLANGICI ---
+      imageSlider: z.array(image()).optional(),
+      // --- EKLENEN KISIM SONU ---
     }),
     tabs: z.array(
       z.object({
@@ -53,13 +58,10 @@ const productsCollection = defineCollection({
         description: z.array(z.array(z.string())),
       })
     ).optional(),
-    // --- DEĞİŞİKLİK BU SATIRDA ---
     blueprints: z.object({
       first: image().optional(),
       second: image().optional(),
-    }).optional(), // <<< .optional() BURAYA EKLENDİ
-    // --- DEĞİŞİKLİK SONU ---
-     // Gerekirse ekleyin: 'krf-03.md' dosyasında kullanmasak da şemada opsiyonel olarak bulunsun.
+    }).optional(),
     technicalLayoutImage: image().optional(),
   }),
 });
@@ -67,28 +69,27 @@ const productsCollection = defineCollection({
 const blogCollection = defineCollection({
   loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/blog" }),
   schema: ({ image }) => z.object ({
-  title: z.string(),
-  description: z.string(),
-  author: z.string(),
-  role: z.string().optional(),
-  authorImage: image(),
-  authorImageAlt: z.string(),
-  pubDate: z.date(),
-  cardImage: image(),
-  cardImageAlt: z.string(),
-  readTime: z.number(),
-  tags: z.array(z.string()).optional(),
+    title: z.string(),
+    description: z.string(),
+    author: z.string(),
+    role: z.string().optional(),
+    authorImage: image(),
+    authorImageAlt: z.string(),
+    pubDate: z.date(),
+    cardImage: image(),
+    cardImageAlt: z.string(),
+    readTime: z.number(),
+    tags: z.array(z.string()).optional(),
   }),
 });
 
 const insightsCollection = defineCollection({
   loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/insights" }),
   schema: ({ image }) => z.object ({
-  title: z.string(),
-  description: z.string(),
-  // contents: z.array(z.string()), // Bu satır zaten yorumlu kalabilir
-  cardImage: image(),
-  cardImageAlt: z.string(),
+    title: z.string(),
+    description: z.string(),
+    cardImage: image(),
+    cardImageAlt: z.string(),
   }),
 });
 
