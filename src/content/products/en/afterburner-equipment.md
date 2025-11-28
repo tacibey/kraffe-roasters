@@ -8,7 +8,7 @@ main:
   imgCard: "@/images/EQUIPMENTS2.avif"
   # --- DÜZELTME BAŞLANGICI ---
   # Zorunlu alan olan imgMain, slider'ın ilk resmi olarak geri eklendi.
-  imgMain: "@/images/afterburner1.avif" 
+  imgMain: "@/images/afterburner2.avif" 
   # imageSlider alanı slider'ı oluşturmak için korunuyor.
   imageSlider:
     - "@/images/afterburner1.avif"
