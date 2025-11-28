@@ -215,7 +215,7 @@ const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
       });
     </script>
 
-    <style is:global>
+<style is:global>
       :root {
         --cc-bg: #1a1a1a;
         --cc-text: #e5e5e5;
@@ -227,6 +227,12 @@ const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
         --cc-btn-secondary-hover-bg: #444444;
         --cc-toggle-on-bg: #F25F29;
         --cc-font-family: inherit;
+      }
+
+      /* --- HACK: INP İyileştirmesi --- */
+      /* Mobilde butonlara basınca oluşan 300ms gecikmeyi yok eder */
+      html {
+        touch-action: manipulation;
       }
 
       #cc-main .cm__btn[data-role="necessary"] {
