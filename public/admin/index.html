@@ -1,139 +1,51 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self' https://*.github.com https://*.githubusercontent.com https://unpkg.com;
-        script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com https://*.github.com;
-        style-src 'self' 'unsafe-inline' https://unpkg.com;
-        img-src 'self' data: https:;
-        font-src 'self' https://github.githubassets.com;
-        connect-src 'self' https://api.github.com https://krafferoasters.com;
-        frame-src 'self' https://github.com;
-    ">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kraffe Roasters CMS</title>
-    
-    <!-- Decap CSS - Local fallback -->
-    <link rel="stylesheet" href="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.css">
+    <!-- Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <!-- Decap CMS -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <link href="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.css" rel="stylesheet" />
     <style>
-        /* Basic styles for loading */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            margin: 0;
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            margin: 0; 
             padding: 20px;
-            background: #f5f5f5;
+            background: #f8f9fa;
         }
-        .loading {
-            text-align: center;
-            padding: 50px;
-            font-size: 18px;
-            color: #666;
+        .netlify-identity-menu {
+            position: absolute;
+            top: 10px;
+            right: 10px;
         }
     </style>
 </head>
 <body>
-    <div id="cms-root">
-        <div class="loading">
-            <p>Kraffe Roasters CMS yükleniyor...</p>
-            <p>Eğer bu mesaj uzun süre görünürse, sayfayı yenileyin.</p>
-        </div>
-    </div>
-
-    <!-- Decap CMS from CDN -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <!-- Netlify Identity Widget container -->
+    <div data-netlify-identity-menu></div>
+    
+    <!-- Decap CMS will load here -->
     
     <script>
-        // Wait for the CMS to load
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Decap CMS loading...');
-            
-            // Check if CMS is available
-            if (typeof CMS !== 'undefined') {
-                console.log('CMS found, initializing...');
-                
-                // Manual initialization
-                CMS.init({
-                    config: {
-                        backend: {
-                            name: "github",
-                            repo: "tacibey/kraffe6",
-                            branch: "main",
-                            site_domain: "krafferoasters.com",
-                            base_url: "https://github.com",
-                            auth_endpoint: "login/oauth/authorize",
-                            app_id: window.GITHUB_CLIENT_ID || "${GITHUB_CLIENT_ID}"
-                        },
-                        site_url: "https://krafferoasters.com",
-                        display_url: "https://krafferoasters.com",
-                        logo_url: "/images/kraffe-logo.png",
-                        media_folder: "public/images/uploads",
-                        public_folder: "/images/uploads",
-                        show_preview_links: false,
-                        
-                        // Your collections from config.yml - COPY THE ENTIRE COLLECTIONS ARRAY HERE
-                        collections: [
-                            // Blog yazıları - İngilizce
-                            {
-                                name: "blog_en",
-                                label: "Blog (English)",
-                                folder: "src/content/blog/en",
-                                create: true,
-                                slug: "{{slug}}",
-                                fields: [
-                                    { label: "Title", name: "title", widget: "string" },
-                                    { label: "Publish Date", name: "pubDate", widget: "datetime" },
-                                    { label: "Description", name: "description", widget: "text" },
-                                    { label: "Author", name: "author", widget: "string", default: "Kraffe Team" },
-                                    { label: "Cover Image", name: "heroImage", widget: "image", required: false },
-                                    { label: "Tags", name: "tags", widget: "list", required: false },
-                                    { label: "Content", name: "body", widget: "markdown" }
-                                ]
-                            },
-                            // Blog yazıları - Fransızca
-                            {
-                                name: "blog_fr",
-                                label: "Blog (Français)",
-                                folder: "src/content/blog/fr",
-                                create: true,
-                                slug: "{{slug}}",
-                                fields: [
-                                    { label: "Titre", name: "title", widget: "string" },
-                                    { label: "Date de publication", name: "pubDate", widget: "datetime" },
-                                    { label: "Description", name: "description", widget: "text" },
-                                    { label: "Auteur", name: "author", widget: "string", default: "Équipe Kraffe" },
-                                    { label: "Image de couverture", name: "heroImage", widget: "image", required: false },
-                                    { label: "Tags", name: "tags", widget: "list", required: false },
-                                    { label: "Contenu", name: "body", widget: "markdown" }
-                                ]
-                            },
-                            // Add your other collections here (products_en, products_fr, insights_en, insights_fr)
-                            // COPY THEM FROM YOUR CONFIG.YML
-                        ]
-                    }
-                });
-                
-                // Hide loading message
-                document.getElementById('cms-root').innerHTML = '';
-                console.log('CMS initialized successfully');
-                
-            } else {
-                console.error('CMS not found');
-                document.querySelector('.loading').innerHTML = 
-                    '<p style="color: red;">CMS yüklenemedi. Lütfen sayfayı yenileyin veya internet bağlantınızı kontrol edin.</p>' +
-                    '<button onclick="window.location.reload()">Sayfayı Yenile</button>';
-            }
-        });
-        
-        // Handle GitHub OAuth callback
-        if (window.location.search.includes('code=')) {
-            console.log('GitHub OAuth callback detected');
-            // Remove code from URL
-            const url = new URL(window.location);
-            url.searchParams.delete('code');
-            url.searchParams.delete('state');
-            window.history.replaceState({}, '', url);
+        // Netlify Identity initialization
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
         }
+        
+        // Wait a bit for Identity to initialize
+        setTimeout(() => {
+            // Decap CMS config is loaded from config.yml automatically
+            console.log("Decap CMS loading...");
+        }, 1000);
     </script>
 </body>
 </html>
