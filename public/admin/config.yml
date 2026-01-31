@@ -1,0 +1,134 @@
+backend:
+  name: git-gateway
+  branch: main
+  commit_messages:
+    create: "Create {{collection}} '{{slug}}'"
+    update: "Update {{collection}} '{{slug}}'"
+    delete: "Delete {{collection}} '{{slug}}'"
+    uploadMedia: "Upload '{{path}}'"
+    deleteMedia: "Delete '{{path}}'"
+
+# Site ayarları
+site_url: https://krafferoasters.com
+display_url: https://krafferoasters.com
+logo_url: /images/kraffe-logo.png
+
+# Medya ayarları
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+# Koleksiyonlar
+collections:
+  # Blog yazıları - İngilizce
+  - name: "blog_en"
+    label: "Blog (English)"
+    folder: "src/content/blog/en"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Author", name: "author", widget: "string", default: "Kraffe Team" }
+      - { label: "Cover Image", name: "heroImage", widget: "image", required: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Content", name: "body", widget: "markdown" }
+
+  # Blog yazıları - Fransızca
+  - name: "blog_fr"
+    label: "Blog (Français)"
+    folder: "src/content/blog/fr"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Date de publication", name: "pubDate", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Auteur", name: "author", widget: "string", default: "Équipe Kraffe" }
+      - { label: "Image de couverture", name: "heroImage", widget: "image", required: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Contenu", name: "body", widget: "markdown" }
+
+  # Ürünler - İngilizce
+  - name: "products_en"
+    label: "Products (English)"
+    folder: "src/content/products/en"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Product Name", name: "title", widget: "string" }
+      - { label: "Short Description", name: "description", widget: "text" }
+      - { label: "Category", name: "category", widget: "string", default: "roaster" }
+      - { label: "Capacity", name: "capacity", widget: "string", required: false }
+      - { label: "Main Image", name: "mainImage", widget: "image" }
+      - { label: "Gallery Images", name: "gallery", widget: "list", fields: [{label: "Image", name: "image", widget: "image"}] }
+      - { label: "Features", name: "features", widget: "list" }
+      - { label: "Specifications", name: "specs", widget: "markdown", required: false }
+      - { label: "Content", name: "body", widget: "markdown" }
+
+  # Ürünler - Fransızca
+  - name: "products_fr"
+    label: "Produits (Français)"
+    folder: "src/content/products/fr"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nom du produit", name: "title", widget: "string" }
+      - { label: "Description courte", name: "description", widget: "text" }
+      - { label: "Catégorie", name: "category", widget: "string", default: "torréfacteur" }
+      - { label: "Capacité", name: "capacity", widget: "string", required: false }
+      - { label: "Image principale", name: "mainImage", widget: "image" }
+      - { label: "Galerie d'images", name: "gallery", widget: "list", fields: [{label: "Image", name: "image", widget: "image"}] }
+      - { label: "Caractéristiques", name: "features", widget: "list" }
+      - { label: "Spécifications", name: "specs", widget: "markdown", required: false }
+      - { label: "Contenu", name: "body", widget: "markdown" }
+
+  # Insights - İngilizce
+  - name: "insights_en"
+    label: "Insights (English)"
+    folder: "src/content/insights/en"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "pubDate", widget: "datetime" }
+      - { label: "Summary", name: "description", widget: "text" }
+      - { label: "Featured Image", name: "heroImage", widget: "image" }
+      - { label: "Content", name: "body", widget: "markdown" }
+
+  # Insights - Fransızca
+  - name: "insights_fr"
+    label: "Insights (Français)"
+    folder: "src/content/insights/fr"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Date", name: "pubDate", widget: "datetime" }
+      - { label: "Résumé", name: "description", widget: "text" }
+      - { label: "Image en vedette", name: "heroImage", widget: "image" }
+      - { label: "Contenu", name: "body", widget: "markdown" }
+
+  # Sayfalar (pages) için örnek - About sayfası
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "src/pages/about.astro"
+        label: "About Page"
+        fields:
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Meta Description", name: "description", widget: "text" }
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Hero Title", name: "title", widget: "string" }
+              - { label: "Hero Description", name: "description", widget: "text" }
+              - { label: "Hero Image", name: "image", widget: "image" }
+          - label: "Content Sections"
+            name: "sections"
+            widget: "list"
+            fields:
+              - { label: "Section Title", name: "title", widget: "string" }
+              - { label: "Section Content", name: "content", widget: "markdown" }
+              - { label: "Image", name: "image", widget: "image", required: false }
