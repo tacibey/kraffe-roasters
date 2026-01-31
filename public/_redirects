@@ -13,7 +13,7 @@ http://krafferoasters.com/*         https://krafferoasters.com/:splat    301!
 /services/            /products/        301
 /kaffeerostmaschinen/ /products/        301
 /shop/                /products/        301
-
+/admin/* /admin/index.html 200
 # --- FRANSIZCA DÜZELTMELER ---
 /fr/contact-form/     /fr/contact/      301
 /fr/privacy-policy/   /fr/cookie-policy/ 301
