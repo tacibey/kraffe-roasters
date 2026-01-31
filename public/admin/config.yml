@@ -2,7 +2,12 @@ backend:
   name: github
   repo: tacibey/kraffe6
   branch: main
-  base_url: https://krafferoasters.com
+  auth_type: implicit # Daha güvenli
+  app_id: ${GITHUB_CLIENT_ID}
+  api_root: "https://api.github.com"
+  base_url: "https://github.com"
+  auth_endpoint: "oauth/authorize"
+
   commit_messages:
     create: "Create {{collection}} '{{slug}}'"
     update: "Update {{collection}} '{{slug}}'"
