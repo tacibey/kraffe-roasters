@@ -116,13 +116,15 @@ collections:
       - { label: "Image en vedette", name: "heroImage", widget: "image" }
       - { label: "Contenu", name: "body", widget: "markdown" }
 
-  # Sayfalar (pages) için örnek - About sayfası
+  # Sayfalar (pages) - ŞİMDİ DÜZGÜN HALİ:
   - name: "pages"
     label: "Pages"
     files:
-      - file: "src/pages/about.astro"
+      - name: "about"  # ✅ NAME EKLENMİŞ
         label: "About Page"
+        file: "src/pages/about.astro"
         fields:
+          # Buraya about.astro'nun frontmatter yapısına göre fields ekleyeceğiz
           - { label: "Page Title", name: "title", widget: "string" }
           - { label: "Meta Description", name: "description", widget: "text" }
           - label: "Hero Section"
