@@ -4,7 +4,7 @@
 # You can delete this file or keep it as backup
 # The actual configuration is now in the index.html file
 backend:
-  name: git-gateway
+  name: github
   repo: tacibey/kraffe6
   branch: main
   
