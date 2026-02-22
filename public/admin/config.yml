@@ -1,45 +1,113 @@
+# This config is now loaded via manual initialization in index.html
+# This file is kept for reference but not used directly
+
+# You can delete this file or keep it as backup
+# The actual configuration is now in the index.html file
 backend:
   name: github
   repo: tacibey/kraffe6
   branch: main
+  
+  commit_messages:
+    create: "Oluşturuldu: {{collection}} - {{slug}}"
+    update: "Güncellendi: {{collection}} - {{slug}}"
+    delete: "Silindi: {{collection}} - {{slug}}"
+    uploadMedia: "Medya yüklendi: {{path}}"
+    deleteMedia: "Medya silindi: {{path}}"
 
-# Görsellerin gerçek fiziksel yolu ve kod içindeki görünüm yolu
+# Site ayarları
+site_url: https://krafferoasters.com
+display_url: https://krafferoasters.com
+logo_url: /images/kraffe-logo.png
+
+# Medya ayarları
 media_folder: "src/images/blog"
 public_folder: "@/images/blog"
 
+# Koleksiyonlar - SENİN YAPINA GÖRE DÜZENLENECEK
 collections:
+  # Blog yazıları - İngilizce
   - name: "blog_en"
     label: "Blog (English)"
-    folder: "src/content/blog/en" # Senin onayladığın yol
+    folder: "src/content/blog/en"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Publish Date", name: "pubDate", widget: "datetime", required: true }
       - { label: "Description", name: "description", widget: "text" }
-      - { label: "Author", name: "author", widget: "string", default: "Kraffe Technics" }
-      - { label: "Author Image", name: "authorImage", widget: "string", default: "@/images/blog/kraffe-technic.avif" }
-      - { label: "Author Image Alt", name: "authorImageAlt", widget: "string", default: "Kraffe Technics Team Avatar" }
-      - { label: "Publish Date", name: "pubDate", widget: "datetime", format: "YYYY-MM-DD" }
-      - { label: "Card Image", name: "cardImage", widget: "image" }
-      - { label: "Card Image Alt", name: "cardImageAlt", widget: "string" }
-      - { label: "Read Time (Minutes)", name: "readTime", widget: "number" }
-      - { label: "Tags", name: "tags", widget: "list" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Author", name: "author", widget: "string", default: "Kraffe Team" }
+      - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Content", name: "body", widget: "markdown" }
 
+  # Blog yazıları - Fransızca
   - name: "blog_fr"
     label: "Blog (Français)"
-    folder: "src/content/blog/fr" # Senin onayladığın yol
+    folder: "src/content/blog/fr"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string", required: true }
+      - { label: "Date de publication", name: "pubDate", widget: "datetime", required: true }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Auteur", name: "author", widget: "string", default: "Équipe Kraffe" }
+      - { label: "Image héro", name: "heroImage", widget: "image", required: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Contenu", name: "body", widget: "markdown" }
+
+  # Ürünler - İngilizce
+  - name: "products_en"
+    label: "Products (English)"
+    folder: "src/content/products/en"
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Title", name: "title", widget: "string", required: true }
       - { label: "Description", name: "description", widget: "text" }
-      - { label: "Auteur", name: "author", widget: "string", default: "Kraffe Technics" }
-      - { label: "Image de l'auteur", name: "authorImage", widget: "string", default: "@/images/blog/kraffe-technic.avif" }
-      - { label: "Alt Image Auteur", name: "authorImageAlt", widget: "string", default: "Kraffe Technics Team Avatar" }
-      - { label: "Date de publication", name: "pubDate", widget: "datetime", format: "YYYY-MM-DD" }
-      - { label: "Image de couverture", name: "cardImage", widget: "image" }
-      - { label: "Alt Image Couverture", name: "cardImageAlt", widget: "string" }
-      - { label: "Temps de lecture", name: "readTime", widget: "number" }
-      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Category", name: "category", widget: "string", default: "roaster" }
+      - { label: "Main Image", name: "mainImage", widget: "image", required: true }
+      - { label: "Gallery Images", name: "gallery", widget: "list", required: false, fields: [{label: "Image", name: "image", widget: "image"}] }
+      - { label: "Features", name: "features", widget: "list", required: false }
+      - { label: "Content", name: "body", widget: "markdown" }
+
+  # Ürünler - Fransızca
+  - name: "products_fr"
+    label: "Produits (Français)"
+    folder: "src/content/products/fr"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string", required: true }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Catégorie", name: "category", widget: "string", default: "torréfacteur" }
+      - { label: "Image principale", name: "mainImage", widget: "image", required: true }
+      - { label: "Galerie d'images", name: "gallery", widget: "list", required: false, fields: [{label: "Image", name: "image", widget: "image"}] }
+      - { label: "Caractéristiques", name: "features", widget: "list", required: false }
+      - { label: "Contenu", name: "body", widget: "markdown" }
+
+  # Insights - İngilizce
+  - name: "insights_en"
+    label: "Insights (English)"
+    folder: "src/content/insights/en"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Date", name: "pubDate", widget: "datetime", required: true }
+      - { label: "Summary", name: "description", widget: "text" }
+      - { label: "Featured Image", name: "heroImage", widget: "image", required: true }
+      - { label: "Content", name: "body", widget: "markdown" }
+
+  # Insights - Fransızca
+  - name: "insights_fr"
+    label: "Insights (Français)"
+    folder: "src/content/insights/fr"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string", required: true }
+      - { label: "Date", name: "pubDate", widget: "datetime", required: true }
+      - { label: "Résumé", name: "description", widget: "text" }
+      - { label: "Image en vedette", name: "heroImage", widget: "image", required: true }
       - { label: "Contenu", name: "body", widget: "markdown" }
