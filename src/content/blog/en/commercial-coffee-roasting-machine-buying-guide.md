@@ -1,11 +1,14 @@
 ---
-title: Commercial Coffee Roasting Machine Buying Guide
-pubDate: 2026-02-26T20:01:00
-description: Learn how to choose the right commercial coffee roasting machine for your business. Compare capacity, gas vs electric, software, and investment factors.
-author: Kraffe Team
-heroImage: '@/images/blog/KRF-06 blue & KRF-02 red.jpg'
-tags:
-  - commercial coffee roasting machine, commercial coffee roaster, coffee roasting machine, industrial coffee roaster, professional coffee roaster, coffee roaster capacity, drum coffee roaster, coffee roasting business, specialty coffee roaster
+title: "Commercial Coffee Roasting Machine Buying Guide"
+description: "Learn how to choose the right commercial coffee roasting machine for your business. Compare capacity, gas vs electric, software, and investment factors."
+author: "Kraffe Team"
+authorImage: "@/images/blog/kraffe-technic.avif"
+authorImageAlt: "Kraffe Technics Team Avatar"
+pubDate: 2026-03-02
+cardImage: "@/images/blog/KRF-06 blue & KRF-02 red.jpg"
+cardImageAlt: "Artistic representation of Kraffe coffee roasting machines"
+readTime: 8
+tags: ["coffee roaster machine", "home coffee roaster", "coffee roasting business", "commercial roaster", "industrial roaster", "drum roaster", "coffee roaster capacity", "kraffe roasters"]
 ---
 # The Complete Guide to Choosing a Commercial Coffee Roasting Machine
 
