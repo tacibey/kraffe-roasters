@@ -1,11 +1,14 @@
 ---
-title: How to Choose the Right Coffee Roaster Capacity
-pubDate: 2026-02-26T20:01:00
-description: Calculate coffee roaster capacity correctly with weight loss formulas, hourly output examples, and smart production planning for commercial roasting.
-author: Kraffe Team
-heroImage: '@/images/blog/IMG-20250304-WA0074.jpg'
-tags:
-  - coffee roaster capacity, commercial coffee roaster, commercial coffee roasting machine, roastery startup guide, how to choose coffee roaster, coffee roaster size calculation
+title: "How to Choose the Right Coffee Roaster Capacity"
+description: "Calculate coffee roaster capacity correctly with weight loss formulas, hourly output examples, and smart production planning for commercial roasting."
+author: "Kraffe Team"
+authorImage: "@/images/blog/kraffe-technic.avif"
+authorImageAlt: "Kraffe Technics Team Avatar"
+pubDate: 2026-03-02
+cardImage: "@/images/blog/IMG-20250304-WA0074.jpg"
+cardImageAlt: "Artistic representation of Kraffe coffee roasting machines"
+readTime: 8
+tags: ["coffee roaster machine", "home coffee roaster", "coffee roasting business", "commercial roaster", "industrial roaster", "drum roaster", "coffee roaster capacity", "kraffe roasters"]
 ---
 # How to Choose the Right Coffee Roaster Capacity
 
