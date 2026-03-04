@@ -20,7 +20,7 @@ Too large — and you tie up capital in unused capacity.
 The goal is not to buy the biggest machine available.
 It’s to select a coffee roasting machine capacity that matches your real sales volume — while allowing controlled growth.
 
-If you’re still evaluating equipment overall, start with our complete guide to [**Commercial Coffee Roasting Machine Selection**](https://chatgpt.com/c/69a03535-3208-8325-97f3-e6d28518915d#).
+If you’re still evaluating equipment overall, start with our complete guide to [**Commercial Coffee Roasting Machine Selection**](https://krafferoasters.com/blog/commercial-coffee-roasting-machine-buying-guide/).
 
 ## Start With Roasted Coffee Sales — Not Green Coffee Purchases
 
