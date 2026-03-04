@@ -10,7 +10,6 @@ cardImageAlt: "Artistic representation of Kraffe coffee roasting machines"
 readTime: 8
 tags: ["coffee roaster machine", "home coffee roaster", "coffee roasting business", "commercial roaster", "industrial roaster", "drum roaster", "coffee roaster capacity", "kraffe roasters"]
 ---
-# How to Choose the Right Coffee Roaster Capacity
 
 Choosing the right coffee roaster capacity is one of the most critical decisions when investing in a roasting operation.
 
