@@ -10,7 +10,6 @@ cardImageAlt: "Artistic representation of Kraffe coffee roasting machines"
 readTime: 8
 tags: ["coffee roaster machine", "home coffee roaster", "coffee roasting business", "commercial roaster", "industrial roaster", "drum roaster", "coffee roaster capacity", "kraffe roasters"]
 ---
-# The Complete Guide to Choosing a Commercial Coffee Roasting Machine
 
 ## What Is a Commercial Coffee Roasting Machine?
 
