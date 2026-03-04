@@ -62,7 +62,7 @@ Choosing too small limits expansion.
 Choosing too large increases operating costs unnecessarily.
 
 For a detailed breakdown of production calculations, read our guide on
-[**How to Choose the Right Coffee Roaster Capacity**](https://chatgpt.com/c/69a03535-3208-8325-97f3-e6d28518915d#).
+[**How to Choose the Right Coffee Roaster Capacity**](https://krafferoasters.com/blog/commercial-coffee-roasting-machine-buying-guide/).
 
 A properly sized commercial coffee roasting machine supports daily consistency while giving your business room to grow.
 
