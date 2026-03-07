@@ -25,6 +25,7 @@ const footerLinks = [
       { name: "Events", url: "/events" },
       { name: "Blog", url: "/blog" },
       { name: "Dealers", url: "/dealers" }, // YENİ EKLENDİ
+      { name: "Privacy Policy & Terms", url: "/privacy-policy-and-terms" },
       { name: "Contact Us", url: "/contact" },
     ],
   },
