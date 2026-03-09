@@ -149,9 +149,10 @@ For a broader comparison of machines, see:
 <u><a href="/blog/how-to-compare-commercial-coffee-roasters">How to Compare Commercial Coffee Roasting Machines</a></u>
 -->
 
-Capacity planning also affects heat source choice. Larger roasters typically benefit more from gas systems. For detailed production planning, see: [**How to Choose the Right Coffee Roaster Capacity**](https://krafferoasters.com/blog/how-to-choose-the-right-coffee-roaster-capacity/).
+Capacity planning also affects heat source choice. Larger roasters typically benefit more from gas systems. For detailed production planning, see:
+[**How to Choose the Right Coffee Roaster Capacity**](https://krafferoasters.com/blog/how-to-choose-the-right-coffee-roaster-capacity/).
 
----
+
 
 ## Scalability: Think 2–3 Years Ahead
 
