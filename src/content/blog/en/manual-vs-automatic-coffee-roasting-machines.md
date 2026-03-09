@@ -40,6 +40,7 @@ There is no automatic curve replication. The roaster reads the beans, listens to
 
 ### Advantages of Manual Systems
 
+
 ✔ Maximum hands-on control
 ✔ Deep understanding of roast behavior
 ✔ Flexible profile experimentation
