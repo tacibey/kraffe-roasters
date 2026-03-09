@@ -105,6 +105,7 @@ Heat source is another major decision when investing in a commercial coffee roas
 For growing roasting businesses, gas systems typically offer stronger responsiveness and long-term efficiency.
 
 Full comparison:
+
 [**Gas vs Electric Coffee Roasters: Pros and Cons**](https://krafferoasters.com/blog/gas-vs-electric-coffee-roasters/)
 
 ## Software Integration: A Competitive Advantage
