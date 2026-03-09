@@ -5,7 +5,7 @@ author: "Kraffe Team"
 authorImage: "@/images/blog/kraffe-technic.avif"
 authorImageAlt: "Kraffe Technics Team Avatar"
 pubDate: 2026-03-09
-cardImage: "@/images/blog/KRF-06 blue & KRF-02 red.jpg"
+cardImage: "@/images/blog/WhatsApp Image 2025-07-23 at 11.16.55 (1).jpeg"
 cardImageAlt: "Artistic representation of Kraffe coffee roasting machines"
 readTime: 8
 tags: ["coffee roaster machine", "home coffee roaster", "coffee roasting business", "commercial roaster", "industrial roaster", "drum roaster","gas coffee roaster","electric coffee roaster", "professional coffee roasting", "kraffe roasters"]
