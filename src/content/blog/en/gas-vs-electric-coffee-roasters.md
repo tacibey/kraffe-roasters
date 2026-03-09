@@ -19,9 +19,9 @@ At this stage, you probably already know your capacity needs. Now the question b
 
 The answer depends on scale, infrastructure, long-term cost, maintenance, and how you plan to grow.
 
-If you're still evaluating machines overall, start here: <u><a href="/blog/commercial-coffee-roasting-machine-guide">commercial coffee roasting machine</a></u>
+If you’re still evaluating machines overall, start with our complete guide to [**Commercial Coffee Roasting Machine Selection**](https://krafferoasters.com/blog/commercial-coffee-roasting-machine-buying-guide/).
 
----
+
 
 ## How Heat Source Changes the Roasting Experience
 
@@ -70,9 +70,8 @@ As capacity grows, gas systems remain efficient and stable, ideal for wholesale 
 
 Routine maintenance is predictable and generally less frequent than electric element replacement.
 
-You can explore available gas roasters here: <u><a href="https://www.krafferoasters.com/commercial-coffee-roasters">commercial coffee roasters</a></u>
-
----
+You can explore available gas roasters here:
+👉 [**Commercial Coffee Roasters**](https://krafferoasters.com/products/)
 
 ## Electric Coffee Roasters: Simplicity and Maintenance Needs
 
@@ -147,7 +146,7 @@ Regardless of heat source, professional roasting benefits from:
 
 For a broader comparison of machines, see: <u><a href="/blog/how-to-compare-commercial-coffee-roasters">How to Compare Commercial Coffee Roasting Machines</a></u>
 
-Capacity planning also affects heat source choice. Larger roasters typically benefit more from gas systems. For detailed production planning, see: <u><a href="/blog/coffee-roaster-capacity-guide">coffee roaster capacity</a></u>
+Capacity planning also affects heat source choice. Larger roasters typically benefit more from gas systems. For detailed production planning, see: [**How to Choose the Right Coffee Roaster Capacity**](https://krafferoasters.com/blog/how-to-choose-the-right-coffee-roaster-capacity/).
 
 ---
 
@@ -205,14 +204,7 @@ A well-selected commercial coffee roasting machine supports your next stage of g
 
 For production-focused roasteries, reliable heat power combined with predictable maintenance makes all the difference.
 
----
 
-If you want, I can also **optimize this further for SEO (RankMath/Yoast)** by adding:
 
-* suggested **slug**
-* **meta description**
-* **FAQ schema questions**
-* **internal linking opportunities**
 
-This usually increases ranking chances significantly for articles like this.
 
