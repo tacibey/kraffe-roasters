@@ -38,7 +38,7 @@ A manual coffee roaster requires the operator to control:
 
 There is no automatic curve replication. The roaster reads the beans, listens to cracks, watches color, smells development, and adjusts heat accordingly.
 
-</> Markdown
+
 ### Advantages of Manual Systems
 
 - ✔ Maximum hands-on control
@@ -186,14 +186,14 @@ You can explore professional production-ready machines here:
 
 Manual vs automatic coffee roasting machines is not about technology level.
 
-</> Markdown
+
 It’s about:
 
-✔ Control philosophy
-✔ Production demand
-✔ Team expertise
-✔ Scalability goals
-✔ Long-term reliability
+* ✔ Control philosophy
+* ✔ Production demand
+* ✔ Team expertise
+* ✔ Scalability goals
+* ✔ Long-term reliability
 
 The right **commercial coffee roasting machine** supports both craftsmanship and consistency — without unnecessary complexity.
 
