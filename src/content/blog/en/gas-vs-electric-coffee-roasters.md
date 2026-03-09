@@ -144,8 +144,11 @@ Regardless of heat source, professional roasting benefits from:
 * Curve monitoring
 * Consistent batch replication
 ---
-For a broader comparison of machines, see: <u><a href="/blog/how-to-compare-commercial-coffee-roasters">How to Compare Commercial Coffee Roasting Machines</a></u>
----
+<!--
+For a broader comparison of machines, see:
+<u><a href="/blog/how-to-compare-commercial-coffee-roasters">How to Compare Commercial Coffee Roasting Machines</a></u>
+-->
+
 Capacity planning also affects heat source choice. Larger roasters typically benefit more from gas systems. For detailed production planning, see: [**How to Choose the Right Coffee Roaster Capacity**](https://krafferoasters.com/blog/how-to-choose-the-right-coffee-roaster-capacity/).
 
 ---
@@ -188,7 +191,7 @@ For most commercial roasteries looking to scale, gas systems offer the most prac
 
 You can review available commercial machines here: 
 👉 [**Commercial Coffee Roasters**](https://krafferoasters.com/products/)
----
+
 
 ## Final Thoughts
 
