@@ -4,7 +4,7 @@ description: "Manual vs automatic coffee roasting machines explained. Compare co
 author: "Kraffe Team"
 authorImage: "@/images/blog/kraffe-technic.avif"
 authorImageAlt: "Kraffe Technics Team Avatar"
-pubDate: 2026-03-029
+pubDate: 2026-03-09
 cardImage: "@/images/blog/5992246210427209682 (1).jpg"
 cardImageAlt: "Automatic Kraffe coffee roasting machines"
 readTime: 8
