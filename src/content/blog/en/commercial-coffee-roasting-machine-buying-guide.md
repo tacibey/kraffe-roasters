@@ -46,6 +46,7 @@ An unstable system causes uneven development, inconsistent roast curves, wasted 
 
 A well-engineered machine works quietly in the background — allowing you to focus on growth and quality.
 
+
 ## Capacity: Plan for Growth, Not Just Today
 
 Commercial machines range from compact production units to industrial-scale systems.
@@ -102,6 +103,9 @@ Heat source is another major decision when investing in a commercial coffee roas
 - Common in smaller production setups
 
 For growing roasting businesses, gas systems typically offer stronger responsiveness and long-term efficiency.
+
+Full comparison:
+[**Gas vs Electric Coffee Roasters: Pros and Cons**](https://krafferoasters.com/blog/gas-vs-electric-coffee-roasters/)
 
 ## Software Integration: A Competitive Advantage
 
