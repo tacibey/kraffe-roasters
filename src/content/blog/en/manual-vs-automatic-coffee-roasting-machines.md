@@ -186,6 +186,7 @@ You can explore professional production-ready machines here:
 
 Manual vs automatic coffee roasting machines is not about technology level.
 
+</> Markdown
 It’s about:
 
 ✔ Control philosophy
