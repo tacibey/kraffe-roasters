@@ -143,7 +143,7 @@ Regardless of heat source, professional roasting benefits from:
 * Software integration
 * Curve monitoring
 * Consistent batch replication
----
+
 <!--
 For a broader comparison of machines, see:
 <u><a href="/blog/how-to-compare-commercial-coffee-roasters">How to Compare Commercial Coffee Roasting Machines</a></u>
@@ -189,7 +189,7 @@ As your business grows, gas systems maintain efficiency, heat responsiveness, an
 
 For most commercial roasteries looking to scale, gas systems offer the most practical and future-proof solution.
 
-You can review available commercial machines here: 
+You can review available available commercial roasters here:
 👉 [**Commercial Coffee Roasters**](https://krafferoasters.com/products/)
 
 
