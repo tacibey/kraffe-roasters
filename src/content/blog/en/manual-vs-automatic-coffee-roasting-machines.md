@@ -38,13 +38,13 @@ A manual coffee roaster requires the operator to control:
 
 There is no automatic curve replication. The roaster reads the beans, listens to cracks, watches color, smells development, and adjusts heat accordingly.
 
+</> Markdown
 ### Advantages of Manual Systems
 
-
-✔ Maximum hands-on control
-✔ Deep understanding of roast behavior
-✔ Flexible profile experimentation
-✔ Strong craftsmanship positioning
+- ✔ Maximum hands-on control
+- ✔ Deep understanding of roast behavior
+- ✔ Flexible profile experimentation
+- ✔ Strong craftsmanship positioning
 
 Many experienced roasters prefer manual control because it allows them to react instantly during first crack and development phase.
 
