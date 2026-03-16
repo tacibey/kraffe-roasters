@@ -159,6 +159,10 @@ This range allows you to:
 - Reduce labor intensity
 - Stabilize energy efficiency
 
+For structured comparison criteria, read:
+
+[**How to Compare Commercial Coffee Roasting Machines**](https://krafferoasters.com/blog/how-to-compare-commercial-coffee-roasting-machines/)
+
 ## Large Capacity Systems: Built for Scale
 
 Higher commercial coffee roaster capacity is suited for:
@@ -188,6 +192,10 @@ Upgrade only when demand consistently justifies it.
 As coffee roasting machine capacity increases, heat control becomes more critical.
 
 Gas systems typically provide stronger responsiveness in higher-capacity machines.
+
+For a detailed comparison, read:
+
+[**Gas vs Electric Coffee Roasters: Pros and Cons**](https://krafferoasters.com/blog/gas-vs-electric-coffee-roasters/)
 
 ## Workflow and Physical Layout Matter
 
