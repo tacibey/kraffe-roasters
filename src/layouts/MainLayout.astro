@@ -26,7 +26,6 @@ const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
 
 <html lang={lang} class="dark scrollbar-hide lenis lenis-smooth scroll-pt-16">
   <head>
-    <!-- START: Google Consent Mode & GTM -->
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -39,23 +38,23 @@ const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
       });
     </script>
     
-    <!-- Google Tag Manager (Meta Ajansı) -->
     <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-WGJTKJSG');</script>
-    <!-- End Google Tag Manager (Meta Ajansı) -->
-
-    <!-- Google Tag Manager (Google Reklam Ajansı) -->
     <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-KFH3PNCV');</script>
-    <!-- End Google Tag Manager (Google Reklam Ajansı) -->
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.css">
+    <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-592NRDPX');</script>
+    <link rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.css">
 
     <Meta meta={meta} structuredData={structuredData} />
     <title>{title}</title>
@@ -74,7 +73,6 @@ const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
       html.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
     
-    <!-- HACK: Lenis Scroll Sadece Masaüstünde Çalışsın -->
     <script is:inline>
       if (window.matchMedia("(min-width: 1024px)").matches) {
         import("/src/assets/scripts/lenisSmoothScroll.js");
@@ -90,6 +88,8 @@ const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KFH3PNCV"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-592NRDPX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="mx-auto max-w-(--breakpoint-2xl) px-4 sm:px-6 lg:px-8">
       <Navbar />
       <main>
@@ -120,7 +120,7 @@ const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
 
     <script type="module">
       import * as CookieConsent from "https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.esm.js";
-
+      
       function updateGtmConsent(categories) {
         const consentState = {
           'ad_storage': categories.includes('advertising') ? 'granted' : 'denied',
@@ -128,7 +128,7 @@ const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
           'ad_personalization': categories.includes('advertising') ? 'granted' : 'denied',
           'analytics_storage': categories.includes('analytics') ? 'granted' : 'denied'
         };
-
+        
         if (typeof window.gtag === 'function') {
             window.gtag('consent', 'update', consentState);
         }
