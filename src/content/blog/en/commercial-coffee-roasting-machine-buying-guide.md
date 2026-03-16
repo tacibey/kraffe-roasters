@@ -85,6 +85,10 @@ The balance between these elements determines:
 
 What separates professional systems from average ones is **airflow engineering**. Stable airflow enables smoother rate-of-rise control and more predictable development.
 
+If you want a structured comparison framework, see:
+
+[**How to Compare Commercial Coffee Roasting Machines**](https://krafferoasters.com/blog/how-to-compare-commercial-coffee-roasting-machines/)
+
 ## Gas vs Electric Coffee Roasters
 
 Heat source is another major decision when investing in a commercial coffee roasting machine.
