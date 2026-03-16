@@ -4,7 +4,7 @@ description: "Learn how to compare commercial coffee roasting machines. Discover
 author: "Kraffe Team"
 authorImage: "@/images/blog/kraffe-technic.avif"
 authorImageAlt: "Kraffe Technics Team Avatar"
-pubDate: 2026-03-17
+pubDate: 2026-03-16
 cardImage: "@/images/blog/KRF-06 blue & KRF-02 red.jpg"
 cardImageAlt: "Artistic representation of Kraffe coffee roasting machines"
 readTime: 8
