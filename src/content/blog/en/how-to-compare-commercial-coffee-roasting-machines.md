@@ -23,6 +23,7 @@ But experienced roasters know that choosing a commercial coffee roasting machine
 If you're at the evaluation stage, this guide will help you compare machines properly — not just technically, but strategically.
 
 If you're still early in the research phase, begin here:
+
 [**Commercial Coffee Roasting Machine Selection**](https://krafferoasters.com/blog/commercial-coffee-roasting-machine-buying-guide/)
 
 ---
@@ -58,6 +59,7 @@ When comparing machines, always calculate:
 Otherwise, your production forecast will be overly optimistic.
 
 If you're unsure what capacity fits your business model, read this first:
+
 [**How to Choose the Right Coffee Roaster Capacity**](https://krafferoasters.com/blog/how-to-choose-the-right-coffee-roaster-capacity/)
 
 ---
@@ -118,6 +120,7 @@ When comparing, inspect:
 A good commercial roaster should be **strong, straightforward, and serviceable.**
 
 Explore available production machines here:
+
 👉 [**Commercial Coffee Roasters**](https://krafferoasters.com/products/)
 
 ---
@@ -181,6 +184,7 @@ When comparing machines, ask yourself:
 Buying slightly above your current need often makes sense — as long as it aligns with realistic growth.
 
 You can review full machine models here:
+
 👉 [**Commercial Coffee Roasters**](https://krafferoasters.com/products/)
 
 ---
