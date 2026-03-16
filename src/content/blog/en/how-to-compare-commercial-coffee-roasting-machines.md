@@ -8,7 +8,7 @@ pubDate: 2026-03-17
 cardImage: "@/images/blog/KRF-06 blue & KRF-02 red.jpg"
 cardImageAlt: "Artistic representation of Kraffe coffee roasting machines"
 readTime: 8
-tags: ["coffee roaster machine", "coffee roaster comparison", "coffee roasting business", "commercial roaster", "commercial coffee roaster" "industrial roaster", "drum roaster", "coffee roaster capacity","coffee roaster buying guide", "kraffe roasters"]
+tags: ["coffee roaster machine", "coffee roaster comparison", "coffee roasting business", "commercial roaster", "commercial coffee roaster", "industrial roaster", "drum roaster", "coffee roaster capacity","coffee roaster buying guide", "kraffe roasters"]
 ---
 
 # How to Compare Commercial Coffee Roasting Machines (Without Regret Later)
