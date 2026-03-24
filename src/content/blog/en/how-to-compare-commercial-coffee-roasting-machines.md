@@ -2,7 +2,7 @@
 title: "How to Compare Commercial Coffee Roasting Machines"
 description: "Learn how to compare commercial coffee roasting machines. Discover key features, capacity planning, heat systems, maintenance, and long-term ROI factors."
 author: "Kraffe Team"
-authorImage: "@/images/blog/kraffe-technic.avif"
+authorImage: "@/images/blog/polat.jpeg"
 authorImageAlt: "Kraffe Technics Team Avatar"
 pubDate: 2026-03-16
 cardImage: "@/images/blog/8.jpg"
