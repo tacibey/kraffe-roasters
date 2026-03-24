@@ -108,7 +108,7 @@ A true professional system is built for continuous operation.
 
 If you're unsure what separates entry-level from production-grade equipment, read: 
 
-[**What makes a professional coffee roaster different? **](https://krafferoasters.com/blog/what-makes-a-professional-coffee-roaster-different/)
+[**What makes a professional coffee roaster different?**](https://krafferoasters.com/blog/what-makes-a-professional-coffee-roaster-different/)
 
 ---
 
@@ -182,18 +182,18 @@ You can explore production-ready machines here:
 
 When buying a coffee roasting machine, avoid decisions based on:
 
-✖ Price alone
-✖ Guesswork capacity
-✖ Marketing claims
-✖ Visual appearance
+*  ✖ Price alone
+*  ✖ Guesswork capacity
+*  ✖ Marketing claims
+*  ✖ Visual appearance
 
 Instead, focus on:
 
-✔ Engineering quality
-✔ Thermal stability
-✔ Real roasted output
-✔ Maintenance predictability
-✔ Growth compatibility
+*  ✔ Engineering quality
+*  ✔ Thermal stability
+*  ✔ Real roasted output
+*  ✔ Maintenance predictability
+*  ✔ Growth compatibility
 
 A carefully chosen commercial roasting machine becomes a long-term asset — not a limitation.
 
