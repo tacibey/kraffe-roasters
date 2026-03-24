@@ -2,7 +2,7 @@
 title: "Common Mistakes When Buying a Coffee Roasting Machine"
 description: "Avoid costly mistakes when buying a coffee roasting machine. Learn what to check before investing in a commercial coffee roaster."
 author: "Kraffe Team"
-authorImage: "@/images/blog/kraffe-technic.avif"
+authorImage: "@/images/blog/polat.jpeg"
 authorImageAlt: "Kraffe Technics Team Avatar"
 pubDate: 2026-03-24
 cardImage: "@/images/blog/baroman after vivien.jpg"
