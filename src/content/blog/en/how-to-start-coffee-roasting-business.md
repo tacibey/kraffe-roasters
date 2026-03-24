@@ -105,6 +105,9 @@ When selecting a commercial coffee roasting machine, consider:
 * Automation level
 * Future scalability
 
+A strong starting point is choosing the right production system:
+
+👉 [**Commercial Coffee Roasters**](https://krafferoasters.com/products/)
 
 Your machine should match your 3–5 year growth plan — not just your first month’s production.
 
