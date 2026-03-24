@@ -2,7 +2,7 @@
 title: "Gas vs Electric Coffee Roasters: Which Is Better?"
 description: "Compare gas vs electric coffee roasters for commercial use. Learn differences in cost, heat control, maintenance, scalability, and long-term efficiency."
 author: "Kraffe Team"
-authorImage: "@/images/blog/kraffe-technic.avif"
+authorImage: "@/images/blog/polat.jpeg"
 authorImageAlt: "Kraffe Technics Team Avatar"
 pubDate: 2026-03-09
 cardImage: "@/images/blog/WhatsApp Image 2025-07-23 at 11.16.55 (1).jpeg"
