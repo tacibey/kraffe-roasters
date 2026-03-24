@@ -2,7 +2,7 @@
 title: "What Makes a Professional Coffee Roaster Different?"
 description: "Discover what makes a professional coffee roaster different from entry-level machines. Engineering, stability, consistency, and long-term reliability explained."
 author: "Kraffe Team"
-authorImage: "@/images/blog/kraffe-technic.avif"
+authorImage: "@/images/blog/polat.jpeg"
 authorImageAlt: "Kraffe Technics Team Avatar"
 pubDate: 2026-03-16
 cardImage: "@/images/blog/Etude Coffee UK.jpg"
