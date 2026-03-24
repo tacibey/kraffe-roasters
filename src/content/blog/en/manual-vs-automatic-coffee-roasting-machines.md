@@ -2,7 +2,7 @@
 title: "Manual vs Automatic Coffee Roasting Machines"
 description: "Manual vs automatic coffee roasting machines explained. Compare control, consistency, scalability, and which system fits your commercial roasting goals."
 author: "Kraffe Team"
-authorImage: "@/images/blog/kraffe-technic.avif"
+authorImage: "@/images/blog/polat.jpeg"
 authorImageAlt: "Kraffe Technics Team Avatar"
 pubDate: 2026-03-09
 cardImage: "@/images/blog/5992246210427209682 (1).jpg"
