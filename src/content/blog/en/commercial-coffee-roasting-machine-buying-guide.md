@@ -2,7 +2,7 @@
 title: "Commercial Coffee Roasting Machine Buying Guide"
 description: "Learn how to choose the right commercial coffee roasting machine for your business. Compare capacity, gas vs electric, software, and investment factors."
 author: "Kraffe Team"
-authorImage: "@/images/blog/kraffe-technic.avif"
+authorImage: "@/images/blog/polat.jpeg"
 authorImageAlt: "Kraffe Technics Team Avatar"
 pubDate: 2026-03-02
 cardImage: "@/images/blog/KRF-06 blue & KRF-02 red.jpg"
