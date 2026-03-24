@@ -11,6 +11,7 @@ readTime: 6
 tags: ["coffee roaster machine", "home coffee roaster", "coffee roasting business", "commercial roaster", "industrial roaster", "drum roaster","gas coffee roaster","electric coffee roaster", "professional coffee roasting", "kraffe roasters"]
 ---
 
+
 Starting a coffee roasting business is one of the most attractive opportunities in the specialty coffee industry today.
 
 Margins can be strong.
@@ -184,9 +185,9 @@ This depends on scale.
 
 Typical ranges:
 
-🔹 Micro roastery setup: €25,000 – €60,000
-🔹 Small commercial setup: €60,000 – €150,000
-🔹 Mid-size wholesale production: €150,000+
+*  Micro roastery setup: €25,000 – €60,000
+*  Small commercial setup: €60,000 – €150,000
+*  Mid-size wholesale production: €150,000+
 
 These numbers vary by country, gas regulations, and machine size.
 
