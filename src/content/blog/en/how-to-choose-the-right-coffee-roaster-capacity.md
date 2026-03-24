@@ -2,7 +2,7 @@
 title: "How to Choose the Right Coffee Roaster Capacity"
 description: "Calculate coffee roaster capacity correctly with weight loss formulas, hourly output examples, and smart production planning for commercial roasting."
 author: "Kraffe Team"
-authorImage: "@/images/blog/kraffe-technic.avif"
+authorImage: "@/images/blog/polat.jpeg"
 authorImageAlt: "Kraffe Technics Team Avatar"
 pubDate: 2026-03-02
 cardImage: "@/images/blog/IMG-20250304-WA0074.jpg"
