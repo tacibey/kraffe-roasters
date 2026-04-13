@@ -44,6 +44,10 @@ The cost of a commercial coffee roasting machine depends on:
 * Automation level
 * Thermal stability engineering
 * Country of manufacture
+  
+👉 If you're comparing professional machines, you can explore our models here:
+
+[**Commercial Coffee Roasting Machines**]( https://krafferoasters.com/products/).
 
 ### 💰 2026 Price Ranges
 
