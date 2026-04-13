@@ -80,6 +80,9 @@ A commercial roasting setup includes:
 * Branding & website
 * Working capital
 
+A detailed breakdown is explained here:
+
+[**How Much Does It Cost to Start a Coffee Roasting Business?**]( https://krafferoasters.com/blog/coffee-roasting-business-startup-costs-2026/).
 
 Understanding real costs prevents financial stress during the first year.
 
@@ -145,6 +148,10 @@ But profitability depends on:
 * Energy efficiency
 * Sales channel selection
 
+Is roasting profitable in 2026?
+Read the full analysis here:
+
+[**Is Coffee Roasting Profitable in 2026?**](https://krafferoasters.com/blog/coffee-roasting-business-profitability-2026/).
 
 Coffee roasting can be highly profitable — but only with correct positioning and cost control.
 
