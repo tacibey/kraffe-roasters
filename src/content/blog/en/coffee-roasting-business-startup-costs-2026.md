@@ -219,7 +219,8 @@ Profit depends on:
 * Customer retention
 
 ➡️ Read full breakdown:
-**[Is Coffee Roasting Profitable in 2026?](#)** (Sequence 18)
+
+[**Is Coffee Roasting Profitable in 2026?**](https://krafferoasters.com/blog/coffee-roasting-business-profitability-2026/).
 
 Strong thermal stability reduces:
 
