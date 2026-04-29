@@ -26,8 +26,6 @@ Let’s break it down properly.
 
 If you’re still planning your investment, read:
 
-## Related Article
-
 [**How Much Does It Cost to Start a Coffee Roasting Business?**]( https://krafferoasters.com/blog/coffee-roasting-business-startup-costs-2026/).
 
 ---
