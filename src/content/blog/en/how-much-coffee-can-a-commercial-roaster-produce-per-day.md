@@ -4,7 +4,7 @@ description: "Learn how much coffee a commercial roaster can produce per day bas
 author: "Kraffe Team"
 authorImage: "@/images/blog/polat.jpeg"
 authorImageAlt: "Kraffe Technics Team Avatar"
-pubDate: 2026-04-13
+pubDate: 2026-04-29
 cardImage: "@/images/blog/Commercial Roaster Production Per Day.jpg"
 cardImageAlt: "KRF-12 Sample Spoon"
 readTime: 7
