@@ -108,6 +108,10 @@ When selecting a commercial coffee roasting machine, consider:
 * Automation level
 * Future scalability
 
+If you're starting small, read:
+
+[**Choosing the Right Coffee Roaster for a Startup**](https:// choosing-the-right-coffee-roaster-for-a-startup/).
+
 A strong starting point is choosing the right production system:
 
 👉 [**Commercial Coffee Roasters**](https://krafferoasters.com/products/)
@@ -131,6 +135,9 @@ Production depends on:
 * Operator workflow
 * Heat stability
 
+Learn realistic production calculations here:
+
+[**How Much Coffee Can a Commercial Roaster Produce Per Day?**](https://how-much-coffee-can-a-commercial-roaster-produce-per-day/).
 
 Capacity planning directly affects revenue forecasting.
 
