@@ -43,7 +43,6 @@ Because production capacity must match your sales strategy.
 
 Production math explained in:
 
-## Related Article
 
 [**How Much Coffee Can a Commercial Roaster Produce Per Day?**](https:// how-much-coffee-can-a-commercial-roaster-produce-per-day/).
 
