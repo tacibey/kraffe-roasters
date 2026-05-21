@@ -50,7 +50,7 @@ Machine size must match your realistic monthly sales — not your ambition.
 
 Production math explained here:
 
-[**How Much Coffee Can a Commercial Roaster Produce Per Day?**](https:// how-much-coffee-can-a-commercial-roaster-produce-per-day/).
+[**How Much Coffee Can a Commercial Roaster Produce Per Day?**]( https://krafferoasters.com/blog/how-much-coffee-can-a-commercial-roaster-produce-per-day/).
 
 And the selection strategy is detailed in:
 
@@ -139,7 +139,8 @@ Each model requires different:
 * Growth strategy
 
 Model comparison:
-[Micro Roastery vs Wholesale Roastery: Which Model Should You Start With? – Sequence 21](https://krafferoasters.com/micro-roastery-vs-wholesale-roastery/)
+
+[**Micro Roastery vs Wholesale Roastery: Which Model Should You Start With?**](https://krafferoasters.com/blog/micro-roastery-vs-wholesale-roastery/)
 
 ---
 
@@ -270,6 +271,6 @@ If you’re planning your setup, revisit:
 
 * [**Coffee Roasting Business Startup Costs Explained**]( https://krafferoasters.com/blog/coffee-roasting-business-startup-costs-2026/).
 * [**Is Coffee Roasting Profitable in 2026?**](https://krafferoasters.com/blog/coffee-roasting-business-profitability-2026/).
-* [**How Much Coffee Can a Commercial Roaster Produce Per Day?**](https:// how-much-coffee-can-a-commercial-roaster-produce-per-day/).
+* [**How Much Coffee Can a Commercial Roaster Produce Per Day?**]( https://krafferoasters.com/blog/how-much-coffee-can-a-commercial-roaster-produce-per-day/).
 * [**Choosing the Right Coffee Roaster for a Startup**](https://krafferoasters.com/blog/choosing-the-right-coffee-roaster-for-a-startup/)
-* [Micro Roastery vs Wholesale Roastery – Sequence 21](https://krafferoasters.com/micro-roastery-vs-wholesale-roastery/)
+* [**Micro Roastery vs Wholesale Roastery: Which Model Should You Start With?**](https://krafferoasters.com/blog/micro-roastery-vs-wholesale-roastery/)
