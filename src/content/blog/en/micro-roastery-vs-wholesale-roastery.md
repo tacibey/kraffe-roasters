@@ -51,7 +51,7 @@ A micro roastery typically:
 
 Production breakdown here:
 
-[**How Much Coffee Can a Commercial Roaster Produce Per Day?**](https://how-much-coffee-can-a-commercial-roaster-produce-per-day/).
+[**How Much Coffee Can a Commercial Roaster Produce Per Day?**](https://krafferoasters.com/blog/how-much-coffee-can-a-commercial-roaster-produce-per-day/).
 
 ---
 
