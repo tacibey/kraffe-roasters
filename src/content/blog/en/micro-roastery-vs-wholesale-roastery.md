@@ -5,7 +5,7 @@ author: "Kraffe Team"
 authorImage: "@/images/blog/polat.jpeg"
 authorImageAlt: "Kraffe Technics Team Avatar"
 pubDate: 2026-05-20
-cardImage: "@/images/blog/Imicrovswholesale.png"
+cardImage: "@/images/blog/microvswholesale.png"
 cardImageAlt: "KRF-30 in Nepal"
 readTime: 7
 tags: ["coffee roaster machine", "home coffee roaster", "coffee roasting business", "commercial roaster", "industrial roaster", "drum roaster", "coffee roaster capacity", "kraffe roasters", "coffee roaster machine price", "coffee roastery setup", "coffee business investment", "coffee roasting guide 2026", "coffee roastery income"]
