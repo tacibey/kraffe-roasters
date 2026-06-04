@@ -1,0 +1,372 @@
+# ScrewFast - Complete Documentation
+
+## Project Overview
+
+ScrewFast is an **open-source template** designed for quick and efficient web project setup, blending **minimalism with functionality**. Whether you're showcasing a portfolio, launching a company landing page, or running a blog, ScrewFast provides everything you need. By combining the power of the [Astro](https://astro.build/), [Tailwind CSS](https://tailwindcss.com/), and [Preline UI](https://preline.co/), this template offers a functional and aesthetically pleasing solution for your web presence.
+
+**[View Live Demo](https://screwfast.uk)**
+
+### Key Features
+- **Astro-Powered:** Utilize a modern static-site generation framework.
+- **Tailwind CSS:** Enjoy rapid UI development with a utility-first CSS framework.
+- **Preline UI:** Implement prebuilt UI components for added elegance.
+- **GSAP Integration:** Impress with professional and polished animations.
+- **Markdown Content Collections:** Organize and manage your content seamlessly.
+- **Starlight Documentation:** A sleek, user-friendly, full-featured documentation theme.
+- **Internationalization (i18n):** Integrates Astro’s internationalization features.
+- **SEO and Responsiveness:** Ensure your site is discoverable and accessible on any device.
+
+## Installation & Setup
+
+### Prerequisites
+- Node.js (v18 or higher recommended)
+- npm or yarn or pnpm
+
+### Getting Started
+
+#### Use This Template
+To get started, click the `Use this template` button (the big green one at the top right) to create your own repo from this template in your GitHub account.
+
+#### Clone the Repository
+Once your repository is created, you can clone it to your local machine using the following commands:
+
+```bash
+git clone https://github.com/[YOUR_USERNAME]/[YOUR_REPO_NAME].git
+cd [YOUR_REPO_NAME]
+```
+
+### Installation
+
+Start by installing the project dependencies. Open your terminal, navigate to the project's root directory, and execute:
+
+```bash
+npm install
+```
+
+This command will install all the necessary dependencies defined in the `package.json` file.
+
+### Development Commands
+
+With dependencies installed, you can utilize the following npm scripts to manage your project's development lifecycle:
+
+* `npm run dev`: Starts a local development server with hot reloading enabled.
+* `npm run preview`: Serves your build output locally for preview before deployment.
+* `npm run build`: Bundles your site into static files for production.
+
+For detailed help with Astro CLI commands, visit [Astro's documentation](https://docs.astro.build/en/reference/cli-reference/).
+
+## Architecture & Design
+
+### Project Structure
+ScrewFast follows a modular structure optimized for Astro development:
+
+```
+src/
+├── assets/               
+│   ├── scripts/          # JS scripts (including Lenis smooth scroll)
+│   └── styles/           # CSS stylesheets
+├── components/           # Reusable components organized by type and function
+│   ├── sections/         # Page sections (hero, features, testimonials, etc.)
+│   ├── ui/               # Atomic UI components (buttons, forms, icons, etc.)
+│   ├── navbar&footer/    # Navigation and footer components
+│   └── starlight/        # Starlight documentation theme components
+├── content/              # Markdown content collections
+│   ├── blog/             # Blog posts (multi-language: en/fr)
+│   ├── docs/             # Documentation (for Starlight)
+│   ├── insights/         # Insight/articles
+│   └── products/         # Product listings
+├── data_files/           # JSON data and TypeScript constants
+├── images/               # Static image assets
+├── layouts/              # Layout components (MainLayout.astro)
+├── pages/                # Individual pages routed by file structure
+│   ├── blog/             # Blog listing and individual posts
+│   ├── fr/               # French localized content
+│   ├── insights/         # Insights listing and individual posts
+│   ├── products/         # Products listing and individual product pages
+│   └── ...               # Other pages (contact, about, services, etc.)
+├── utils/                # Utility functions and TypeScript helpers
+└── content.config.ts     # Content collections configuration
+```
+
+### Design Patterns
+- **Component-Based Architecture:** UI broken down into reusable Astro components
+- **Content Collections:** Markdown files managed via Astro's content collections for type-safe querying
+- **Slot-Based Layouts:** MainLayout.astro uses slots for flexible page composition
+- **Internationalization:** Built-in Astro i18n routing with locale prefixes
+- **Utility-First Styling:** Tailwind CSS for rapid UI development
+- **Progressive Enhancement:** Core functionality works without JS, enhanced with GSAP/Lenis
+
+## API Reference
+
+As a static site generator, ScrewFast doesn't have a traditional API. Instead, it provides:
+
+### Astro Component Interface
+All `.astro` files export a default component that can be imported and used in other Astro files.
+
+### Content Collections API
+Access content via `getCollection()` function:
+```astro
+import { getCollection } from 'astro:content';
+
+const blogPosts = await getCollection('blog');
+```
+
+### Data Files
+Type-safe access to JSON data and constants:
+```typescript
+import { SITE, SEO, OG } from '@/data_files/constants';
+```
+
+### Configuration
+Access site configuration via `import.meta.env`:
+```typescript
+import.meta.env.SITE  // Site URL from astro.config.mjs
+```
+
+## Source Code Analysis
+
+### Key Files
+
+#### `src/pages/index.astro`
+The main landing page that assembles various sections:
+- HeroSection
+- FeaturesGeneral
+- ClientsSection
+- OfferSection
+- TestimonialsSection
+- FAQ
+- CTA sections
+
+#### `src/layouts/MainLayout.astro`
+The base layout used by all pages:
+- Includes HTML structure, head metadata
+- Imports and executes Lenis smooth scroll script
+- Provides slot for page content
+- Includes Meta component for SEO
+
+#### `src/components/Meta.astro`
+Handles SEO metadata:
+- Processes structured data, Open Graph tags
+- Accepts meta prop for page-specific overrides
+- Generates JSON-LD structured data
+
+#### `src/data_files/constants.ts`
+Centralized site configuration:
+- SITE object: title, tagline, description, URL, author
+- SEO object: structured data configuration
+- OG object: Open Graph social media tags
+- partnersData: placeholder for partner logos
+
+#### `src/content.config.ts`
+Defines content collections for:
+- blog: blog posts with schema
+- insights: insight/articles
+- products: product listings
+- docs: documentation (for Starlight)
+
+### Component Hierarchy
+Pages → Layout → Sections → UI Components → Atoms
+Example flow:
+index.astro → MainLayout.astro → HeroSection (sections/landing) → PrimaryCTA (ui/buttons) → Button atom
+
+## Configuration
+
+### Astro Configuration (`astro.config.mjs`)
+Key settings:
+- Site URL: `https://krafferoasters.com`
+- Internationalization: English (default) and French
+- Integrations:
+  - @astrojs/sitemap: Generates XML sitemap with i18n support
+  - astro-compressor: Brotli compression (gzip disabled)
+  - @astrojs/mdx: MDX support for content
+- Experimental: clientPrerender for hybrid rendering
+- Vite: Tailwind CSS plugin
+
+### Environment Variables
+No required environment variables for basic operation. The template uses:
+- `import.meta.env.SITE` from astro.config.mjs
+- Optional: API keys for third-party services (to be added in .env)
+
+### Styling Configuration
+- Tailwind CSS via `@tailwindcss/vite` plugin
+- Prettier plugin for Tailwind class sorting (`.prettierrc`)
+- Custom CSS in `src/styles/`:
+  - global.css: Base styles and Tailwind imports
+  - lenis.css: Styles for Lenis smooth scroll
+  - starlight.css/starlight_main.css: Starlight theme overrides
+
+### Content Configuration
+Defined in `src/content.config.ts`:
+```typescript
+export default defineContentConfig({
+  collections: {
+    blog: { /* schema for blog posts */ },
+    insights: { /* schema for insights */ },
+    products: { /* schema for products */ },
+    docs: { /* schema for Starlight docs */ }
+  }
+});
+```
+
+## Examples & Usage
+
+### Creating a New Page
+1. Create a new `.astro` file in `src/pages/` (e.g., `src/pages/test.astro`)
+2. Use the MainLayout layout:
+```astro
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+---
+<MainLayout>
+  <h1>Test Page</h1>
+  <p>This is a test page.</p>
+</MainLayout>
+```
+3. The page will be accessible at `/test`
+
+### Adding Blog Content
+1. Create a markdown file in `src/content/blog/en/`
+2. Frontmatter example:
+```markdown
+---
+title: "My Blog Post"
+pubDate: 2023-01-01
+description: "A brief description"
+author: "Author Name"
+image:
+    url: "/images/blog/post1.jpg"
+    alt: "Post image"
+tags: ["astro", "webdev"]
+---
+```
+3. Content in Markdown
+4. Accessible at `/blog/my-blog-post`
+
+### Customizing Navigation
+1. Edit `src/utils/navigation.ts`
+2. Modify `navBarLinks` array:
+```typescript
+export const navBarLinks: NavLink[] = [
+  { name: "Home", url: "/" },
+  { name: "Products", url: "/products" },
+  // ... etc
+];
+```
+3. Changes reflect site-wide via components that import this file
+
+### Starlight Documentation
+1. Documentation content lives in `src/content/docs/`
+2. Configure via Starlight properties in `astro.config.mjs` (if needed)
+3. Accessible at `/docs/` route
+
+### Internationalization
+1. Create localized content in language-specific folders:
+   - `src/content/blog/en/` for English
+   - `src/content/blog/fr/` for French
+2. Use `Locale` component for language switching
+3. Routes automatically prefixed (except default locale)
+
+## Testing
+
+### Current State
+The template does not include automated tests by default. However, it's structured to facilitate testing:
+
+### Recommended Testing Approach
+1. **Unit Tests:** Test utility functions in `src/utils/` using Vitest or Jest
+2. **Component Tests:** Test Astro components with `@astrojs/check` or manual inspection
+3. **End-to-End Tests:** Use Playwright or Cypress for user flow testing
+4. **Visual Regression:** Use Chromatic or Percy for UI consistency
+
+### Test Scripts (to be added)
+```json
+{
+  "scripts": {
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "e2e": "playwright test"
+  }
+}
+```
+
+### Type Checking
+The template includes:
+- TypeScript support via `tsconfig.json`
+- Astro type checking: `astro check`
+- Prettier plugin for Tailwind ensures consistent formatting
+
+## Dependencies
+
+### Core Dependencies
+| Package | Purpose | Version |
+|---------|---------|---------|
+| astro | Static site generator | ^5.6.1 |
+| @astrojs/sitemap | XML sitemap generation | ^3.3.0 |
+| @astrojs/mdx | MDX support | ^4.2.3 |
+| @astrojs/starlight | Documentation theme | ^0.32.5 |
+| @tailwindcss/vite | Tailwind CSS integration | ^4.1.3 |
+| tailwindcss | Utility-first CSS framework | ^4.1.3 |
+| preline | Prebuilt UI components | ^3.0.1 |
+| gsap | Animation library | ^3.12.7 |
+| lenis | Smooth scrolling | ^1.2.3 |
+| astro-compressor | HTML compression (Brotli) | ^1.0.0 |
+| html-minifier-terser | HTML minification | ^7.2.0 |
+| sharp | Image optimization | ^0.34.0 |
+| clipboard | Clipboard API polyfill | ^2.0.11 |
+| globby | File pattern matching | ^14.1.0 |
+
+### Dev Dependencies
+| Package | Purpose | Version |
+|---------|---------|---------|
+| prettier | Code formatting | ^3.5.3 |
+| prettier-plugin-astro | Astro formatting for Prettier | ^0.14.1 |
+| prettier-plugin-tailwindcss | Tailwind CSS class sorting | ^0.6.11 |
+| astro-vtbot | View transitions toolkit | ^2.1.2 |
+| @tailwindcss/forms | Tailwind forms plugin | ^0.5.10 |
+| typescript | TypeScript language | ^5.8.3 |
+
+## Development Guide
+
+### Code Style
+- Follow Prettier configuration (`.prettierrc`)
+- Tailwind CSS class ordering via plugin
+- TypeScript strict mode enabled in `tsconfig.json`
+- Component props should be typed when possible
+
+### Git Workflow
+1. Create feature branch from `main`
+2. Make changes with clear, descriptive commits
+3. Submit pull request with description of changes
+4. Ensure CI/CD passes (if configured)
+
+### Adding New Features
+1. **UI Components:** Add to appropriate directory in `src/components/ui/`
+2. **Page Sections:** Add to `src/components/sections/` with relevant subdirectory
+3. **Content Types:** Extend `src/content.config.ts` with new collection
+4. **Data:** Add JSON to `src/data_files/` or constants to `constants.ts`
+5. **Styles:** Add to `src/styles/` or use Tailwind utility classes directly
+
+### Performance Optimization
+- Image optimization via Astro's built-in Image component
+- HTML compression via astro-compressor (Brotli)
+- Lazy loading: Use `loading="lazy"` on images
+- Font optimization: Consider self-hosting fonts
+- Bundle analysis: Use `astro build --profile`
+
+### Deployment
+The template is optimized for:
+- **Vercel:** Zero-config deployment with `vercel.json`
+- **Netlify:** Configured via `netlify.toml`
+- **Other platforms:** Build output in `dist/` directory after `npm run build`
+
+### Contributing
+See the full `CONTRIBUTING` section in README_ORIGINAL_THEME.md:
+1. Report issues via GitHub Issues
+2. Submit pull requests with clear descriptions
+3. Provide feedback on existing features
+4. Follow the code style guidelines
+
+### License
+MIT License - see `LICENSE` file for details.
+
+---
+*Documentation generated for AI-assisted development. For the most current information, refer to the source files in this repository.*

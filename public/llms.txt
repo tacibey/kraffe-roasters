@@ -1,0 +1,21 @@
+# ScrewFast
+
+> An open-source Astro template for creating versatile landing pages, blogs, and documentation sites with Tailwind CSS and Preline UI.
+
+## Core Documentation
+- [README](./README_ORIGINAL_THEME.md): Project overview, setup instructions, and feature list
+- [Astro Configuration](./astro.config.mjs): Astro setup, integrations, and build configuration
+- [Package Dependencies](./package.json): Project dependencies, scripts, and metadata
+- [SEO Constants](./src/data_files/constants.ts): Site metadata, SEO configuration, and Open Graph settings
+
+## Key Source Files
+- [Home Page](./src/pages/index.astro): Main landing page component
+- [Main Layout](./src/layouts/MainLayout.astro): Base layout wrapping all pages
+- [Components Directory](./src/components/): Reusable UI components (navbar, footer, widgets, etc.)
+- [Content Config](./src/content.config.ts): Content collections configuration for blog, insights, and products
+
+## Additional Resources
+- [Content Collections](./content/): Markdown files for blog, insights, and products
+- [Static Assets](./public/): Images, icons, and other static resources
+- [Styles Directory](./src/styles/): CSS stylesheets and Tailwind configuration
+- [Utilities](./src/utils/): Helper functions, navigation config, and TypeScript definitions
