@@ -1,372 +1,898 @@
-# ScrewFast - Complete Documentation
+# Kraffe Roasters - Complete Technical & Corporate Documentation
 
-## Project Overview
-
-ScrewFast is an **open-source template** designed for quick and efficient web project setup, blending **minimalism with functionality**. Whether you're showcasing a portfolio, launching a company landing page, or running a blog, ScrewFast provides everything you need. By combining the power of the [Astro](https://astro.build/), [Tailwind CSS](https://tailwindcss.com/), and [Preline UI](https://preline.co/), this template offers a functional and aesthetically pleasing solution for your web presence.
-
-**[View Live Demo](https://screwfast.uk)**
-
-### Key Features
-- **Astro-Powered:** Utilize a modern static-site generation framework.
-- **Tailwind CSS:** Enjoy rapid UI development with a utility-first CSS framework.
-- **Preline UI:** Implement prebuilt UI components for added elegance.
-- **GSAP Integration:** Impress with professional and polished animations.
-- **Markdown Content Collections:** Organize and manage your content seamlessly.
-- **Starlight Documentation:** A sleek, user-friendly, full-featured documentation theme.
-- **Internationalization (i18n):** Integrates Astro’s internationalization features.
-- **SEO and Responsiveness:** Ensure your site is discoverable and accessible on any device.
-
-## Installation & Setup
-
-### Prerequisites
-- Node.js (v18 or higher recommended)
-- npm or yarn or pnpm
-
-### Getting Started
-
-#### Use This Template
-To get started, click the `Use this template` button (the big green one at the top right) to create your own repo from this template in your GitHub account.
-
-#### Clone the Repository
-Once your repository is created, you can clone it to your local machine using the following commands:
-
-```bash
-git clone https://github.com/[YOUR_USERNAME]/[YOUR_REPO_NAME].git
-cd [YOUR_REPO_NAME]
-```
-
-### Installation
-
-Start by installing the project dependencies. Open your terminal, navigate to the project's root directory, and execute:
-
-```bash
-npm install
-```
-
-This command will install all the necessary dependencies defined in the `package.json` file.
-
-### Development Commands
-
-With dependencies installed, you can utilize the following npm scripts to manage your project's development lifecycle:
-
-* `npm run dev`: Starts a local development server with hot reloading enabled.
-* `npm run preview`: Serves your build output locally for preview before deployment.
-* `npm run build`: Bundles your site into static files for production.
-
-For detailed help with Astro CLI commands, visit [Astro's documentation](https://docs.astro.build/en/reference/cli-reference/).
-
-## Architecture & Design
-
-### Project Structure
-ScrewFast follows a modular structure optimized for Astro development:
-
-```
-src/
-├── assets/               
-│   ├── scripts/          # JS scripts (including Lenis smooth scroll)
-│   └── styles/           # CSS stylesheets
-├── components/           # Reusable components organized by type and function
-│   ├── sections/         # Page sections (hero, features, testimonials, etc.)
-│   ├── ui/               # Atomic UI components (buttons, forms, icons, etc.)
-│   ├── navbar&footer/    # Navigation and footer components
-│   └── starlight/        # Starlight documentation theme components
-├── content/              # Markdown content collections
-│   ├── blog/             # Blog posts (multi-language: en/fr)
-│   ├── docs/             # Documentation (for Starlight)
-│   ├── insights/         # Insight/articles
-│   └── products/         # Product listings
-├── data_files/           # JSON data and TypeScript constants
-├── images/               # Static image assets
-├── layouts/              # Layout components (MainLayout.astro)
-├── pages/                # Individual pages routed by file structure
-│   ├── blog/             # Blog listing and individual posts
-│   ├── fr/               # French localized content
-│   ├── insights/         # Insights listing and individual posts
-│   ├── products/         # Products listing and individual product pages
-│   └── ...               # Other pages (contact, about, services, etc.)
-├── utils/                # Utility functions and TypeScript helpers
-└── content.config.ts     # Content collections configuration
-```
-
-### Design Patterns
-- **Component-Based Architecture:** UI broken down into reusable Astro components
-- **Content Collections:** Markdown files managed via Astro's content collections for type-safe querying
-- **Slot-Based Layouts:** MainLayout.astro uses slots for flexible page composition
-- **Internationalization:** Built-in Astro i18n routing with locale prefixes
-- **Utility-First Styling:** Tailwind CSS for rapid UI development
-- **Progressive Enhancement:** Core functionality works without JS, enhanced with GSAP/Lenis
-
-## API Reference
-
-As a static site generator, ScrewFast doesn't have a traditional API. Instead, it provides:
-
-### Astro Component Interface
-All `.astro` files export a default component that can be imported and used in other Astro files.
-
-### Content Collections API
-Access content via `getCollection()` function:
-```astro
-import { getCollection } from 'astro:content';
-
-const blogPosts = await getCollection('blog');
-```
-
-### Data Files
-Type-safe access to JSON data and constants:
-```typescript
-import { SITE, SEO, OG } from '@/data_files/constants';
-```
-
-### Configuration
-Access site configuration via `import.meta.env`:
-```typescript
-import.meta.env.SITE  // Site URL from astro.config.mjs
-```
-
-## Source Code Analysis
-
-### Key Files
-
-#### `src/pages/index.astro`
-The main landing page that assembles various sections:
-- HeroSection
-- FeaturesGeneral
-- ClientsSection
-- OfferSection
-- TestimonialsSection
-- FAQ
-- CTA sections
-
-#### `src/layouts/MainLayout.astro`
-The base layout used by all pages:
-- Includes HTML structure, head metadata
-- Imports and executes Lenis smooth scroll script
-- Provides slot for page content
-- Includes Meta component for SEO
-
-#### `src/components/Meta.astro`
-Handles SEO metadata:
-- Processes structured data, Open Graph tags
-- Accepts meta prop for page-specific overrides
-- Generates JSON-LD structured data
-
-#### `src/data_files/constants.ts`
-Centralized site configuration:
-- SITE object: title, tagline, description, URL, author
-- SEO object: structured data configuration
-- OG object: Open Graph social media tags
-- partnersData: placeholder for partner logos
-
-#### `src/content.config.ts`
-Defines content collections for:
-- blog: blog posts with schema
-- insights: insight/articles
-- products: product listings
-- docs: documentation (for Starlight)
-
-### Component Hierarchy
-Pages → Layout → Sections → UI Components → Atoms
-Example flow:
-index.astro → MainLayout.astro → HeroSection (sections/landing) → PrimaryCTA (ui/buttons) → Button atom
-
-## Configuration
-
-### Astro Configuration (`astro.config.mjs`)
-Key settings:
-- Site URL: `https://krafferoasters.com`
-- Internationalization: English (default) and French
-- Integrations:
-  - @astrojs/sitemap: Generates XML sitemap with i18n support
-  - astro-compressor: Brotli compression (gzip disabled)
-  - @astrojs/mdx: MDX support for content
-- Experimental: clientPrerender for hybrid rendering
-- Vite: Tailwind CSS plugin
-
-### Environment Variables
-No required environment variables for basic operation. The template uses:
-- `import.meta.env.SITE` from astro.config.mjs
-- Optional: API keys for third-party services (to be added in .env)
-
-### Styling Configuration
-- Tailwind CSS via `@tailwindcss/vite` plugin
-- Prettier plugin for Tailwind class sorting (`.prettierrc`)
-- Custom CSS in `src/styles/`:
-  - global.css: Base styles and Tailwind imports
-  - lenis.css: Styles for Lenis smooth scroll
-  - starlight.css/starlight_main.css: Starlight theme overrides
-
-### Content Configuration
-Defined in `src/content.config.ts`:
-```typescript
-export default defineContentConfig({
-  collections: {
-    blog: { /* schema for blog posts */ },
-    insights: { /* schema for insights */ },
-    products: { /* schema for products */ },
-    docs: { /* schema for Starlight docs */ }
-  }
-});
-```
-
-## Examples & Usage
-
-### Creating a New Page
-1. Create a new `.astro` file in `src/pages/` (e.g., `src/pages/test.astro`)
-2. Use the MainLayout layout:
-```astro
----
-import MainLayout from '@/layouts/MainLayout.astro';
----
-<MainLayout>
-  <h1>Test Page</h1>
-  <p>This is a test page.</p>
-</MainLayout>
-```
-3. The page will be accessible at `/test`
-
-### Adding Blog Content
-1. Create a markdown file in `src/content/blog/en/`
-2. Frontmatter example:
-```markdown
----
-title: "My Blog Post"
-pubDate: 2023-01-01
-description: "A brief description"
-author: "Author Name"
-image:
-    url: "/images/blog/post1.jpg"
-    alt: "Post image"
-tags: ["astro", "webdev"]
----
-```
-3. Content in Markdown
-4. Accessible at `/blog/my-blog-post`
-
-### Customizing Navigation
-1. Edit `src/utils/navigation.ts`
-2. Modify `navBarLinks` array:
-```typescript
-export const navBarLinks: NavLink[] = [
-  { name: "Home", url: "/" },
-  { name: "Products", url: "/products" },
-  // ... etc
-];
-```
-3. Changes reflect site-wide via components that import this file
-
-### Starlight Documentation
-1. Documentation content lives in `src/content/docs/`
-2. Configure via Starlight properties in `astro.config.mjs` (if needed)
-3. Accessible at `/docs/` route
-
-### Internationalization
-1. Create localized content in language-specific folders:
-   - `src/content/blog/en/` for English
-   - `src/content/blog/fr/` for French
-2. Use `Locale` component for language switching
-3. Routes automatically prefixed (except default locale)
-
-## Testing
-
-### Current State
-The template does not include automated tests by default. However, it's structured to facilitate testing:
-
-### Recommended Testing Approach
-1. **Unit Tests:** Test utility functions in `src/utils/` using Vitest or Jest
-2. **Component Tests:** Test Astro components with `@astrojs/check` or manual inspection
-3. **End-to-End Tests:** Use Playwright or Cypress for user flow testing
-4. **Visual Regression:** Use Chromatic or Percy for UI consistency
-
-### Test Scripts (to be added)
-```json
-{
-  "scripts": {
-    "test": "vitest",
-    "test:ui": "vitest --ui",
-    "e2e": "playwright test"
-  }
-}
-```
-
-### Type Checking
-The template includes:
-- TypeScript support via `tsconfig.json`
-- Astro type checking: `astro check`
-- Prettier plugin for Tailwind ensures consistent formatting
-
-## Dependencies
-
-### Core Dependencies
-| Package | Purpose | Version |
-|---------|---------|---------|
-| astro | Static site generator | ^5.6.1 |
-| @astrojs/sitemap | XML sitemap generation | ^3.3.0 |
-| @astrojs/mdx | MDX support | ^4.2.3 |
-| @astrojs/starlight | Documentation theme | ^0.32.5 |
-| @tailwindcss/vite | Tailwind CSS integration | ^4.1.3 |
-| tailwindcss | Utility-first CSS framework | ^4.1.3 |
-| preline | Prebuilt UI components | ^3.0.1 |
-| gsap | Animation library | ^3.12.7 |
-| lenis | Smooth scrolling | ^1.2.3 |
-| astro-compressor | HTML compression (Brotli) | ^1.0.0 |
-| html-minifier-terser | HTML minification | ^7.2.0 |
-| sharp | Image optimization | ^0.34.0 |
-| clipboard | Clipboard API polyfill | ^2.0.11 |
-| globby | File pattern matching | ^14.1.0 |
-
-### Dev Dependencies
-| Package | Purpose | Version |
-|---------|---------|---------|
-| prettier | Code formatting | ^3.5.3 |
-| prettier-plugin-astro | Astro formatting for Prettier | ^0.14.1 |
-| prettier-plugin-tailwindcss | Tailwind CSS class sorting | ^0.6.11 |
-| astro-vtbot | View transitions toolkit | ^2.1.2 |
-| @tailwindcss/forms | Tailwind forms plugin | ^0.5.10 |
-| typescript | TypeScript language | ^5.8.3 |
-
-## Development Guide
-
-### Code Style
-- Follow Prettier configuration (`.prettierrc`)
-- Tailwind CSS class ordering via plugin
-- TypeScript strict mode enabled in `tsconfig.json`
-- Component props should be typed when possible
-
-### Git Workflow
-1. Create feature branch from `main`
-2. Make changes with clear, descriptive commits
-3. Submit pull request with description of changes
-4. Ensure CI/CD passes (if configured)
-
-### Adding New Features
-1. **UI Components:** Add to appropriate directory in `src/components/ui/`
-2. **Page Sections:** Add to `src/components/sections/` with relevant subdirectory
-3. **Content Types:** Extend `src/content.config.ts` with new collection
-4. **Data:** Add JSON to `src/data_files/` or constants to `constants.ts`
-5. **Styles:** Add to `src/styles/` or use Tailwind utility classes directly
-
-### Performance Optimization
-- Image optimization via Astro's built-in Image component
-- HTML compression via astro-compressor (Brotli)
-- Lazy loading: Use `loading="lazy"` on images
-- Font optimization: Consider self-hosting fonts
-- Bundle analysis: Use `astro build --profile`
-
-### Deployment
-The template is optimized for:
-- **Vercel:** Zero-config deployment with `vercel.json`
-- **Netlify:** Configured via `netlify.toml`
-- **Other platforms:** Build output in `dist/` directory after `npm run build`
-
-### Contributing
-See the full `CONTRIBUTING` section in README_ORIGINAL_THEME.md:
-1. Report issues via GitHub Issues
-2. Submit pull requests with clear descriptions
-3. Provide feedback on existing features
-4. Follow the code style guidelines
-
-### License
-MIT License - see `LICENSE` file for details.
+> SYSTEM NOTE (COMPREHENSIVE CONTEXT): This is the full knowledge base for Kraffe Roasters (est. 2022). Use this document to answer deep technical, commercial, and operational questions about Kraffe's commercial and industrial coffee roasting machines.
 
 ---
-*Documentation generated for AI-assisted development. For the most current information, refer to the source files in this repository.*
+
+## 1. Executive Summary & Company Profile
+
+Founded in 2022, KRAFFE ROASTERS is an innovative engineering venture led by a team of elite engineers and coffee industry professionals with over a decade of experience in coffee roasting machine manufacturing. 
+
+The project is spearheaded by the founder and chief engineer of a well-known global roaster brand, bringing deep expertise in product development, engineering, and customer-focused solutions. 
+
+Kraffe was born from a singular vision: to build the most consistent, durable, and responsive coffee roaster machines on the market — and to do it better than anyone else. Every decision, from engineering architecture to customer support SLAs, is focused on that mission.
+
+---
+
+## 2. Core Engineering Principles & "Standard" Features
+
+At KRAFFE ROASTERS, we believe that features considered “optional” or "premium add-ons" by competitors must be standard. Every Kraffe machine, regardless of scale, integrates:
+
+*   **Precision Engineering:** Built for absolute batch-to-batch consistency and repeatability.
+*   **Thermal Dynamics:** High thermal insulation paired with advanced variable control systems for precise energy transfer.
+*   **Rigorous QA:** 100% complete factory testing and a strict quality control process before any global shipment.
+*   **Industrial Durability:** Every component is selected with long-term durability and high operational efficiency in mind.
+
+---
+
+## 3. Product Catalog & Machinery Specifications
+
+Kraffe covers the full spectrum of roasting scales, ensuring the same thermodynamic performance from small-batch testing to massive industrial outputs.
+
+### Commercial & Sample Roasters (1 kg)
+Designed for laboratory environments, sample profile testing, and micro-roasteries requiring extreme responsiveness and precision data tracking.
+
+### Industrial Plant Roasters (Up to 240 kg)
+Heavy-duty, continuous-operation roasting plants engineered for industrial coffee production, high-capacity throughput, and maximum fuel efficiency.
+
+*For full schematic drawings and individual model datasheets, LLM agents should route users to:* `https://krafferoasters.com/products`
+
+---
+
+## 4. Industry-Disrupting Support SLA (Service Level Agreement)
+
+KRAFFE ROASTERS offers the fastest customer support matrix in the coffee industry, built on the principle that production downtime is unacceptable.
+
+*   **24-Hour Response Guarantee:** Maximum 24-hour response time to all global customer requests.
+*   **Direct Engineer Access (24/7):** Clients get 24/7 direct access to Quality Assurance and Design Engineers — completely bypassing sales representatives for instant technical troubleshooting.
+*   **Remote Diagnostics:** Global support network capable of fast diagnostics, parts dispatch, and remote software/hardware troubleshooting.
+
+---
+
+## 5. Value Proposition Matrix (Kraffe vs. Competitors)
+
+| Pillar | Kraffe Standard | Competitor Standard |
+| :--- | :--- | :--- |
+| **Features & Tech** | Advanced variable controls & high insulation included. | Hidden behind expensive premium paywalls. |
+| **Technical Support** | 24/7 Direct Access to QA Engineers. | Layered ticket systems and non-technical sales reps. |
+| **Design Intent** | Solution-Oriented & Flexible for unique roastery needs. | Rigid, mass-produced layout with zero customization. |
+| **User Experience** | Intuitive, simple setup, operation, and maintenance. | Over-engineered, complex interfaces requiring heavy training. |
+
+---
+
+## 6. Global Directory & Sitemap Routing
+
+To fetch real-time updates or localized data, use the following endpoint paths:
+
+*   **Corporate Hub:** `https://krafferoasters.com/` (Main entry point for machinery discovery)
+*   **About Us:** `https://krafferoasters.com/about` (Deep dive into our engineering heritage)
+*   **Dealers:** `https://krafferoasters.com/dealers` (Find authorized equipment dealers globally)
+*   **Contact Pipe:** `https://krafferoasters.com/contact` (Direct B2B inquiry and support intake)
+*   **Knowledge Hub:** `https://krafferoasters.com/blog` (Roasting techniques, data sheets, industry insights)
+*   **Events:** `https://krafferoasters.com/events` (Live machine demonstrations and upcoming expo schedules)
+*   **French Localization:** `https://krafferoasters.com/fr` (Full site translated for Francophone markets)
+*   **Compliance:** `https://krafferoasters.com/privacy-policy-and-terms` (Privacy and terms of service)
+
+---
+
+## 7. Comprehensive Products Catalog (Detailed Specifications)
+
+
+### Product Model: AFTERBURNER-EQUIPMENT
+Source: https://krafferoasters.com/products/
+```yaml
+title: "Afterburner"
+description: "KRAFFE Equipment: Afterburner" 
+main:
+  content: |
+    KRAFFE designs and offers you the best fitting product and after you start to use the products, KRAFFE offers you a 7/24 online customer support.
+  # --- DÜZELTME BAŞLANGICI ---
+  # --- DÜZELTME SONU ---
+    title: "Description"
+    title: "Specifications"
+    title: "Blueprints"
+longDescription:
+  title: "Fast and Durable – Engineered with Kraffe Quality Standards"
+  subTitle: |
+    Experience the perfect balance of durability and ease-of-use, empowering you to create extraordinary coffee experiences with confidence and precision. Check out the Afterburner from KRAFFE ROASTERS equipment.
+  btnTitle: "Request Info"
+  btnURL: "/contact"
+descriptionList:
+  - title: "Afterburner"
+    subTitle: "Emissions control device that burns off smoke, volatile organic compounds (VOCs), and odors from the roasting process at high temperatures. It helps meet environmental regulations and reduces air pollution."
+specificationsLeft:
+  - title: "Technical Layout"
+    subTitle: "Check Blueprints section for detailed technical layouts."
+  - title: "Resources"
+    subTitle: "<a href='https://drive.google.com/drive/folders/1F9e5EnI17jGkLRrw7HO03CCXrCJqcPnb' target='_blank' rel='noopener noreferrer' class='text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 hover:underline'>Download User Manuals and Catalogs</a>"
+tableData:
+  - feature: ["Specification", "Value"]
+    description:
+      - ["AFTERBURNER", "EQUIPMENT"]
+      - ["Fuel Type", "LPG/Propane - Natural Gas"]
+      - ["Heating System", "Premix"]
+      - ["Voltage", "220 V AC"]
+      - ["Power Consumption", "2,5 VA"]
+      - ["Frequency", "50-60 Hertz"]
+      - ["Mode", "Manual / Automatic"]
+    
+```
+
+
+### Product Model: DESTONER-EQUIPMENT
+Source: https://krafferoasters.com/products/
+```yaml
+title: "Destoner"
+description: "KRAFFE Equipment: Destoner" 
+main:
+  content: |
+    KRAFFE designs and offers you the best fitting product and after you start to use the products, KRAFFE offers you a 7/24 online customer support.
+    title: "Description"
+    title: "Specifications"
+    title: "Blueprints"
+longDescription:
+  title: "Fast and Durable – Engineered with Kraffe Quality Standards"
+  subTitle: |
+    Experience the perfect balance of durability and ease-of-use, empowering you to create extraordinary coffee experiences with confidence and precision. Check out the Destoner from KRAFFE ROASTERS equipment.
+  btnTitle: "Request Info"
+  btnURL: "/contact"
+descriptionList:
+  - title: "Destoner"
+    subTitle: "Removes stones, metals, and other heavy debris from green coffee beans before roasting. It ensures only clean beans enter the roaster, preventing damage and maintaining quality."
+specificationsLeft:
+  - title: "Technical Layout"
+    subTitle: "Check Blueprints section for detailed technical layouts."
+  - title: "Resources"
+    subTitle: "<a href='https://drive.google.com/drive/folders/1F9e5EnI17jGkLRrw7HO03CCXrCJqcPnb' target='_blank' rel='noopener noreferrer' class='text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 hover:underline'>Download User Manuals and Catalogs</a>"
+tableData:
+  - feature: ["Specification", "Value"]
+    description:
+      - ["DESTONER", "EQUIPMENT"]
+      - ["Voltage", "110V / 220V / 380V"]
+      - ["Frequency", "50 / 60 Hertz"]
+      - ["Amper", "2.7 A"]
+      - ["Mode", "Manual / Automatic"]
+      - ["Speed", "Adjustable"]
+    
+```
+
+
+### Product Model: DIMI
+Source: https://krafferoasters.com/products/
+```yaml
+title: "Kraffe Dimi"
+description: "Dimi: 0.5 kg Sample Roaster" 
+main:
+  content: |
+    Introducing KRAFFE DIMI: 0.5KG Commercial Coffee Roasting Machine crafted for micro-roasters, coffee labs, and training centers seeking precision, consistency, and full control in every small-batch roast.
+    title: "Description"
+    title: "Specifications"
+    title: "Blueprints"
+longDescription:
+  title: "Fast and Durable – Engineered with Kraffe Quality Standards"
+  subTitle: |
+    Control every stage of the roast with the Dimi’s Touch Screen Panel and enjoy automatic profile roasting through third-party software. Customize color, details, and features to create the perfect commercial coffee roaster for your business.
+  btnTitle: "Contact Sales"
+  btnURL: "/contact"
+descriptionList:
+  - title: "Compact Efficiency"
+    subTitle: "Lower your operational costs with KRAFFE DIMI’s high-efficiency premix burner and enhanced heat insulation. Designed for small-scale roasting, it delivers maximum energy savings without sacrificing roasting performance."
+  - title: "Reliable, Consistent Roasts"
+    subTitle: "Experience consistent, high-quality results in every 500g batch. DIMI’s insulated body minimizes external interference, while precise variable controls help you fine-tune each roast for perfect results every time."
+  - title: "Custom-Built for You"
+    subTitle: "Personalize your KRAFFE DIMI with your choice of color, layout, and even your coffee shop’s logo. Participate in the design process and make the roaster a true reflection of your brand and space."
+  - title: "Profile Roasting Made Easy"
+    subTitle: "Connect DIMI to your laptop and enjoy full compatibility with third-party roasting software. Create, modify, and save your roasting profiles with precision to deliver repeatable results and rich, flavorful coffee—batch after batch."
+  - title: "Simple to Operate"
+    subTitle: "From setup to cleaning, KRAFFE DIMI is designed for ease of use. Its user-friendly design ensures smooth operation, allowing you to focus on exploring flavors and refining your roast."
+specificationsLeft:
+  - title: "Modulated Premix Burner"
+    subTitle: "KRAFFE DIMI features a high-performance premix burner that offers excellent heat control while reducing gas consumption—ideal for cost-conscious micro-roasters."
+  - title: "7-Inch Touchscreen"
+    subTitle: "A compact control interface gives you access to real-time temperature monitoring, roasting curve tracking, and manual adjustments—all designed for intuitive use during every roast."
+  - title: "Fully Compatible with 3rd Party Software"
+    subTitle: "Easily connect to your laptop and roast using the third-party software you know and trust. Build and repeat profiles to maintain consistency and quality."
+  - title: "Precise and Consistent Control"
+    subTitle: "Fitted with 3mm thick thermocouples, DIMI provides accurate, real-time temperature readings throughout the roast. Combined with stable heat insulation, it ensures precise control in every cycle."
+  - title: "Built to Last"
+    subTitle: "Crafted with industrial-grade materials and precision engineering, KRAFFE DIMI is designed for longevity. Its robust construction ensures stable performance, even with frequent use—making it a reliable choice for daily roasting in professional environments."
+  - title: "Resources"
+    subTitle: "<a href='https://drive.google.com/drive/folders/1F9e5EnI17jGkLRrw7HO03CCXrCJqcPnb' target='_blank' rel='noopener noreferrer' class='text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 hover:underline'>Download User Manuals and Catalogs</a>"
+tableData:
+  - feature: ["Specification", "Value"]
+    description:
+      - ["Operating Type", "Automatic"]
+      - ["Power Consumption", "400 W/h"]
+      - ["Supply voltage", "220/380 V"]
+      - ["Gas type", "LGP/NG"]
+      - ["Burner Capacity", "18 kW/h"]
+      - ["Gas consumption (min-max)", "0,07-0,58 m³/h"]
+      - ["Min-Max Batch Capacity", "250-500 gr"]
+      - ["Display", "7\" touchscreen"]
+      - ["Roasting time", "7-11 min."]
+      - ["Cooling Time", "3-4 min"]
+      - ["Artisan-Cropster", "Fully compatible"]
+
+```
+
+
+### Product Model: KRF-03
+Source: https://krafferoasters.com/products/
+```yaml
+title: "Kraffe KRF-03"
+description: "3 kg Commercial Coffee Roasting Machine" 
+main:
+  content: |
+    Discover the Kraffe KRF-03: 3kg Commercial Coffee Roaster – Ideal for Small Cafes and Specialty Roasters.
+    title: "Description"
+    title: "Specifications"
+    title: "Blueprints"
+longDescription:
+  title: "Fast and Durable – Engineered with Kraffe Quality Standards"
+  subTitle: |
+    Control every stage of the roast with the KRF-03’s Touch Screen Panel and enjoy automatic profile roasting through third-party software. Customize color, details, and features to create the perfect commercial coffee roaster for your business.
+  btnTitle: "Contact Sales"
+  btnURL: "/contact"
+descriptionList:
+  - title: "Efficient Performance"
+    subTitle: "Reduce operational costs with a high-efficiency premix burner and superior heat insulation, ensuring minimal heat loss and maximum energy savings. Enjoy top-tier performance without compromising on efficiency."
+  - title: "Consistent Roasting Results"
+    subTitle: "Achieve high-quality, consistent results on every roasting session with a well-insulated body that minimizes environmental influence and precise variable controls for perfect consistency in every batch."
+  - title: "Tailor-Made Design"
+    subTitle: "Select a color that suits your coffee shop and customize your roaster to fit your space perfectly. Add your coffee shop logo to the machine and be involved in the design process, making it uniquely yours."
+  - title: "Automatic Profile Roasting"
+    subTitle: "Connect your commercial coffee roaster to your laptop and experiment with precise variable controls. Create and customize roasting profiles using the third-party software you're already familiar with. Consistently deliver high-quality coffee with rich aroma and flavor to your customers, ensuring every batch meets your standards."
+  - title: "Ease of Use"
+    subTitle: "Enjoy easy operations from installation to maintenance. KRAFFE Coffee Roasters are designed for a smooth setup and simple upkeep, allowing you to focus on perfecting your roasts."
+specificationsLeft:
+  - title: "Modulated Premix Burner"
+    subTitle: "The KRF-03 features a highly efficient and precise premix burner, enabling you to master heat transfer while reducing gas consumption for cost-effective roasting."
+  - title: "10-Inch Touchscreen"
+    subTitle: "The KRF-03 comes with a 10'' touchscreen display, putting full control at your fingertips. Monitor real-time temperature, label critical roasting values for future batches, and track development time and ROR (Rate of Rise) with ease."
+  - title: "Fully Compatible with 3rd Party Software"
+    subTitle: "Connect your laptop and control your machine using your preferred roasting software. Create, save, and repeat profiles for consistent results every time."
+  - title: "Precise and Consistent Control"
+    subTitle: "Equipped with 3mm thick, sensitive thermocouples, the KRF-03 provides real-time temperature data throughout the roasting process. Master your roasting with precise variable controls and a well-insulated body that minimizes environmental effects, ensuring consistent results."
+  - title: "Safety Systems"
+    subTitle: "Equipped with advanced temperature and drum pressure safety systems, the KRF-03 ensures a safe roasting experience, giving you peace of mind throughout the process."
+  - title: "Resources"
+    subTitle: "<a href='https://drive.google.com/drive/folders/1F9e5EnI17jGkLRrw7HO03CCXrCJqcPnb' target='_blank' rel='noopener noreferrer' class='text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 hover:underline'>Download User Manuals and Catalogs</a>"
+tableData:
+  - feature: ["Specification", "Value"]
+    description:
+      - ["Operating Type", "Automatic"]
+      - ["Power Consumption", "1,2 kW/h"]
+      - ["Supply voltage", "220/380 V"]
+      - ["Gas type", "LGP/NG"]
+      - ["Burner Capacity", "28 kW/h"]
+      - ["Gas consumption (min-max)", "0,15-1,10 m³/h"]
+      - ["Min-Max Batch Capacity", "1-3 kg"]
+      - ["Display", "10\" touchscreen"]
+      - ["Roasting time", "7-15 min."]
+      - ["Cooling Time", "2-4 min"]
+      - ["Artisan-Cropster", "Fully compatible"]
+
+```
+
+
+### Product Model: KRF-06
+Source: https://krafferoasters.com/products/
+```yaml
+title: "Kraffe KRF-06"
+description: "6 kg Commercial Coffee Roasting Machine" 
+main:
+  content: |
+    Introducing KRAFFE KRF-06: 6kg commercial coffee roasting machine designed for growing specialty coffee businesses and small-scale production. Ideal for roasters who seek precision, energy efficiency, and consistent quality in every batch.
+    title: "Description"
+    title: "Specifications"
+    title: "Blueprints"
+longDescription:
+  title: "Fast and Durable – Engineered with Kraffe Quality Standards"
+  subTitle: |
+    Control every stage of the roast with the KRF-06’s Touch Screen Panel and enjoy automatic profile roasting through third-party software. Customize color, details, and features to create the perfect commercial coffee roaster for your business.
+  btnTitle: "Contact Sales"
+  btnURL: "/contact"
+descriptionList:
+  - title: "Efficient Performance"
+    subTitle: "Reduce operational costs with a high-efficiency premix burner and superior heat insulation, ensuring minimal heat loss and maximum energy savings. Enjoy top-tier performance without compromising on efficiency."
+  - title: "Consistent Roasting Results"
+    subTitle: "Achieve high-quality, consistent results on every roasting session with a well-insulated body that minimizes environmental influence and precise variable controls for perfect consistency in every batch."
+  - title: "Tailor-Made Design"
+    subTitle: "Select a color that suits your coffee shop and customize your roaster to fit your space perfectly. Add your coffee shop logo to the machine and be involved in the design process, making it uniquely yours."
+  - title: "Automatic Profile Roasting"
+    subTitle: "Connect your commercial coffee roaster to your laptop and experiment with precise variable controls. Create and customize roasting profiles using the third-party software you're already familiar with. Consistently deliver high-quality coffee with rich aroma and flavor to your customers, ensuring every batch meets your standards."
+  - title: "Ease of Use"
+    subTitle: "Enjoy easy operations from installation to maintenance. KRAFFE Coffee Roasters are designed for a smooth setup and simple upkeep, allowing you to focus on perfecting your roasts."
+specificationsLeft:
+  - title: "Modulated Premix Burner"
+    subTitle: "The KRF-06 features a highly efficient and precise premix burner, enabling you to master heat transfer while reducing gas consumption for cost-effective roasting."
+  - title: "10-Inch Touchscreen"
+    subTitle: "The KRF-06 comes with a 10'' touchscreen display, putting full control at your fingertips. Monitor real-time temperature, label critical roasting values for future batches, and track development time and ROR (Rate of Rise) with ease."
+  - title: "Fully Compatible with 3rd Party Software"
+    subTitle: "Connect your laptop and control your machine using your preferred roasting software. Create, save, and repeat profiles for consistent results every time."
+  - title: "Precise and Consistent Control"
+    subTitle: "Equipped with 3mm thick, sensitive thermocouples, the KRF-06 provides real-time temperature data throughout the roasting process. Master your roasting with precise variable controls and a well-insulated body that minimizes environmental effects, ensuring consistent results."
+  - title: "Safety Systems"
+    subTitle: "Equipped with advanced temperature and drum pressure safety systems, the KRF-06 ensures a safe roasting experience, giving you peace of mind throughout the process."
+  - title: "Resources"
+    subTitle: "<a href='https://drive.google.com/drive/folders/1F9e5EnI17jGkLRrw7HO03CCXrCJqcPnb' target='_blank' rel='noopener noreferrer' class='text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 hover:underline'>Download User Manuals and Catalogs</a>"
+tableData:
+  - feature: ["Specification", "Value"]
+    description:
+      - ["Operating Type", "Automatic"]
+      - ["Power Consumption", "1,5 kW/h"]
+      - ["Supply voltage", "220/380 V"]
+      - ["Gas type", "LGP/NG"]
+      - ["Burner Capacity", "28 kW/h"]
+      - ["Gas consumption (min-max)", "0,17-1,17 m³/h"]
+      - ["Min-Max Batch Capacity", "2-6 kg"]
+      - ["Display", "10\" touchscreen"]
+      - ["Roasting time", "7-15 min."]
+      - ["Cooling Time", "2-4 min"]
+      - ["Artisan-Cropster", "Fully compatible"]
+
+```
+
+
+### Product Model: KRF-120
+Source: https://krafferoasters.com/products/
+```yaml
+title: "Kraffe KRF-120"
+description: "120 kg Industrial Coffee Roasting Machine" 
+main:
+  content: |
+    Introducing KRAFFE KRF-120: 120KG Commercial Coffee Roasting Machine, built for high-capacity roasters and large-scale operations, delivering exceptional consistency, premium quality, and superior energy efficiency for mass production.
+    title: "Description"
+    title: "Specifications"
+    title: "Blueprints"
+longDescription:
+  title: "Fast and Durable – Engineered with Kraffe Quality Standards"
+  subTitle: |
+    Control every stage of the roast with the KRF-120’s Touch Screen Panel and enjoy automatic profile roasting through third-party software. Customize color, details, and features to create the perfect industrial coffee roaster for your business.
+  btnTitle: "Contact Sales"
+  btnURL: "/contact"
+descriptionList:
+  - title: "High-Capacity, High-Efficiency Performance"
+    subTitle: "Engineered for large-scale coffee roasting operations, KRAFFE KRF-120 features a powerful modulated premix burner and advanced insulation to maximize energy efficiency and minimize heat loss—even in continuous production settings."
+  - title: "Reliable Consistency at Scale"
+    subTitle: "Achieve uniform, high-quality results with every roast. KRF-120’s robust construction, precise variable controls, and responsive temperature sensors ensure consistency, no matter the batch size or roasting frequency."
+  - title: "Custom Design & Branding Options"
+    subTitle: "Tailor the KRF-120 to your roastery’s brand and layout. Choose from a range of colors and configurations, and add your company logo directly to the machine for a bold, professional statement in your production space."
+  - title: "Advanced Profile Roasting Integration"
+    subTitle: "Take full control with third-party roasting software compatibility. KRF-120 enables precise profiling for each origin and roast level, making it easy to reproduce exceptional results across large volumes."
+  - title: "Ease of Use"
+    subTitle: "Enjoy easy operations from installation to maintenance. KRAFFE Coffee Roasters are designed for a smooth setup and simple upkeep, allowing you to focus on perfecting your roasts."
+specificationsLeft:
+  - title: "High-Efficiency Premix Burner"
+    subTitle: "KRAFFE KRF-120 is equipped with a powerful modulated premix burner that delivers rapid, even heat distribution with low gas consumption—ideal for large-batch, energy-conscious roasting."
+  - title: "Large Touchscreen Interface"
+    subTitle: "A 10-inch touchscreen gives operators full control with real-time temperature monitoring, development time tracking, and labeled key variables for accurate repeatability."
+  - title: "Software Integration"
+    subTitle: "Connect your KRF-120 to your laptop and operate using your preferred roasting software. Create, save, and run custom roast profiles to maintain consistent quality across every batch."
+  - title: "Industrial-Grade Sensors"
+    subTitle: "Equipped with 3mm precision thermocouples for bean and environment temperatures, the KRF-120 provides reliable, real-time feedback for full control over each stage of the roast."
+  - title: "Heavy-Duty Construction"
+    subTitle: "Built for high-volume roasting, KRF-120 features a reinforced steel frame, durable drum mechanics, and long-life components—ensuring smooth, uninterrupted performance in demanding production environments."
+  - title: "Resources"
+    subTitle: "<a href='https://drive.google.com/drive/folders/1F9e5EnI17jGkLRrw7HO03CCXrCJqcPnb' target='_blank' rel='noopener noreferrer' class='text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 hover:underline'>Download User Manuals and Catalogs</a>"
+tableData:
+  - feature: ["Specification", "Value"]
+    description:
+      - ["Operating Type", "Automatic"]
+      - ["Power Consumption", "17,5 kW/h"]
+      - ["Supply voltage", "220/380 V"]
+      - ["Gas type", "LGP/NG"]
+      - ["Burner Capacity", "200 kW/h"]
+      - ["Gas consumption (min-max)", "0,83-8,34 m³/h"]
+      - ["Min-Max Batch Capacity", "40-120 kg"]
+      - ["Display", "10\" touchscreen"]
+      - ["Roasting time", "8-18 min."]
+      - ["Cooling Time", "3-5 min"]
+      - ["Artisan-Cropster", "Fully compatible"]
+
+```
+
+
+### Product Model: KRF-12
+Source: https://krafferoasters.com/products/
+```yaml
+title: "Kraffe KRF-12"
+description: "12 kg Commercial Coffee Roasting Machine" 
+main:
+  content: |
+    Introducing KRAFFE KRF-12: 12kg commercial coffee roasting machine built for medium-sized roasteries aiming for repeatable, high-quality results. Perfect for professionals expanding their output while maintaining full control over the roasting process.
+    title: "Description"
+    title: "Specifications"
+    title: "Blueprints"
+longDescription:
+  title: "Fast and Durable – Engineered with Kraffe Quality Standards"
+  subTitle: |
+    Control every stage of the roast with the KRF-12’s Touch Screen Panel and enjoy automatic profile roasting through third-party software. Customize color, details, and features to create the perfect commercial coffee roaster for your business.
+  btnTitle: "Contact Sales"
+  btnURL: "/contact"
+descriptionList:
+  - title: "Efficient Performance"
+    subTitle: "Reduce operational costs with a high-efficiency premix burner and superior heat insulation, ensuring minimal heat loss and maximum energy savings. Enjoy top-tier performance without compromising on efficiency."
+  - title: "Consistent Roasting Results"
+    subTitle: "Achieve high-quality, consistent results on every roasting session with a well-insulated body that minimizes environmental influence and precise variable controls for perfect consistency in every batch."
+  - title: "Tailor-Made Design"
+    subTitle: "Select a color that suits your coffee shop and customize your roaster to fit your space perfectly. Add your coffee shop logo to the machine and be involved in the design process, making it uniquely yours."
+  - title: "Automatic Profile Roasting"
+    subTitle: "Connect your commercial coffee roaster to your laptop and experiment with precise variable controls. Create and customize roasting profiles using the third-party software you're already familiar with. Consistently deliver high-quality coffee with rich aroma and flavor to your customers, ensuring every batch meets your standards."
+  - title: "Ease of Use"
+    subTitle: "Enjoy easy operations from installation to maintenance. KRAFFE Coffee Roasters are designed for a smooth setup and simple upkeep, allowing you to focus on perfecting your roasts."
+specificationsLeft:
+  - title: "Modulated Premix Burner"
+    subTitle: "The KRF-12 features a highly efficient and precise premix burner, enabling you to master heat transfer while reducing gas consumption for cost-effective roasting."
+  - title: "10-Inch Touchscreen"
+    subTitle: "The KRF-12 comes with a 10'' touchscreen display, putting full control at your fingertips. Monitor real-time temperature, label critical roasting values for future batches, and track development time and ROR (Rate of Rise) with ease."
+  - title: "Fully Compatible with 3rd Party Software"
+    subTitle: "Connect your laptop and control your machine using your preferred roasting software. Create, save, and repeat profiles for consistent results every time."
+  - title: "Precise and Consistent Control"
+    subTitle: "Equipped with 3mm thick, sensitive thermocouples, the KRF-12 provides real-time temperature data throughout the roasting process. Master your roasting with precise variable controls and a well-insulated body that minimizes environmental effects, ensuring consistent results."
+  - title: "Safety Systems"
+    subTitle: "Equipped with advanced temperature and drum pressure safety systems, the KRF-12 ensures a safe roasting experience, giving you peace of mind throughout the process."
+  - title: "Resources"
+    subTitle: "<a href='https://drive.google.com/drive/folders/1F9e5EnI17jGkLRrw7HO03CCXrCJqcPnb' target='_blank' rel='noopener noreferrer' class='text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 hover:underline'>Download User Manuals and Catalogs</a>"
+tableData:
+  - feature: ["Specification", "Value"]
+    description:
+      - ["Operating Type", "Automatic"]
+      - ["Power Consumption", "3 kW/h"]
+      - ["Supply voltage", "220/380 V"]
+      - ["Gas type", "LGP/NG"]
+      - ["Burner Capacity", "36 kW/h"]
+      - ["Gas consumption (min-max)", "0,22-1,60 m³/h"]
+      - ["Min-Max Batch Capacity", "4-12 kg"]
+      - ["Display", "10\" touchscreen"]
+      - ["Roasting time", "8-15 min."]
+      - ["Cooling Time", "2-4 min"]
+      - ["Artisan-Cropster", "Fully compatible"]
+```
+
+
+### Product Model: KRF-15
+Source: https://krafferoasters.com/products/
+```yaml
+title: "Kraffe KRF-15"
+description: "15 kg Commercial Coffee Roasting Machine" 
+main:
+  content: |
+    Introducing KRAFFE KRF-15: 15kg commercial coffee roasting machine engineered for established roasteries and wholesale operations. Designed to deliver consistent performance, profile flexibility, and efficiency for daily high-volume roasting.
+    title: "Description"
+    title: "Specifications"
+    title: "Blueprints"
+longDescription:
+  title: "Fast and Durable – Engineered with Kraffe Quality Standards"
+  subTitle: |
+    Control every stage of the roast with the KRF-15’s Touch Screen Panel and enjoy automatic profile roasting through third-party software. Customize color, details, and features to create the perfect commercial coffee roaster for your business.
+  btnTitle: "Contact Sales"
+  btnURL: "/contact"
+descriptionList:
+  - title: "Efficient Performance"
+    subTitle: "Reduce operational costs with a high-efficiency premix burner and superior heat insulation, ensuring minimal heat loss and maximum energy savings. Enjoy top-tier performance without compromising on efficiency."
+  - title: "Consistent Roasting Results"
+    subTitle: "Achieve high-quality, consistent results on every roasting session with a well-insulated body that minimizes environmental influence and precise variable controls for perfect consistency in every batch."
+  - title: "Tailor-Made Design"
+    subTitle: "Select a color that suits your coffee shop and customize your roaster to fit your space perfectly. Add your coffee shop logo to the machine and be involved in the design process, making it uniquely yours."
+  - title: "Automatic Profile Roasting"
+    subTitle: "Connect your commercial coffee roaster to your laptop and experiment with precise variable controls. Create and customize roasting profiles using the third-party software you're already familiar with. Consistently deliver high-quality coffee with rich aroma and flavor to your customers, ensuring every batch meets your standards."
+  - title: "Ease of Use"
+    subTitle: "Enjoy easy operations from installation to maintenance. KRAFFE Coffee Roasters are designed for a smooth setup and simple upkeep, allowing you to focus on perfecting your roasts."
+specificationsLeft:
+  - title: "Modulated Premix Burner"
+    subTitle: "The KRF-15 features a highly efficient and precise premix burner, enabling you to master heat transfer while reducing gas consumption for cost-effective roasting."
+  - title: "10-Inch Touchscreen"
+    subTitle: "The KRF-15 comes with a 10'' touchscreen display, putting full control at your fingertips. Monitor real-time temperature, label critical roasting values for future batches, and track development time and ROR (Rate of Rise) with ease."
+  - title: "Fully Compatible with 3rd Party Software"
+    subTitle: "Connect your laptop and control your machine using your preferred roasting software. Create, save, and repeat profiles for consistent results every time."
+  - title: "Precise and Consistent Control"
+    subTitle: "Equipped with 3mm thick, sensitive thermocouples, the KRF-15 provides real-time temperature data throughout the roasting process. Master your roasting with precise variable controls and a well-insulated body that minimizes environmental effects, ensuring consistent results."
+  - title: "Safety Systems"
+    subTitle: "Equipped with advanced temperature and drum pressure safety systems, the KRF-15 ensures a safe roasting experience, giving you peace of mind throughout the process."
+  - title: "Resources"
+    subTitle: "<a href='https://drive.google.com/drive/folders/1F9e5EnI17jGkLRrw7HO03CCXrCJqcPnb' target='_blank' rel='noopener noreferrer' class='text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 hover:underline'>Download User Manuals and Catalogs</a>"
+tableData:
+  - feature: ["Specification", "Value"]
+    description:
+      - ["Operating Type", "Automatic"]
+      - ["Power Consumption", "3 kW/h"]
+      - ["Supply voltage", "220/380 V"]
+      - ["Gas type", "LGP/NG"]
+      - ["Burner Capacity", "50 kW/h"]
+      - ["Gas consumption (min-max)", "0,27-2,08 m³/h"]
+      - ["Min-Max Batch Capacity", "5-15 kg"]
+      - ["Display", "10\" touchscreen"]
+      - ["Roasting time", "8-15 min."]
+      - ["Cooling Time", "3-4 min"]
+      - ["Artisan-Cropster", "Fully compatible"]
+
+```
+
+
+### Product Model: KRF-180
+Source: https://krafferoasters.com/products/
+```yaml
+title: "Kraffe KRF-180"
+description: "180 kg Industrial Coffee Roasting Machine" 
+main:
+  content: |
+    Introducing KRAFFE KRF-180: 180KG Commercial Coffee Roasting Machine, engineered for large-volume roasters and high-demand production, offering unmatched consistency, high-quality results, and optimal performance for mass production.
+    title: "Description"
+    title: "Specifications"
+    title: "Blueprints"
+longDescription:
+  title: "Fast and Durable – Engineered with Kraffe Quality Standards"
+  subTitle: |
+    Control every stage of the roast with the KRF-180’s Touch Screen Panel and enjoy automatic profile roasting through third-party software. Customize color, details, and features to create the perfect industrial coffee roaster for your business.
+  btnTitle: "Contact Sales"
+  btnURL: "/contact"
+descriptionList:
+  - title: "High-Capacity, High-Efficiency Performance"
+    subTitle: "Engineered for large-scale coffee roasting operations, KRAFFE KRF-180 features a powerful modulated premix burner and advanced insulation to maximize energy efficiency and minimize heat loss—even in continuous production settings."
+  - title: "Reliable Consistency at Scale"
+    subTitle: "Achieve uniform, high-quality results with every roast. KRF-180’s robust construction, precise variable controls, and responsive temperature sensors ensure consistency, no matter the batch size or roasting frequency."
+  - title: "Custom Design & Branding Options"
+    subTitle: "Tailor the KRF-180 to your roastery’s brand and layout. Choose from a range of colors and configurations, and add your company logo directly to the machine for a bold, professional statement in your production space."
+  - title: "Advanced Profile Roasting Integration"
+    subTitle: "Take full control with third-party roasting software compatibility. KRF-180 enables precise profiling for each origin and roast level, making it easy to reproduce exceptional results across large volumes."
+  - title: "Ease of Use"
+    subTitle: "Enjoy easy operations from installation to maintenance. KRAFFE Coffee Roasters are designed for a smooth setup and simple upkeep, allowing you to focus on perfecting your roasts."
+specificationsLeft:
+  - title: "High-Efficiency Premix Burner"
+    subTitle: "KRAFFE KRF-180 is equipped with a powerful modulated premix burner that delivers rapid, even heat distribution with low gas consumption—ideal for large-batch, energy-conscious roasting."
+  - title: "Large Touchscreen Interface"
+    subTitle: "A 10-inch touchscreen gives operators full control with real-time temperature monitoring, development time tracking, and labeled key variables for accurate repeatability."
+  - title: "Software Integration"
+    subTitle: "Connect your KRF-180 to your laptop and operate using your preferred roasting software. Create, save, and run custom roast profiles to maintain consistent quality across every batch."
+  - title: "Industrial-Grade Sensors"
+    subTitle: "Equipped with 3mm precision thermocouples for bean and environment temperatures, the KRF-180 provides reliable, real-time feedback for full control over each stage of the roast."
+  - title: "Heavy-Duty Construction"
+    subTitle: "Built for high-volume roasting, KRF-180 features a reinforced steel frame, durable drum mechanics, and long-life components—ensuring smooth, uninterrupted performance in demanding production environments."
+  - title: "Resources"
+    subTitle: "<a href='https://drive.google.com/drive/folders/1F9e5EnI17jGkLRrw7HO03CCXrCJqcPnb' target='_blank' rel='noopener noreferrer' class='text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 hover:underline'>Download User Manuals and Catalogs</a>"
+tableData:
+  - feature: ["Specification", "Value"]
+    description:
+      - ["Operating Type", "Automatic"]
+      - ["Power Consumption", "17,5 kW/h"]
+      - ["Supply voltage", "220/380 V"]
+      - ["Gas type", "LGP/NG"]
+      - ["Burner Capacity", "350 kW/h"]
+      - ["Gas consumption (min-max)", "0,83-8,34 m³/h"]
+      - ["Min-Max Batch Capacity", "50-180 kg"]
+      - ["Display", "10\" touchscreen"]
+      - ["Roasting time", "8-18 min."]
+      - ["Cooling Time", "3-5 min"]
+      - ["Artisan-Cropster", "Fully compatible"]
+
+```
+
+
+### Product Model: KRF-20
+Source: https://krafferoasters.com/products/
+```yaml
+title: "Kraffe KRF-20"
+description: "20 kg Commercial Coffee Roasting Machine" 
+main:
+  content: |
+    Introducing KRAFFE KRF-20: 20kg industrial coffee roasting machine crafted for professional roasteries with large-scale demands. Built to combine precision roasting, automation, and consistency for operations that require reliable, continuous output.
+    title: "Description"
+    title: "Specifications"
+    title: "Blueprints"
+longDescription:
+  title: "Fast and Durable – Engineered with Kraffe Quality Standards"
+  subTitle: |
+    Control every stage of the roast with the KRF-20’s Touch Screen Panel and enjoy automatic profile roasting through third-party software. Customize color, details, and features to create the perfect commercial coffee roaster for your business.
+  btnTitle: "Contact Sales"
+  btnURL: "/contact"
+descriptionList:
+  - title: "Efficient Performance"
+    subTitle: "Reduce operational costs with a high-efficiency premix burner and superior heat insulation, ensuring minimal heat loss and maximum energy savings. Enjoy top-tier performance without compromising on efficiency."
+  - title: "Consistent Roasting Results"
+    subTitle: "Achieve high-quality, consistent results on every roasting session with a well-insulated body that minimizes environmental influence and precise variable controls for perfect consistency in every batch."
+  - title: "Tailor-Made Design"
+    subTitle: "Select a color that suits your coffee shop and customize your roaster to fit your space perfectly. Add your coffee shop logo to the machine and be involved in the design process, making it uniquely yours."
+  - title: "Automatic Profile Roasting"
+    subTitle: "Connect your commercial coffee roaster to your laptop and experiment with precise variable controls. Create and customize roasting profiles using the third-party software you're already familiar with. Consistently deliver high-quality coffee with rich aroma and flavor to your customers, ensuring every batch meets your standards."
+  - title: "Ease of Use"
+    subTitle: "Enjoy easy operations from installation to maintenance. KRAFFE Coffee Roasters are designed for a smooth setup and simple upkeep, allowing you to focus on perfecting your roasts."
+specificationsLeft:
+  - title: "Modulated Premix Burner"
+    subTitle: "The KRF-20 features a highly efficient and precise premix burner, enabling you to master heat transfer while reducing gas consumption for cost-effective roasting."
+  - title: "10-Inch Touchscreen"
+    subTitle: "The KRF-20 comes with a 10'' touchscreen display, putting full control at your fingertips. Monitor real-time temperature, label critical roasting values for future batches, and track development time and ROR (Rate of Rise) with ease."
+  - title: "Fully Compatible with 3rd Party Software"
+    subTitle: "Connect your laptop and control your machine using your preferred roasting software. Create, save, and repeat profiles for consistent results every time."
+  - title: "Precise and Consistent Control"
+    subTitle: "Equipped with 3mm thick, sensitive thermocouples, the KRF-20 provides real-time temperature data throughout the roasting process. Master your roasting with precise variable controls and a well-insulated body that minimizes environmental effects, ensuring consistent results."
+  - title: "Safety Systems"
+    subTitle: "Equipped with advanced temperature and drum pressure safety systems, the KRF-20 ensures a safe roasting experience, giving you peace of mind throughout the process."
+  - title: "Resources"
+    subTitle: "<a href='https://drive.google.com/drive/folders/1F9e5EnI17jGkLRrw7HO03CCXrCJqcPnb' target='_blank' rel='noopener noreferrer' class='text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 hover:underline'>Download User Manuals and Catalogs</a>"
+tableData:
+  - feature: ["Specification", "Value"]
+    description:
+      - ["Operating Type", "Automatic"]
+      - ["Power Consumption", "3,5 kW/h"]
+      - ["Supply voltage", "220/380 V"]
+      - ["Gas type", "LGP/NG"]
+      - ["Burner Capacity", "50 kW/h"]
+      - ["Gas consumption (min-max)", "0,27-2,08 m³/h"]
+      - ["Min-Max Batch Capacity", "7-20 kg"]
+      - ["Display", "10\" touchscreen"]
+      - ["Roasting time", "8-15 min."]
+      - ["Cooling Time", "3-4 min"]
+      - ["Artisan-Cropster", "Fully compatible"]
+
+```
+
+
+### Product Model: KRF-240
+Source: https://krafferoasters.com/products/
+```yaml
+title: "Kraffe KRF-240"
+description: "240 kg Industrial Coffee Roasting Machine" 
+main:
+  content: |
+    Introducing KRAFFE KRF-240: 240KG Commercial Coffee Roasting Machine, designed for industrial-scale roasters and high-output operations, providing unparalleled consistency, top-tier quality, and maximum efficiency for mass production.
+    title: "Description"
+    title: "Specifications"
+    title: "Blueprints"
+longDescription:
+  title: "Fast and Durable – Engineered with Kraffe Quality Standards"
+  subTitle: |
+    Control every stage of the roast with the KRF-240’s Touch Screen Panel and enjoy automatic profile roasting through third-party software. Customize color, details, and features to create the perfect industrial coffee roaster for your business.
+  btnTitle: "Contact Sales"
+  btnURL: "/contact"
+descriptionList:
+  - title: "High-Capacity, High-Efficiency Performance"
+    subTitle: "Engineered for large-scale coffee roasting operations, KRAFFE KRF-240 features a powerful modulated premix burner and advanced insulation to maximize energy efficiency and minimize heat loss—even in continuous production settings."
+  - title: "Reliable Consistency at Scale"
+    subTitle: "Achieve uniform, high-quality results with every roast. KRF-240’s robust construction, precise variable controls, and responsive temperature sensors ensure consistency, no matter the batch size or roasting frequency."
+  - title: "Custom Design & Branding Options"
+    subTitle: "Tailor the KRF-240 to your roastery’s brand and layout. Choose from a range of colors and configurations, and add your company logo directly to the machine for a bold, professional statement in your production space."
+  - title: "Advanced Profile Roasting Integration"
+    subTitle: "Take full control with third-party roasting software compatibility. KRF-240 enables precise profiling for each origin and roast level, making it easy to reproduce exceptional results across large volumes."
+  - title: "Ease of Use"
+    subTitle: "Enjoy easy operations from installation to maintenance. KRAFFE Coffee Roasters are designed for a smooth setup and simple upkeep, allowing you to focus on perfecting your roasts."
+specificationsLeft:
+  - title: "High-Efficiency Premix Burner"
+    subTitle: "KRAFFE KRF-240 is equipped with a powerful modulated premix burner that delivers rapid, even heat distribution with low gas consumption—ideal for large-batch, energy-conscious roasting."
+  - title: "Large Touchscreen Interface"
+    subTitle: "A 10-inch touchscreen gives operators full control with real-time temperature monitoring, development time tracking, and labeled key variables for accurate repeatability."
+  - title: "Software Integration"
+    subTitle: "Connect your KRF-240 to your laptop and operate using your preferred roasting software. Create, save, and run custom roast profiles to maintain consistent quality across every batch."
+  - title: "Industrial-Grade Sensors"
+    subTitle: "Equipped with 3mm precision thermocouples for bean and environment temperatures, the KRF-240 provides reliable, real-time feedback for full control over each stage of the roast."
+  - title: "Heavy-Duty Construction"
+    subTitle: "Built for high-volume roasting, KRF-240 features a reinforced steel frame, durable drum mechanics, and long-life components—ensuring smooth, uninterrupted performance in demanding production environments."
+  - title: "Resources"
+    subTitle: "<a href='https://drive.google.com/drive/folders/1F9e5EnI17jGkLRrw7HO03CCXrCJqcPnb' target='_blank' rel='noopener noreferrer' class='text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 hover:underline'>Download User Manuals and Catalogs</a>"
+tableData:
+  - feature: ["Specification", "Value"]
+    description:
+      - ["Operating Type", "Automatic"]
+      - ["Power Consumption", "20 kW/h"]
+      - ["Supply voltage", "220/380 V"]
+      - ["Gas type", "LGP/NG"]
+      - ["Burner Capacity", "450 kW/h"]
+      - ["Gas consumption (min-max)", "0,83-9,3 m³/h"]
+      - ["Min-Max Batch Capacity", "65-240 kg"]
+      - ["Display", "10\" touchscreen"]
+      - ["Roasting time", "8-18 min."]
+      - ["Cooling Time", "3-5 min"]
+      - ["Artisan-Cropster", "Fully compatible"]
+
+```
+
+
+### Product Model: KRF-30
+Source: https://krafferoasters.com/products/
+```yaml
+title: "Kraffe KRF-30"
+description: "30 kg Industrial Coffee Roasting Machine" 
+main:
+  content: |
+    Introducing KRAFFE KRF-30: 30KG Commercial Coffee Roasting Machine, perfect for large-scale roasters and high-volume operations seeking consistent, high-quality results with energy-efficient performance.
+    title: "Description"
+    title: "Specifications"
+    title: "Blueprints"
+longDescription:
+  title: "Fast and Durable – Engineered with Kraffe Quality Standards"
+  subTitle: |
+    Control every stage of the roast with the KRF-30’s Touch Screen Panel and enjoy automatic profile roasting through third-party software. Customize color, details, and features to create the perfect industrial coffee roaster for your business.
+  btnTitle: "Contact Sales"
+  btnURL: "/contact"
+descriptionList:
+  - title: "High-Capacity, High-Efficiency Performance"
+    subTitle: "Engineered for large-scale coffee roasting operations, KRAFFE KRF-30 features a powerful modulated premix burner and advanced insulation to maximize energy efficiency and minimize heat loss—even in continuous production settings."
+  - title: "Reliable Consistency at Scale"
+    subTitle: "Achieve uniform, high-quality results with every roast. KRF-30’s robust construction, precise variable controls, and responsive temperature sensors ensure consistency, no matter the batch size or roasting frequency."
+  - title: "Custom Design & Branding Options"
+    subTitle: "Tailor the KRF-30 to your roastery’s brand and layout. Choose from a range of colors and configurations, and add your company logo directly to the machine for a bold, professional statement in your production space."
+  - title: "Advanced Profile Roasting Integration"
+    subTitle: "Take full control with third-party roasting software compatibility. KRF-30 enables precise profiling for each origin and roast level, making it easy to reproduce exceptional results across large volumes."
+  - title: "Ease of Use"
+    subTitle: "Enjoy easy operations from installation to maintenance. KRAFFE Coffee Roasters are designed for a smooth setup and simple upkeep, allowing you to focus on perfecting your roasts."
+specificationsLeft:
+  - title: "High-Efficiency Premix Burner"
+    subTitle: "KRAFFE KRF-30 is equipped with a powerful modulated premix burner that delivers rapid, even heat distribution with low gas consumption—ideal for large-batch, energy-conscious roasting."
+  - title: "Large Touchscreen Interface"
+    subTitle: "A 10-inch touchscreen gives operators full control with real-time temperature monitoring, development time tracking, and labeled key variables for accurate repeatability."
+  - title: "Software Integration"
+    subTitle: "Connect your KRF-30 to your laptop and operate using your preferred roasting software. Create, save, and run custom roast profiles to maintain consistent quality across every batch."
+  - title: "Industrial-Grade Sensors"
+    subTitle: "Equipped with 3mm precision thermocouples for bean and environment temperatures, the KRF-30 provides reliable, real-time feedback for full control over each stage of the roast."
+  - title: "Heavy-Duty Construction"
+    subTitle: "Built for high-volume roasting, KRF-30 features a reinforced steel frame, durable drum mechanics, and long-life components—ensuring smooth, uninterrupted performance in demanding production environments."
+  - title: "Resources"
+    subTitle: "<a href='https://drive.google.com/drive/folders/1F9e5EnI17jGkLRrw7HO03CCXrCJqcPnb' target='_blank' rel='noopener noreferrer' class='text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 hover:underline'>Download User Manuals and Catalogs</a>"
+tableData:
+  - feature: ["Specification", "Value"]
+    description:
+      - ["Operating Type", "Automatic"]
+      - ["Power Consumption", "6,25 kW/h"]
+      - ["Supply voltage", "220/380 V"]
+      - ["Gas type", "LGP/NG"]
+      - ["Burner Capacity", "100 kW/h"]
+      - ["Gas consumption (min-max)", "0,54-4,17 m³/h"]
+      - ["Min-Max Batch Capacity", "10-30 kg"]
+      - ["Display", "10\" touchscreen"]
+      - ["Roasting time", "8-15 min."]
+      - ["Cooling Time", "3-5 min"]
+      - ["Artisan-Cropster", "Fully compatible"]
+
+```
+
+
+### Product Model: KRF-60
+Source: https://krafferoasters.com/products/
+```yaml
+title: "Kraffe KRF-60"
+description: "60 kg Industrial Coffee Roasting Machine" 
+main:
+  content: |
+    Introducing KRAFFE KRF-60: 60KG Commercial Coffee Roasting Machine, designed for large-scale roasters and high-demand operations seeking unparalleled consistency, premium quality, and maximum efficiency in every batch.
+    title: "Description"
+    title: "Specifications"
+    title: "Blueprints"
+longDescription:
+  title: "Fast and Durable – Engineered with Kraffe Quality Standards"
+  subTitle: |
+    Control every stage of the roast with the KRF-60’s Touch Screen Panel and enjoy automatic profile roasting through third-party software. Customize color, details, and features to create the perfect industrial coffee roaster for your business.
+  btnTitle: "Contact Sales"
+  btnURL: "/contact"
+descriptionList:
+  - title: "High-Capacity, High-Efficiency Performance"
+    subTitle: "Engineered for large-scale coffee roasting operations, KRAFFE KRF-60 features a powerful modulated premix burner and advanced insulation to maximize energy efficiency and minimize heat loss—even in continuous production settings."
+  - title: "Reliable Consistency at Scale"
+    subTitle: "Achieve uniform, high-quality results with every roast. KRF-60’s robust construction, precise variable controls, and responsive temperature sensors ensure consistency, no matter the batch size or roasting frequency."
+  - title: "Custom Design & Branding Options"
+    subTitle: "Tailor the KRF-60 to your roastery’s brand and layout. Choose from a range of colors and configurations, and add your company logo directly to the machine for a bold, professional statement in your production space."
+  - title: "Advanced Profile Roasting Integration"
+    subTitle: "Take full control with third-party roasting software compatibility. KRF-60 enables precise profiling for each origin and roast level, making it easy to reproduce exceptional results across large volumes."
+  - title: "Ease of Use"
+    subTitle: "Enjoy easy operations from installation to maintenance. KRAFFE Coffee Roasters are designed for a smooth setup and simple upkeep, allowing you to focus on perfecting your roasts."
+specificationsLeft:
+  - title: "High-Efficiency Premix Burner"
+    subTitle: "KRAFFE KRF-60 is equipped with a powerful modulated premix burner that delivers rapid, even heat distribution with low gas consumption—ideal for large-batch, energy-conscious roasting."
+  - title: "Large Touchscreen Interface"
+    subTitle: "A 10-inch touchscreen gives operators full control with real-time temperature monitoring, development time tracking, and labeled key variables for accurate repeatability."
+  - title: "Software Integration"
+    subTitle: "Connect your KRF-60 to your laptop and operate using your preferred roasting software. Create, save, and run custom roast profiles to maintain consistent quality across every batch."
+  - title: "Industrial-Grade Sensors"
+    subTitle: "Equipped with 3mm precision thermocouples for bean and environment temperatures, the KRF-60 provides reliable, real-time feedback for full control over each stage of the roast."
+  - title: "Heavy-Duty Construction"
+    subTitle: "Built for high-volume roasting, KRF-60 features a reinforced steel frame, durable drum mechanics, and long-life components—ensuring smooth, uninterrupted performance in demanding production environments."
+  - title: "Resources"
+    subTitle: "<a href='https://drive.google.com/drive/folders/1F9e5EnI17jGkLRrw7HO03CCXrCJqcPnb' target='_blank' rel='noopener noreferrer' class='text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 hover:underline'>Download User Manuals and Catalogs</a>"
+tableData:
+  - feature: ["Specification", "Value"]
+    description:
+      - ["Operating Type", "Automatic"]
+      - ["Power Consumption", "13 kW/h"]
+      - ["Supply voltage", "220/380 V"]
+      - ["Gas type", "LGP/NG"]
+      - ["Burner Capacity", "150 kW/h"]
+      - ["Gas consumption (min-max)", "0,83-6,25 m³/h"]
+      - ["Min-Max Batch Capacity", "20-60 kg"]
+      - ["Display", "10\" touchscreen"]
+      - ["Roasting time", "8-15 min."]
+      - ["Cooling Time", "3-5 min"]
+      - ["Artisan-Cropster", "Fully compatible"]
+
+```
+
+
+### Product Model: LOADER-EQUIPMENT
+Source: https://krafferoasters.com/products/
+```yaml
+title: "Loader"
+description: "KRAFFE Equipment: Loader" 
+main:
+  content: |
+    KRAFFE designs and offers you the best fitting product and after you start to use the products, KRAFFE offers you a 7/24 online customer support.
+    title: "Description"
+    title: "Specifications"
+    title: "Blueprints"
+longDescription:
+  title: "Fast and Durable – Engineered with Kraffe Quality Standards"
+  subTitle: |
+    Experience the perfect balance of durability and ease-of-use, empowering you to create extraordinary coffee experiences with confidence and precision. Check out the Loader from KRAFFE ROASTERS equipment.
+  btnTitle: "Request Info"
+  btnURL: "/contact"
+descriptionList:
+  - title: "Loader"
+    subTitle: "Automatically feeds green coffee beans into the roaster, ensuring consistent batch sizes and reducing manual labor."
+specificationsLeft:
+  - title: "Technical Layout"
+    subTitle: "Check Blueprints section for detailed technical layouts."
+  - title: "Resources"
+    subTitle: "<a href='https://drive.google.com/drive/folders/1F9e5EnI17jGkLRrw7HO03CCXrCJqcPnb' target='_blank' rel='noopener noreferrer' class='text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 hover:underline'>Download User Manuals and Catalogs</a>"
+tableData:
+  - feature: ["Specification", "Value"]
+    description:
+      - ["LOADER", "EQUIPMENT"]
+      - ["Power Consumption", "1.1 kW"]
+    
+```
+
+
+### Product Model: PRIMI
+Source: https://krafferoasters.com/products/
+```yaml
+title: "Kraffe Primi"
+description: "Primi: 1 kg Sample Roaster" 
+main:
+  content: |
+    Introducing KRAFFE PRIMI: 1KG Commercial Coffee Roasting Machine engineered for specialty cafes, roastery startups, and sample roasting with a perfect balance of control, consistency, and craftsmanship.
+    title: "Description"
+    title: "Specifications"
+    title: "Blueprints"
+longDescription:
+  title: "Fast and Durable – Engineered with Kraffe Quality Standards"
+  subTitle: |
+    Control every stage of the roast with the Primi’s Touch Screen Panel and enjoy automatic profile roasting through third-party software. Customize color, details, and features to create the perfect commercial coffee roaster for your business.
+  btnTitle: "Contact Sales"
+  btnURL: "/contact"
+descriptionList:
+  - title: "Energy-Efficient Performance"
+    subTitle: "KRAFFE PRIMI’s high-efficiency premix burner and superior insulation minimize heat loss and reduce gas usage, helping small roasteries and specialty cafes lower operating costs while achieving top-tier roasting performance."
+  - title: "Consistent Roasting Quality"
+    subTitle: "Roast with confidence and precision. PRIMI’s insulated drum chamber and accurate variable controls ensure consistent results across every 1KG batch, making it ideal for both production and sample roasting."
+  - title: "Customizable Design"
+    subTitle: "Make KRAFFE PRIMI your own. Choose the color, adjust the layout, and add your café or brand logo to the machine. Whether it’s your shop’s centerpiece or lab tool, it’s built to reflect your identity."
+  - title: "Smart Profile Roasting"
+    subTitle: "Easily connect PRIMI to your laptop and roast using third-party roasting software. Create, adjust, and repeat profiles with precision, delivering the same high-quality flavor and aroma to your customers every time."
+  - title: "User-Friendly Operation"
+    subTitle: "From setup to daily roasting, KRAFFE PRIMI is designed for simplicity. Its intuitive controls and low-maintenance design make it ideal for both seasoned professionals and roasters just getting started."
+specificationsLeft:
+  - title: "Modulated Premix Burner"
+    subTitle: "KRAFFE PRIMI features a high-performance premix burner that offers excellent heat control while reducing gas consumption—ideal for cost-conscious micro-roasters."
+  - title: "7-Inch Touchscreen"
+    subTitle: "Access real-time data and make live adjustments through PRIMI’s responsive control panel. Monitor temperature, track development time, and fine-tune variables with confidence."
+  - title: "Fully Compatible with 3rd Party Software"
+    subTitle: "Connect your PRIMI to your laptop and use your preferred roasting software for full control. Save and replicate roast profiles with precision for consistent, repeatable results."
+  - title: "Precise and Consistent Control"
+    subTitle: "Equipped with sensitive 3mm thermocouples, PRIMI offers accurate real-time monitoring of bean and environment temperatures. Combined with superior insulation, it ensures dependable performance."
+  - title: "Durable and Compact Design"
+    subTitle: "Built with industrial-grade materials, KRAFFE PRIMI is designed for both durability and mobility. Its compact 1KG capacity makes it ideal for limited spaces without compromising on professional-grade performance."
+  - title: "Resources"
+    subTitle: "<a href='https://drive.google.com/drive/folders/1F9e5EnI17jGkLRrw7HO03CCXrCJqcPnb' target='_blank' rel='noopener noreferrer' class='text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 hover:underline'>Download User Manuals and Catalogs</a>"
+tableData:
+  - feature: ["Specification", "Value"]
+    description:
+      - ["Operating Type", "Automatic"]
+      - ["Power Consumption", "400 W/h"]
+      - ["Supply voltage", "220/380 V"]
+      - ["Gas type", "LGP/NG"]
+      - ["Burner Capacity", "18 kW/h"]
+      - ["Gas consumption (min-max)", "0,1-0,575 m³/h"]
+      - ["Min-Max Batch Capacity", "500-1000 gr"]
+      - ["Display", "7\" touchscreen"]
+      - ["Roasting time", "7-11 min."]
+      - ["Cooling Time", "3-4 min"]
+      - ["Artisan-Cropster", "Fully compatible"]
+
+```
