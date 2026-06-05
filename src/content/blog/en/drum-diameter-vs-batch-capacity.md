@@ -4,7 +4,7 @@ description: "Learn why drum diameter matters more than batch capacity when choo
 author: "Kraffe Team"
 authorImage: "@/images/blog/polat.jpeg"
 authorImageAlt: "Kraffe Technics Team Avatar"
-pubDate: 2026-03-24
+pubDate: 2026-06-05
 cardImage: "@/images/blog/drum 1.jpg"
 cardImageAlt: "Coffee Roasting Machine Drum inner look"
 readTime: 6
