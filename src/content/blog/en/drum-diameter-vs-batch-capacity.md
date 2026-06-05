@@ -227,6 +227,3 @@ In professional roasting:
 
 And serious commercial coffee roasters are built around that understanding.
 
-**Next Reading:**
-**Heat Transfer in Coffee Roasting (P2-11)**
-`/heat-transfer-in-coffee-roasting/`
