@@ -5,7 +5,6 @@ import { SITE } from "@data/constants";
 import { Image } from "astro:assets";
 
 // --- GÖRSELLERİNİZİ BURAYA IMPORT EDİN ---
-// Bu dosyaların `src/images/events/` klasöründe olduğundan emin olun.
 import topImage from "@images/events/woc-geneva-4.avif";
 import middleImage from "@images/events/woc-geneva-3.avif";
 
@@ -26,46 +25,73 @@ import galleryPhoto14 from "@images/events/woc-geneva-14.avif";
 import galleryPhoto15 from "@images/events/woc-geneva-15.avif";
 import galleryPhoto16 from "@images/events/woc-geneva-16.avif";
 
-// --- SAYFA İÇERİĞİ VE SEO ---
-const pageTitle = `Kraffe Roasters at World of Coffee Geneva 2025 | ${SITE.title}`;
-const metaDescription = "Join Kraffe Roasters for a memorable recap of World of Coffee 2025 in Geneva. Discover insights on the latest commercial coffee roaster technologies and community highlights from the SCA-organized event.";
-
-const introText = `
- <p class="mb-4">At the end of June, the annual <a href="https://www.worldofcoffee.org/" target="_blank" rel="nofollow noopener noreferrer" class="text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 underline"><strong>World of Coffee 2025</strong></a> exhibition, organized by the <a href="https://sca.coffee" target="_blank" rel="nofollow noopener noreferrer" class="text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 underline">Specialty Coffee Association (SCA)</a>, took place in Geneva, Switzerland, welcoming guests from across the globe. We at <a href="https://krafferoasters.com" target="_blank" rel="nofollow noopener noreferrer" class="text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 underline">Kraffe Roasters</a> were thrilled to participate and connect with friends, partners, and coffee lovers from across the globe.</p>
-  <p class="mb-4">The event was held at PALEXPO, an exhibition center nestled in a vast green park. We would like to thank the SCA team for choosing such a convenient and beautiful venue. Its proximity to Geneva Airport was a significant advantage for both visitors and exhibitors. Most of the official hotels were located between Palexpo and the airport, making it possible to walk to the venue in just 20 minutes through the picturesque, tree-lined streets of Geneva. For those who preferred, shuttle buses were also available.</p>
-`;
-
-const mainContent = `
-  <p class="mb-4">The day before the exhibition opened, we walked through the park to Palexpo to check on our stand. The exhibition hall was impressively large and spacious. By midday, crates of equipment began arriving at the various booths. Our <a href="/products" class="text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 underline"><strong>commercial coffee roaster</strong></a> was delivered quickly, and we were able to set it up at our stand. Thanks to the efficiency and support of the technical staff, the installation went smoothly and required little effort. Everything was ready for the grand opening.</p>
-  <p class="mb-4">On the first day, the venue welcomed its initial wave of visitors — not only coffee enthusiasts heading to the Coffee Village for a flavorful cup, but also professionals interested in coffee equipment. We were delighted to engage with attendees, answering questions and sharing the technical details of our <strong>commercial coffee roasting machine</strong>. Some visitors even came just to take photos of our striking red machine.</p>
-  <p class="mb-4">The second day of the exhibition was much busier, with a noticeable increase in guests from not only Switzerland and neighboring countries, but also from more distant regions. The exhibition hall came alive early in the morning with music and applause as the coffee brewing championships kicked off — a true highlight of the event. We had fantastic conversations about everything from sample roasting to the demands of a high-volume <strong>industrial coffee roaster</strong>.</p>
-  <p class="mb-8">The third and final day, which fell on a Saturday, brought a more casual and festive atmosphere. The venue filled with young people and coffee lovers who took advantage of the weekend to experience the event. They came for great coffee, exciting new products, and the chance to participate in various fun competitions.</p>
-  <p class="mb-4">As the day came to a close and the event officially ended, we began packing up our booth and waited for our crates to be collected for shipment. Just like at the start, the SCA’s excellent coordination made the packing and shipping process fast and efficient.</p>
-  <p>And so concluded another inspiring edition of World of Coffee — a vibrant meeting of coffee lovers and equipment makers in beautiful Geneva. Thank you to all our visitors and the amazing organizers. See you next time!</p>
-`;
-
-const tags = ["World of Coffee", "Geneva 2025", "SCA", "commercial coffee roaster", "coffee events", "Kraffe Roasters"];
-
-// === DEĞİŞİKLİK BURADA ===
-// Galeri için görsel listesi (6 görselin tümü eklendi)
-const galleryImages = [
-    { src: galleryPhoto1, alt: "Kraffe Roasters booth at World of Coffee Geneva" },
-    { src: galleryPhoto2, alt: "Visitors checking out the commercial coffee roaster" },
-    { src: galleryPhoto3, alt: "A vibrant atmosphere at the Palexpo exhibition center" },
-    { src: galleryPhoto4, alt: "Kraffe's red commercial coffee roasting machine" },
-    { src: galleryPhoto5, alt: "Coffee brewing championship stage" },
-    { src: galleryPhoto6, alt: "Team photo at the Kraffe Roasters stand" },
-    { src: galleryPhoto7, alt: "Kraffe Roasters at World of Coffee Geneva" },
-    { src: galleryPhoto8, alt: "Kraffe Roasters at World of Coffee Geneva" },
-    { src: galleryPhoto9, alt: "Kraffe Roasters at World of Coffee Geneva" },
-    { src: galleryPhoto10, alt: "Kraffe Roasters at World of Coffee Geneva" },
-    { src: galleryPhoto11, alt: "Kraffe Roasters at World of Coffee Geneva" },
-    { src: galleryPhoto12, alt: "Kraffe Roasters at World of Coffee Geneva" },
-    { src: galleryPhoto13, alt: "Kraffe Roasters at World of Coffee Geneva" },
-    { src: galleryPhoto14, alt: "Kraffe Roasters at World of Coffee Geneva" },
-    { src: galleryPhoto15, alt: "Kraffe Roasters at World of Coffee Geneva" },
-    { src: galleryPhoto16, alt: "Kraffe Roasters at World of Coffee Geneva" },
+// --- EVENT DATA STRUCTURE ---
+const events = [
+  {
+    id: "dubai-2026",
+    tabName: "World of Coffee Dubai 2026 (New)",
+    title: "Kraffe Roasters at World of Coffee Dubai 2026: Shaping the Future of Coffee",
+    topImg: topImage,
+    middleImg: middleImage,
+    introText: `
+      <p class="mb-4">We are thrilled to share our latest milestone! Kraffe Roasters recently participated in the prestigious <a href="#" class="text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 underline"><strong>World of Coffee Dubai 2026</strong></a> exhibition. It was an incredible opportunity to showcase our newest roasting technologies to the fast-growing Middle Eastern coffee community.</p>
+      <p class="mb-4">Our booth attracted coffee professionals, roasters, and enthusiasts from all over the world, eager to explore the efficiency and precision of Kraffe's advanced commercial coffee roasting solutions.</p>
+    `,
+    mainContent: `
+      <p class="mb-4">Throughout the three-day event, our live roasting demonstrations became a center of attention. Visitors experienced firsthand how our intelligent airflow systems and precision drum controls deliver unmatched consistency. We had inspiring discussions about sustainable roasting practices and high-volume industrial production demands.</p>
+      <p class="mb-4">Thank you to everyone who visited our stand and shared their passion with us. Dubai 2026 was unforgettable, and we look forward to our next destination!</p>
+    `,
+    tags: ["World of Coffee", "Dubai 2026", "Middle East Coffee", "commercial coffee roaster", "Kraffe Roasters"],
+    gallery: [
+      { src: galleryPhoto1, alt: "Kraffe Roasters Dubai 2026 Stand Overview" },
+      { src: galleryPhoto2, alt: "Live roasting demonstration in Dubai" },
+      { src: galleryPhoto3, alt: "Interacting with Middle Eastern coffee professionals" },
+      { src: galleryPhoto4, alt: "Kraffe industrial roaster showcase" },
+    ]
+  },
+  {
+    id: "geneva-2025",
+    tabName: "World of Coffee Geneva 2025",
+    title: "World of Coffee 2025 in Geneva: A Memorable Gathering of the Global Coffee Community",
+    topImg: topImage,
+    middleImg: middleImage,
+    introText: `
+      <p class="mb-4">At the end of June, the annual <a href="https://www.worldofcoffee.org/" target="_blank" rel="nofollow noopener noreferrer" class="text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 underline"><strong>World of Coffee 2025</strong></a> exhibition, organized by the <a href="https://sca.coffee" target="_blank" rel="nofollow noopener noreferrer" class="text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 underline">Specialty Coffee Association (SCA)</a>, took place in Geneva, Switzerland, welcoming guests from across the globe. We at <a href="https://krafferoasters.com" target="_blank" rel="nofollow noopener noreferrer" class="text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 underline">Kraffe Roasters</a> were thrilled to participate and connect with friends, partners, and coffee lovers from across the globe.</p>
+      <p class="mb-4">The event was held at PALEXPO, an exhibition center nestled in a vast green park. We would like to thank the SCA team for choosing such a convenient and beautiful venue. Its proximity to Geneva Airport was a significant advantage for both visitors and exhibitors. Most of the official hotels were located between Palexpo and the airport, making it possible to walk to the venue in just 20 minutes through the picturesque, tree-lined streets of Geneva. For those who preferred, shuttle buses were also available.</p>
+    `,
+    mainContent: `
+      <p class="mb-4">The day before the exhibition opened, we walked through the park to Palexpo to check on our stand. The exhibition hall was impressively large and spacious. By midday, crates of equipment began arriving at the various booths. Our <a href="/products" class="text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 underline"><strong>commercial coffee roaster</strong></a> was delivered quickly, and we were able to set it up at our stand. Thanks to the efficiency and support of the technical staff, the installation went smoothly and required little effort. Everything was ready for the grand opening.</p>
+      <p class="mb-4">On the first day, the venue welcomed its initial wave of visitors — not only coffee enthusiasts heading to the Coffee Village for a flavorful cup, but also professionals interested in coffee equipment. We were delighted to engage with attendees, answering questions and sharing the technical details of our <strong>commercial coffee roasting machine</strong>. Some visitors even came just to take photos of our striking red machine.</p>
+      <p class="mb-4">The second day of the exhibition was much busier, with a noticeable increase in guests from not only Switzerland and neighboring countries, but also from more distant regions. The exhibition hall came alive early in the morning with music and applause as the coffee brewing championships kicked off — a true highlight of the event. We had fantastic conversations about everything from sample roasting to the demands of a high-volume <strong>industrial coffee roaster</strong>.</p>
+      <p class="mb-8">The third and final day, which fell on a Saturday, brought a more casual and festive atmosphere. The venue filled with young people and coffee lovers who took advantage of the weekend to experience the event. They came for great coffee, exciting new products, and the chance to participate in various fun competitions.</p>
+      <p class="mb-4">As the day came to a close and the event officially ended, we began packing up our booth and waited for our crates to be collected for shipment. Just like at the start, the SCA’s excellent coordination made the packing and shipping process fast and efficient.</p>
+      <p>And so concluded another inspiring edition of World of Coffee — a vibrant meeting of coffee lovers and equipment makers in beautiful Geneva. Thank you to all our visitors and the amazing organizers. See you next time!</p>
+    `,
+    tags: ["World of Coffee", "Geneva 2025", "SCA", "commercial coffee roaster", "coffee events", "Kraffe Roasters"],
+    gallery: [
+      { src: galleryPhoto1, alt: "Kraffe Roasters booth at World of Coffee Geneva" },
+      { src: galleryPhoto2, alt: "Visitors checking out the commercial coffee roaster" },
+      { src: galleryPhoto3, alt: "A vibrant atmosphere at the Palexpo exhibition center" },
+      { src: galleryPhoto4, alt: "Kraffe's red commercial coffee roasting machine" },
+      { src: galleryPhoto5, alt: "Coffee brewing championship stage" },
+      { src: galleryPhoto6, alt: "Team photo at the Kraffe Roasters stand" },
+      { src: galleryPhoto7, alt: "Kraffe Roasters at World of Coffee Geneva" },
+      { src: galleryPhoto8, alt: "Kraffe Roasters at World of Coffee Geneva" },
+      { src: galleryPhoto9, alt: "Kraffe Roasters at World of Coffee Geneva" },
+      { src: galleryPhoto10, alt: "Kraffe Roasters at World of Coffee Geneva" },
+      { src: galleryPhoto11, alt: "Kraffe Roasters at World of Coffee Geneva" },
+      { src: galleryPhoto12, alt: "Kraffe Roasters at World of Coffee Geneva" },
+      { src: galleryPhoto13, alt: "Kraffe Roasters at World of Coffee Geneva" },
+      { src: galleryPhoto14, alt: "Kraffe Roasters at World of Coffee Geneva" },
+      { src: galleryPhoto15, alt: "Kraffe Roasters at World of Coffee Geneva" },
+      { src: galleryPhoto16, alt: "Kraffe Roasters at World of Coffee Geneva" },
+    ]
+  }
 ];
+
+// Ana SEO Tanımlamaları
+const pageTitle = `Coffee Exhibition Events & Highlights | ${SITE.title}`;
+const metaDescription = "Explore Kraffe Roasters global coffee exhibition highlights. Discover our latest commercial and industrial coffee roasting technologies from World of Coffee events.";
 ---
 
 <MainLayout
@@ -78,9 +104,9 @@ const galleryImages = [
       "@type": "WebPage",
       "@id": Astro.url.href
     },
-    "headline": "World of Coffee 2025 in Geneva: A Memorable Gathering",
-    "image": new URL(topImage.src, Astro.site).href,
-    "datePublished": "2025-07-05T08:00:00+00:00",
+    "headline": events[0].title,
+    "image": new URL(events[0].topImg.src, Astro.site).href,
+    "datePublished": "2026-03-10T08:00:00+00:00",
     "dateModified": new Date().toISOString(),
     "author": {
       "@type": "Organization",
@@ -95,7 +121,7 @@ const galleryImages = [
       }
     },
     "description": metaDescription,
-    "keywords": tags.join(", ")
+    "keywords": events[0].tags.join(", ")
   }}
 >
   <!-- Galeri için Gerekli CSS Dosyaları (CDN'den) -->
@@ -104,73 +130,135 @@ const galleryImages = [
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-thumbnail.min.css" />
 
   <section class="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-    <div class="prose prose-lg dark:prose-invert max-w-none">
-      
-      <h1 class="text-balance">World of Coffee 2025 in Geneva: A Memorable Gathering of the Global Coffee Community</h1>
-      
-      <div class="not-prose my-8">
-        <Image src={topImage} alt="The Kraffe Roasters team and booth at World of Coffee Geneva 2025" class="w-full h-auto rounded-xl shadow-lg" loading="eager" />
-      </div>
+    
+    <!-- EVENT NAVİGASYON (TABS) -->
+    <div class="flex border-b border-neutral-200 dark:border-neutral-700 mb-8 overflow-x-auto whitespace-nowrap">
+      {events.map((event, index) => (
+        <button
+          data-tab-target={event.id}
+          class={`tab-btn px-6 py-3 font-semibold text-sm transition-all border-b-2 focus:outline-none ${
+            index === 0
+              ? "border-orange-500 text-orange-500 dark:text-orange-400"
+              : "border-transparent text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200"
+          }`}
+        >
+          {event.tabName}
+        </button>
+      ))}
+    </div>
 
-      <article set:html={introText} />
-      
-      <div class="not-prose my-8">
-        <Image src={middleImage} alt="A vibrant atmosphere at the Palexpo exhibition center" class="w-full h-auto rounded-xl shadow-lg" loading="lazy"/>
-      </div>
+    <!-- EVENT İÇERİKLERİ -->
+    {events.map((event, index) => (
+      <div 
+        id={event.id} 
+        class={`event-content prose prose-lg dark:prose-invert max-w-none ${index === 0 ? "block" : "hidden"}`}
+      >
+        <h1 class="text-balance">{event.title}</h1>
+        
+        <div class="not-prose my-8">
+          <Image src={event.topImg} alt={event.title} class="w-full h-auto rounded-xl shadow-lg" loading={index === 0 ? "eager" : "lazy"} />
+        </div>
 
-      <article set:html={mainContent} />
+        <article set:html={event.introText} />
+        
+        <div class="not-prose my-8">
+          <Image src={event.middleImg} alt="Exhibition atmosphere" class="w-full h-auto rounded-xl shadow-lg" loading="lazy"/>
+        </div>
 
-      <h2 class="mt-12">Event Gallery</h2>
-      {/* === DEĞİŞİKLİK BURADA === */}
-      {/* Galeri grid yapısı md:grid-cols-3 olarak güncellendi, böylece 6 resim daha iyi görünür */}
-      <div id="lightgallery-container" class="not-prose mt-6 grid grid-cols-2 gap-4 md:grid-cols-3">
-        {galleryImages.map(img => (
-          <a
-            href={img.src.src}
-            data-sub-html={`<h4>${img.alt}</h4>`}
-            class="group block overflow-hidden rounded-lg shadow-md focus:outline-none focus:ring-4 focus:ring-orange-400 focus:ring-offset-2 dark:focus:ring-offset-neutral-800"
-          >
-            <Image 
-              src={img.src} 
-              alt={img.alt} 
-              class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110" 
-              loading="lazy" 
-            />
-          </a>
-        ))}
-      </div>
+        <article set:html={event.mainContent} />
 
-      <div class="not-prose mt-12 border-t border-neutral-200 dark:border-neutral-700 pt-6">
-        <h3 class="text-lg font-semibold">Tags:</h3>
-        <div class="flex flex-wrap gap-2 mt-2">
-          {tags.map(tag => (
-            <span class="inline-flex items-center gap-x-1.5 rounded-full bg-neutral-100 px-3 py-1.5 text-xs font-medium text-neutral-800 dark:bg-neutral-700 dark:text-neutral-200">
-              {tag}
-            </span>
+        <h2 class="mt-12">Event Gallery</h2>
+        
+        <div class="lightgallery-container not-prose mt-6 grid grid-cols-2 gap-4 md:grid-cols-3">
+          {event.gallery.map(img => (
+            <a
+              href={img.src.src}
+              data-sub-html={`<h4>${img.alt}</h4>`}
+              class="group block overflow-hidden rounded-lg shadow-md focus:outline-none focus:ring-4 focus:ring-orange-400 focus:ring-offset-2 dark:focus:ring-offset-neutral-800"
+            >
+              <Image 
+                src={img.src} 
+                alt={img.alt} 
+                class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110" 
+                loading="lazy" 
+              />
+            </a>
           ))}
         </div>
-      </div>
 
-    </div>
+        <div class="not-prose mt-12 border-t border-neutral-200 dark:border-neutral-700 pt-6">
+          <h3 class="text-lg font-semibold">Tags:</h3>
+          <div class="flex flex-wrap gap-2 mt-2">
+            {event.tags.map(tag => (
+              <span class="inline-flex items-center gap-x-1.5 rounded-full bg-neutral-100 px-3 py-1.5 text-xs font-medium text-neutral-800 dark:bg-neutral-700 dark:text-neutral-200">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    ))}
+
   </section>
 </MainLayout>
 
-<!-- Galeri için Gerekli JS Dosyaları (CDN'den) -->
+<!-- Galeri ve Sekme Yönetimi JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/zoom/lg-zoom.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/thumbnail/lg-thumbnail.min.js" defer></script>
 
-<!-- Galeri'yi çalıştıran script -->
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const galleryContainer = document.getElementById('lightgallery-container');
-    if (galleryContainer) {
-      (window as any).lightGallery(galleryContainer, {
+  function initGallery(container) {
+    if (container && (window as any).lightGallery) {
+      // Çakışmayı ve duplicate oluşmasını engellemek için varsa eski instance'ı temizle
+      if ((container as any).lgInstance) {
+        (container as any).lgInstance.destroy();
+      }
+      // Yeni instance oluştur ve element üzerinde sakla
+      (container as any).lgInstance = (window as any).lightGallery(container, {
         plugins: [(window as any).lgZoom, (window as any).lgThumbnail],
         speed: 500,
         download: false,
         selector: 'a',
       });
     }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const eventContents = document.querySelectorAll('.event-content');
+
+    // İlk yüklemede aktif olan (ilk sıradaki) galeriyi çalıştır
+    const firstVisibleGallery = document.querySelector('.event-content:not(.hidden) .lightgallery-container');
+    if (firstVisibleGallery) initGallery(firstVisibleGallery);
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-tab-target');
+
+        // Navigasyon butonlarının aktif/pasif sınıflarını değiştir
+        tabButtons.forEach(b => {
+          b.classList.remove('border-orange-500', 'text-orange-500', 'dark:text-orange-400');
+          b.classList.add('border-transparent', 'text-neutral-500', 'dark:text-neutral-400');
+        });
+        btn.classList.add('border-orange-500', 'text-orange-500', 'dark:text-orange-400');
+        btn.classList.remove('border-transparent', 'text-neutral-500', 'dark:text-neutral-400');
+
+        // Sekme içeriklerini gizle/göster
+        eventContents.forEach(content => {
+          if (content.id === targetId) {
+            content.classList.remove('hidden');
+            content.classList.add('block');
+            
+            // Seçilen yeni sekmenin galerisini tetikle
+            const targetGallery = content.querySelector('.lightgallery-container');
+            initGallery(targetGallery);
+          } else {
+            content.classList.remove('block');
+            content.classList.add('hidden');
+          }
+        });
+      });
+    });
   });
 </script>
