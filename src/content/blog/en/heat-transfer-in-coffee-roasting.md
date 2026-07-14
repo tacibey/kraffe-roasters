@@ -88,7 +88,7 @@ Without consistent airflow, roast development becomes inconsistent.
 
 Learn more here:
 
-👉 **[Airflow Control in Commercial Coffee Roasters](/blog/airflow-control-in-commercial-coffee-roasters)**
+👉 [**Airflow Control in Commercial Coffee Roasters**](https://krafferoasters.com/blog/airflow-control-in-commercial-coffee-roasters/)
 
 ### Why Convection Matters
 
