@@ -45,7 +45,7 @@ Airflow is much more than ventilation. It directly influences every stage of the
 4. Chaff removal
 5. Pressure balance inside the drum
 
-As explained in our guide on [**Heat Transfer In Coffee Roasting]( https://krafferoasters.com/blog/heat-transfer-in-coffee-roasting/)., convection is heat carried by moving air. This makes airflow one of the primary mechanisms of heat transfer rather than simply an exhaust function.
+As explained in our guide on [**Heat Transfer In Coffee Roasting**]( https://krafferoasters.com/blog/heat-transfer-in-coffee-roasting/)., convection is heat carried by moving air. This makes airflow one of the primary mechanisms of heat transfer rather than simply an exhaust function.
 
 ---
 
@@ -77,7 +77,7 @@ Airflow performance cannot be separated from drum design.
 
 Drum diameter, drum length, and the internal geometry of the roasting drum all influence how air penetrates the bean mass.
 
-If you haven't already, read our article on [drum diameter vs. batch capacity: what really matters?](/blog/drum-diameter-vs-batch-capacity) to understand how drum geometry affects roasting performance.
+If you haven't already, read our article on [**Drum Diameter vs. Batch Capacity: what really matters?**](/blog/drum-diameter-vs-batch-capacity) to understand how drum geometry affects roasting performance.
 
 Poorly engineered drum proportions can lead to:
 
@@ -153,7 +153,7 @@ Insufficient airflow can:
 * Create unstable internal pressure
 * Cause sudden increases in the Rate of Rise
 
-As discussed in our guide to [**Heat Transfer In Coffee Roasting]( https://krafferoasters.com/blog/heat-transfer-in-coffee-roasting/), successful roasting depends on balancing conduction, convection, and radiation rather than maximizing any single heat source.
+As discussed in our guide to [**Heat Transfer In Coffee Roasting**]( https://krafferoasters.com/blog/heat-transfer-in-coffee-roasting/), successful roasting depends on balancing conduction, convection, and radiation rather than maximizing any single heat source.
 
 Professional roasting is built on balance—not simply power.
 
