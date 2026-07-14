@@ -183,7 +183,7 @@ Weak airflow systems often result in:
 
 Over time, these issues reduce productivity and increase operating costs.
 
-If you're comparing machines for continuous production, begin with our [complete guide to commercial coffee roasting machines](/blog/commercial-coffee-roasting-machine-guide) to understand the engineering differences that matter most.
+If you're comparing machines for continuous production, begin with our [**Complete Guide to Commercial Coffee Roasting Machines**]( https://krafferoasters.com/blog/how-to-start-coffee-roasting-business/) to understand the engineering differences that matter most.
 
 ---
 
