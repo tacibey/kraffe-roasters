@@ -6,7 +6,7 @@ import CardRelated from "@components/ui/cards/CardRelated.astro";
 import Bookmark from "@components/ui/buttons/Bookmark.astro";
 import SocialShare from "@components/ui/buttons/SocialShare.astro";
 import PostFeedback from "@components/ui/feedback/PostFeedback.astro";
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import { capitalize, formatDate } from "@utils/utils";
 import { getCollection, render } from "astro:content"; // render eklendi
 import type { CollectionEntry } from "astro:content";
@@ -20,7 +20,7 @@ export async function getStaticPaths() {
   return blogPosts.map((post) => {
     const idWithoutLang = post.id.replace(/^fr\//, "");
     return {
-      params: { lang: "fr", id: idWithoutLang }, // lang: "fr" eklendi, id yerine slug
+      params: { id: idWithoutLang },
       props: { post },
     };
   });
@@ -42,9 +42,70 @@ const relatedPosts: CollectionEntry<"blog">[] = blogPosts.filter(
 );
 
 const pageTitle: string = `${post.data.title} | ${SITE.title}`;
+
+const postSlug = post.id.replace(/^fr\//, "");
+const postUrl = new URL(`/fr/blog/${postSlug}/`, SITE.url).href;
+
+// BlogPosting Schema.org Structured Data
+const postImage = await getImage({ src: post.data.cardImage, format: "webp" });
+const postImageUrl = new URL(postImage.src, SITE.url).href;
+
+let authorImageUrl: string | undefined;
+if (post.data.authorImage) {
+  const authorImg = await getImage({ src: post.data.authorImage, format: "webp" });
+  authorImageUrl = new URL(authorImg.src, SITE.url).href;
+}
+
+const blogPostingSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": postUrl,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": postUrl,
+  },
+  "headline": post.data.title,
+  "description": post.data.description,
+  "url": postUrl,
+  "image": postImageUrl,
+  "datePublished": post.data.pubDate.toISOString(),
+  "dateModified": post.data.pubDate.toISOString(),
+  "author": {
+    "@type": "Person",
+    "name": post.data.author,
+    ...(authorImageUrl ? { "image": authorImageUrl } : {}),
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kraffe Roasters",
+    "url": SITE.url,
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${SITE.url}/kraffe-logo.png`,
+    },
+  },
+  "inLanguage": "fr-FR",
+  "isPartOf": {
+    "@type": "Blog",
+    "@id": `${SITE.url}/fr/blog/`,
+    "name": "Blog Kraffe Roasters",
+    "url": `${SITE.url}/fr/blog/`,
+  },
+  ...(post.data.tags && post.data.tags.length > 0
+    ? {
+        "keywords": post.data.tags.join(", "),
+        "articleSection": post.data.tags[0],
+      }
+    : {}),
+};
 ---
 
-<MainLayout title={pageTitle} lang="fr">
+<MainLayout
+  title={pageTitle}
+  lang="fr"
+  meta={post.data.description}
+  structuredData={blogPostingSchema}
+>
   <section class="mx-auto max-w-3xl px-4 pb-12 pt-6 sm:px-6 lg:px-8 lg:pt-10">
     <div class="max-w-2xl">
       <div class="mb-6 flex items-center justify-between">
