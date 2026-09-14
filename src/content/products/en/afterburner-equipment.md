@@ -5,6 +5,8 @@ main:
   id: 18
   content: |
     KRAFFE designs and offers you the best fitting product and after you start to use the products, KRAFFE offers you a 7/24 online customer support.
+  subContent: |
+    The Kraffe Afterburner is an essential environmental and safety solution engineered to eliminate smoke, volatile organic compounds (VOCs), and odor generated during commercial and industrial coffee roasting. Operating at high thermal destruction temperatures, it oxidizes particulate emissions and exhaust gases before they reach the atmosphere, ensuring complete compliance with municipal clean-air regulations and environmental standards. Built with high-temperature ceramic insulation, low-NOx burner technology, and automatic temperature regulation synchronized with the roasting machine, the Kraffe Afterburner provides clean, safe, and community-friendly roasting operation for any urban or commercial facility.
   imgCard: "@/images/EQUIPMENTS2.avif"
   # --- DÜZELTME BAŞLANGICI ---
   # Zorunlu alan olan imgMain, slider'ın ilk resmi olarak geri eklendi.

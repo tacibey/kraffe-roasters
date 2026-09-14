@@ -5,6 +5,8 @@ main:
   id: 19 # ID İngilizce ile aynı kalmalı
   content: |
     KRAFFE conçoit et vous offre le produit le mieux adapté. Après que vous commenciez à utiliser les produits, KRAFFE vous offre un support client en ligne 7j/7 24h/24.
+  subContent: |
+    Le chargeur pneumatique Kraffe automatise le transfert des sacs de café vert au sol vers la trémie du torréfacteur, éliminant les efforts physiques manuels et améliorant la sécurité au travail. Grâce à une aspiration pneumatique douce, il transporte les grains verts sans les endommager et alimente la trémie avec précision d'un simple geste. Équipé d'un filtre à poussières intégré et d'une canne d'aspiration robuste en acier inoxydable, le chargeur Kraffe réduit les poussières dans l'atelier et accélère la cadence entre vos différentes fournées.
   imgCard: "@/images/EQUIPMENTS2.avif" # İngilizce ile aynı, gerekirse değiştirin
   imgMain: "@/images/EQUIPMENTS2.avif" # İngilizce ile aynı, gerekirse değiştirin
   imgAlt: "Chargeur Équipements KRAFFE" # imgAlt güncellendi

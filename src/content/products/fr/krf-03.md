@@ -5,6 +5,8 @@ main:
   id: 7 # ID İngilizce ile aynı kalmalı
   content: |
     Découvrez le Kraffe KRF-03 : Torréfacteur Commercial de 3 kg – Idéal pour les Petits Cafés et les Torréfacteurs de Spécialité.
+  subContent: |
+    Le Kraffe KRF-03 est la machine idéale pour les cafés de spécialité, les micro-torréfactions et les centres de formation souhaitant torréfier sur place. Alliant des composants industriels à un encombrement compact, le KRF-03 dispose d'un tambour à double paroi et d'un brûleur prémélangé haute performance garantissant un transfert thermique homogène et une réactivité immédiate. Grâce à une vitesse de tambour réglable, une gestion fine du flux d'air et une compatibilité logicielle totale (Cropster, Artisan), le KRF-03 permet aux professionnels de garantir une fraîcheur et une qualité de tasse exemplaires lot après lot.
   imgCard: "@/images/03.avif"
   imgMain: "@/images/kraffe-krf-03.webp"
   imgAlt: "Machine à torréfier commerciale Kraffe KRF-03 3 kg, vue de côté"

@@ -5,6 +5,8 @@ main:
   id: 7
   content: |
     Discover the Kraffe KRF-03: 3kg Commercial Coffee Roaster – Ideal for Small Cafes and Specialty Roasters.
+  subContent: |
+    The Kraffe KRF-03 is the ideal workhorse for specialty coffee shops, boutique roasteries, and dedicated training labs looking to roast fresh coffee in-house. Combining commercial-grade components with a compact shop-friendly footprint, the KRF-03 features a double-walled drum and a high-efficiency premix burner that guarantee even heat transfer and rapid thermal response. Operators benefit from independent drum speed, precision airflow modulation, and full digital connectivity with third-party profiling suites like Cropster and Artisan. With quick cooling cycles and robust construction, the KRF-03 allows specialty cafes to deliver consistent, aromatic roast profiles batch after batch with complete confidence.
   imgCard: "@/images/03.avif"
   imgMain: "@/images/kraffe-krf-03.webp"
   imgAlt: "Kraffe Primi 3 kg Commercial Coffee Roasting Machine, side view"

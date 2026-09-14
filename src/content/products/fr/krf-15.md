@@ -5,6 +5,8 @@ main:
   id: 10 # ID İngilizce ile aynı kalmalı
   content: |
     Découvrez KRAFFE KRF-15 : machine à torréfier commerciale de 15 kg conçue pour les torréfactions établies et les opérations de vente en gros. Conçue pour offrir des performances constantes, une flexibilité de profil et une efficacité pour la torréfaction quotidienne à haut volume.
+  subContent: |
+    Conçu pour les opérations de café de spécialité exigeantes, le KRF-15 allie savoir-faire artisanal et fiabilité industrielle. Doté d'un tambour de torréfaction à double paroi de forte épaisseur, de brûleurs prémélangés modulés à haute efficacité et d'une gestion indépendante du flux d'air, il offre aux maîtres torréfacteurs un contrôle total du transfert thermique par convection et conduction. Qu'il s'agisse d'enchaîner des cycles de production continus ou d'affiner des profils d'origine unique délicats, le KRF-15 garantit une récupération rapide entre les lots, une réactivité thermique optimale et une stabilité thermique exemplaire. Sa compatibilité parfaite avec Artisan et Cropster assure la reproductibilité fidèle de vos profils signature à chaque lot, permettant à votre atelier de grandir tout en préservant l'excellence en tasse.
   imgCard: "@/images/15.avif"
   imgMain: "@/images/krf-15.webp"
   imgAlt: "Machine à torréfier commerciale Kraffe KRF-15 15 kg, vue de côté"

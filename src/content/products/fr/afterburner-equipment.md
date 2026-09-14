@@ -5,6 +5,8 @@ main:
   id: 18 # ID İngilizce ile aynı kalmalı
   content: |
     KRAFFE conçoit et vous offre le produit le mieux adapté. Après que vous commenciez à utiliser les produits, KRAFFE vous offre un support client en ligne 7j/7 24h/24.
+  subContent: |
+    L'afterburner (postcombustion) Kraffe est une solution environnementale et de sécurité indispensable pour éliminer les fumées, les odeurs et les composés organiques volatils émis lors de la torréfaction commerciale et industrielle. Fonctionnant à de hautes températures de destruction thermique, il oxyde les gaz d'échappement avant leur rejet dans l'atmosphère, assurant une conformité totale avec les normes environnementales urbaines. Conçu avec une isolation céramique haute température et une régulation automatique synchronisée avec le torréfacteur, il garantit une exploitation propre et sécurisée.
   imgCard: "@/images/EQUIPMENTS2.avif" # İngilizce ile aynı, gerekirse değiştirin
   imgMain: "@/images/EQUIPMENTS2.avif" # İngilizce ile aynı, gerekirse değiştirin
   imgAlt: "Post-Combusteur Équipements KRAFFE"

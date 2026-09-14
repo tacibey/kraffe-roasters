@@ -5,6 +5,8 @@ main:
   id: 13
   content: |
     Introducing KRAFFE KRF-60: 60KG Commercial Coffee Roasting Machine, designed for large-scale roasters and high-demand operations seeking unparalleled consistency, premium quality, and maximum efficiency in every batch.
+  subContent: |
+    Engineered for industrial manufacturing plants, private-label roasters, and national coffee distributors, the Kraffe KRF-60 delivers continuous high-volume production with state-of-the-art automation. Equipped with an industrial-grade premix combustion system, heavy cast and steel drum geometry, and multi-stage airflow controls, the KRF-60 produces perfectly balanced, consistent batches at 60kg per drop. Full PLC automation allows operators to store hundreds of custom recipes, regulate burner output dynamically, and interface with factory management systems. With built-in safety interlocks, water quench systems, and heavy-duty cooling agitators, the KRF-60 ensures non-stop industrial reliability.
   imgCard: "@/images/60.avif"
   imgMain: "@/images/kraffe-industrial-coffee-roaster-machine.webp"
   imgAlt: "Kraffe 60 kg industrial Coffee Roasting Machine, side view"

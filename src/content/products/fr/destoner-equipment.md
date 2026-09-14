@@ -5,6 +5,8 @@ main:
   id: 17 # ID İngilizce ile aynı kalmalı
   content: |
     KRAFFE conçoit et vous offre le produit le mieux adapté. Après que vous commenciez à utiliser les produits, KRAFFE vous offre un support client en ligne 7j/7 24h/24.
+  subContent: |
+    L'épierreur Kraffe protège vos moulins, vos lignes d'emballage et la réputation de votre marque en utilisant une suspension pneumatique précise pour séparer les cailloux, métaux et débris lourds du café torréfié. En ajustant la vitesse du flux d'air selon la densité du café, l'appareil aspire les grains torréfiés vers la trémie tout en laissant retomber les éléments étrangers dans un tiroir collecteur. Doté d'une structure en acier inoxydable facile à nettoyer et d'une turbine silencieuse, l'épierreur Kraffe est une étape de contrôle qualité indispensable pour tout atelier professionnel.
   imgCard: "@/images/EQUIPMENTS2.avif"
   imgMain: "@/images/EQUIPMENTS2.avif"
   imgAlt: "Équipements KRAFFE"

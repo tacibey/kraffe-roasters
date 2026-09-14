@@ -5,6 +5,8 @@ main:
   id: 5 # ID İngilizce ile aynı kalmalı ki sıralama bozulmasın
   content: |
     Découvrez KRAFFE DIMI : Machine à torréfier commerciale de 0,5KG conçue pour les micro-torréfacteurs, les laboratoires de café et les centres de formation recherchant précision, constance et contrôle total à chaque torréfaction de petits lots.
+  subContent: |
+    Le Kraffe Dimi est l'instrument de précision par excellence pour les laboratoires sensoriels, les académies de barista et les importateurs de café vert exigeant la fidélité d'un torréfacteur à tambour sur de très petits lots. Conçu avec une architecture thermique robuste et une source de chaleur modulable de haute précision, le Dimi permet un profilage méticuleux de 100g à 500g sans perte de chaleur. Ses commandes intuitives permettent d'ajuster avec précision la vitesse du tambour, le flux d'air et la puissance du brûleur, offrant une répétabilité scientifique et une intégration logicielle complète avec les plateformes de profilage modernes.
   imgCard: "@/images/dimi1.avif"
   imgMain: "@/images/dimi-test.avif" # İngilizce versiyondaki gibi dimi-test.avif kullanıldı
   imgAlt: "Machine à torréfier commerciale Kraffe Dimi 0,5 kg, vue de côté"

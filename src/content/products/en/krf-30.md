@@ -5,6 +5,8 @@ main:
   id: 12
   content: |
     Introducing KRAFFE KRF-30: 30KG Commercial Coffee Roasting Machine, perfect for large-scale roasters and high-volume operations seeking consistent, high-quality results with energy-efficient performance.
+  subContent: |
+    The Kraffe KRF-30 represents a new standard in medium-to-large industrial coffee roasting, engineered for commercial enterprises that prioritize high tonnage alongside gourmet flavor development. Its heavy-duty drum construction and advanced thermal insulation shield the roasting environment from external temperature variations, ensuring uniform conductive and convective heat penetration into green beans. Integrated pneumatic controls, automated burner modulation, and high-velocity cooling trays ensure seamless operational flow and minimal turnaround time between 30kg batches. The KRF-30 provides the endurance, fuel economy, and repeatability required to scale commercial coffee packaging and distribution networks.
   imgCard: "@/images/30.avif"
   imgMain: "@/images/30.avif"
   imgAlt: "Kraffe 30 kg industrial Coffee Roasting Machine, side view"

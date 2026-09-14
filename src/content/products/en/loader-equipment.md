@@ -5,6 +5,8 @@ main:
   id: 19
   content: |
     KRAFFE designs and offers you the best fitting product and after you start to use the products, KRAFFE offers you a 7/24 online customer support.
+  subContent: |
+    The Kraffe Green Bean Loader automates the heavy physical lifting of green coffee from ground level bags into the roaster hopper, improving workplace ergonomics, operator safety, and batch cycle speed. Utilizing a gentle pneumatic suction mechanism, it transports raw green beans without fracturing or damaging the bean structure, delivering precise batch weights directly into the hopper with push-button simplicity. Equipped with an integrated dust filter and durable stainless steel suction wand, the Kraffe Loader reduces airborne dust in your roasting area, streamlines consecutive batch preparation, and accelerates your overall daily production capacity.
   imgCard: "@/images/EQUIPMENTS2.avif"
   imgMain: "@/images/EQUIPMENTS2.avif"
   imgAlt: "KRAFFE Equipment Afterburner"

@@ -5,6 +5,8 @@ main:
   id: 6
   content: |
     Introducing KRAFFE PRIMI: 1KG Commercial Coffee Roasting Machine engineered for specialty cafes, roastery startups, and sample roasting with a perfect balance of control, consistency, and craftsmanship.
+  subContent: |
+    Engineered specifically for specialty coffee laboratories, green coffee evaluation, and artisan micro-batch roasting, the Kraffe Primi delivers professional drum roasting precision in a compact footprint. It features an advanced modulated burner system and variable airflow control, allowing roastmasters to replicate production roast dynamics on a sample scale. Sensitive thermocouple probes track bean and environmental temperatures with split-second precision, seamlessly feeding real-time roast curves directly into Artisan or Cropster. Whether you are dialing in origin profiles, conducting quality control cupping batches, or roasting high-scoring microlots for boutique retail, the Primi provides the thermal agility, responsiveness, and repeatability necessary for uncompromising specialty coffee development.
   imgCard: "@/images/primi1.avif"
   imgMain: "@/images/kraffe-primi-2.avif"
   imgAlt: "Kraffe Primi 1 kg Commercial Coffee Roasting Machine, side view"

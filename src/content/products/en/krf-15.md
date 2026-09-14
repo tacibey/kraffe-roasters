@@ -5,6 +5,8 @@ main:
   id: 10
   content: |
     Introducing KRAFFE KRF-15: 15kg commercial coffee roasting machine engineered for established roasteries and wholesale operations. Designed to deliver consistent performance, profile flexibility, and efficiency for daily high-volume roasting.
+  subContent: |
+    Built for high-demand specialty coffee operations, the KRF-15 bridges the gap between artisan craft and industrial reliability. Featuring a heavy-gauge double-walled roasting drum, high-efficiency modulated premix burners, and independent airflow management, it gives roastmasters uncompromising control over convection and conduction heat transfer. Whether running continuous back-to-back production cycles or fine-tuning delicate single-origin profiles, the KRF-15 delivers rapid batch recovery, pinpoint temperature responsiveness, and exceptional thermal stability. Seamless integration with leading profiling suites like Artisan and Cropster ensures your signature flavor profiles are faithfully replicated in every batch, empowering your roastery to scale without sacrificing cup quality.
   imgCard: "@/images/15.avif"
   imgMain: "@/images/krf-15.webp"
   imgAlt: "Kraffe 15 kg Commercial Coffee Roasting Machine, side view"

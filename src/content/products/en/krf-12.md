@@ -5,6 +5,8 @@ main:
   id: 9
   content: |
     Introducing KRAFFE KRF-12: 12kg commercial coffee roasting machine built for medium-sized roasteries aiming for repeatable, high-quality results. Perfect for professionals expanding their output while maintaining full control over the roasting process.
+  subContent: |
+    The Kraffe KRF-12 is engineered for production-focused commercial roasteries that demand high daily output without sacrificing specialty-grade profile control. With its durable double-walled drum, powerful modulated premix burner, and optimized airflow dynamics, the KRF-12 delivers exceptional thermal inertia and rapid recovery times between consecutive batches. Roastmasters enjoy granular real-time feedback through sensitive thermocouples and comprehensive software automation, ensuring every roast profile is replicated with surgical precision. Built for continuous daily roasting cycles and easy maintenance, the KRF-12 is the definitive backbone for growing wholesale roasters and busy regional coffee brands.
   imgCard: "@/images/12.avif"
   imgMain: "@/images/12.avif"
   imgAlt: "Kraffe 12 kg Commercial Coffee Roasting Machine, side view"

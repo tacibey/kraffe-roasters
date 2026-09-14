@@ -5,6 +5,8 @@ main:
   id: 17
   content: |
     KRAFFE designs and offers you the best fitting product and after you start to use the products, KRAFFE offers you a 7/24 online customer support.
+  subContent: |
+    The Kraffe Destoner protects expensive grinding equipment, packaging machinery, and brand integrity by utilizing precision pneumatic air suspension to separate stones, metals, and heavy debris from roasted coffee. By calibrating the airflow velocity against the specific density of roasted coffee beans, the destoner lifts roasted coffee smoothly into the holding chamber while foreign high-density contaminants drop into a secure collection drawer. Featuring an easy-clean stainless steel hopper, quiet high-efficiency vacuum blower, and compact footprint, the Kraffe Destoner is an indispensable quality assurance stage for any commercial specialty roastery.
   imgCard: "@/images/EQUIPMENTS2.avif"
   imgMain: "@/images/EQUIPMENTS2.avif"
   imgAlt: "KRAFFE Equipments"

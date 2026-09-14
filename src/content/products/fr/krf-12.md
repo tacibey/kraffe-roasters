@@ -5,6 +5,8 @@ main:
   id: 9 # ID İngilizce ile aynı kalmalı
   content: |
     Découvrez KRAFFE KRF-12 : machine à torréfier commerciale de 12 kg conçue pour les torréfactions de taille moyenne visant des résultats reproductibles et de haute qualité. Parfaite pour les professionnels qui augmentent leur production tout en conservant un contrôle total sur le processus de torréfaction.
+  subContent: |
+    Le Kraffe KRF-12 est conçu pour les ateliers de production exigeant un rendement quotidien élevé tout en maintenant une maîtrise rigoureuse des profils de café de spécialité. Avec son tambour robuste à double paroi, son puissant brûleur prémélangé modulé et sa dynamique de flux d'air optimisée, le KRF-12 offre une remarquable inertie thermique et un temps de récupération très court entre deux fournées. Grâce à ses sondes ultra-réactives et à sa connectivité logicielle complète, chaque profil est reproduit avec une précision chirurgicale, faisant du KRF-12 la référence pour les distributeurs et torréfacteurs grossistes.
   imgCard: "@/images/12.avif"
   imgMain: "@/images/12.avif" # İngilizce versiyondaki görsel kullanıldı
   imgAlt: "Machine à torréfier commerciale Kraffe KRF-12 12 kg, vue de côté"

@@ -1,0 +1,129 @@
+---
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  headings: Heading[];
+  title?: string;
+  isMobile?: boolean;
+}
+
+const { headings = [], title = "Table of Contents", isMobile = false } = Astro.props;
+
+// Filter to only h2 and h3
+const filteredHeadings = headings.filter(
+  (heading) => heading.depth === 2 || heading.depth === 3
+);
+---
+
+{filteredHeadings.length > 0 && (
+  isMobile ? (
+    <!-- Mobile Inline Collapsible Table of Contents -->
+    <details class="group my-6 rounded-xl border border-neutral-200/80 bg-neutral-100/60 p-4 dark:border-neutral-700/60 dark:bg-neutral-900/60 lg:hidden">
+      <summary class="flex cursor-pointer items-center justify-between font-semibold text-neutral-800 dark:text-neutral-200 select-none list-none [&::-webkit-details-marker]:hidden">
+        <span class="flex items-center gap-2 text-sm">
+          <svg class="size-4 text-orange-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="21" y1="6" x2="3" y2="6"></line>
+            <line x1="15" y1="12" x2="3" y2="12"></line>
+            <line x1="17" y1="18" x2="3" y2="18"></line>
+          </svg>
+          {title}
+        </span>
+        <svg class="size-4 text-neutral-500 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </summary>
+      <ul class="mt-3 space-y-2 border-t border-neutral-200/60 pt-3 text-sm dark:border-neutral-700/60">
+        {filteredHeadings.map((heading) => (
+          <li class={heading.depth === 3 ? "ms-3 text-xs" : "text-sm"}>
+            <a
+              href={`#${heading.slug}`}
+              class="block py-1 text-neutral-600 transition-colors hover:text-orange-500 dark:text-neutral-400 dark:hover:text-orange-400"
+            >
+              {heading.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </details>
+  ) : (
+    <!-- Desktop Sticky Sidebar Table of Contents -->
+    <aside class="sticky top-24 self-start max-h-[calc(100vh-7rem)] overflow-y-auto rounded-xl border border-neutral-200/60 bg-neutral-100/50 p-5 backdrop-blur-xs dark:border-neutral-700/50 dark:bg-neutral-900/40">
+      <div class="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+        <svg class="size-4 text-orange-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="21" y1="6" x2="3" y2="6"></line>
+          <line x1="15" y1="12" x2="3" y2="12"></line>
+          <line x1="17" y1="18" x2="3" y2="18"></line>
+        </svg>
+        <span>{title}</span>
+      </div>
+      <nav>
+        <ul class="space-y-1.5 text-sm" id="desktop-toc">
+          {filteredHeadings.map((heading) => (
+            <li class={heading.depth === 3 ? "ms-3 text-xs" : ""}>
+              <a
+                href={`#${heading.slug}`}
+                data-slug={heading.slug}
+                class="toc-desktop-link block rounded-sm px-2 py-1 text-neutral-600 transition duration-150 hover:bg-neutral-200/50 hover:text-orange-500 dark:text-neutral-400 dark:hover:bg-neutral-800/50 dark:hover:text-orange-400 line-clamp-2"
+              >
+                {heading.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </aside>
+  )
+)}
+
+<script>
+  function setupTocHighlight() {
+    const links = document.querySelectorAll<HTMLAnchorElement>("#desktop-toc a.toc-desktop-link");
+    if (!links.length) return;
+
+    const slugs = Array.from(links).map((l) => l.getAttribute("data-slug")).filter(Boolean) as string[];
+    const headingElements = slugs
+      .map((slug) => document.getElementById(slug))
+      .filter((el): el is HTMLElement => el !== null);
+
+    if (!headingElements.length) return;
+
+    let activeSlug: string | null = null;
+
+    function updateActiveHeading() {
+      const scrollPosition = window.scrollY + 120; // offset below sticky header
+      let currentSlug: string | null = null;
+
+      for (const el of headingElements) {
+        if (el.offsetTop <= scrollPosition) {
+          currentSlug = el.id;
+        } else {
+          break;
+        }
+      }
+
+      if (currentSlug !== activeSlug) {
+        activeSlug = currentSlug;
+        links.forEach((link) => {
+          const isTarget = link.getAttribute("data-slug") === activeSlug;
+          if (isTarget) {
+            link.classList.add("text-orange-500", "dark:text-orange-400", "font-semibold", "bg-orange-500/10");
+            link.classList.remove("text-neutral-600", "dark:text-neutral-400");
+          } else {
+            link.classList.remove("text-orange-500", "dark:text-orange-400", "font-semibold", "bg-orange-500/10");
+            link.classList.add("text-neutral-600", "dark:text-neutral-400");
+          }
+        });
+      }
+    }
+
+    window.addEventListener("scroll", updateActiveHeading, { passive: true });
+    updateActiveHeading();
+  }
+
+  document.addEventListener("DOMContentLoaded", setupTocHighlight);
+  document.addEventListener("astro:page-load", setupTocHighlight);
+</script>

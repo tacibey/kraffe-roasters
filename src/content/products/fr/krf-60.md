@@ -5,6 +5,8 @@ main:
   id: 13 # ID İngilizce ile aynı kalmalı
   content: |
     Découvrez KRAFFE KRF-60 : Machine à torréfier commerciale de 60KG, conçue pour les torréfacteurs à grande échelle et les opérations à forte demande recherchant une constance inégalée, une qualité supérieure et une efficacité maximale à chaque lot.
+  subContent: |
+    Conçu pour les usines de transformation du café, les marques blanches et les distributeurs nationaux, le Kraffe KRF-60 assure une production industrielle continue avec un haut niveau d'automatisation. Doté d'une combustion prémélangée industrielle, d'une géométrie de tambour en acier épais et de régulateurs de flux d'air multi-étages, il garantit une homogénéité irréprochable sur des fournées de 60 kg. L'automatisation par automate programmable (PLC) permet d'enregistrer de multiples profils et de s'intégrer aux flux de production de l'usine, tout en assurant une sécurité absolue et des cadences élevées.
   imgCard: "@/images/60.avif"
   imgMain: "@/images/kraffe-industrial-coffee-roaster-machine.webp"
   imgAlt: "Machine à torréfier industrielle Kraffe KRF-60 60 kg, vue de côté"

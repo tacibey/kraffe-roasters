@@ -5,6 +5,8 @@ main:
   id: 5
   content: |
     Introducing KRAFFE DIMI: 0.5KG Commercial Coffee Roasting Machine crafted for micro-roasters, coffee labs, and training centers seeking precision, consistency, and full control in every small-batch roast.
+  subContent: |
+    The Kraffe Dimi is the ultimate precision instrument for coffee sensory labs, barista academies, and green bean importers who demand true drum roasting fidelity on miniature batches. Built with heavy-duty thermal architecture and a high-accuracy variable heat source, Dimi enables meticulous profile development from 100g to 500g without heat loss or erratic temperature spikes. Its intuitive controls provide fine-tuned management of drum speed, airflow velocity, and burner output, empowering roasters to pinpoint first crack nuances and caramelization stages effortlessly. Fully compatible with modern roast logging software, the Dimi makes sample evaluation rigorous, consistent, and scientifically repeatable.
   imgCard: "@/images/dimi1.avif"
   imgMain: "@/images/dimi-test.avif"
   imgAlt: "Kraffe Dimi 0.5 kg Commercial Coffee Roasting Machine, side view"

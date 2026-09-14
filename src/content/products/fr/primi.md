@@ -5,6 +5,8 @@ main:
   id: 6 # ID İngilizce ile aynı kalmalı
   content: |
     Découvrez KRAFFE PRIMI : Machine à torréfier commerciale de 1KG conçue pour les cafés de spécialité, les torréfactions en démarrage et la torréfaction d'échantillons, offrant un équilibre parfait entre contrôle, constance et savoir-faire.
+  subContent: |
+    Spécialement conçu pour les laboratoires de café de spécialité, l'évaluation des cafés verts et la torréfaction artisanale en micro-lots, le Kraffe Primi offre la précision d'un torréfacteur à tambour professionnel dans un format compact. Doté d'un brûleur modulé avancé et d'un contrôle variable du flux d'air, il permet de reproduire les dynamiques de production industrielle à échelle d'échantillon. Ses sondes thermocouples ultra-sensibles suivent les températures du grain et de l'environnement avec une précision instantanée, envoyant les courbes de torréfaction en temps réel sur Artisan ou Cropster. Idéal pour profiler les origines et assurer le contrôle qualité de vos cafés les plus prestigieux.
   imgCard: "@/images/primi1.avif"
   imgMain: "@/images/kraffe-primi-2.avif"
   imgAlt: "Machine à torréfier commerciale Kraffe Primi 1 kg, vue de côté"

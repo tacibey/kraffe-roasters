@@ -5,6 +5,8 @@ main:
   id: 11 # ID İngilizce ile aynı kalmalı
   content: |
     Découvrez KRAFFE KRF-20 : machine à torréfier industrielle de 20 kg conçue pour les torréfactions professionnelles ayant des demandes à grande échelle. Construite pour combiner torréfaction de précision, automatisation et constance pour les opérations nécessitant une production fiable et continue.
+  subContent: |
+    Conçu pour répondre aux exigences intensives des torréfacteurs grossistes et des unités de production industrielle, le Kraffe KRF-20 combine une puissance de chauffe imposante à une finesse de contrôle exemplaire. Équipé d'un tambour renforcé à forte inertie thermique, d'un système de brûleur prémélangé de pointe et de circuits d'air indépendants pour la torréfaction et le refroidissement, il garantit des températures de tambour stables tout au long de la journée. Le KRF-20 maximise votre productivité tout en optimisant la consommation de gaz pour une rentabilité opérationnelle maximale.
   imgCard: "@/images/20.avif"
   imgMain: "@/images/krf-20.webp"
   imgAlt: "Machine à torréfier commerciale Kraffe KRF-20 20 kg, vue de côté"

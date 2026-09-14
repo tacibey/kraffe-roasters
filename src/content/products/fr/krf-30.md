@@ -5,6 +5,8 @@ main:
   id: 12 # ID İngilizce ile aynı kalmalı
   content: |
     Découvrez KRAFFE KRF-30 : Machine à torréfier commerciale de 30KG, parfaite pour les torréfacteurs à grande échelle et les opérations à haut volume recherchant des résultats constants et de haute qualité avec des performances écoénergétiques.
+  subContent: |
+    Le Kraffe KRF-30 établit une nouvelle référence pour la torréfaction semi-industrielle et industrielle, pensé pour les entreprises privilégiant un tonnage élevé allié au respect des arômes fins. Sa conception de tambour renforcé et son isolation thermique de premier ordre protègent le milieu de torréfaction des variations extérieures, assurant une pénétration thermique uniforme au cœur du grain. Ses commandes pneumatiques, sa modulation de flamme automatisée et son bac de refroidissement haute vitesse garantissent un cycle de travail continu et efficace pour accompagner l'expansion de votre réseau de distribution.
   imgCard: "@/images/30.avif"
   imgMain: "@/images/30.avif" # İngilizce versiyondaki görsel kullanıldı
   imgAlt: "Machine à torréfier industrielle Kraffe KRF-30 30 kg, vue de côté"

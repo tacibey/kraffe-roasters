@@ -5,6 +5,8 @@ main:
   id: 8 # ID İngilizce ile aynı kalmalı
   content: |
     Découvrez KRAFFE KRF-06 : machine à torréfier commerciale de 6 kg conçue pour les entreprises de café de spécialité en croissance et la production à petite échelle. Idéale pour les torréfacteurs qui recherchent la précision, l'efficacité énergétique et une qualité constante à chaque lot.
+  subContent: |
+    Conçu pour les ateliers de torréfaction en plein essor et les entreprises de café de spécialité, le Kraffe KRF-06 fait le pont parfait entre savoir-faire artisanal et rentabilité commerciale. Doté d'une masse thermique imposante et d'un brûleur prémélangé à haute efficacité énergétique, il conserve une stabilité thermique remarquable même lors de sessions continues. Son écran tactile intuitif de 10 pouces, ses thermocouples haute précision et son flux d'air modulable permettent de sculpter chaque profil de torréfaction au degré près. Le KRF-06 assure une consistance sans faille pour satisfaire votre clientèle de détail comme vos clients professionnels.
   imgCard: "@/images/06.avif"
   imgMain: "@/images/krf-06.webp"
   imgAlt: "Machine à torréfier commerciale Kraffe KRF-06 6 kg, vue de côté"

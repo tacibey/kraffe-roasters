@@ -19,6 +19,7 @@ const productsCollection = defineCollection({
       imgAlt: z.string(),
       // --- EKLENEN KISIM BAŞLANGICI ---
       imageSlider: z.array(image()).optional(),
+      subContent: z.string().optional(),
       // --- EKLENEN KISIM SONU ---
     }),
     tabs: z.array(
@@ -76,6 +77,7 @@ const blogCollection = defineCollection({
     authorImage: image(),
     authorImageAlt: z.string(),
     pubDate: z.date(),
+    updatedDate: z.date().optional(),
     cardImage: image(),
     cardImageAlt: z.string(),
     readTime: z.number(),
