@@ -9,6 +9,11 @@ cardImage: "@/images/blog/mistakes.jpg"
 cardImageAlt: "KRF-30 in Nepal"
 readTime: 7
 tags: ["coffee roaster machine", "home coffee roaster", "coffee roasting business", "commercial roaster", "industrial roaster", "drum roaster", "coffee roaster capacity", "kraffe roasters", "coffee roaster machine price", "coffee roastery setup", "coffee business investment", "coffee roasting guide 2026", "coffee roastery income"]
+keyTakeaways:
+  - "Failing to account for a 15–18% green-to-roasted weight loss distorts product pricing and margin calculations."
+  - "Concentrating entirely on roasting mechanics while neglecting customer acquisition and distribution channels jeopardizes cash flow."
+  - "Overbuying seasonal green coffee without climate-controlled storage degrades raw material quality rapidly."
+  - "Establishing standardized roast profile logging and daily cupping protocols from day one guarantees brand reputation."
 ---
 
 

@@ -9,6 +9,11 @@ cardImage: "@/images/blog/Commercial Roaster Production Per Day.jpg"
 cardImageAlt: "KRF-12 Sample Spoon"
 readTime: 7
 tags: ["coffee roaster machine", "home coffee roaster", "coffee roasting business", "commercial roaster", "industrial roaster", "drum roaster", "coffee roaster capacity", "kraffe roasters", "coffee roaster machine price", "coffee roastery setup", "coffee business investment"]
+keyTakeaways:
+  - "Commercial production capacity equals (Batch Size × Batches Per Hour × Roasted Yield Percentage × Operating Hours)."
+  - "Expect roughly 3 batches per hour in realistic specialty roasting workflows including loading, roasting, cooling, and preheating."
+  - "A 6 kg roaster comfortably yields 75–90 kg of roasted coffee per 6-hour production day after accounting for weight loss."
+  - "A 15 kg roaster produces 200–240 kg per day, providing substantial room for wholesale growth without running overtime shifts."
 ---
 
 

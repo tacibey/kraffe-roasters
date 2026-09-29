@@ -9,6 +9,11 @@ cardImage: "@/images/blog/WhatsApp Image 2025-07-23 at 11.16.55 (1).jpeg"
 cardImageAlt: "Comparatif torréfacteur à gaz vs torréfacteur électrique Kraffe"
 readTime: 8
 tags: ["torréfacteur à gaz", "torréfacteur électrique", "machine à torréfier", "comparatif torréfacteur", "torréfacteur commercial", "kraffe roasters", "énergie torréfaction"]
+keyTakeaways:
+  - "Les torréfacteurs à gaz offrent une réactivité thermique instantanée et une puissance calorifique supérieure pour la production commerciale."
+  - "Les torréfacteurs électriques simplifient l'installation en s'affranchissant des réseaux gaz et des conduits complexes."
+  - "Les modèles électriques modernes出荷 en micro-torréfaction, bien que l'inertie des résistances impose d'anticiper les réglages."
+  - "Le coût d'exploitation dépend principalement du différentiel local entre tarif de l'électricité et coût du gaz (GN ou GPL)."
 ---
 
 # Torréfacteurs Gaz vs Électrique : Quelle Énergie pour Votre Atelier ?

@@ -9,6 +9,11 @@ cardImage: "@/images/blog/Choosing Coffee Roaster for Startup.jpg"
 cardImageAlt: "KRF-03"
 readTime: 6
 tags: ["coffee roaster machine", "home coffee roaster", "coffee roasting business", "commercial roaster", "industrial roaster", "drum roaster", "coffee roaster capacity", "kraffe roasters", "coffee roaster machine price", "coffee roastery setup", "coffee business investment"]
+keyTakeaways:
+  - "Base your machine size on projected 18-month roasted coffee demand rather than day-one volume."
+  - "A 3 kg to 6 kg roaster strikes the ideal balance for startups, delivering agile batch flexibility with sustainable hourly output."
+  - "Factor in real weight loss (15–18%) and preheat/cooling cycles when planning daily production workflows."
+  - "Prioritize thermal mass, reliable burner modulation, and profile logging compatibility over cosmetic features."
 ---
 
 

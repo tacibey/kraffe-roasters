@@ -9,6 +9,11 @@ cardImage: "@/images/blog/yellow roaster.jpg"
 cardImageAlt: "6kg batch yellow roasting machine"
 readTime: 8
 tags: ["coffee roaster machine", "home coffee roaster", "coffee roasting business", "commercial roaster", "industrial roaster", "drum roaster","gas coffee roaster","electric coffee roaster", "professional coffee roasting", "kraffe roasters"]
+keyTakeaways:
+  - "Burner design serves as the engine of roast control, directly determining heat responsiveness and flame stability."
+  - "Premix and modulated micro-flame burners provide superior turndown ratios and eliminate localized hot spots beneath the drum."
+  - "Uniform flame distribution prevents drum scorching and ensures a consistent balance between conductive and convective heat transfer."
+  - "Fast thermal recovery between consecutive production batches maximizes daily roasting capacity and operational efficiency."
 ---
 
 

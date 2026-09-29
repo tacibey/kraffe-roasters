@@ -9,6 +9,11 @@ cardImage: "@/images/blog/coffee-roasting-methods.avif"
 cardImageAlt: "Various coffee beans at different roasting stages"
 readTime: 7
 tags: ["coffee roasting", "roasting methods", "traditional roasting", "modern roasting", "flavor development", "specialty coffee", "kraffe roasters"]
+keyTakeaways:
+  - "Traditional drum roasting delivers a balanced ratio of conductive drum contact and convective hot air transfer."
+  - "Fluidized bed (hot air) roasting provides rapid convective heat transfer with bright acidity but lighter body."
+  - "Modern infrared and indirect flame systems offer refined thermal control while preventing surface scorching defects."
+  - "Selecting the right roasting method depends on your desired cup profile, production volume, and energy efficiency goals."
 ---
 
 Coffee roasting is a captivating process that involves transforming green coffee beans into the aromatic and flavorful delights we enjoy in our daily cup. Over time, various coffee roasting methods have emerged, each contributing to the diversity of flavors found in coffee. In this blog post, we will explore the characteristics and advantages of both traditional and modern coffee roasting methods, providing insights into the processes involved and the unique flavors they produce. Understanding these techniques is crucial for any aspiring roaster or coffee enthusiast looking to deepen their appreciation for quality coffee.

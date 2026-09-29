@@ -9,6 +9,11 @@ cardImage: "@/images/blog/IMG-20250530-WA0033.jpg"
 cardImageAlt: "KRF-03 in İzmir"
 readTime: 6
 tags: ["coffee roaster machine", "home coffee roaster", "coffee roasting business", "commercial roaster", "industrial roaster", "drum roaster", "coffee roaster capacity", "kraffe roasters", "coffee roaster machine price", "coffee roastery setup", "coffee business investment", "coffee roasting guide 2026", "coffee roastery income"]
+keyTakeaways:
+  - "Coffee roasting offers attractive gross margins (40–60% wholesale, 70–85% direct-to-consumer retail)."
+  - "Net profitability hinges on machine batch utilization, labor efficiency, and raw green coffee procurement pricing."
+  - "Hybrid business models combining e-commerce retail with steady wholesale accounts provide the most resilient cash flow."
+  - "Transitioning from a 3 kg to a 12–15 kg roaster dramatically lowers per-kilogram labor costs as order volumes expand."
 ---
 
 # How Profitable Is a Coffee Roasting Business in 2026?

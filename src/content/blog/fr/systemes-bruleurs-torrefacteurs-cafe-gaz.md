@@ -9,6 +9,11 @@ cardImage: "@/images/blog/yellow roaster.jpg"
 cardImageAlt: "Torréfacteur commercial jaune Kraffe KRF-06 avec système de brûleur modulé"
 readTime: 8
 tags: ["machine à torréfier", "torréfacteur à gaz", "torréfacteur commercial", "brûleur premix", "torréfacteur à tambour", "torréfaction professionnelle", "kraffe roasters", "ingénierie café"]
+keyTakeaways:
+  - "La conception du brûleur constitue le véritable moteur du contrôle de torréfaction, déterminant la réactivité et la stabilité de la flamme."
+  - "Les brûleurs à prémélange et micro-flammes modulables offrent une grande plage de réglage et éliminent les points chauds sous le tambour."
+  - "Une répartition homogène des flammes empêche le brûlage de surface et équilibre conduction et convection."
+  - "Une récupération thermique rapide entre deux fournées consécutives optimise la productivité quotidienne et l'efficacité globale."
 ---
 
 # Systèmes de Brûleurs des Torréfacteurs à Gaz : Le Véritable Moteur du Contrôle de Torréfaction

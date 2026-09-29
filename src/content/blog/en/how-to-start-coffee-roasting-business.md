@@ -9,6 +9,11 @@ cardImage: "@/images/blog/hannes.jpg"
 cardImageAlt: "12kg batch Kraffe Roaster in Austria"
 readTime: 6
 tags: ["coffee roaster machine", "home coffee roaster", "coffee roasting business", "commercial roaster", "industrial roaster", "drum roaster","gas coffee roaster","electric coffee roaster", "professional coffee roasting", "kraffe roasters"]
+keyTakeaways:
+  - "Define your primary sales model (D2C retail, local cafés, wholesale office accounts, or hybrid) before purchasing machinery."
+  - "Budget realistically for commercial roaster equipment, proper exhaust ducting, and initial green bean inventory."
+  - "Select equipment engineered with sufficient thermal stability to maintain quality during consecutive multi-batch runs."
+  - "Implement structured sensory cupping and roast logging routines early to maintain consistent cup excellence."
 ---
 
 

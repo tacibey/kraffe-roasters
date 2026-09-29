@@ -9,6 +9,11 @@ cardImage: "@/images/blog/salvo 1.jpg"
 cardImageAlt: "KRF-03 in New York"
 readTime: 6
 tags: ["coffee roaster machine", "home coffee roaster", "coffee roasting business", "commercial roaster", "industrial roaster", "drum roaster", "coffee roaster capacity", "kraffe roasters", "coffee roaster machine price", "coffee roastery setup", "coffee business investment", "coffee roasting guide 2026"]
+keyTakeaways:
+  - "Total startup capital typically ranges from $35,000 to $85,000 for a professional 3–6 kg commercial roastery setup."
+  - "Roasting equipment represents 40–55% of initial capital, while ventilation, gas lines, and electrical installation require 15–25%."
+  - "Budgeting for green coffee inventory, packaging materials, and regulatory compliance is vital before initial launch."
+  - "Investing in robust, thermally stable commercial equipment prevents costly upgrades and operational downtime within the first two years."
 ---
 
 # Coffee Roasting Business Startup Costs Explained (2026 Investment Guide)

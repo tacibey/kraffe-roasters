@@ -9,6 +9,11 @@ cardImage: "@/images/blog/8.jpg"
 cardImageAlt: "Gamme et comparatif des torréfacteurs commerciaux Kraffe"
 readTime: 8
 tags: ["comparatif torréfacteur", "machine à torréfier", "torréfacteur commercial", "achat torréfacteur", "torréfacteur à tambour", "kraffe roasters", "atelier café"]
+keyTakeaways:
+  - "Comparez le débit horaire réel en conditions de fournées consécutives et non sur un simple lot isolé en laboratoire."
+  - "Vérifiez l'efficacité du bac de refroidissement : le café doit redescendre à température ambiante en moins de 3 à 4 minutes."
+  - "Évaluez l'accès au collecteur de pellicules, aux roulements et aux brûleurs pour anticiper les coûts d'entretien courant."
+  - "Privilégiez les machines ouvertes compatibles avec les logiciels de référence sans abonnement logiciel captif."
 ---
 
 # Comment Comparer les Machines de Torréfaction Commerciales (Sans Regrets Plus Tard)

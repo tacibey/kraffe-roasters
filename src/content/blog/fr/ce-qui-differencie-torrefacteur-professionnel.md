@@ -9,6 +9,11 @@ cardImage: "@/images/blog/Etude Coffee UK.jpg"
 cardImageAlt: "Torréfacteur commercial Kraffe en action chez Etude Coffee au Royaume-Uni"
 readTime: 8
 tags: ["machine à torréfier", "torréfacteur professionnel", "comparatif torréfacteur", "torréfacteur commercial", "torréfacteur industriel", "torréfacteur à tambour", "kraffe roasters"]
+keyTakeaways:
+  - "Un véritable torréfacteur professionnel est conçu avec des matériaux lourds à haute inertie pour soutenir des cycles continus de 8 heures."
+  - "Les machines d'entrée de gamme perdent leur énergie entre les fournées, provoquant des profils plats et des goûts de pain cuit."
+  - "Une large plage de modulation du brûleur et un flux d'air réglable offrent une maîtrise chirurgicale à chaque stade du profil."
+  - "Un bac de refroidissement à fort tirage fige la torréfaction en moins de 3 minutes, sauvegardant les arômes volatils et l'acidité."
 ---
 
 # Ce Qui Différencie un Torréfacteur Professionnel des Autres Machines

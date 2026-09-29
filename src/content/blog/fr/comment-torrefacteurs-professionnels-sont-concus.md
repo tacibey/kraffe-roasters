@@ -9,6 +9,11 @@ cardImage: "@/images/blog/production 1.jpg"
 cardImageAlt: "Fabrication et assemblage d'un torréfacteur commercial Kraffe en usine"
 readTime: 5
 tags: ["ingénierie torréfacteur", "machine à torréfier", "torréfacteur commercial", "torréfacteur à tambour", "fabrication torréfacteur", "kraffe roasters", "stabilité thermique"]
+keyTakeaways:
+  - "Les torréfacteurs professionnels sont construits autour d'une masse thermique robuste, d'aciers épais et d'isolants haute densité."
+  - "Un tambour en acier renforcé ou à double paroi assure une diffusion thermique homogène sans agresser les grains."
+  - "L'utilisation de moteurs indépendants pour le tambour et l'aspiration supprime tout compromis mécanique sur le flux d'air."
+  - "Des composants industriels de premier ordre garantissent un fonctionnement continu sans défaillance prématurée."
 ---
 
 Pour le grand public, un torréfacteur ressemble souvent à un gros cylindre rotatif surmontant une flamme de gaz.

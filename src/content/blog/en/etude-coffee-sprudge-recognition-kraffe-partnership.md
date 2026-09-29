@@ -9,6 +9,11 @@ cardImage: "@/images/blog/etude.avif"
 cardImageAlt: "Etude Coffee featured on Sprudge with Kraffe Roaster"
 readTime: 5
 tags: ["client success", "etude coffee", "sprudge", "specialty coffee", "kraffe roasters", "coffee industry", "partnership"]
+keyTakeaways:
+  - "Etude Coffee's feature on Sprudge highlights the power of artisanal passion combined with precision engineering."
+  - "Kraffe's advanced thermal stability and modulating burners enabled Etude Coffee to unlock delicate origin cup profiles."
+  - "Consistent batch-to-batch repeatability provides roasters with the confidence to scale specialty production."
+  - "Collaborative engineering partnerships between roaster builders and coffee artisans elevate industry quality standards."
 ---
 
 At [Kraffe Roasters](https://www.krafferoasters.com/), we are passionate about our clients' success, especially when it comes to their pursuit of excellence in the **coffee industry**. Recently, one of our esteemed clients - [Etude Coffee](https://www.etude.coffee/) in the United Kingdom - received a prestigious mention on [Sprudge.com](https://sprudge.com/build-outs-of-coffee-etude-coffee-in-bungay-united-kingdom-209503.html), a renowned coffee publication. We are incredibly proud to see their dedication to crafting the finest coffee being recognized and celebrated. In this blog post, we will take you on a journey through our client's remarkable achievements and the shared success that comes from a strong partnership in the world of specialty coffee.

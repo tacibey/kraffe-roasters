@@ -9,6 +9,11 @@ cardImage: "@/images/blog/Choosing Coffee Roaster for Startup.jpg"
 cardImageAlt: "Torréfacteur commercial Kraffe KRF-03 pour startup de café"
 readTime: 6
 tags: ["machine à torréfier", "torréfacteur commercial", "atelier de torréfaction", "création entreprise café", "torréfacteur à tambour", "capacité torréfacteur", "kraffe roasters", "investissement café"]
+keyTakeaways:
+  - "Dimensionnez votre torréfacteur en fonction de vos prévisions de vente à 18 mois plutôt que du volume de lancement."
+  - "Un torréfacteur de 3 kg à 6 kg offre le parfait équilibre pour démarrer, alliant flexibilité des petits lots et capacité de production viable."
+  - "Intégrez la perte de masse naturelle (15 à 18 %) et les cycles de chauffe/refroidissement dans vos calculs de rentabilité."
+  - "Privilégiez la masse thermique, la modulation précise du brûleur et la connectivité aux logiciels de profilage."
 ---
 
 Lancer son atelier de torréfaction de café est une aventure exaltante.  

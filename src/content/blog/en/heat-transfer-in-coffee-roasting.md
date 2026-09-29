@@ -9,6 +9,11 @@ cardImage: "@/images/blog/premix foto.jpg"
 cardImageAlt: "Premix burner"
 readTime: 7
 tags: ["coffee roaster machine", "home coffee roaster", "coffee roasting business", "commercial roaster", "industrial roaster", "drum roaster","gas coffee roaster","electric coffee roaster", "professional coffee roasting", "kraffe roasters"]
+keyTakeaways:
+  - "Coffee roasting is governed by three heat transfer mechanisms: conduction (contact), convection (air), and radiation (infrared)."
+  - "Specialty roasters typically target 60–75% convective heat transfer for clean, uniform bean development from core to surface."
+  - "Excessive conduction leads to facing and tipping defects, while insufficient convection stalls development time."
+  - "Thermal mass in the drum retains radiant heat, smoothing out temperature dips during high-volume production."
 ---
 
 # Heat Transfer in Coffee Roasting: Why It Defines Roast Quality

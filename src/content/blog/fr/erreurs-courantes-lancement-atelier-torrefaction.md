@@ -9,6 +9,11 @@ cardImage: "@/images/blog/mistakes.jpg"
 cardImageAlt: "Torréfacteur industriel Kraffe KRF-30 en exploitation au Népal"
 readTime: 7
 tags: ["création entreprise café", "atelier torréfaction", "erreurs torréfaction", "business plan café", "torréfacteur commercial", "kraffe roasters", "stratégie café"]
+keyTakeaways:
+  - "Oublier la perte de poids de 15 à 18 % fausse le calcul des coûts de revient et réduit la rentabilité réelle."
+  - "Se concentrer uniquement sur la technique en négligeant la prospection commerciale et la logistique fragilise l'entreprise."
+  - "Surstocker du café vert sans local tempéré et à hygrométrie régulée détériore rapidement la qualité des récoltes."
+  - "Instaurer un protocole strict de dégustation (cupping) et d'enregistrement de courbes dès le premier jour protège votre réputation."
 ---
 
 Créer un atelier de torréfaction de café semble trompeusement simple vu de l'extérieur :

@@ -9,6 +9,11 @@ cardImage: "@/images/blog/8.jpg"
 cardImageAlt: "Artistic representation of Kraffe coffee roasting machines"
 readTime: 8
 tags: ["coffee roaster machine", "coffee roaster comparison", "coffee roasting business", "commercial roaster", "commercial coffee roaster", "industrial roaster", "drum roaster", "coffee roaster capacity","coffee roaster buying guide", "kraffe roasters"]
+keyTakeaways:
+  - "Compare actual hourly output under continuous back-to-back roasting conditions, not laboratory single-batch ratings."
+  - "Evaluate cooling tray pull-down speed: roasted beans should reach ambient temperature in under 3–4 minutes."
+  - "Examine ease of chaff collector cleaning, bearing access, and burner maintenance to estimate lifecycle upkeep costs."
+  - "Prioritize open software architecture that integrates smoothly with industry-standard logging platforms without subscription lock-ins."
 ---
 
 # How to Compare Commercial Coffee Roasting Machines (Without Regret Later)

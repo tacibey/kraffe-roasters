@@ -9,6 +9,11 @@ cardImage: "@/images/blog/airflow.jpg"
 cardImageAlt: "pressure gauge"
 readTime: 6
 tags: ["coffee roaster machine", "home coffee roaster", "coffee roasting business", "commercial roaster", "industrial roaster", "drum roaster","gas coffee roaster","electric coffee roaster", "professional coffee roasting", "kraffe roasters"]
+keyTakeaways:
+  - "Airflow is primarily a heat transfer mechanism through convection, directly governing how thermal energy penetrates the bean mass."
+  - "Precise airflow control accelerates moisture evacuation and smoke removal, creating cleaner cup profiles and vibrant acidity."
+  - "Drum geometry and airflow velocity must remain in balance to avoid convective stalling or premature thermal energy loss."
+  - "Adjustable airflow systems with differential pressure monitoring ensure reproducible, consistent roast curves between consecutive batches."
 ---
 
 # Airflow Control in Commercial Coffee Roasters: Why It Matters More Than You Think

@@ -9,6 +9,11 @@ cardImage: "@/images/blog/Etude Coffee UK.jpg"
 cardImageAlt: "Artistic representation of Kraffe coffee roasting machines"
 readTime: 8
 tags: ["coffee roaster machine", "coffee roaster comparison", "coffee roasting business", "commercial roaster", "commercial coffee roaster", "industrial roaster", "drum roaster", "coffee roaster capacity","coffee roaster buying guide", "kraffe roasters"]
+keyTakeaways:
+  - "True professional roasters are built with heavy cast/steel thermal mass, engineered for continuous 8-hour production cycles."
+  - "Entry-level roasters struggle with consecutive batch thermal loss, resulting in baked flavors and inconsistent roast curves."
+  - "Industrial burner turndown ratios and modulated airflow provide granular control over every phase of the roast."
+  - "High-capacity cooling trays halt roasting momentum in under 3 minutes, preserving bright aromatics and volatile origin compounds."
 ---
 
 # What Makes a Professional Coffee Roaster Different?

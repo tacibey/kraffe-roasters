@@ -9,6 +9,11 @@ cardImage: "@/images/blog/6kg batch coffee roasting machine.jpg"
 cardImageAlt: "6kg batch coffee roasting machine"
 readTime: 6
 tags: ["coffee roaster machine", "home coffee roaster", "coffee roasting business", "commercial roaster", "industrial roaster", "drum roaster","gas coffee roaster","electric coffee roaster", "professional coffee roasting", "kraffe roasters"]
+keyTakeaways:
+  - "Thermal stability refers to a machine's ability to maintain and recover its energy balance across consecutive roasting batches."
+  - "Heavy cast and thick-walled steel drums create the thermal flywheel needed to prevent temperature drops between roasts."
+  - "Inferior thermal stability results in drifting charge temperatures, unpredictable first crack timings, and inconsistent cup quality."
+  - "Proper structural insulation retains energy within the roasting chamber, lowering gas consumption and improving repeatability."
 ---
 
 

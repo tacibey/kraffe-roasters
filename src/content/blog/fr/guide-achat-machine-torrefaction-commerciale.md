@@ -9,6 +9,11 @@ cardImage: "@/images/blog/KRF-06 blue & KRF-02 red.jpg"
 cardImageAlt: "Torréfacteurs commerciaux Kraffe KRF-06 bleu et KRF-02 rouge"
 readTime: 8
 tags: ["machine à torréfier", "guide achat torréfacteur", "torréfacteur commercial", "torréfacteur industriel", "torréfacteur à tambour", "capacité torréfacteur", "kraffe roasters", "café de spécialité"]
+keyTakeaways:
+  - "Évaluez un torréfacteur commercial sur son débit horaire continu et sa reprise thermique, et non sur sa seule capacité nominale."
+  - "Un tambour à double paroi et un flux d'air précis protègent les grains délicats des brûlures par contact direct."
+  - "La compatibilité avec les logiciels de profilage (Cropster/Artisan) est indispensable pour standardiser vos courbes de torréfaction."
+  - "Privilégiez un constructeur garantissant la disponibilité des pièces de rechange et un support technique réactif."
 ---
 
 ## Qu'est-ce qu'une Machine à Torréfier Commerciale ?

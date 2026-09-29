@@ -9,6 +9,11 @@ cardImage: "@/images/blog/IMG-20250530-WA0033.jpg"
 cardImageAlt: "Torréfacteur commercial Kraffe KRF-03 installé en atelier"
 readTime: 6
 tags: ["rentabilité torréfaction", "atelier de torréfaction", "business plan café", "torréfacteur commercial", "marge café", "kraffe roasters", "investissement torréfaction"]
+keyTakeaways:
+  - "La torréfaction de café génère des marges brutes solides (40 à 60 % en gros, 70 à 85 % en vente directe au détail)."
+  - "La rentabilité nette dépend de l'optimisation des temps de travail, du taux d'utilisation de la machine et du coût d'achat du café vert."
+  - "Les modèles hybrides associant vente en ligne directe et contrats réguliers B2B offrent la trésorerie la plus stable."
+  - "Passer d'une machine de 3 kg à 12–15 kg réduit considérablement le coût horaire de main-d'œuvre par kilogramme torréfié."
 ---
 
 Lancer une activité de torréfaction de café suscite un enthousiasme légitime.  

@@ -9,6 +9,11 @@ cardImage: "@/images/blog/airflow.jpg"
 cardImageAlt: "Manomètre de pression et régulateur de flux d'air d'un torréfacteur commercial"
 readTime: 6
 tags: ["machine à torréfier", "torréfacteur commercial", "torréfacteur industriel", "torréfacteur à tambour", "torréfacteur à gaz", "torréfacteur électrique", "torréfaction professionnelle", "kraffe roasters", "flux d'air", "café de spécialité"]
+keyTakeaways:
+  - "Le flux d'air est le moteur principal du transfert thermique par convection, régulant la pénétration de l'énergie thermique au cœur du grain."
+  - "Un contrôle précis du flux d'air accélère l'évacuation de l'humidité et des fumées, garantissant une tasse propre et une acidité vive."
+  - "La géométrie du tambour et la vitesse de l'air doivent être parfaitement équilibrées pour éviter les pertes thermiques ou la stagnation."
+  - "Les systèmes à flux d'air modulable équipés de manomètres différentiels assurent une reproductibilité rigoureuse entre les lots consécutifs."
 ---
 
 # Contrôle du Flux d'Air dans les Torréfacteurs Commerciaux : Pourquoi est-ce Plus Important que Vous ne le Pensez

@@ -9,6 +9,11 @@ cardImage: "@/images/blog/baroman after vivien.jpg"
 cardImageAlt: "12kg batch Kraffe Roaster in France"
 readTime: 4
 tags: ["coffee roaster machine", "home coffee roaster", "coffee roasting business", "commercial roaster", "industrial roaster", "drum roaster","gas coffee roaster","electric coffee roaster", "professional coffee roasting", "kraffe roasters"]
+keyTakeaways:
+  - "Buying based solely on lowest upfront price frequently results in severe temperature drift and high maintenance costs."
+  - "Underestimating cooling tray airflow leads to baked flavor defects caused by extended bean cooling cycles."
+  - "Ignoring facility requirements—such as exhaust ducting, gas pressure, and three-phase power—causes expensive installation delays."
+  - "Over-sizing a machine too early makes small profile test batches inefficient and wastes costly green coffee."
 ---
 
 

@@ -9,6 +9,11 @@ cardImage: "@/images/blog/coffee-roasting-profiles.avif"
 cardImageAlt: "Graph showing a coffee roasting profile curve"
 readTime: 7
 tags: ["coffee roasting profiles", "roasting science", "flavor development", "Maillard reaction", "first crack", "specialty coffee", "kraffe roasters"]
+keyTakeaways:
+  - "A roast profile maps temperature, time, Rate of Rise (RoR), and airflow to achieve targeted sensory characteristics."
+  - "Maintain a steadily declining Rate of Rise (RoR) throughout the roast to avoid flick, crash, or baking defects."
+  - "Fine-tune development time ratio (DTR, typically 12–16% for specialty coffees) to balance origin acidity against body."
+  - "Systematically cup and blind-score every roast test to correlate curve data with actual cup attributes."
 ---
 
 The world of coffee roasting is a captivating blend of science, art, and craftsmanship. At its heart lies the intricate process of creating coffee roasting profiles – a journey that transforms raw green coffee beans into the aromatic and flavorful brews we adore. Whether you're a home roasting enthusiast or a professional barista operating a sophisticated [commercial coffee roaster](/products/), understanding the nuances of crafting the perfect roasting profile is the key to unlocking the full potential of your coffee beans. In this in-depth exploration, we'll delve into the art and science behind creating coffee roasting profiles, providing you with the knowledge and tools to elevate your coffee roasting game.

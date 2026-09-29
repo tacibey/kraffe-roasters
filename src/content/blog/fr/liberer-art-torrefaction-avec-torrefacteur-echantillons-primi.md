@@ -9,6 +9,11 @@ cardImage: "@/images/primi1.avif"
 cardImageAlt: "Torréfacteur d'échantillons Kraffe Primi en action"
 readTime: 5
 tags: ["torréfacteur d'échantillons", "torréfacteur primi", "torréfaction café", "torréfaction de précision", "café de spécialité", "kraffe roasters"]
+keyTakeaways:
+  - "Le torréfacteur d'échantillons Primi permet de torréfier des micro-lots de 50 g à 200 g pour l'évaluation et le calibrage de profils."
+  - "Sa dynamique de transfert de chaleur fidèle assure une extrapolation directe vers les torréfacteurs de production industrielle."
+  - "L'écran tactile intuitif et la connectivité USB facilitent l'analyse des échantillons pré-embarquement en laboratoire."
+  - "L'évaluation rigoureuse du café vert sur torréfacteur d'échantillons évite les erreurs d'achat et garantit le niveau d'exigence."
 ---
 
 Le café, cette boisson bien-aimée qui dynamise nos matins et alimente notre créativité, est bien plus qu'une simple boisson : c'est une forme d'art. Derrière chaque tasse savoureuse se cache un processus complexe et délicat, et une étape cruciale dans le parcours de la fabrication du café est la phase de torréfaction. Ces dernières années, les amateurs et les professionnels du café ont cherché à prendre le contrôle de cet aspect critique en investissant dans des équipements de pointe tels que le Torréfacteur d'Échantillons Primi de Kraffe. Dans cet article de blog, nous allons nous plonger dans l'art de la torréfaction du café et explorer comment le Torréfacteur d'Échantillons Primi peut sublimer votre expérience de torréfaction.

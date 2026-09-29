@@ -9,6 +9,11 @@ cardImage: "@/images/blog/etude.avif"
 cardImageAlt: "Etude Coffee mis en avant sur Sprudge avec un torréfacteur Kraffe"
 readTime: 5
 tags: ["succès client", "etude coffee", "sprudge", "café de spécialité", "kraffe roasters", "industrie du café", "partenariat"]
+keyTakeaways:
+  - "La mise en lumière d'Etude Coffee sur Sprudge illustre la synergie entre vision artisanale et ingénierie de précision."
+  - "La stabilité thermique et les brûleurs modulables Kraffe permettent de révéler les notes aromatiques les plus subtiles."
+  - "Une reproductibilité exemplaire d'une fournée à l'autre offre la confiance nécessaire pour développer une marque de spécialité."
+  - "Le partenariat étroit entre constructeur et torréfacteur tire l'ensemble de l'industrie du café de spécialité vers le haut."
 ---
 
 Chez [Kraffe Roasters](https://www.krafferoasters.com/fr/), nous sommes passionnés par le succès de nos clients, surtout lorsqu'il s'agit de leur quête d'excellence dans l'**industrie du café**. Récemment, l'un de nos estimés clients - [Etude Coffee](https://www.etude.coffee/) au Royaume-Uni - a reçu une prestigieuse mention sur [Sprudge.com](https://sprudge.com/build-outs-of-coffee-etude-coffee-in-bungay-united-kingdom-209503.html), une publication de café renommée. Nous sommes incroyablement fiers de voir leur dévouement à la création du meilleur café reconnu et célébré. Dans cet article de blog, nous vous emmènerons dans un voyage à travers les réalisations remarquables de notre client et le succès partagé qui découle d'un partenariat solide dans le monde du café de spécialité.

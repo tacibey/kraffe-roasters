@@ -1,0 +1,49 @@
+---
+interface Props {
+  title?: string;
+  items?: string[];
+  lang?: "en" | "fr";
+}
+
+const { title, items = [], lang = "en" } = Astro.props;
+
+const defaultTitle = lang === "fr" ? "POINTS CLÉS" : "KEY TAKEAWAYS";
+const displayTitle = title || defaultTitle;
+
+// Parse inline markdown formatting: **bold**, *italic*, and [1] citations
+function formatTakeaway(text: string): string {
+  return text
+    .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-neutral-900 dark:text-neutral-100">$1</strong>')
+    .replace(/\*(.*?)\*/g, '<em class="italic">$1</em>')
+    .replace(/\[(\d+)\]/g, '<sup class="text-xs text-orange-600 dark:text-orange-400 font-semibold ms-0.5">[$1]</sup>');
+}
+---
+
+{items && items.length > 0 && (
+  <section
+    class="key-takeaways-card relative my-8 sm:my-10 p-6 sm:p-8 bg-neutral-50/70 dark:bg-neutral-900/50 rounded-xs"
+    aria-label={displayTitle}
+  >
+    <!-- Top-Left Corner Accent Bracket -->
+    <div
+      class="pointer-events-none absolute -top-px -left-px h-10 w-28 sm:w-44 border-t-[2.5px] border-l-[2.5px] border-orange-500"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Bottom-Right Corner Accent Bracket -->
+    <div
+      class="pointer-events-none absolute -bottom-px -right-px h-10 w-28 sm:w-44 border-b-[2.5px] border-r-[2.5px] border-orange-500"
+      aria-hidden="true"
+    ></div>
+
+    <h2 class="mb-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-neutral-900 dark:text-neutral-100">
+      {displayTitle}
+    </h2>
+
+    <ul class="space-y-3 sm:space-y-3.5 ps-5 list-disc marker:text-neutral-800 dark:marker:text-neutral-300 text-sm sm:text-base leading-relaxed text-neutral-700 dark:text-neutral-300">
+      {items.map((item) => (
+        <li class="pl-1" set:html={formatTakeaway(item)} />
+      ))}
+    </ul>
+  </section>
+)}

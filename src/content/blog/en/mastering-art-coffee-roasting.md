@@ -9,6 +9,11 @@ cardImage: "@/images/blog/mastering-art-coffee-roasting.avif" # Bu görseli src/
 cardImageAlt: "Coffee beans being professionally roasted in a Kraffe machine"
 readTime: 6
 tags: ["coffee roasting", "roast profile", "roasting techniques", "specialty coffee", "kraffe roasters", "coffee beans", "sensory analysis"]
+keyTakeaways:
+  - "Roast profiling is the delicate intersection of chemistry, thermodynamics, and sensory craftsmanship."
+  - "Controlling the drying phase, Maillard reaction, and caramelization phase allows roasters to tailor body, sweetness, and acidity."
+  - "Carefully managing Rate of Rise (RoR) into First Crack prevents stalling defects and scorched cellulose fibers."
+  - "Regular cupping protocols and comprehensive data logging transform occasional success into systematic excellence."
 ---
 
 Coffee roasting is an intricate process that demands precision, knowledge, and an unwavering commitment to quality. As a coffee roaster, creating the perfect roast profile is an art that brings out the unique flavors and aromas locked within each coffee bean. In this comprehensive blog post, we will delve into the steps and considerations involved in crafting the ideal roast profile with your coffee roasting machine. From understanding the fundamentals of the roasting process to fine-tuning variables, we will equip you with the knowledge and skills to elevate your coffee roasting game.

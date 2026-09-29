@@ -9,6 +9,11 @@ cardImage: "@/images/blog/choosing-right-coffee-roaster.avif" # Bu görseli src/
 cardImageAlt: "A coffee business owner thoughtfully considering different Kraffe roaster models"
 readTime: 8
 tags: ["coffee roaster", "business guide", "roaster capacity", "roasting style", "energy efficiency", "coffee equipment", "kraffe roasters", "specialty coffee"]
+keyTakeaways:
+  - "Location selection requires zoning permits, robust gas pressure, three-phase power, and dedicated exhaust duct routing."
+  - "Capacity planning should leave room for 100–150% volume growth over the first three operating years."
+  - "Green coffee sourcing relationships and climate-controlled storage preserve raw product freshness and cupping scores."
+  - "Reliable machine engineering minimizes unexpected downtime, protecting critical wholesale delivery commitments."
 ---
 
 Selecting the right coffee roaster is a crucial decision that can significantly impact the success of your coffee business. With a wide range of options available, understanding the key factors and considerations is essential to make an informed choice. In this comprehensive guide, we will explore the important aspects of choosing a coffee roaster for your business. From capacity and budget to roasting style, sustainability, and support, we will provide you with the necessary insights to find the perfect roaster that aligns with your specific needs. As we've discussed in our post on the [art of coffee roasting machines](/blog/art-of-coffee-roasting-machines-guide/), the machine is central to your craft.

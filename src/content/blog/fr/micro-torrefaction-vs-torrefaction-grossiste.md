@@ -9,6 +9,11 @@ cardImage: "@/images/blog/microvswholesale.png"
 cardImageAlt: "Comparatif micro-torréfaction vs torréfaction industrielle de gros Kraffe"
 readTime: 7
 tags: ["micro torréfaction", "torréfaction grossiste", "modèle économique café", "création entreprise café", "torréfacteur commercial", "kraffe roasters", "stratégie café"]
+keyTakeaways:
+  - "La micro-torréfaction s'épanouit grâce à des marges directes élevées, une identité forte et des machines agiles de 1 à 6 kg."
+  - "La torréfaction grossiste repose sur des marges unitaires plus faibles mais des volumes récurrents élevés sur des systèmes de 15 à 60 kg."
+  - "Le capital initial d'une micro-torréfaction est accessible (40k–80k $), tandis que le grossiste requiert stockage et automatisation."
+  - "De nombreux ateliers débutent en micro-torréfaction artisanale avant d'évoluer vers un modèle hybride de distribution."
 ---
 
 Lors du lancement d'une activité dans le café de spécialité, la décision la plus déterminante ne concerne pas la marque du torréfacteur.

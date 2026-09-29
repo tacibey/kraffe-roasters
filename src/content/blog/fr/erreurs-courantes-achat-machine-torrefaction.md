@@ -9,6 +9,11 @@ cardImage: "@/images/blog/baroman after vivien.jpg"
 cardImageAlt: "Torréfacteur Kraffe KRF-12 installé en France chez Baroman Torréfaction"
 readTime: 5
 tags: ["machine à torréfier", "achat torréfacteur", "conseils torréfaction", "torréfacteur commercial", "erreurs torréfaction", "kraffe roasters", "atelier café"]
+keyTakeaways:
+  - "Acheter uniquement en fonction du prix initial engendre souvent des dérives thermiques et des frais de maintenance élevés."
+  - "Négliger la puissance du bac de refroidissement provoque un goût 'cuit' dû à un temps de refroidissement trop long."
+  - "Oublier les contraintes de raccordement (conduit d'évacuation, pression gaz, électricité triphasée) retarde lourdement le lancement."
+  - "Surdimensionner la machine trop tôt rend les tests d'échantillons difficiles et gaspille du café vert onéreux."
 ---
 
 # Les Erreurs Courantes Lors de l'Achat d'une Machine à Torréfier

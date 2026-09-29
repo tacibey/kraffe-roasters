@@ -9,6 +9,11 @@ cardImage: "@/images/blog/premix foto.jpg"
 cardImageAlt: "Système de brûleur Premix et chambre de transfert thermique Kraffe"
 readTime: 7
 tags: ["transfert thermique", "torréfaction café", "thermodynamique torréfaction", "conduction convection rayonnement", "torréfacteur commercial", "kraffe roasters", "café de spécialité"]
+keyTakeaways:
+  - "La torréfaction repose sur trois mécanismes : la conduction (contact direct), la convection (air chaud) et le rayonnement."
+  - "Le café de spécialité privilégie 60 à 75 % de transfert convectif pour un développement homogène du cœur à la surface."
+  - "Un excès de conduction cause des brûlures de surface ('facing' ou 'tipping'), tandis qu'un manque de convection allonge anormalement la cuisson."
+  - "La masse thermique du tambour emmagasine l'énergie rayonnante, amortissant les chutes de température en production continue."
 ---
 
 # Le Transfert de Chaleur dans la Torréfaction du Café : Pourquoi Définit-il la Qualité en Tasse ?

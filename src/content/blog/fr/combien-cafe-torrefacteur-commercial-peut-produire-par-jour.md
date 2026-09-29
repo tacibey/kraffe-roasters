@@ -9,6 +9,11 @@ cardImage: "@/images/blog/Commercial Roaster Production Per Day.jpg"
 cardImageAlt: "Cuillère de prélèvement d'échantillon sur torréfacteur commercial Kraffe KRF-12"
 readTime: 7
 tags: ["capacité torréfacteur", "production café", "torréfacteur commercial", "atelier torréfaction", "rendement torréfaction", "kraffe roasters", "perte au feu"]
+keyTakeaways:
+  - "La production réelle se calcule ainsi : (Taille du lot × Fournées par heure × Rendement torréfié × Heures de travail)."
+  - "Prévoyez en moyenne 3 fournées par heure en incluant le chargement, la cuisson, le refroidissement et l'entre-deux-fournées."
+  - "Un torréfacteur de 6 kg produit confortablement 75 à 90 kg de café fini sur une journée de 6 heures après déduction de la freinte."
+  - "Une machine de 15 kg permet de produire 200 à 240 kg par jour, offrant un vaste potentiel pour les commandes B2B."
 ---
 
 L'une des questions les plus récurrentes posées par les porteurs de projet est :

@@ -9,6 +9,11 @@ cardImage: "@/images/blog/drum 1.jpg"
 cardImageAlt: "Coffee Roasting Machine Drum inner look"
 readTime: 6
 tags: ["coffee roaster machine", "home coffee roaster", "coffee roasting business", "commercial roaster", "industrial roaster", "drum roaster","gas coffee roaster","electric coffee roaster", "professional coffee roasting", "kraffe roasters"]
+keyTakeaways:
+  - "Drum diameter and length dictate bean depth, conductive contact surface area, and convective air penetration."
+  - "Oversized batch loads in a shallow drum suffocate airflow, producing uneven bean development and underdeveloped cores."
+  - "Optimal drum geometry maintains an 80–85% bean-to-air volume ratio for consistent thermal distribution."
+  - "Balanced drum proportions ensure seamless bean movement and steady Rate of Rise (RoR) progression throughout the roast."
 ---
 
 

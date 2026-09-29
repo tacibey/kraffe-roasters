@@ -9,6 +9,11 @@ cardImage: "@/images/blog/IMG-20250304-WA0074.jpg"
 cardImageAlt: "Gamme de torréfacteurs de café commerciaux Kraffe pour toutes capacités"
 readTime: 8
 tags: ["capacité torréfacteur", "machine à torréfier", "dimensionnement atelier", "torréfacteur commercial", "perte au feu", "kraffe roasters", "production café"]
+keyTakeaways:
+  - "Basez le choix de la capacité sur vos objectifs de ventes hebdomadaires de café torréfié et non sur l'achat de café vert."
+  - "Travailler à 75–85 % de la capacité nominale du tambour offre les profils les plus souples et les plus réactifs."
+  - "Pour un artisan travaillant seul, le dimensionnement doit permettre de regrouper la production sur 1 à 2 jours par semaine."
+  - "Prévoyez une marge de progression de 2 à 3 ans afin de ne pas saturer prématurément votre atelier."
 ---
 
 Choisir la bonne capacité de torréfacteur est l'une des décisions les plus stratégiques lors de la création ou de l'expansion d'une brûlerie.

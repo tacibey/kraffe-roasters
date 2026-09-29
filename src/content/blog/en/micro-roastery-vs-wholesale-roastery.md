@@ -9,6 +9,11 @@ cardImage: "@/images/blog/microvswholesale.png"
 cardImageAlt: "KRF-30 in Nepal"
 readTime: 7
 tags: ["coffee roaster machine", "home coffee roaster", "coffee roasting business", "commercial roaster", "industrial roaster", "drum roaster", "coffee roaster capacity", "kraffe roasters", "coffee roaster machine price", "coffee roastery setup", "coffee business investment", "coffee roasting guide 2026", "coffee roastery income"]
+keyTakeaways:
+  - "Micro-roasteries thrive on high-margin direct-to-consumer sales, specialty brand identity, and agile 1–6 kg production."
+  - "Wholesale roasteries operate on lower margins but secure predictable, high-volume recurring revenues with 15–60 kg systems."
+  - "Startup capital for micro-roasteries is lower ($40k–$80k), whereas wholesale operations require significant warehousing and automation."
+  - "Many successful specialty coffee businesses start as micro-roasteries and gradually scale toward hybrid wholesale models."
 ---
 
 

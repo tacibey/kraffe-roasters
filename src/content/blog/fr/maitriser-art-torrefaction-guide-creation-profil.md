@@ -9,6 +9,11 @@ cardImage: "@/images/blog/mastering-art-coffee-roasting.avif"
 cardImageAlt: "Grains de café torréfiés professionnellement dans une machine Kraffe"
 readTime: 6
 tags: ["torréfaction café", "profil de torréfaction", "techniques de torréfaction", "café de spécialité", "kraffe roasters", "grains de café", "analyse sensorielle"]
+keyTakeaways:
+  - "La création de profils de torréfaction est l'art de faire converger chimie du grain, thermodynamique et dégustation sensorielle."
+  - "Le contrôle précis des phases de séchage, de Maillard et de caramélisation permet de sculpter l'acidité, le corps et le sucre."
+  - "Une gestion maîtrisée du RoR à l'approche du premier crack prévient les écueils de sous-développement ou de brûlure."
+  - "Le cupping régulier et l'archivage rigoureux des données transforment les réussites ponctuelles en excellence reproductible."
 ---
 
 La torréfaction du café est un processus complexe qui exige précision, connaissances et un engagement indéfectible envers la qualité. En tant que torréfacteur, créer le profil de torréfaction parfait est un art qui révèle les saveurs et les arômes uniques enfermés dans chaque grain de café. Dans cet article de blog complet, nous approfondirons les étapes et les considérations impliquées dans l'élaboration du profil de torréfaction idéal avec votre machine à torréfier. De la compréhension des fondamentaux du processus de torréfaction à l'ajustement fin des variables, nous vous équiperons des connaissances et des compétences nécessaires pour améliorer votre art de la torréfaction du café.

@@ -9,6 +9,11 @@ cardImage: "@/images/blog/hannes.jpg"
 cardImageAlt: "Torréfacteur commercial Kraffe KRF-12 en exploitation en Autriche"
 readTime: 6
 tags: ["création entreprise café", "atelier torréfaction", "lancer torréfaction", "guide torréfaction 2026", "torréfacteur commercial", "kraffe roasters", "business café"]
+keyTakeaways:
+  - "Définissez votre canal de distribution prioritaire (B2C en ligne, cafés locaux, B2B entreprises ou hybride) avant tout achat."
+  - "Budgétez rigoureusement le torréfacteur, les conduits d'évacuation certifiés et la trésorerie liée au stock de café vert."
+  - "Choisissez un torréfacteur doté d'une forte inertie thermique pour garantir la constance sur les longues séries."
+  - "Mettez en place un protocole d'assurance qualité avec dégustation systématique pour fidéliser durablement vos clients."
 ---
 
 Créer son entreprise de torréfaction de café représente aujourd'hui l'une des opportunités les plus dynamiques du marché du café de spécialité.

@@ -14,15 +14,15 @@ const {
   relatedPosts = [],
   title = "Related Articles",
   currentLang = "en",
-  limit = 4,
+  limit = 3,
 } = Astro.props;
 
 const displayPosts = relatedPosts.slice(0, limit);
 ---
 
 {displayPosts.length > 0 && (
-  <aside class="sticky top-24 self-start max-h-[calc(100vh-7rem)] overflow-y-auto rounded-xl border border-neutral-200/60 bg-neutral-100/50 p-5 backdrop-blur-xs dark:border-neutral-700/50 dark:bg-neutral-900/40">
-    <div class="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+  <aside class="sticky top-24 self-start max-h-[calc(100vh-7rem)] overflow-y-auto rounded-xl border border-neutral-200/60 bg-neutral-100/50 p-4 sm:p-5 backdrop-blur-xs dark:border-neutral-700/50 dark:bg-neutral-900/40">
+    <div class="mb-3.5 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
       <svg class="size-4 text-orange-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path>
         <path d="M6 6h10"></path>
@@ -31,13 +31,13 @@ const displayPosts = relatedPosts.slice(0, limit);
       <span>{title}</span>
     </div>
 
-    <div class="space-y-4 divide-y divide-neutral-200/60 dark:divide-neutral-700/50">
+    <div class="space-y-3.5 divide-y divide-neutral-200/60 dark:divide-neutral-700/50">
       {displayPosts.map((entry, index) => {
         const postSlug = entry.id.replace(/^(en|fr)\//, "");
         const postHref = currentLang === "fr" ? `/fr/blog/${postSlug}/` : `/blog/${postSlug}/`;
 
         return (
-          <article class={index > 0 ? "pt-4" : ""}>
+          <article class={index > 0 ? "pt-3.5" : ""}>
             <a
               href={postHref}
               class="group block space-y-2 outline-hidden focus-visible:ring-2 focus-visible:ring-orange-500 rounded-lg"
@@ -61,7 +61,9 @@ const displayPosts = relatedPosts.slice(0, limit);
               <div class="flex items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400">
                 <span>{formatDate(entry.data.pubDate)}</span>
                 <span>•</span>
-                <span>{entry.data.readTime} min read</span>
+                <span>
+                  {entry.data.readTime} {currentLang === "fr" ? "min de lecture" : "min read"}
+                </span>
               </div>
             </a>
           </article>

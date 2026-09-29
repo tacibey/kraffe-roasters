@@ -9,6 +9,11 @@ cardImage: "@/images/blog/6kg batch coffee roasting machine.jpg"
 cardImageAlt: "Torréfacteur commercial Kraffe KRF-06 doté d'une haute stabilité thermique"
 readTime: 6
 tags: ["stabilité thermique", "constance torréfaction", "machine à torréfier", "ingénierie café", "torréfacteur commercial", "kraffe roasters", "café de spécialité"]
+keyTakeaways:
+  - "La stabilité thermique désigne la capacité du torréfacteur à maintenir et récupérer son équilibre d'énergie d'un lot à l'autre."
+  - "Un tambour à forte masse thermique agit comme un volant d'inertie, éliminant les baisses de température imprévues."
+  - "Une mauvaise stabilité thermique provoque des dérives sur la température de charge et des déclenchements de crack erratiques."
+  - "Une isolation haute performance conserve les calories dans la chambre de chauffe, réduisant la consommation de gaz."
 ---
 
 # Stabilité Thermique et Constance de Torréfaction : L'Ingénierie au Cœur du Goût

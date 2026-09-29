@@ -9,6 +9,11 @@ cardImage: "@/images/blog/coffee-roasting-methods.avif"
 cardImageAlt: "Divers grains de café à différents stades de torréfaction"
 readTime: 7
 tags: ["torréfaction café", "méthodes de torréfaction", "torréfaction traditionnelle", "torréfaction moderne", "développement des saveurs", "café de spécialité", "kraffe roasters"]
+keyTakeaways:
+  - "La torréfaction en tambour traditionnel offre l'équilibre parfait entre conduction de contact et convection d'air chaud."
+  - "La torréfaction en lit fluidisé (air chaud) privilégie la convection rapide, offrant une acidité vive mais un corps plus léger."
+  - "Les systèmes modernes à infrarouge et chauffe indirecte garantissent un contrôle thermique précis sans risque de brûlure."
+  - "Le choix de la méthode dépend du profil aromatique souhaité, des cadences de production et de l'efficacité énergétique."
 ---
 
 La torréfaction du café est un processus captivant qui transforme les grains de café vert bruts en délices aromatiques et savoureux que nous apprécions dans notre tasse quotidienne. Au fil du temps, diverses méthodes de torréfaction du café ont émergé, chacune contribuant à la diversité des saveurs que l'on trouve dans le café. Dans cet article de blog, nous explorerons les caractéristiques et les avantages des méthodes de torréfaction du café traditionnelles et modernes, en fournissant un aperçu des processus impliqués et des saveurs uniques qu'elles produisent. Comprendre ces techniques est crucial pour tout torréfacteur en herbe ou amateur de café cherchant à approfondir son appréciation du café de qualité.

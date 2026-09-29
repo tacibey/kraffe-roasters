@@ -9,6 +9,11 @@ cardImage: "@/images/blog/KRF-06 blue & KRF-02 red.jpg"
 cardImageAlt: "Artistic representation of Kraffe coffee roasting machines"
 readTime: 8
 tags: ["coffee roaster machine", "home coffee roaster", "coffee roasting business", "commercial roaster", "industrial roaster", "drum roaster", "coffee roaster capacity", "kraffe roasters"]
+keyTakeaways:
+  - "Evaluate commercial roasters by continuous hourly output and thermal recovery rather than nominal batch capacity alone."
+  - "Double-walled drums and high-precision airflow systems protect delicate beans against conductive scorching."
+  - "Modern profile logging (Cropster/Artisan compatibility) is essential for commercial roast replication and quality control."
+  - "Choose a manufacturer offering accessible spare parts, prompt technical support, and proven industrial components."
 ---
 
 ## What Is a Commercial Coffee Roasting Machine?

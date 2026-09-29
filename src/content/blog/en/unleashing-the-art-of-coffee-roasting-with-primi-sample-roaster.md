@@ -9,6 +9,11 @@ cardImage: "@/images/primi1.avif" # Verilen görsel yolu src/images/ altında ol
 cardImageAlt: "Kraffe Primi Sample Roaster in action"
 readTime: 5
 tags: ["sample roaster", "primi roaster", "coffee roasting", "precision roasting", "specialty coffee", "kraffe roasters"]
+keyTakeaways:
+  - "The Primi Sample Roaster provides precise 50g–200g micro-batch roasting for green coffee evaluation and profile development."
+  - "Identical heat transfer dynamics ensure that sample profiles scale accurately to commercial production roasters."
+  - "Intuitive touchscreen controls and USB logging compatibility streamline pre-shipment sample analysis and lab testing."
+  - "Evaluating green coffee origins with sample roasters avoids costly procurement mistakes and protects roastery quality."
 ---
 
 Coffee, the beloved beverage that energizes our mornings and fuels our creativity, is more than just a drink—it's an art form. Behind every flavorful cup lies a complex and intricate process, and one crucial step in the coffee-making journey is the roasting phase. In recent years, coffee enthusiasts and professionals alike have sought to take control of this critical aspect by investing in state-of-the-art equipment like the Primi Sample Roaster from Kraffe. In this blog post, we'll delve into the art of coffee roasting and explore how the Primi Sample Roaster can elevate your coffee roasting experience.

@@ -9,6 +9,11 @@ cardImage: "@/images/blog/salvo 1.jpg"
 cardImageAlt: "Installation d'un torréfacteur commercial Kraffe KRF-03 à New York"
 readTime: 6
 tags: ["coûts démarrage torréfaction", "budget torréfacteur", "prix machine torréfaction", "création entreprise café", "atelier torréfaction", "kraffe roasters", "investissement café"]
+keyTakeaways:
+  - "Le budget d'installation varie généralement de 35 000 $ à 85 000 $ pour un atelier professionnel équipé d'un torréfacteur 3 à 6 kg."
+  - "La machine représente 40 à 55 % de l'investissement initial, tandis que la cheminée d'évacuation, le gaz et l'électricité requièrent 15 à 25 %."
+  - "Il est crucial de budgétiser le stock initial de café vert, les emballages étanches et les certifications avant l'ouverture."
+  - "Investir dès le départ dans un équipement robuste à haute inertie thermique évite des renouvellements coûteux sous 2 ans."
 ---
 
 L'une des premières questions concrètes que se pose tout créateur d'entreprise est :  

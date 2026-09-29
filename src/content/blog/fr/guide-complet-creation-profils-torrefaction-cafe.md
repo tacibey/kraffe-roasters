@@ -9,6 +9,11 @@ cardImage: "@/images/blog/coffee-roasting-profiles.avif"
 cardImageAlt: "Graphique montrant une courbe de profil de torréfaction du café"
 readTime: 7
 tags: ["profils de torréfaction café", "science torréfaction", "développement saveurs", "réaction Maillard", "premier crack", "café de spécialité", "kraffe roasters"]
+keyTakeaways:
+  - "Un profil de torréfaction cartographie température, temps, RoR (Rate of Rise) et flux d'air pour cibler des arômes précis."
+  - "Maintenir une courbe de RoR constamment décroissante évite les défauts de cuisson ('flick', 'crash' ou goût de pain cuit)."
+  - "Ajustez le ratio de développement (DTR, généralement entre 12 et 16 %) pour équilibrer acidité de terroir et rondeur en bouche."
+  - "Dégustez à l'aveugle (cupping) chaque lot test pour corréler scientifiquement les données graphiques au rendu sensoriel."
 ---
 
 Le monde de la torréfaction du café est un mélange captivant de science, d'art et de savoir-faire. Au cœur de celui-ci se trouve le processus complexe de création de profils de torréfaction du café – un voyage qui transforme les grains de café vert bruts en infusions aromatiques et savoureuses que nous adorons. Que vous soyez un amateur de torréfaction à domicile ou un barista professionnel opérant un [torréfacteur commercial](/fr/products/) sophistiqué, comprendre les nuances de l'élaboration du profil de torréfaction parfait est la clé pour libérer tout le potentiel de vos grains de café. Dans cette exploration approfondie, nous allons nous plonger dans l'art et la science derrière la création de profils de torréfaction du café, vous fournissant les connaissances et les outils pour améliorer votre jeu de torréfaction.

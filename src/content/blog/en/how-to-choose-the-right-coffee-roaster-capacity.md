@@ -9,6 +9,11 @@ cardImage: "@/images/blog/IMG-20250304-WA0074.jpg"
 cardImageAlt: "Artistic representation of Kraffe coffee roasting machines"
 readTime: 8
 tags: ["coffee roaster machine", "home coffee roaster", "coffee roasting business", "commercial roaster", "industrial roaster", "drum roaster", "coffee roaster capacity", "kraffe roasters"]
+keyTakeaways:
+  - "Calculate required capacity from weekly roasted sales targets rather than total green coffee storage."
+  - "Operating at 75–85% of rated drum capacity produces the most controllable and responsive roast profiles."
+  - "Solopreneur roasteries should choose a size that fulfills weekly demand in 1–2 focused roasting days."
+  - "Anticipate a 2–3 year growth runway to avoid outgrowing your equipment during early commercial expansion."
 ---
 
 Choosing the right coffee roaster capacity is one of the most critical decisions when investing in a roasting operation.

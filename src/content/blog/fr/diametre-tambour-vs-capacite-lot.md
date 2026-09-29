@@ -9,6 +9,11 @@ cardImage: "@/images/blog/drum 1.jpg"
 cardImageAlt: "Vue intérieure détaillée du tambour d'un torréfacteur de café Kraffe"
 readTime: 6
 tags: ["machine à torréfier", "tambour torréfacteur", "ingénierie café", "torréfacteur commercial", "torréfacteur à tambour", "transfert thermique", "kraffe roasters"]
+keyTakeaways:
+  - "Le diamètre et la longueur du tambour déterminent l'épaisseur du lit de grains, la surface de contact et la circulation de l'air."
+  - "Surcharger un tambour de diamètre insuffisant étouffe le flux d'air et provoque un sous-développement du cœur du grain."
+  - "Une géométrie équilibrée maintient un ratio optimal entre le volume des grains et l'espace libre pour l'air chaud."
+  - "Des proportions rigoureuses assurent un brassage fluide et une courbe de Rate of Rise (RoR) stable et progressive."
 ---
 
 Lors de la comparaison des torréfacteurs commerciaux, la plupart des acheteurs se focalisent sur un chiffre unique :
