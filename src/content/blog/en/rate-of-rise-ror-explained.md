@@ -48,9 +48,21 @@ Most roasters track two RoR curves simultaneously:
 
 RoR is calculated by dividing the temperature change by the time elapsed:
 
-$$\text{RoR} = \frac{T_{\text{now}} - T_{\text{previous}}}{t_{\text{now}} - t_{\text{previous}}}$$
-
-$$\text{RoR} = \frac{\Delta T}{\Delta t}$$
+<div class="my-6 overflow-x-auto rounded-xl border border-neutral-200/80 bg-neutral-100/60 p-5 text-center dark:border-neutral-700/60 dark:bg-neutral-900/60">
+  <div class="inline-flex flex-wrap items-center justify-center gap-3 text-lg font-semibold text-neutral-800 dark:text-neutral-100 sm:text-xl">
+    <span class="font-bold text-orange-600 dark:text-orange-400">RoR</span>
+    <span>=</span>
+    <span class="inline-flex flex-col items-center">
+      <span class="border-b-2 border-neutral-700 px-2 pb-1 dark:border-neutral-300">T<sub>now</sub> − T<sub>previous</sub></span>
+      <span class="px-2 pt-1">t<sub>now</sub> − t<sub>previous</sub></span>
+    </span>
+    <span class="mx-2 text-neutral-400">=</span>
+    <span class="inline-flex flex-col items-center">
+      <span class="border-b-2 border-neutral-700 px-2 pb-1 dark:border-neutral-300">ΔT</span>
+      <span class="px-2 pt-1">Δt</span>
+    </span>
+  </div>
+</div>
 
 * **Worked Example:** If your bean probe reads 175°C at 6:00 and 184°C at 7:00, the temperature difference is 9°C over 1 minute. The RoR for that minute is **9°C/min**.
 

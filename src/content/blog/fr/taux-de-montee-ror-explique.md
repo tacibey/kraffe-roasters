@@ -48,9 +48,21 @@ La majorité des professionnels suivent deux courbes de RoR en simultané :
 
 Le RoR s'obtient en divisant la variation de température par le temps écoulé :
 
-$$\text{RoR} = \frac{T_{\text{actuelle}} - T_{\text{précédente}}}{t_{\text{actuel}} - t_{\text{précédent}}}$$
-
-$$\text{RoR} = \frac{\Delta T}{\Delta t}$$
+<div class="my-6 overflow-x-auto rounded-xl border border-neutral-200/80 bg-neutral-100/60 p-5 text-center dark:border-neutral-700/60 dark:bg-neutral-900/60">
+  <div class="inline-flex flex-wrap items-center justify-center gap-3 text-lg font-semibold text-neutral-800 dark:text-neutral-100 sm:text-xl">
+    <span class="font-bold text-orange-600 dark:text-orange-400">RoR</span>
+    <span>=</span>
+    <span class="inline-flex flex-col items-center">
+      <span class="border-b-2 border-neutral-700 px-2 pb-1 dark:border-neutral-300">T<sub>actuelle</sub> − T<sub>précédente</sub></span>
+      <span class="px-2 pt-1">t<sub>actuel</sub> − t<sub>précédent</sub></span>
+    </span>
+    <span class="mx-2 text-neutral-400">=</span>
+    <span class="inline-flex flex-col items-center">
+      <span class="border-b-2 border-neutral-700 px-2 pb-1 dark:border-neutral-300">ΔT</span>
+      <span class="px-2 pt-1">Δt</span>
+    </span>
+  </div>
+</div>
 
 * **Exemple concret :** Si votre sonde indique 175°C à 6:00 et 184°C à 7:00, l'élévation est de 9°C en une minute. Le RoR pour cette minute s'élève à **9°C/min**.
 

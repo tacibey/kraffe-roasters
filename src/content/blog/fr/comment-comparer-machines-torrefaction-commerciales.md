@@ -50,7 +50,9 @@ Cependant — et c'est un point capital — **le café torréfié pèse moins lo
 Pour une fournée de **15 kg de café vert**, vous n'obtenez que **12,5 à 12,7 kg de café torréfié vendable**.
 
 Lors de votre comparatif, appliquez toujours la formule :  
-$$\text{Production horaire réelle} = \text{Capacité du lot} \times 3 \times 0,84$$
+<div class="my-4 overflow-x-auto rounded-xl border border-neutral-200/80 bg-neutral-100/60 p-4 text-center font-semibold text-neutral-800 dark:border-neutral-700/60 dark:bg-neutral-900/60 dark:text-neutral-100">
+  <span class="text-orange-600 dark:text-orange-400">Production horaire réelle</span> = Capacité du lot × 3 × 0,84
+</div>
 
 Consultez notre méthode de calcul :  
 👉 [**Comment choisir la bonne capacité de torréfacteur**](/fr/blog/comment-choisir-bonne-capacite-torrefacteur/)

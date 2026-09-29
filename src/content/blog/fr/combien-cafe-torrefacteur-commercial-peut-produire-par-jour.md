@@ -60,7 +60,9 @@ Avec une perte moyenne standard de 16 % :
 
 Pour calculer votre production nette quotidienne de café torréfié :
 
-$$\text{Production} = \text{Taille du lot (vert)} \times \text{Lots par heure} \times \text{Heures effectives} \times 0,84$$
+<div class="my-4 overflow-x-auto rounded-xl border border-neutral-200/80 bg-neutral-100/60 p-4 text-center font-semibold text-neutral-800 dark:border-neutral-700/60 dark:bg-neutral-900/60 dark:text-neutral-100">
+  <span class="text-orange-600 dark:text-orange-400">Production</span> = Taille du lot (vert) × Lots par heure × Heures effectives × 0,84
+</div>
 
 Dans un atelier professionnel, le nombre de fournées par heure dépend :
 * De la durée de torréfaction (10 à 14 minutes)
