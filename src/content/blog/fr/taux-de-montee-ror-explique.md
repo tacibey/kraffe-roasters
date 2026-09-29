@@ -4,7 +4,7 @@ description: "Maîtrisez le taux de montée (RoR) en torréfaction du café. App
 author: "Kraffe Team"
 authorImage: "@/images/blog/polat.jpeg"
 authorImageAlt: "Kraffe Technics Team Avatar"
-pubDate: 2026-09-29
+pubDate: 2026-09-29T10:00:00Z
 cardImage: "@/images/blog/Rate of Rise (RoR) Explained How to Read and Control Your Roast Curve in Artisan & Cropster.webp"
 cardImageAlt: "Taux de montée (RoR) expliqué : comment lire et maîtriser votre courbe de torréfaction avec Artisan et Cropster"
 readTime: 8

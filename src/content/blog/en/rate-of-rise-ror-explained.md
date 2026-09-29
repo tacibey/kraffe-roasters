@@ -4,7 +4,7 @@ description: "Master Rate of Rise (RoR) in coffee roasting. Learn how to interpr
 author: "Kraffe Team"
 authorImage: "@/images/blog/polat.jpeg"
 authorImageAlt: "Kraffe Technics Team Avatar"
-pubDate: 2026-09-29
+pubDate: 2026-09-29T10:00:00Z
 cardImage: "@/images/blog/Rate of Rise (RoR) Explained How to Read and Control Your Roast Curve in Artisan & Cropster.webp"
 cardImageAlt: "Rate of Rise (RoR) Explained: How to Read and Control Your Roast Curve in Artisan & Cropster"
 readTime: 8

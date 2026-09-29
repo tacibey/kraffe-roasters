@@ -4,7 +4,7 @@ description: "Découvrez les différences fondamentales entre température du gr
 author: "Kraffe Team"
 authorImage: "@/images/blog/polat.jpeg"
 authorImageAlt: "Kraffe Technics Team Avatar"
-pubDate: 2026-09-29
+pubDate: 2026-09-29T20:00:00Z
 cardImage: "@/images/blog/Bean Temperature vs Environmental Temperature Where Should Thermocouples Be Placed.webp"
 cardImageAlt: "Température du grain vs température environnementale : où placer les sondes thermocouples ?"
 readTime: 8

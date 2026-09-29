@@ -4,7 +4,6 @@
 // Import necessary components, modules and types
 import MainLayout from "@/layouts/MainLayout.astro";
 import CardBlog from "@components/ui/cards/CardBlog.astro";
-import CardBlogRecent from "@components/ui/cards/CardBlogRecent.astro";
 import CardInsight from "@components/ui/cards/CardInsight.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
@@ -25,11 +24,6 @@ const blogPosts: CollectionEntry<"blog">[] = frenchBlogEntries.sort(
 );
 
 const insightPosts: CollectionEntry<"insights">[] = frenchInsightsEntries;
-
-// Separate the most recent post from others
-// Eğer hiç blog yazısı yoksa bu kısım hata verebilir, kontrol ekleyelim
-const mostRecentPost: CollectionEntry<"blog"> | undefined = blogPosts.length > 0 ? blogPosts[0] : undefined;
-const otherPosts: CollectionEntry<"blog">[] = blogPosts.length > 0 ? blogPosts.slice(1) : [];
 
 // Define variables for page content (Fransızca)
 const title_fr: string = "Votre Passerelle vers l'Excellence en Torréfaction de Café";
@@ -84,23 +78,14 @@ const pageTitle_fr: string = `Blog | ${SITE.title}`; // SITE.title genel site ba
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
     {/*Blog posts grid*/}
-    {otherPosts.length > 0 ? (
+    {blogPosts.length > 0 ? (
       <div class="grid gap-6 lg:grid-cols-2">
-        {otherPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} blogLocale="fr" />)} {/* blogLocale="fr" eklendi */}
+        {blogPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} blogLocale="fr" />)}
       </div>
     ) : (
-      !mostRecentPost && <p class="text-center text-lg text-neutral-600 dark:text-neutral-400">Aucun article de blog disponible pour le moment.</p>
+      <p class="text-center text-lg text-neutral-600 dark:text-neutral-400">Aucun article de blog disponible pour le moment.</p>
     )}
   </section>
-
-  {/*Most recent blog post*/}
-  {mostRecentPost && (
-    <section
-      class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-    >
-      <CardBlogRecent blogEntry={mostRecentPost} recentBlogLocale="fr" /> {/* recentBlogLocale="fr" eklendi */}
-    </section>
-  )}
 
   {/*Insights section*/}
   {insightPosts.length > 0 && (
