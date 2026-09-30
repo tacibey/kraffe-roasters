@@ -1,50 +1,464 @@
 ---
-// Import the necessary dependencies
-import FooterSocialLink from "@components/ui/links/FooterSocialLink.astro";
-// EmailFooterInput importu kaldırıldı
-import enStrings from "@utils/navigation.ts";
-import frStrings from "@utils/fr/navigation.ts";
-import Icon from "@components/ui/icons/Icon.astro";
+// src/components/sections/navbar&footer/FooterSection.astro
 import BrandLogo from "@components/BrandLogo.astro";
 import { SITE } from "@data/constants";
 
-// Select the correct translation based on the page's lang prop:
-const strings = Astro.currentLocale === "fr" ? frStrings : enStrings;
+const isFr = Astro.currentLocale === "fr";
 
-// Email bölümüyle ilgili değişkenler kaldırıldı
-// const sectionThreeTitle: string = ...
-// const sectionThreeContent: string = ...
-// const crafted: string = ... // Bu zaten kaldırılmıştı
+const content = isFr
+  ? {
+      trustItems: [
+        {
+          title: "Précision de Torréfaction",
+          desc: "Gestion fine du flux d'air & tambour, profils Artisan & Cropster.",
+          icon: "flame",
+        },
+        {
+          title: "Export & Support Mondial",
+          desc: "Livraison dans +40 pays, assistance logistique et mise en service.",
+          icon: "globe",
+        },
+        {
+          title: "Garantie 2 Ans & Service",
+          desc: "Composants industriels fiables et support technique continu.",
+          icon: "shield",
+        },
+        {
+          title: "Capacités de 1 à 240 kg",
+          desc: "Du torréfacteur d'échantillon aux usines industrielles complètes.",
+          icon: "layers",
+        },
+      ],
+      brandDesc:
+        "Kraffe Roasters conçoit et fabrique des machines de torréfaction de café commerciales et industrielles de haute précision. Conçues avec des matériaux thermiques robustes et un contrôle avancé des profils pour les torréfacteurs exigeants.",
+      statusText: "Expédition & Support Mondial Actifs",
+      address:
+        "Adalet Mah. Manas Blv. No:39 Folkart Towers A Kule Kat:34 Bayraklı / İzmir, Turquie",
+      phone: "+90 533 566 7061",
+      email: "info@krafferoasters.com",
+      whatsappText: "Discuter sur WhatsApp",
+      cta: {
+        badge: "Sur-Mesure",
+        title: "Projet de Torréfaction ?",
+        desc: "Obtenez un devis adapté à votre volume de production, options de brûleur et couleurs RAL.",
+        btn: "Demander un Devis →",
+        url: "/fr/contact",
+      },
+      sections: [
+        {
+          title: "Torréfacteurs Commerciaux",
+          links: [
+            { name: "Primi (1 kg Échantillon)", url: "/fr/products/primi" },
+            { name: "Dimi (1 kg Boutique)", url: "/fr/products/dimi" },
+            { name: "KRF-03 (3 kg Commercial)", url: "/fr/products/krf-03" },
+            { name: "KRF-06 (6 kg Commercial)", url: "/fr/products/krf-06" },
+            { name: "KRF-15 (15 kg Commercial)", url: "/fr/products/krf-15" },
+            { name: "KRF-20 (20 kg Commercial)", url: "/fr/products/krf-20" },
+            {
+              name: "Tous les Torréfacteurs →",
+              url: "/fr/products",
+              isAccent: true,
+            },
+          ],
+        },
+        {
+          title: "Industriel & Équipements",
+          links: [
+            { name: "KRF-30 (30 kg Industriel)", url: "/fr/products/krf-30" },
+            { name: "KRF-60 (60 kg Industriel)", url: "/fr/products/krf-60" },
+            { name: "KRF-120 (120 kg Industriel)", url: "/fr/products/krf-120" },
+            { name: "KRF-240 (240 kg Usine)", url: "/fr/products/krf-240" },
+            {
+              name: "Épierreurs Industriels (Destoner)",
+              url: "/fr/products/destoner-equipment",
+            },
+            {
+              name: "Chargeurs Pneumatiques de Café",
+              url: "/fr/products/loader-equipment",
+            },
+            {
+              name: "Postcombustion Thermique",
+              url: "/fr/products/afterburner-equipment",
+            },
+          ],
+        },
+        {
+          title: "Société & Guides",
+          links: [
+            { name: "À Propos de Kraffe", url: "/fr/about" },
+            { name: "Blog & Guides de Torréfaction", url: "/fr/blog" },
+            { name: "Événements & Salons Mondiaux", url: "/fr/events" },
+            { name: "Réseau de Revendeurs", url: "/fr/dealers" },
+            { name: "Contact & Assistance", url: "/fr/contact" },
+            {
+              name: "Politique de Confidentialité",
+              url: "/privacy-policy-and-terms",
+            },
+          ],
+        },
+      ],
+      bottomTagline:
+        "Fabricant de Machines de Torréfaction de Café Commerciales & Industrielles.",
+      rightsReserved: "Tous droits réservés.",
+      backToTop: "Haut de page",
+    }
+  : {
+      trustItems: [
+        {
+          title: "Precision Roasting",
+          desc: "Accurate airflow & drum speed control with Artisan & Cropster profile logging.",
+          icon: "flame",
+        },
+        {
+          title: "Worldwide Export & Setup",
+          desc: "Export to 40+ countries with complete customs assistance & technical setup.",
+          icon: "globe",
+        },
+        {
+          title: "2-Year Warranty & Service",
+          desc: "Heavy-duty industrial components with lifetime engineering & spare parts.",
+          icon: "shield",
+        },
+        {
+          title: "1 kg to 240 kg Capacities",
+          desc: "From specialty shop roasters to large-scale industrial roasting plants.",
+          icon: "layers",
+        },
+      ],
+      brandDesc:
+        "Kraffe Roasters engineers and manufactures high-performance commercial and industrial coffee roasting machines. Built with heavy-duty thermal materials and advanced profile automation for specialty roasters worldwide.",
+      statusText: "Worldwide Export & Support Active",
+      address:
+        "Adalet Mah. Manas Blv. No:39 Folkart Towers A Kule Kat:34 Bayraklı / İzmir, Turkey",
+      phone: "+90 533 566 7061",
+      email: "info@krafferoasters.com",
+      whatsappText: "Chat on WhatsApp",
+      cta: {
+        badge: "Custom Build",
+        title: "Planning a Roastery?",
+        desc: "Get an engineered quote tailored to your batch volume, custom RAL colors & turnkey installation.",
+        btn: "Request a Custom Quote →",
+        url: "/contact",
+      },
+      sections: [
+        {
+          title: "Commercial Roasters",
+          links: [
+            { name: "Primi (1 kg Sample Roaster)", url: "/products/primi" },
+            { name: "Dimi (1 kg Shop Roaster)", url: "/products/dimi" },
+            { name: "KRF-03 (3 kg Commercial Roaster)", url: "/products/krf-03" },
+            { name: "KRF-06 (6 kg Commercial Roaster)", url: "/products/krf-06" },
+            { name: "KRF-15 (15 kg Roaster)", url: "/products/krf-15" },
+            { name: "KRF-20 (20 kg Roaster)", url: "/products/krf-20" },
+            {
+              name: "Explore All Roasters →",
+              url: "/products",
+              isAccent: true,
+            },
+          ],
+        },
+        {
+          title: "Industrial & Equipment",
+          links: [
+            { name: "KRF-30 (30 kg Industrial Plant)", url: "/products/krf-30" },
+            { name: "KRF-60 (60 kg Industrial Plant)", url: "/products/krf-60" },
+            {
+              name: "KRF-120 (120 kg Production Roaster)",
+              url: "/products/krf-120",
+            },
+            {
+              name: "KRF-240 (240 kg High Capacity)",
+              url: "/products/krf-240",
+            },
+            {
+              name: "Industrial Destoners",
+              url: "/products/destoner-equipment",
+            },
+            {
+              name: "Pneumatic Coffee Loaders",
+              url: "/products/loader-equipment",
+            },
+            {
+              name: "Catalytic Afterburners",
+              url: "/products/afterburner-equipment",
+            },
+          ],
+        },
+        {
+          title: "Company & Resources",
+          links: [
+            { name: "About Kraffe Roasters", url: "/about" },
+            { name: "Roasting Blog & Tech Guides", url: "/blog" },
+            { name: "World of Coffee & Events", url: "/events" },
+            { name: "Authorized Global Dealers", url: "/dealers" },
+            { name: "Contact & Technical Support", url: "/contact" },
+            {
+              name: "Privacy Policy & Terms",
+              url: "/privacy-policy-and-terms",
+            },
+          ],
+        },
+      ],
+      bottomTagline:
+        "Commercial & Industrial Coffee Roasting Machines Manufacturer.",
+      rightsReserved: "All rights reserved.",
+      backToTop: "Back to top",
+    };
 ---
 
-<footer class="w-full bg-neutral-300 dark:bg-neutral-900">
+<footer
+  role="contentinfo"
+  itemscope
+  itemtype="https://schema.org/WPFooter"
+  class="relative w-full overflow-hidden border-t border-neutral-800/80 bg-neutral-950 text-neutral-300 antialiased"
+>
+  {/* Ambient warm glows for premium visual vitality */}
   <div
-    class="mx-auto w-full max-w-[85rem] px-4 py-10 sm:px-6 lg:px-16 lg:pt-20 2xl:max-w-(--breakpoint-2xl)"
+    class="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 h-64 w-[600px] rounded-full bg-orange-600/10 blur-[130px]"
+    aria-hidden="true"
   >
-    {/* Grid yapısı güncellendi: md:grid-cols-3 lg:grid-cols-3 */}
-    <div class="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-3">
-      {/* Logo Sütunu */}
-      <div class="col-span-full lg:col-span-1">
-        <BrandLogo class="h-auto w-32" /> {/* Boyut kontrol edilebilir */}
+  </div>
+  <div
+    class="pointer-events-none absolute bottom-0 right-0 h-72 w-72 rounded-full bg-orange-500/5 blur-[100px]"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div
+    class="relative mx-auto w-full max-w-[85rem] px-4 sm:px-6 lg:px-8 2xl:max-w-(--breakpoint-2xl)"
+  >
+    {/* 1. TOP TRUST & INNOVATION STRIP (VALUE PROPOSITIONS) */}
+    <div
+      class="grid grid-cols-1 gap-4 py-8 sm:grid-cols-2 lg:grid-cols-4 border-b border-neutral-800/80"
+    >
+      {
+        content.trustItems.map((item) => (
+          <div class="group flex items-start gap-3.5 rounded-xl border border-neutral-800/80 bg-neutral-900/50 p-4 transition-all duration-300 hover:border-orange-500/40 hover:bg-neutral-900/90 hover:shadow-lg hover:shadow-orange-500/5">
+            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-orange-500/20 bg-orange-500/10 text-orange-500 transition-colors duration-300 group-hover:bg-orange-500 group-hover:text-white">
+              {item.icon === "flame" && (
+                <svg
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.8"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z"
+                  />
+                </svg>
+              )}
+              {item.icon === "globe" && (
+                <svg
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.8"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"
+                  />
+                </svg>
+              )}
+              {item.icon === "shield" && (
+                <svg
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.8"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"
+                  />
+                </svg>
+              )}
+              {item.icon === "layers" && (
+                <svg
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.8"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6.429 9.75 2.25 12l9.75 5.25 9.75-5.25-4.179-2.25M6.429 14.25 2.25 16.5l9.75 5.25 9.75-5.25-4.179-2.25M21.75 7.5 12 2.25 2.25 7.5 12 12.75l9.75-5.25Z"
+                  />
+                </svg>
+              )}
+            </div>
+            <div>
+              <h4 class="text-sm font-semibold text-neutral-100">
+                {item.title}
+              </h4>
+              <p class="mt-1 text-xs leading-relaxed text-neutral-400">
+                {item.desc}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    {/* 2. MAIN FOOTER CONTENT GRID */}
+    <div
+      class="grid grid-cols-1 gap-10 py-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-12 lg:gap-8 lg:py-16"
+    >
+      {/* BRAND & CONTACT COLUMN (Cols: 4) */}
+      <div class="flex flex-col space-y-5 sm:col-span-2 md:col-span-3 lg:col-span-4">
+        <div>
+          <BrandLogo class="h-auto w-36 brightness-110 drop-shadow-sm transition-transform duration-300 hover:scale-105" />
+        </div>
+
+        {/* Live Worldwide Indicator */}
+        <div class="inline-flex w-fit items-center gap-2 rounded-full border border-emerald-500/25 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-400">
+          <span class="relative flex h-2 w-2">
+            <span
+              class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"
+            ></span>
+            <span
+              class="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"
+            ></span>
+          </span>
+          <span>{content.statusText}</span>
+        </div>
+
+        {/* Keyword-Rich Brand Description for SEO */}
+        <p class="text-sm leading-relaxed text-neutral-400">
+          {content.brandDesc}
+        </p>
+
+        {/* Structured Contact Block */}
+        <div
+          class="space-y-2.5 pt-2 text-xs text-neutral-400"
+          itemscope
+          itemtype="https://schema.org/PostalAddress"
+        >
+          <div class="flex items-start gap-2.5">
+            <svg
+              class="mt-0.5 h-4 w-4 shrink-0 text-orange-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.8"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+              ></path>
+            </svg>
+            <span itemprop="streetAddress" class="leading-relaxed">
+              {content.address}
+            </span>
+          </div>
+
+          <div class="flex items-center gap-2.5">
+            <svg
+              class="h-4 w-4 shrink-0 text-orange-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.8"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
+              ></path>
+            </svg>
+            <a
+              href={`tel:${content.phone.replace(/\s+/g, "")}`}
+              class="font-medium text-neutral-300 transition-colors duration-200 hover:text-orange-400"
+              title="Call Kraffe Roasters"
+            >
+              {content.phone}
+            </a>
+          </div>
+
+          <div class="flex items-center gap-2.5">
+            <svg
+              class="h-4 w-4 shrink-0 text-orange-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.8"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
+              ></path>
+            </svg>
+            <a
+              href={`mailto:${content.email}`}
+              class="font-medium text-neutral-300 transition-colors duration-200 hover:text-orange-400"
+              title="Email Kraffe Roasters"
+            >
+              {content.email}
+            </a>
+          </div>
+        </div>
+
+        {/* WhatsApp Direct Chat Button */}
+        <div>
+          <a
+            href="https://wa.me/905335667061"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            class="inline-flex items-center gap-2 rounded-lg border border-[#25D366]/30 bg-[#25D366]/10 px-3.5 py-2 text-xs font-semibold text-[#25D366] transition-all duration-300 hover:border-[#25D366] hover:bg-[#25D366] hover:text-white"
+            title="Chat directly on WhatsApp"
+          >
+            <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+              <path
+                d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.06 7.42C8.86 7.42 8.53 7.5 8.25 7.8C7.97 8.1 7.18 8.85 7.18 10.37C7.18 11.89 8.29 13.36 8.44 13.56C8.6 13.76 10.61 16.87 13.7 18.2C14.43 18.5 15.01 18.71 15.45 18.85C16.19 19.09 16.87 19.05 17.41 18.97C18.01 18.88 19.26 18.21 19.52 17.47C19.78 16.73 19.78 16.1 19.7 15.97C19.62 15.84 19.42 15.77 19.12 15.62C18.82 15.47 17.35 14.75 17.07 14.65C16.8 14.55 16.6 14.5 16.4 14.8C16.2 15.1 15.63 15.77 15.45 15.97C15.28 16.17 15.1 16.2 14.8 16.05C14.5 15.9 13.54 15.59 12.41 14.58C11.53 13.79 10.93 12.82 10.76 12.52C10.59 12.22 10.74 12.06 10.89 11.91C11.03 11.77 11.2 11.55 11.35 11.37C11.5 11.19 11.55 11.07 11.65 10.87C11.75 10.67 11.7 10.5 11.63 10.35C11.55 10.2 10.98 8.8 10.73 8.22C10.5 7.64 10.26 7.72 10.08 7.71C9.91 7.71 9.71 7.7 9.51 7.7C9.31 7.7 9 7.77 8.72 8.07C8.44 8.37 9.06 7.42 9.06 7.42Z"
+              ></path>
+            </svg>
+            <span>{content.whatsappText}</span>
+          </a>
+        </div>
       </div>
 
-      {/* Link Sütunları (Navigation.ts'den gelen verilere göre oluşturulur) */}
+      {/* NAVIGATION LINKS COLUMNS (Cols: 2 + 2 + 2 = 6) */}
       {
-        strings.footerLinks.map((section) => (
-          <div class="col-span-1">
-            <h3 class="font-bold text-neutral-800 dark:text-neutral-200">
-              {section.section}
+        content.sections.map((section) => (
+          <div class="col-span-1 lg:col-span-2">
+            <h3 class="text-sm font-semibold tracking-wider text-neutral-100 uppercase">
+              {section.title}
             </h3>
-            <ul class="mt-3 grid space-y-3">
-              {section.links.map((link) => ( // index kaldırıldı, hiring badge kaldırıldı
+            <ul class="mt-4 space-y-2.5">
+              {section.links.map((link) => (
                 <li>
                   <a
                     href={link.url}
-                    class="inline-flex gap-x-2 rounded-lg text-neutral-600 outline-hidden ring-zinc-500 transition duration-300 hover:text-neutral-500 focus-visible:ring-3 dark:text-neutral-400 dark:ring-zinc-200 dark:hover:text-neutral-300 dark:focus:outline-hidden"
+                    class:list={[
+                      "inline-flex items-center gap-1.5 text-xs transition-all duration-200 hover:translate-x-1",
+                      link.isAccent
+                        ? "font-semibold text-orange-400 hover:text-orange-300"
+                        : "text-neutral-400 hover:text-neutral-100",
+                    ]}
+                    title={link.name}
                   >
-                    {link.name}
+                    <span>{link.name}</span>
                   </a>
-                  {/* We're hiring badge kaldırıldı */}
                 </li>
               ))}
             </ul>
@@ -52,51 +466,112 @@ const strings = Astro.currentLocale === "fr" ? frStrings : enStrings;
         ))
       }
 
-      {/* Email Form Bölümü KALDIRILDI */}
-      {/*
-      <div class="col-span-2">
-         ... (email formu içeriği buradaydı) ...
+      {/* 5. CTA BOX: GET A QUOTE (Cols: 2) */}
+      <div class="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-2">
+        <div class="relative overflow-hidden rounded-2xl border border-orange-500/25 bg-linear-to-b from-orange-500/10 via-neutral-900 to-neutral-900 p-5 shadow-lg shadow-orange-500/5">
+          <div class="inline-flex items-center rounded-full bg-orange-500/20 px-2.5 py-0.5 text-[10px] font-bold tracking-wide text-orange-400 uppercase">
+            {content.cta.badge}
+          </div>
+          <h4 class="mt-2.5 text-sm font-bold text-white">
+            {content.cta.title}
+          </h4>
+          <p class="mt-1.5 text-xs leading-relaxed text-neutral-300">
+            {content.cta.desc}
+          </p>
+          <a
+            href={content.cta.url}
+            class="mt-4 inline-flex w-full items-center justify-center rounded-lg bg-orange-500 px-3 py-2 text-center text-xs font-semibold text-white shadow-sm transition-all duration-300 hover:bg-orange-600 hover:shadow-orange-500/20"
+          >
+            {content.cta.btn}
+          </a>
+        </div>
       </div>
-      */}
     </div>
 
-    {/* Alt Satır: Telif Hakkı ve Sosyal İkonlar */}
+    {/* 3. BOTTOM BAR (COPYRIGHT, SEO TAGLINE, SOCIALS & BACK TO TOP) */}
     <div
-      class="mt-9 grid gap-y-2 border-t border-neutral-400 pt-6 dark:border-neutral-700 sm:mt-12 sm:flex sm:items-center sm:justify-between sm:gap-y-0 sm:pt-10" // Border-t ve padding eklendi
+      class="flex flex-col items-center justify-between gap-4 border-t border-neutral-800/80 py-6 sm:flex-row pb-24 sm:pb-8 text-xs text-neutral-400"
     >
-      {/* Telif Hakkı */}
-      <div class="flex items-center justify-center sm:justify-start"> {/* Mobil için ortalama eklendi */}
-            <p class="text-sm text-neutral-600 dark:text-neutral-400">
-              © <span id="current-year"></span> {SITE.title}.
-            </p>
+      {/* Copyright & SEO Tagline */}
+      <div class="flex flex-col items-center gap-1 text-center sm:items-start sm:text-left">
+        <p>
+          © <span id="current-year">2026</span> {SITE.title}. {
+            content.rightsReserved
+          }
+        </p>
+        <p class="text-[11px] text-neutral-400">
+          {content.bottomTagline}
+        </p>
       </div>
 
-      {/* Sosyal İkonlar (Güncellendi) */}
-      <div class="flex justify-center gap-x-2 sm:justify-end"> {/* Boşluk için gap-x-2 eklendi */}
-        {/* Facebook */}
-        {strings.socialLinks.facebook && (
-          <FooterSocialLink url={strings.socialLinks.facebook}>
-            <Icon name="facebookFooter" />
-          </FooterSocialLink>
-        )}
-
+      {/* Social Links & Back to Top */}
+      <div class="flex items-center gap-3">
         {/* Instagram */}
-        {strings.socialLinks.instagram && (
-          <FooterSocialLink url={strings.socialLinks.instagram}>
-            {/* ÖNEMLİ: 'instagramFooter' ikonunun icons.ts dosyasında tanımlı olduğundan emin olun! */}
-            <Icon name="instagramFooter" />
-          </FooterSocialLink>
-        )}
+        <a
+          href="https://www.instagram.com/kraffe.roasters/"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          aria-label="Instagram"
+          class="flex h-8 w-8 items-center justify-center rounded-full border border-neutral-800 bg-neutral-900 text-neutral-400 transition-all duration-200 hover:border-orange-500 hover:bg-orange-500 hover:text-white"
+        >
+          <svg class="h-4 w-4 fill-none stroke-current" stroke-width="1.8" viewBox="0 0 24 24">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
 
-        {/* Diğer ikonlar kaldırıldı */}
+        {/* Facebook */}
+        <a
+          href="https://www.facebook.com/krafferoasters"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          aria-label="Facebook"
+          class="flex h-8 w-8 items-center justify-center rounded-full border border-neutral-800 bg-neutral-900 text-neutral-400 transition-all duration-200 hover:border-orange-500 hover:bg-orange-500 hover:text-white"
+        >
+          <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+            <path
+              d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"
+            ></path>
+          </svg>
+        </a>
+
+        {/* Back to top button */}
+        <button
+          type="button"
+          id="footer-back-to-top"
+          aria-label={content.backToTop}
+          class="inline-flex cursor-pointer items-center gap-1 rounded-lg border border-neutral-800 bg-neutral-900 px-2.5 py-1.5 text-xs text-neutral-400 transition-colors duration-200 hover:border-neutral-700 hover:text-white"
+        >
+          <span>{content.backToTop}</span>
+          <svg
+            class="h-3.5 w-3.5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4.5 15.75l7.5-7.5 7.5 7.5"></path>
+          </svg>
+        </button>
       </div>
     </div>
-
-    {/* Yıl script'i */}
-    <script>
-      const year = new Date().getFullYear();
-      const element = document.getElementById("current-year");
-      element!.innerText = year.toString();
-    </script>
   </div>
+
+  {/* Client-side script for dynamic year and back-to-top button */}
+  <script is:inline>
+    const currentYearElem = document.getElementById("current-year");
+    if (currentYearElem) {
+      currentYearElem.innerText = new Date().getFullYear().toString();
+    }
+    const backToTopBtn = document.getElementById("footer-back-to-top");
+    if (backToTopBtn) {
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+  </script>
 </footer>
