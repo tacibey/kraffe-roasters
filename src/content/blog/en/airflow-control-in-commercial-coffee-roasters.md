@@ -1,4 +1,5 @@
 ---
+translationKey: "airflow-control-in-commercial-coffee-roasters"
 title: "Airflow Control in Commercial Coffee Roasters: Why It Matters More Than You Think?"
 description: "Learn why airflow control is one of the most important engineering features in commercial coffee roasters. Discover how airflow affects heat transfer, roast consistency, smoke removal, and cup quality."
 author: "Kraffe Team"

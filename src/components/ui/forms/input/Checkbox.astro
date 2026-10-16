@@ -1,5 +1,10 @@
----
-const { label = Astro.currentLocale === "fr" ? "Me rappeler" : "Remember me", id } = Astro.props;
+const labels: Record<string, string> = {
+  en: "Remember me",
+  fr: "Me rappeler",
+  es: "Recordarme",
+};
+const defaultLabel = labels[Astro.currentLocale || "en"] || labels.en;
+const { label = defaultLabel, id } = Astro.props;
 
 interface Props {
   label?: string;

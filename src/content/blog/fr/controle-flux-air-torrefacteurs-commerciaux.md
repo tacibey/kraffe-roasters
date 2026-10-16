@@ -1,4 +1,5 @@
 ---
+translationKey: "airflow-control-in-commercial-coffee-roasters"
 title: "Contrôle du Flux d'Air dans les Torréfacteurs Commerciaux : Pourquoi est-ce Crucial ?"
 description: "Découvrez pourquoi le contrôle du flux d'air est l'une des caractéristiques d'ingénierie les plus importantes des torréfacteurs commerciaux. Impact sur le transfert thermique, la constance, l'évacuation des fumées et la pureté en tasse."
 author: "Kraffe Team"

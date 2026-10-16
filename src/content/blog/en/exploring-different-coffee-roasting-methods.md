@@ -1,4 +1,5 @@
 ---
+translationKey: "exploring-different-coffee-roasting-methods"
 title: "Exploring Different Coffee Roasting Methods: Traditional vs. Modern Approaches"
 description: "Discover the art and science behind coffee roasting. Compare traditional drum and open-fire methods with modern hot air and infrared techniques to understand how each impacts flavor."
 author: "Kraffe Technics"

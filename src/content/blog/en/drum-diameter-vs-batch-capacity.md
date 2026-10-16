@@ -1,4 +1,5 @@
 ---
+translationKey: "drum-diameter-vs-batch-capacity"
 title: "Drum Diameter vs Batch Capacity: What Really Matters?"
 description: "Learn why drum diameter matters more than batch capacity when choosing a commercial coffee roaster. Discover how drum geometry affects heat transfer, airflow, thermal stability, and roast consistency."
 author: "Kraffe Team"

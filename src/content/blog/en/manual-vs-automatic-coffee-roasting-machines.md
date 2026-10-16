@@ -1,4 +1,5 @@
 ---
+translationKey: "manual-vs-automatic-coffee-roasting-machines"
 title: "Manual vs Automatic Coffee Roasting Machines"
 description: "Manual vs automatic coffee roasting machines explained. Compare control, consistency, scalability, and which system fits your commercial roasting goals."
 author: "Kraffe Team"

@@ -1,4 +1,5 @@
 ---
+translationKey: "burner-systems-in-gas-coffee-roasters"
 title: "Systèmes de Brûleurs des Torréfacteurs à Gaz : Le Véritable Moteur du Contrôle"
 description: "Découvrez comment les brûleurs à gaz influencent le transfert thermique, la réactivité, la stabilité de flamme et la constance dans les torréfacteurs commerciaux."
 author: "Kraffe Team"

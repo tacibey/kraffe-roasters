@@ -1,4 +1,5 @@
 ---
+translationKey: "what-makes-a-professional-coffee-roaster-different"
 title: "Ce Qui Différencie un Torréfacteur Professionnel des Machines Entrée de Gamme"
 description: "Qu'est-ce qui distingue un torréfacteur professionnel d'une machine amateur ? Découvrez le rôle de la masse thermique, de la robustesse mécanique et du refroidissement."
 author: "Kraffe Team"

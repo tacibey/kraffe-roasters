@@ -1,4 +1,5 @@
 ---
+translationKey: "understanding-the-technology-behind-modern-roasting-machines"
 title: "Understanding the Technology Behind Modern Roasting Machines"
 description: "A deep dive into the technology that powers modern coffee roasters. Learn about airflow, drum speed, and heat transfer principles for better roasting."
 author: "Kraffe Technics"

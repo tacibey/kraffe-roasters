@@ -1,4 +1,5 @@
 ---
+translationKey: "kraffe-coffee-bean-roaster-guide"
 title: "Coffee Bean Roaster: Craft Exceptional Roasts with Kraffe"
 description: "Explore Kraffe Roasters' state-of-the-art coffee bean roaster, designed for precision, flavor complexity, efficiency, and ease of use. Elevate your roasting craft."
 author: "Kraffe Technics"

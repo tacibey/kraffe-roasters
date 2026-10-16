@@ -1,4 +1,5 @@
 ---
+translationKey: "what-is-light-roast-coffee-a-roasters-guide"
 title: "Qu'est-ce que le café torréfaction claire ? Le guide du torréfacteur"
 description: "Découvrez ce qu'est le café torréfaction claire (light roast) : profil aromatique, caféine, extraction idéale et conseils d'ingénierie pour torréfier avec précision."
 author: "Kraffe Team"

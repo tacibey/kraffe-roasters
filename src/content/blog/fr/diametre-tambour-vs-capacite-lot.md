@@ -1,4 +1,5 @@
 ---
+translationKey: "drum-diameter-vs-batch-capacity"
 title: "Diamètre du Tambour vs Capacité de Lot : Ce Qui Compte Vraiment"
 description: "Pourquoi le diamètre du tambour est-il plus important que la capacité annoncée ? Découvrez l'impact de la géométrie du tambour sur le transfert thermique, le brassage et la constance du café."
 author: "Kraffe Team"

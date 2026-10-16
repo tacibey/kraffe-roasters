@@ -1,4 +1,5 @@
 ---
+translationKey: "choosing-the-right-coffee-roaster-for-a-startup"
 title: "Choisir le Bon Torréfacteur pour une Startup en 2026"
 description: "Apprenez à choisir le torréfacteur idéal pour lancer votre atelier en 2026. Comparez les capacités de 3 kg, 6 kg, 12 kg et 20 kg selon vos ventes prévisionnelles, votre modèle économique et votre budget."
 author: "Kraffe Team"

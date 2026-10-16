@@ -1,4 +1,5 @@
 ---
+translationKey: "coffee-roasting-business-profitability-2026"
 title: "Quelle est la Rentabilité Réelle d'un Atelier de Torréfaction en 2026 ?"
 description: "Découvrez les marges réelles, la structure des coûts et les scénarios de revenus pour un atelier de torréfaction en 2026. Comparatif vente en gros (wholesale) vs vente directe au détail."
 author: "Kraffe Team"

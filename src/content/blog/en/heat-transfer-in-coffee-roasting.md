@@ -1,4 +1,5 @@
 ---
+translationKey: "heat-transfer-in-coffee-roasting"
 title: "Heat Transfer in Coffee Roasting: How Conduction, Convection & Radiation Shape Roast Quality?"
 description: "Discover how heat transfer in commercial coffee roasting affects flavor, consistency, and roast quality through conduction, convection, and radiation."
 author: "Kraffe Team"

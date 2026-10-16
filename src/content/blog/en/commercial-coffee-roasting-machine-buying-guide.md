@@ -1,4 +1,5 @@
 ---
+translationKey: "commercial-coffee-roasting-machine-buying-guide"
 title: "Commercial Coffee Roasting Machine Buying Guide"
 description: "Learn how to choose the right commercial coffee roasting machine for your business. Compare capacity, gas vs electric, software, and investment factors."
 author: "Kraffe Team"

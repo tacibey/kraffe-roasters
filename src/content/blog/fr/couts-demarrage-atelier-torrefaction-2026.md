@@ -1,4 +1,5 @@
 ---
+translationKey: "coffee-roasting-business-startup-costs-2026"
 title: "Coûts de Démarrage d'un Atelier de Torréfaction en 2026 | Budget et Investissements"
 description: "Combien coûte l'ouverture d'un atelier de torréfaction de café en 2026 ? Prix des machines, coûts d'installation, aménagement, stock de café vert et exemple de budget pour un torréfacteur 6 kg."
 author: "Kraffe Team"

@@ -1,4 +1,5 @@
 ---
+translationKey: "understanding-the-technology-behind-modern-roasting-machines"
 title: "L'Art de la Torréfaction du Café et le Rôle des Machines à Torréfier"
 description: "Explorez les types de machines à torréfier, des torréfacteurs domestiques et de boutique aux solutions industrielles. Apprenez les facteurs clés pour choisir le bon équipement et maîtriser votre art."
 author: "Kraffe Technics"

@@ -1,4 +1,5 @@
 ---
+translationKey: "how-to-choose-the-right-coffee-roaster-capacity"
 title: "How to Choose the Right Coffee Roaster Capacity"
 description: "Calculate coffee roaster capacity correctly with weight loss formulas, hourly output examples, and smart production planning for commercial roasting."
 author: "Kraffe Team"

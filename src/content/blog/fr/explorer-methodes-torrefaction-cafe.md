@@ -1,4 +1,5 @@
 ---
+translationKey: "exploring-different-coffee-roasting-methods"
 title: "Exploration des Différentes Méthodes de Torréfaction du Café : Approches Traditionnelles vs. Modernes"
 description: "Découvrez l'art et la science de la torréfaction du café. Comparez les méthodes traditionnelles à tambour et à feu ouvert avec les techniques modernes à air chaud et infrarouge pour comprendre leur impact sur la saveur."
 author: "Kraffe Technics"

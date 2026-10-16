@@ -1,0 +1,219 @@
+---
+// Import necessary components and utilities
+import MainLayout from "@/layouts/MainLayout.astro";
+import AvatarBlogLarge from "@components/ui/avatars/AvatarBlogLarge.astro";
+import CardRelated from "@components/ui/cards/CardRelated.astro";
+import Bookmark from "@components/ui/buttons/Bookmark.astro";
+import SocialShare from "@components/ui/buttons/SocialShare.astro";
+import PostFeedback from "@components/ui/feedback/PostFeedback.astro";
+import TableOfContents from "@components/blog/TableOfContents.astro";
+import BlogSidebarRelated from "@components/blog/BlogSidebarRelated.astro";
+import KeyTakeaways from "@components/blog/KeyTakeaways.astro";
+import { Image, getImage } from "astro:assets";
+import { capitalize, formatDate } from "@utils/utils";
+import { getCollection, render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { SITE } from "@data/constants";
+
+export async function getStaticPaths() {
+  const blogPosts = await getCollection("blog", ({ id }) =>
+    id.startsWith("es/")
+  );
+  return blogPosts.map((post) => {
+    const idWithoutLang = post.id.replace(/^es\//, "");
+    return {
+      params: { id: idWithoutLang },
+      props: { post },
+    };
+  });
+}
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await render(post);
+
+const blogPosts: CollectionEntry<"blog">[] = await getCollection(
+  "blog",
+  ({ id }) => id.startsWith("es/")
+);
+const relatedPosts: CollectionEntry<"blog">[] = blogPosts.filter(
+  (blogEntry) => blogEntry.id !== post.id
+);
+
+const lastUpdatedDate = post.data.updatedDate || post.data.pubDate;
+
+const rawTitle = post.data.metaTitle || post.data.title;
+const pageTitle: string = rawTitle.includes("Kraffe") ? rawTitle : `${rawTitle} | Kraffe`;
+
+const postSlug = post.id.replace(/^es\//, "");
+const postUrl = new URL(`/es/blog/${postSlug}/`, SITE.url).href;
+
+const postImage = await getImage({ src: post.data.cardImage, format: "webp" });
+const postImageUrl = new URL(postImage.src, SITE.url).href;
+
+let authorImageUrl: string | undefined;
+if (post.data.authorImage) {
+  const authorImg = await getImage({ src: post.data.authorImage, format: "webp" });
+  authorImageUrl = new URL(authorImg.src, SITE.url).href;
+}
+
+const blogPostingSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": postUrl,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": postUrl,
+  },
+  "headline": post.data.title,
+  "description": post.data.description,
+  "url": postUrl,
+  "image": postImageUrl,
+  "datePublished": post.data.pubDate.toISOString(),
+  "dateModified": lastUpdatedDate.toISOString(),
+  "author": {
+    "@type": "Person",
+    "name": post.data.author,
+    ...(authorImageUrl ? { "image": authorImageUrl } : {}),
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kraffe Roasters",
+    "url": SITE.url,
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${SITE.url}/kraffe-logo.png`,
+    },
+  },
+  "inLanguage": "es-ES",
+  "isPartOf": {
+    "@type": "Blog",
+    "@id": `${SITE.url}/es/blog/`,
+    "name": "Blog Kraffe Roasters",
+    "url": `${SITE.url}/es/blog/`,
+  },
+  ...(post.data.tags && post.data.tags.length > 0
+    ? {
+        "keywords": post.data.tags.join(", "),
+        "articleSection": post.data.tags[0],
+      }
+    : {}),
+};
+---
+
+<MainLayout
+  title={pageTitle}
+  lang="es"
+  meta={post.data.description}
+  structuredData={blogPostingSchema}
+>
+  <section class="mx-auto max-w-7xl px-4 pb-12 pt-6 sm:px-6 lg:px-8 lg:pt-10">
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-8 xl:gap-10">
+      <!-- Left Column: Table of Contents (Desktop Sticky) -->
+      <div class="hidden lg:col-span-3 lg:block">
+        <TableOfContents headings={headings} title="Tabla de contenidos" />
+      </div>
+
+      <!-- Center Column: Article Content -->
+      <div class="col-span-12 lg:col-span-6 min-w-0">
+        <div class="mb-6 flex items-center justify-between">
+          <div class="flex w-full gap-x-5 sm:items-center sm:gap-x-3">
+            <AvatarBlogLarge blogEntry={post} />
+            <div class="grow">
+              <div class="flex items-center justify-between gap-x-2">
+                <div>
+                  <span class="font-bold text-neutral-700 dark:text-neutral-300">
+                    {post.data.author}
+                  </span>
+                  <ul class="text-xs text-neutral-500">
+                    <li
+                      class="relative inline-block pe-6 before:absolute before:end-2 before:top-1/2 before:size-1 before:-translate-y-1/2 before:rounded-full before:bg-neutral-300 last:pe-0 last-of-type:before:hidden dark:text-neutral-400 dark:before:bg-neutral-600"
+                    >
+                      {formatDate(post.data.pubDate)}
+                    </li>
+                    <li
+                      class="relative inline-block pe-6 before:absolute before:end-2 before:top-1/2 before:size-1 before:-translate-y-1/2 before:rounded-full before:bg-neutral-300 last:pe-0 last-of-type:before:hidden dark:text-neutral-400 dark:before:bg-neutral-600"
+                    >
+                      {post.data.readTime} min de lectura
+                    </li>
+                    <li
+                      class="relative inline-block pe-6 before:absolute before:end-2 before:top-1/2 before:size-1 before:-translate-y-1/2 before:rounded-full before:bg-neutral-300 last:pe-0 last-of-type:before:hidden text-orange-600 dark:text-orange-400 dark:before:bg-neutral-600 font-medium"
+                    >
+                      Actualizado : {formatDate(lastUpdatedDate)}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h1 class="mb-3 text-3xl font-bold text-neutral-800 dark:text-neutral-200 md:text-4xl">
+          {post.data.title}
+        </h1>
+
+        <!-- Mobile Inline Table of Contents -->
+        <TableOfContents headings={headings} title="Tabla de contenidos" isMobile={true} />
+
+        {post.data.keyTakeaways && post.data.keyTakeaways.length > 0 && (
+          <KeyTakeaways title="PUNTOS CLAVE" items={post.data.keyTakeaways} lang="es" />
+        )}
+
+        <article class="prose prose-neutral dark:prose-invert prose-lg max-w-none">
+          <Content />
+        </article>
+
+        <div class="mt-8 pt-6 border-t border-neutral-200 dark:border-neutral-700/60 space-y-4">
+          <div class="flex flex-wrap gap-2 items-center">
+            {
+              post.data.tags?.map((tag: string) => (
+                <span class="inline-flex items-center rounded-lg bg-neutral-400/30 px-3 py-1.5 text-xs font-medium text-neutral-700 dark:bg-neutral-700/60 dark:text-neutral-300">
+                  {capitalize(tag)}
+                </span>
+              ))
+            }
+          </div>
+          <div class="flex items-center justify-end gap-x-1.5 pt-2">
+            <Bookmark />
+            <div class="mx-3 block h-4 border-e border-neutral-400 dark:border-neutral-500"></div>
+            <div class="inline-flex">
+              <SocialShare pageTitle={post.data.title} />
+            </div>
+          </div>
+        </div>
+
+        <PostFeedback
+          title="¿Te ha resultado útil este artículo?"
+          firstChoice="Sí"
+          secondChoice="No"
+        />
+      </div>
+
+      <!-- Right Column: Other / Related Blog Posts -->
+      <div class="hidden lg:col-span-3 lg:block">
+        <BlogSidebarRelated
+          relatedPosts={relatedPosts}
+          title="Artículos relacionados"
+          currentLang="es"
+          limit={3}
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+    <div class="mb-10 max-w-2xl">
+      <h2
+        class="text-balance text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
+      >
+        Artículos relacionados
+      </h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {relatedPosts.slice(0, 3).map((entry) => <CardRelated blogEntry={entry} recentBlogLocale="es" />)}
+    </div>
+  </section>
+</MainLayout>

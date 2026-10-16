@@ -1,4 +1,5 @@
 ---
+translationKey: "mastering-art-coffee-roasting"
 title: "Maîtriser l'Art de la Torréfaction du Café : Guide de Création de Profil"
 description: "Améliorez votre art de la torréfaction. Apprenez à créer des profils de torréfaction idéaux, de la compréhension des étapes du grain à l'ajustement fin des variables pour une saveur et une constance exceptionnelles."
 author: "Kraffe Technics"

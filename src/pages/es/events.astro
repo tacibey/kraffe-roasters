@@ -1,0 +1,164 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import { SITE } from "@data/constants";
+import { Image } from "astro:assets";
+
+import topImage from "@images/events/woc-geneva-4.avif";
+import middleImage from "@images/events/woc-geneva-3.avif";
+
+import galleryPhoto1 from "@images/events/woc-geneva-1.avif";
+import galleryPhoto2 from "@images/events/woc-geneva-2.avif";
+import galleryPhoto3 from "@images/events/woc-geneva-3.avif";
+import galleryPhoto4 from "@images/events/woc-geneva-4.avif";
+import galleryPhoto5 from "@images/events/woc-geneva-5.avif";
+import galleryPhoto6 from "@images/events/woc-geneva-6.avif";
+import galleryPhoto7 from "@images/events/woc-geneva-7.avif";
+import galleryPhoto8 from "@images/events/woc-geneva-8.avif";
+import galleryPhoto9 from "@images/events/woc-geneva-9.avif";
+import galleryPhoto10 from "@images/events/woc-geneva-10.avif";
+import galleryPhoto11 from "@images/events/woc-geneva-11.avif";
+import galleryPhoto12 from "@images/events/woc-geneva-12.avif";
+import galleryPhoto13 from "@images/events/woc-geneva-13.avif";
+import galleryPhoto14 from "@images/events/woc-geneva-14.avif";
+import galleryPhoto15 from "@images/events/woc-geneva-15.avif";
+import galleryPhoto16 from "@images/events/woc-geneva-16.avif";
+
+const pageTitle = `Kraffe Roasters en World of Coffee Ginebra 2025`;
+const metaDescription = "Resumen de Kraffe Roasters en World of Coffee 2025 Ginebra. Descubra nuestras tostadoras de café comerciales y avances de la comunidad cafetera.";
+
+const introText = `
+  <p class="mb-4">A finales de junio, la comunidad mundial del café se reunió en la feria anual <strong>World of Coffee 2025</strong> en Ginebra, Suiza, un evento clave organizado por la <a href="https://www.worldofcoffee.org/" target="_blank" rel="nofollow noopener noreferrer" class="text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 underline">Specialty Coffee Association (SCA)</a>. En Kraffe Roasters, tuvimos el placer de participar y conectar con clientes, socios y profesionales del café de todo el mundo.</p>
+  <p class="mb-4">El evento tuvo lugar en PALEXPO, un moderno centro de exposiciones situado en un amplio parque verde. Agradecemos al equipo de la SCA la elección de una ubicación tan práctica y hermosa.</p>
+`;
+
+const mainContent = `
+  <p class="mb-4">El día antes de la inauguración, visitamos nuestro stand en Palexpo. El pabellón era increíblemente amplio y espacioso. Nuestra <a href="/es/products" class="text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 underline"><strong>tostadora comercial</strong></a> fue entregada rápidamente y pudimos instalarla sin complicaciones. Todo quedó listo para la gran apertura.</p>
+  <p class="mb-4">Durante los días del evento, recibimos a numerosos visitantes y profesionales del sector interesados en nuestros equipos y tecnologías de tostado comercial e industrial.</p>
+  <p>Así concluyó otra inspiradora edición de World of Coffee. ¡Muchas gracias a todos los que nos visitaron y a los organizadores!</p>
+`;
+
+const tags = ["World of Coffee", "Ginebra 2025", "SCA", "tostadora comercial", "eventos café", "Kraffe Roasters"];
+
+const galleryImages = [
+    { src: galleryPhoto1, alt: "Stand de Kraffe Roasters en World of Coffee Ginebra" },
+    { src: galleryPhoto2, alt: "Visitantes examinando la tostadora comercial" },
+    { src: galleryPhoto3, alt: "Ambiente vibrante en el centro de exposiciones Palexpo" },
+    { src: galleryPhoto4, alt: "Tostadora comercial roja de Kraffe" },
+    { src: galleryPhoto5, alt: "Escenario del campeonato de café" },
+    { src: galleryPhoto6, alt: "Foto del equipo en el stand de Kraffe Roasters" },
+    { src: galleryPhoto7, alt: "Kraffe Roasters en World of Coffee Ginebra" },
+    { src: galleryPhoto8, alt: "Kraffe Roasters en World of Coffee Ginebra" },
+    { src: galleryPhoto9, alt: "Kraffe Roasters en World of Coffee Ginebra" },
+    { src: galleryPhoto10, alt: "Kraffe Roasters en World of Coffee Ginebra" },
+    { src: galleryPhoto11, alt: "Kraffe Roasters en World of Coffee Ginebra" },
+    { src: galleryPhoto12, alt: "Kraffe Roasters en World of Coffee Ginebra" },
+    { src: galleryPhoto13, alt: "Kraffe Roasters en World of Coffee Ginebra" },
+    { src: galleryPhoto14, alt: "Kraffe Roasters en World of Coffee Ginebra" },
+    { src: galleryPhoto15, alt: "Kraffe Roasters en World of Coffee Ginebra" },
+    { src: galleryPhoto16, alt: "Kraffe Roasters en World of Coffee Ginebra" },
+];
+---
+
+<MainLayout
+  title={pageTitle}
+  meta={metaDescription}
+  lang="es"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": Astro.url.href
+    },
+    "headline": "World of Coffee 2025 en Ginebra: Un Encuentro Memorable",
+    "image": new URL(topImage.src, Astro.site).href,
+    "datePublished": "2025-07-05T08:00:00+00:00",
+    "dateModified": new Date().toISOString(),
+    "author": {
+      "@type": "Organization",
+      "name": "Kraffe Roasters"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Kraffe Roasters",
+      "logo": {
+        "@type": "ImageObject",
+        "url": new URL("/kraffe-logo.png", Astro.site).href
+      }
+    },
+    "description": metaDescription,
+    "keywords": tags.join(", "),
+    "inLanguage": "es-ES"
+  }}
+>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-zoom.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-thumbnail.min.css" />
+
+  <section class="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      
+      <h1 class="text-balance">World of Coffee 2025 en Ginebra: Un Encuentro Memorable de la Comunidad Mundial del Café</h1>
+      
+      <div class="not-prose my-8">
+        <Image src={topImage} alt="El equipo y el stand de Kraffe Roasters en World of Coffee Ginebra 2025" class="w-full h-auto rounded-xl shadow-lg" loading="eager" />
+      </div>
+
+      <article set:html={introText} />
+      
+      <div class="not-prose my-8">
+        <Image src={middleImage} alt="Ambiente vibrante en el centro Palexpo" class="w-full h-auto rounded-xl shadow-lg" loading="lazy"/>
+      </div>
+
+      <article set:html={mainContent} />
+
+      <h2 class="mt-12">Galería del Evento</h2>
+      <div id="lightgallery-container" class="not-prose mt-6 grid grid-cols-2 gap-4 md:grid-cols-3">
+        {galleryImages.map(img => (
+          <a
+            href={img.src.src}
+            data-sub-html={`<h4>${img.alt}</h4>`}
+            class="group block overflow-hidden rounded-lg shadow-md focus:outline-none focus:ring-4 focus:ring-orange-400 focus:ring-offset-2 dark:focus:ring-offset-neutral-800"
+          >
+            <Image 
+              src={img.src} 
+              alt={img.alt} 
+              class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110" 
+              loading="lazy" 
+            />
+          </a>
+        ))}
+      </div>
+
+      <div class="not-prose mt-12 border-t border-neutral-200 dark:border-neutral-700 pt-6">
+        <h3 class="text-lg font-semibold">Etiquetas:</h3>
+        <div class="flex fill-wrap gap-2 mt-2">
+          {tags.map(tag => (
+            <span class="inline-flex items-center gap-x-1.5 rounded-full bg-neutral-100 px-3 py-1.5 text-xs font-medium text-neutral-800 dark:bg-neutral-700 dark:text-neutral-200">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </section>
+</MainLayout>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/zoom/lg-zoom.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/thumbnail/lg-thumbnail.min.js" defer></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const galleryContainer = document.getElementById('lightgallery-container');
+    if (galleryContainer) {
+      (window as any).lightGallery(galleryContainer, {
+        plugins: [(window as any).lgZoom, (window as any).lgThumbnail],
+        speed: 500,
+        download: false,
+        selector: 'a',
+      });
+    }
+  });
+</script>

@@ -1,0 +1,44 @@
+{
+  "title": "Diseñadas para la Excelencia en el Tueste",
+  "subTitle": "Maquinaria de Precisión Adaptada a sus Necesidades de Producción y Diseño",
+  "badge": "",
+  "thirdOption": "¿Busca un equipo de menor capacidad?",
+  "btnText": "Tostadoras de Muestras",
+
+  "starterKit": {
+    "name": "Tostadoras Industriales",
+    "description": "Para Alta Producción Continua en Tostadurías de Gran Escala",
+    "price": "",
+    "cents": "",
+    "billingFrequency": "",
+    "features": [
+      "Compatibilidad con Cropster y Artisan",
+      "Aislamiento térmico reforzado",
+      "Tambor de doble pared con capacidad extendida",
+      "Control de precisión con sistemas avanzados",
+      "Diseño fabricado a la medida de sus requisitos",
+      "Soporte técnico especializado 24/7"
+    ],
+    "purchaseBtnTitle": "Explorar Nuestras Máquinas",
+    "purchaseLink": "/es/products"
+  },
+
+  "professionalToolbox": {
+    "name": "Tostadoras Comerciales",
+    "description": "Ideales para Cafeterías de Especialidad y Medianas Tostadurías",
+    "price": "",
+    "cents": "",
+    "billingFrequency": "",
+    "features": [
+      "Compatibilidad con Cropster y Artisan",
+      "Tambor de doble pared con capacidad extendida",
+      "Sistema de quemadores premix modulados",
+      "Control de velocidad de tambor y flujo de aire",
+      "Placa frontal de hierro fundido",
+      "Aislamiento térmico reforzado",
+      "Instalación y mantenimiento sencillos"
+    ],
+    "purchaseBtnTitle": "Explorar Nuestras Máquinas",
+    "purchaseLink": "/es/products"
+  }
+}

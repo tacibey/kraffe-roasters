@@ -1,4 +1,5 @@
 ---
+translationKey: "heat-transfer-in-coffee-roasting"
 title: "Le Transfert de Chaleur dans la Torréfaction du Café : Conduction, Convection et Rayonnement"
 description: "Découvrez comment les trois modes de transfert thermique — conduction, convection et rayonnement — sculptent les arômes, la sucrosité et la constance en tasse dans un torréfacteur commercial."
 author: "Kraffe Team"

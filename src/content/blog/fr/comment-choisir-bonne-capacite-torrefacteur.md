@@ -1,4 +1,5 @@
 ---
+translationKey: "how-to-choose-the-right-coffee-roaster-capacity"
 title: "Comment Choisir la Bonne Capacité de Torréfacteur pour Votre Atelier"
 description: "Calculez avec précision la capacité idéale de votre machine à torréfier : formules de perte au feu, cadences horaires réelles et organisation optimale du temps de production."
 author: "Kraffe Team"

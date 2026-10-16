@@ -1,4 +1,5 @@
 ---
+translationKey: "manual-vs-automatic-coffee-roasting-machines"
 title: "Machines à Torréfier Manuelles vs Automatiques : Quel Système Choisir ?"
 description: "Comparez les torréfacteurs manuels et automatisés pour votre entreprise. Maîtrise du geste artisanal, reproductibilité des profils PLC, maintenance et passage à l'échelle."
 author: "Kraffe Team"

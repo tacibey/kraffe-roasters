@@ -1,4 +1,5 @@
 ---
+translationKey: "coffee-roasting-business-startup-costs-2026"
 title: "Coffee Roasting Business Startup Costs (2026 Guide) | Full Investment Breakdown"
 description: "How much does it cost to start a coffee roasting business in 2026? Discover real equipment prices, setup costs, and a full 6kg roastery budget breakdown."
 author: "Kraffe Team"

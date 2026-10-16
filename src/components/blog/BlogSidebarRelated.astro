@@ -33,8 +33,13 @@ const displayPosts = relatedPosts.slice(0, limit);
 
     <div class="space-y-3.5 divide-y divide-neutral-200/60 dark:divide-neutral-700/50">
       {displayPosts.map((entry, index) => {
-        const postSlug = entry.id.replace(/^(en|fr)\//, "");
-        const postHref = currentLang === "fr" ? `/fr/blog/${postSlug}/` : `/blog/${postSlug}/`;
+        const postSlug = entry.id.replace(/^(en|fr|es)\//, "");
+        const postHref = currentLang === "en" ? `/blog/${postSlug}/` : `/${currentLang}/blog/${postSlug}/`;
+        const readTimeSuffix = {
+          en: "min read",
+          fr: "min de lecture",
+          es: "min de lectura",
+        }[currentLang] || "min read";
 
         return (
           <article class={index > 0 ? "pt-3.5" : ""}>
@@ -62,7 +67,7 @@ const displayPosts = relatedPosts.slice(0, limit);
                 <span>{formatDate(entry.data.pubDate)}</span>
                 <span>•</span>
                 <span>
-                  {entry.data.readTime} {currentLang === "fr" ? "min de lecture" : "min read"}
+                  {entry.data.readTime} {readTimeSuffix}
                 </span>
               </div>
             </a>

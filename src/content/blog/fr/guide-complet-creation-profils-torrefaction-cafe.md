@@ -1,4 +1,5 @@
 ---
+translationKey: "how-to-create-coffee-roasting-profiles"
 title: "Guide Complet pour la Création de Profils de Torréfaction du Café"
 description: "Apprenez étape par étape à créer des profils de torréfaction parfaits, de la sélection des grains à l'analyse sensorielle, pour une saveur exceptionnelle."
 author: "Kraffe Technics"

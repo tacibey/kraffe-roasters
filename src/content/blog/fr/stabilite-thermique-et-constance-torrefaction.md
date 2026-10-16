@@ -1,4 +1,5 @@
 ---
+translationKey: "thermal-stability-and-roast-consistency"
 title: "Stabilité Thermique et Constance de Torréfaction : Pourquoi l'Ingénierie est Décisive"
 description: "Comprenez pourquoi la stabilité thermique est le fondement de la constance en torréfaction commerciale : masse du tambour, brûleurs modulés, flux d'air et protocole entre les lots (BBP)."
 author: "Kraffe Team"

@@ -1,0 +1,52 @@
+---
+// src/pages/es/contact.astro
+
+import MainLayout from "@/layouts/MainLayout.astro";
+import ContactSection_es from "@components/sections/es/ContactSection_es.astro";
+import { SITE } from "@data/constants";
+import amirAvatar from "@images/Amir+Montazer.avif";
+import Icon from "@components/ui/icons/Icon.astro";
+
+const pageTitle_es: string = `Contacto y Asistencia Técnica | Kraffe Roasters`;
+const metaDescription_es: string = "Contacte a Kraffe Roasters para presupuestos de tostadoras de café comerciales e industriales, especificaciones técnicas y servicio de posventa.";
+const canonicalUrl_es = `${SITE.url}/es/contact`;
+---
+
+<MainLayout
+  title={pageTitle_es}
+  meta={metaDescription_es}
+  lang="es"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": canonicalUrl_es,
+    "url": canonicalUrl_es,
+    "name": pageTitle_es,
+    "description": metaDescription_es,
+    "isPartOf": {
+        "@type": "WebSite",
+        "url": `${SITE.url}/es`,
+        "name": "Kraffe Roasters",
+        "description": "Máquinas tostadoras de café comerciales e industriales de alta precisión Kraffe Roasters."
+    },
+    "inLanguage": "es-ES"
+  }}
+>
+  <ContactSection_es amirAvatarData={amirAvatar} />
+
+  <section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <div class="rounded-lg bg-white p-6 text-center shadow-lg dark:bg-neutral-700">
+      <h2 class="text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-100">
+        ¿Busca un distribuidor local?
+      </h2>
+      <p class="mt-3 text-lg text-neutral-600 dark:text-neutral-300">
+        ¿Desea ponerse en contacto con un distribuidor local? Visite nuestra página de distribuidores para encontrar un socio autorizado cerca de usted.
+      </p>
+      <a href="/es/dealers" class="mt-6 inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-orange-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-orange-600 disabled:pointer-events-none disabled:opacity-50">
+        Encontrar un Distribuidor
+        <Icon name="arrowRightStatic" class="h-4 w-4" />
+      </a>
+    </div>
+  </section>
+
+</MainLayout>

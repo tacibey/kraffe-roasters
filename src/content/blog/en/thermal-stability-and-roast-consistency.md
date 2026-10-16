@@ -1,4 +1,5 @@
 ---
+translationKey: "thermal-stability-and-roast-consistency"
 title: "Thermal Stability and Roast Consistency: Why Engineering Matters"
 description: "Discover why thermal stability matters in commercial coffee roasting and how drum design, burner systems, airflow, heat transfer, insulation, and engineering affect roast consistency."
 author: "Kraffe Team"

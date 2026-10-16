@@ -3,207 +3,312 @@
 import BrandLogo from "@components/BrandLogo.astro";
 import { SITE } from "@data/constants";
 
-const isFr = Astro.currentLocale === "fr";
+const currentLocale = Astro.currentLocale || "en";
 
-const content = isFr
-  ? {
-      trustItems: [
+const frFooter = {
+  trustItems: [
+    {
+      title: "Précision de Torréfaction",
+      desc: "Gestion fine du flux d'air & tambour, profils Artisan & Cropster.",
+      icon: "flame",
+    },
+    {
+      title: "Export & Support Mondial",
+      desc: "Livraison dans +40 pays, assistance logistique et mise en service.",
+      icon: "globe",
+    },
+    {
+      title: "Garantie 2 Ans & Service",
+      desc: "Composants industriels fiables et support technique continu.",
+      icon: "shield",
+    },
+    {
+      title: "Capacités de 1 à 240 kg",
+      desc: "Du torréfacteur d'échantillon aux usines industrielles complètes.",
+      icon: "layers",
+    },
+  ],
+  brandDesc:
+    "Kraffe Roasters conçoit et fabrique des machines de torréfaction de café commerciales et industrielles de haute précision. Conçues avec des matériaux thermiques robustes et un contrôle avancé des profils pour les torréfacteurs exigeants.",
+  statusText: "Expédition & Support Mondial Actifs",
+  address:
+    "Adalet Mah. Manas Blv. No:39 Folkart Towers A Kule Kat:34 Bayraklı / İzmir, Turquie",
+  phone: "+90 533 566 7061",
+  email: "info@krafferoasters.com",
+  whatsappText: "Discuter sur WhatsApp",
+  cta: {
+    badge: "Sur-Mesure",
+    title: "Projet de Torréfaction ?",
+    desc: "Obtenez un devis adapté à votre volume de production, options de brûleur et couleurs RAL.",
+    btn: "Demander un Devis →",
+    url: "/fr/contact",
+  },
+  sections: [
+    {
+      title: "Torréfacteurs Commerciaux",
+      links: [
+        { name: "Primi (1 kg Échantillon)", url: "/fr/products/primi" },
+        { name: "Dimi (0,5 kg Échantillon)", url: "/fr/products/dimi" },
+        { name: "KRF-03 (3 kg Commercial)", url: "/fr/products/krf-03" },
+        { name: "KRF-06 (6 kg Commercial)", url: "/fr/products/krf-06" },
+        { name: "KRF-15 (15 kg Commercial)", url: "/fr/products/krf-15" },
+        { name: "KRF-20 (20 kg Commercial)", url: "/fr/products/krf-20" },
         {
-          title: "Précision de Torréfaction",
-          desc: "Gestion fine du flux d'air & tambour, profils Artisan & Cropster.",
-          icon: "flame",
-        },
-        {
-          title: "Export & Support Mondial",
-          desc: "Livraison dans +40 pays, assistance logistique et mise en service.",
-          icon: "globe",
-        },
-        {
-          title: "Garantie 2 Ans & Service",
-          desc: "Composants industriels fiables et support technique continu.",
-          icon: "shield",
-        },
-        {
-          title: "Capacités de 1 à 240 kg",
-          desc: "Du torréfacteur d'échantillon aux usines industrielles complètes.",
-          icon: "layers",
-        },
-      ],
-      brandDesc:
-        "Kraffe Roasters conçoit et fabrique des machines de torréfaction de café commerciales et industrielles de haute précision. Conçues avec des matériaux thermiques robustes et un contrôle avancé des profils pour les torréfacteurs exigeants.",
-      statusText: "Expédition & Support Mondial Actifs",
-      address:
-        "Adalet Mah. Manas Blv. No:39 Folkart Towers A Kule Kat:34 Bayraklı / İzmir, Turquie",
-      phone: "+90 533 566 7061",
-      email: "info@krafferoasters.com",
-      whatsappText: "Discuter sur WhatsApp",
-      cta: {
-        badge: "Sur-Mesure",
-        title: "Projet de Torréfaction ?",
-        desc: "Obtenez un devis adapté à votre volume de production, options de brûleur et couleurs RAL.",
-        btn: "Demander un Devis →",
-        url: "/fr/contact",
-      },
-      sections: [
-        {
-          title: "Torréfacteurs Commerciaux",
-          links: [
-            { name: "Primi (1 kg Échantillon)", url: "/fr/products/primi" },
-            { name: "Dimi (1 kg Boutique)", url: "/fr/products/dimi" },
-            { name: "KRF-03 (3 kg Commercial)", url: "/fr/products/krf-03" },
-            { name: "KRF-06 (6 kg Commercial)", url: "/fr/products/krf-06" },
-            { name: "KRF-15 (15 kg Commercial)", url: "/fr/products/krf-15" },
-            { name: "KRF-20 (20 kg Commercial)", url: "/fr/products/krf-20" },
-            {
-              name: "Tous les Torréfacteurs →",
-              url: "/fr/products",
-              isAccent: true,
-            },
-          ],
-        },
-        {
-          title: "Industriel & Équipements",
-          links: [
-            { name: "KRF-30 (30 kg Industriel)", url: "/fr/products/krf-30" },
-            { name: "KRF-60 (60 kg Industriel)", url: "/fr/products/krf-60" },
-            { name: "KRF-120 (120 kg Industriel)", url: "/fr/products/krf-120" },
-            { name: "KRF-240 (240 kg Usine)", url: "/fr/products/krf-240" },
-            {
-              name: "Épierreurs Industriels (Destoner)",
-              url: "/fr/products/destoner-equipment",
-            },
-            {
-              name: "Chargeurs Pneumatiques de Café",
-              url: "/fr/products/loader-equipment",
-            },
-            {
-              name: "Postcombustion Thermique",
-              url: "/fr/products/afterburner-equipment",
-            },
-          ],
-        },
-        {
-          title: "Société & Guides",
-          links: [
-            { name: "À Propos de Kraffe", url: "/fr/about" },
-            { name: "Blog & Guides de Torréfaction", url: "/fr/blog" },
-            { name: "Événements & Salons Mondiaux", url: "/fr/events" },
-            { name: "Réseau de Revendeurs", url: "/fr/dealers" },
-            { name: "Contact & Assistance", url: "/fr/contact" },
-            {
-              name: "Politique de Confidentialité",
-              url: "/privacy-policy-and-terms",
-            },
-          ],
+          name: "Tous les Torréfacteurs →",
+          url: "/fr/products",
+          isAccent: true,
         },
       ],
-      bottomTagline:
-        "Fabricant de Machines de Torréfaction de Café Commerciales & Industrielles.",
-      rightsReserved: "Tous droits réservés.",
-      backToTop: "Haut de page",
-    }
-  : {
-      trustItems: [
+    },
+    {
+      title: "Industriel & Équipements",
+      links: [
+        { name: "KRF-30 (30 kg Industriel)", url: "/fr/products/krf-30" },
+        { name: "KRF-60 (60 kg Industriel)", url: "/fr/products/krf-60" },
+        { name: "KRF-120 (120 kg Industriel)", url: "/fr/products/krf-120" },
+        { name: "KRF-240 (240 kg Usine)", url: "/fr/products/krf-240" },
         {
-          title: "Precision Roasting",
-          desc: "Accurate airflow & drum speed control with Artisan & Cropster profile logging.",
-          icon: "flame",
+          name: "Épierreurs Industriels (Destoner)",
+          url: "/fr/products/destoner-equipment",
         },
         {
-          title: "Worldwide Export & Setup",
-          desc: "Export to 40+ countries with complete customs assistance & technical setup.",
-          icon: "globe",
+          name: "Chargeurs Pneumatiques de Café",
+          url: "/fr/products/loader-equipment",
         },
         {
-          title: "2-Year Warranty & Service",
-          desc: "Heavy-duty industrial components with lifetime engineering & spare parts.",
-          icon: "shield",
-        },
-        {
-          title: "1 kg to 240 kg Capacities",
-          desc: "From specialty shop roasters to large-scale industrial roasting plants.",
-          icon: "layers",
+          name: "Postcombustion Thermique",
+          url: "/fr/products/afterburner-equipment",
         },
       ],
-      brandDesc:
-        "Kraffe Roasters engineers and manufactures high-performance commercial and industrial coffee roasting machines. Built with heavy-duty thermal materials and advanced profile automation for specialty roasters worldwide.",
-      statusText: "Worldwide Export & Support Active",
-      address:
-        "Adalet Mah. Manas Blv. No:39 Folkart Towers A Kule Kat:34 Bayraklı / İzmir, Turkey",
-      phone: "+90 533 566 7061",
-      email: "info@krafferoasters.com",
-      whatsappText: "Chat on WhatsApp",
-      cta: {
-        badge: "Custom Build",
-        title: "Planning a Roastery?",
-        desc: "Get an engineered quote tailored to your batch volume, custom RAL colors & turnkey installation.",
-        btn: "Request a Custom Quote →",
-        url: "/contact",
-      },
-      sections: [
+    },
+    {
+      title: "Société & Guides",
+      links: [
+        { name: "À Propos de Kraffe", url: "/fr/about" },
+        { name: "Blog & Guides de Torréfaction", url: "/fr/blog" },
+        { name: "Événements & Salons Mondiaux", url: "/fr/events" },
+        { name: "Réseau de Revendeurs", url: "/fr/dealers" },
+        { name: "Contact & Assistance", url: "/fr/contact" },
         {
-          title: "Commercial Roasters",
-          links: [
-            { name: "Primi (1 kg Sample Roaster)", url: "/products/primi" },
-            { name: "Dimi (1 kg Shop Roaster)", url: "/products/dimi" },
-            { name: "KRF-03 (3 kg Commercial Roaster)", url: "/products/krf-03" },
-            { name: "KRF-06 (6 kg Commercial Roaster)", url: "/products/krf-06" },
-            { name: "KRF-15 (15 kg Roaster)", url: "/products/krf-15" },
-            { name: "KRF-20 (20 kg Roaster)", url: "/products/krf-20" },
-            {
-              name: "Explore All Roasters →",
-              url: "/products",
-              isAccent: true,
-            },
-          ],
-        },
-        {
-          title: "Industrial & Equipment",
-          links: [
-            { name: "KRF-30 (30 kg Industrial Plant)", url: "/products/krf-30" },
-            { name: "KRF-60 (60 kg Industrial Plant)", url: "/products/krf-60" },
-            {
-              name: "KRF-120 (120 kg Production Roaster)",
-              url: "/products/krf-120",
-            },
-            {
-              name: "KRF-240 (240 kg High Capacity)",
-              url: "/products/krf-240",
-            },
-            {
-              name: "Industrial Destoners",
-              url: "/products/destoner-equipment",
-            },
-            {
-              name: "Pneumatic Coffee Loaders",
-              url: "/products/loader-equipment",
-            },
-            {
-              name: "Catalytic Afterburners",
-              url: "/products/afterburner-equipment",
-            },
-          ],
-        },
-        {
-          title: "Company & Resources",
-          links: [
-            { name: "About Kraffe Roasters", url: "/about" },
-            { name: "Roasting Blog & Tech Guides", url: "/blog" },
-            { name: "World of Coffee & Events", url: "/events" },
-            { name: "Authorized Global Dealers", url: "/dealers" },
-            { name: "Contact & Technical Support", url: "/contact" },
-            {
-              name: "Privacy Policy & Terms",
-              url: "/privacy-policy-and-terms",
-            },
-          ],
+          name: "Politique de Confidentialité",
+          url: "/privacy-policy-and-terms",
         },
       ],
-      bottomTagline:
-        "Commercial & Industrial Coffee Roasting Machines Manufacturer.",
-      rightsReserved: "All rights reserved.",
-      backToTop: "Back to top",
-    };
+    },
+  ],
+  bottomTagline:
+    "Fabricant de Machines de Torréfaction de Café Commerciales & Industrielles.",
+  rightsReserved: "Tous droits réservés.",
+  backToTop: "Haut de page",
+};
+
+const esFooter = {
+  trustItems: [
+    {
+      title: "Precisión en el Tueste",
+      desc: "Control preciso del flujo de aire y tambor, perfiles con Artisan y Cropster.",
+      icon: "flame",
+    },
+    {
+      title: "Exportación y Soporte Global",
+      desc: "Entrega en más de 40 países, asistencia logística y puesta en marcha.",
+      icon: "globe",
+    },
+    {
+      title: "2 Años de Garantía y Servicio",
+      desc: "Componentes industriales fiables y soporte técnico continuo.",
+      icon: "shield",
+    },
+    {
+      title: "Capacidades de 1 a 240 kg",
+      desc: "Desde tostadoras de muestras hasta plantas industriales completas.",
+      icon: "layers",
+    },
+  ],
+  brandDesc:
+    "Kraffe Roasters diseña y fabrica máquinas tostadoras de café comerciales e industriales de alta precisión. Construidas con materiales térmicos de alta resistencia y control avanzado de perfiles para tostadores profesionales en todo el mundo.",
+  statusText: "Exportación y Soporte Global Activo",
+  address:
+    "Adalet Mah. Manas Blv. No:39 Folkart Towers A Kule Kat:34 Bayraklı / İzmir, Turquía",
+  phone: "+90 533 566 7061",
+  email: "info@krafferoasters.com",
+  whatsappText: "Contactar por WhatsApp",
+  cta: {
+    badge: "A Medida",
+    title: "¿Planeando su Tostaduría?",
+    desc: "Obtenga un presupuesto técnico personalizado para su volumen de producción, opciones de quemador y colores RAL.",
+    btn: "Solicitar Presupuesto →",
+    url: "/es/contact",
+  },
+  sections: [
+    {
+      title: "Tostadoras Comerciales",
+      links: [
+        { name: "Primi (1 kg Muestras)", url: "/es/products/primi" },
+        { name: "Dimi (0,5 kg Muestras)", url: "/es/products/dimi" },
+        { name: "KRF-03 (3 kg Comercial)", url: "/es/products/krf-03" },
+        { name: "KRF-06 (6 kg Comercial)", url: "/es/products/krf-06" },
+        { name: "KRF-15 (15 kg Comercial)", url: "/es/products/krf-15" },
+        { name: "KRF-20 (20 kg Comercial)", url: "/es/products/krf-20" },
+        {
+          name: "Todas las Tostadoras →",
+          url: "/es/products",
+          isAccent: true,
+        },
+      ],
+    },
+    {
+      title: "Industrial y Equipamiento",
+      links: [
+        { name: "KRF-30 (30 kg Industrial)", url: "/es/products/krf-30" },
+        { name: "KRF-60 (60 kg Industrial)", url: "/es/products/krf-60" },
+        { name: "KRF-120 (120 kg Producción)", url: "/es/products/krf-120" },
+        { name: "KRF-240 (240 kg Gran Capacidad)", url: "/es/products/krf-240" },
+        {
+          name: "Despedregadoras Industriales (Destoner)",
+          url: "/es/products/destoner-equipment",
+        },
+        {
+          name: "Cargadores Neumáticos de Café",
+          url: "/es/products/loader-equipment",
+        },
+        {
+          name: "Postquemadores Térmicos",
+          url: "/es/products/afterburner-equipment",
+        },
+      ],
+    },
+    {
+      title: "Empresa y Recursos",
+      links: [
+        { name: "Sobre Kraffe Roasters", url: "/es/about" },
+        { name: "Blog y Guías de Tueste", url: "/es/blog" },
+        { name: "Eventos y Ferias Mundiales", url: "/es/events" },
+        { name: "Distribuidores Globales", url: "/es/dealers" },
+        { name: "Contacto y Soporte Técnico", url: "/es/contact" },
+        {
+          name: "Política de Privacidad y Términos",
+          url: "/privacy-policy-and-terms",
+        },
+      ],
+    },
+  ],
+  bottomTagline:
+    "Fabricante de Máquinas Tostadoras de Café Comerciales e Industriales.",
+  rightsReserved: "Todos los derechos reservados.",
+  backToTop: "Volver arriba",
+};
+
+const enFooter = {
+  trustItems: [
+    {
+      title: "Precision Roasting",
+      desc: "Accurate airflow & drum speed control with Artisan & Cropster profile logging.",
+      icon: "flame",
+    },
+    {
+      title: "Worldwide Export & Setup",
+      desc: "Export to 40+ countries with complete customs assistance & technical setup.",
+      icon: "globe",
+    },
+    {
+      title: "2-Year Warranty & Service",
+      desc: "Heavy-duty industrial components with lifetime engineering & spare parts.",
+      icon: "shield",
+    },
+    {
+      title: "1 kg to 240 kg Capacities",
+      desc: "From specialty shop roasters to large-scale industrial roasting plants.",
+      icon: "layers",
+    },
+  ],
+  brandDesc:
+    "Kraffe Roasters engineers and manufactures high-performance commercial and industrial coffee roasting machines. Built with heavy-duty thermal materials and advanced profile automation for specialty roasters worldwide.",
+  statusText: "Worldwide Export & Support Active",
+  address:
+    "Adalet Mah. Manas Blv. No:39 Folkart Towers A Kule Kat:34 Bayraklı / İzmir, Turkey",
+  phone: "+90 533 566 7061",
+  email: "info@krafferoasters.com",
+  whatsappText: "Chat on WhatsApp",
+  cta: {
+    badge: "Custom Build",
+    title: "Planning a Roastery?",
+    desc: "Get an engineered quote tailored to your batch volume, custom RAL colors & turnkey installation.",
+    btn: "Request a Custom Quote →",
+    url: "/contact",
+  },
+  sections: [
+    {
+      title: "Commercial Roasters",
+      links: [
+        { name: "Primi (1 kg Sample Roaster)", url: "/products/primi" },
+        { name: "Dimi (0.5 kg Sample Roaster)", url: "/products/dimi" },
+        { name: "KRF-03 (3 kg Commercial Roaster)", url: "/products/krf-03" },
+        { name: "KRF-06 (6 kg Commercial Roaster)", url: "/products/krf-06" },
+        { name: "KRF-15 (15 kg Roaster)", url: "/products/krf-15" },
+        { name: "KRF-20 (20 kg Roaster)", url: "/products/krf-20" },
+        {
+          name: "Explore All Roasters →",
+          url: "/products",
+          isAccent: true,
+        },
+      ],
+    },
+    {
+      title: "Industrial & Equipment",
+      links: [
+        { name: "KRF-30 (30 kg Industrial Plant)", url: "/products/krf-30" },
+        { name: "KRF-60 (60 kg Industrial Plant)", url: "/products/krf-60" },
+        {
+          name: "KRF-120 (120 kg Production Roaster)",
+          url: "/products/krf-120",
+        },
+        {
+          name: "KRF-240 (240 kg High Capacity)",
+          url: "/products/krf-240",
+        },
+        {
+          name: "Industrial Destoners",
+          url: "/products/destoner-equipment",
+        },
+        {
+          name: "Pneumatic Coffee Loaders",
+          url: "/products/loader-equipment",
+        },
+        {
+          name: "Catalytic Afterburners",
+          url: "/products/afterburner-equipment",
+        },
+      ],
+    },
+    {
+      title: "Company & Resources",
+      links: [
+        { name: "About Kraffe Roasters", url: "/about" },
+        { name: "Roasting Blog & Tech Guides", url: "/blog" },
+        { name: "World of Coffee & Events", url: "/events" },
+        { name: "Authorized Global Dealers", url: "/dealers" },
+        { name: "Contact & Technical Support", url: "/contact" },
+        {
+          name: "Privacy Policy & Terms",
+          url: "/privacy-policy-and-terms",
+        },
+      ],
+    },
+  ],
+  bottomTagline:
+    "Commercial & Industrial Coffee Roasting Machines Manufacturer.",
+  rightsReserved: "All rights reserved.",
+  backToTop: "Back to top",
+};
+
+const footerMap: Record<string, typeof enFooter> = {
+  en: enFooter,
+  fr: frFooter,
+  es: esFooter,
+};
+
+const content = footerMap[currentLocale] || footerMap.en;
 ---
 
 <footer
@@ -495,7 +600,7 @@ const content = isFr
       {/* Copyright & SEO Tagline */}
       <div class="flex flex-col items-center gap-1 text-center sm:items-start sm:text-left">
         <p>
-          © <span id="current-year">2026</span> {SITE.title}. {
+          © <span id="current-year">2026</span> Kraffe Roasters. {
             content.rightsReserved
           }
         </p>

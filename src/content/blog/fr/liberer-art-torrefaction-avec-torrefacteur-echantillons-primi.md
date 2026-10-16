@@ -1,4 +1,5 @@
 ---
+translationKey: "unleashing-the-art-of-coffee-roasting-with-primi-sample-roaster"
 title: "Libérer l'Art de la Torréfaction du Café avec le Torréfacteur d'Échantillons Primi"
 description: "Explorez comment le Torréfacteur d'Échantillons Primi permet aux amateurs et professionnels du café d'atteindre précision, personnalisation et constance à chaque lot. Améliorez vos compétences en torréfaction."
 author: "Kraffe Technics"

@@ -1,0 +1,222 @@
+---
+// src/pages/es/products/index.astro
+
+import MainLayout from "@/layouts/MainLayout.astro";
+import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
+import CardSmall from "@components/ui/cards/CardSmall.astro";
+import FeaturesStatsAlt from "@components/sections/features/FeaturesStatsAlt.astro";
+import TestimonialsSectionAlt from "@components/sections/testimonials/TestimonialsSectionAlt.astro";
+
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { SITE } from "@data/constants";
+
+const product_es: CollectionEntry<"products">[] = (
+  await getCollection("products", ({ id }) => {
+    return id.startsWith("es/");
+  })
+).sort(
+  (a: CollectionEntry<"products">, b: CollectionEntry<"products">) =>
+    a.data.main.id - b.data.main.id,
+);
+
+const title_es: string = "Productos";
+const subTitle_es: string =
+  "Todas las máquinas Kraffe Roasters se prueban al 100% en cada etapa de producción, desde el diseño hasta el envío. Independientemente de los límites de temperatura y el tamaño de lote, Kraffe Roasters ofrece control total sobre su proceso para potenciar la calidad de su tueste.";
+const testimonialsTitle_es: string = "KRAFFE en Todo el Mundo";
+const featuresStatsTitle_es: string = "Diseñadas para la Perfección del Tueste";
+const featuresStatsSubTitle_es: string = "Cada tostadora KRAFFE está diseñada con maestría para ofrecer un control excepcional, consistencia lote a lote y eficiencia energética.";
+const featuresStatsBenefits_es = [
+      "Control de Precisión",
+      "Consistencia Excepcional Lote tras Lote",
+      "Duradero, Estable, Fácil de Mantener",
+      "Integrado y con Soporte Técnico",
+];
+
+const testimonials_es = [
+  {
+    content: `
+      <p>ETUDE COFFEE 🇬🇧</p>
+      <p>Modelo : KRF-06</p>
+      <p>instagram : @etude.coffee</p>
+      <p>📍 Londres, Bungay, R.U.</p>
+    `,
+    author: "Contacto : Amir Montazer",
+    role: "🇬🇧",
+    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/etude.webp",
+    avatarAlt: "Avatar de Amir Montazer de Etude Coffee",
+  },
+  {
+    content: `
+      <p>BAROMAN TORRÉFACTION DE CAFÉ 🇫🇷</p>
+      <p>Modelo : KRF-12</p>
+      <p>instagram : @baroman_official</p>
+      <p>📍 París, FRANCIA</p>
+    `,
+    author: "Contacto : Saad El Darazi",
+    role: "🇫🇷",
+    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/baroman.avif",
+    avatarAlt: "Avatar de Saad El Darazi de Baroman Torréfaction de Café",
+  },
+  {
+    content: `
+      <p>ROASBEAN COFFEE ROASTERY 🇬🇮</p>
+      <p>Modelo : KRF-30 / KRF-06</p>
+      <p>instagram : @roasbean.coffee</p>
+      <p>📍 Shiraz, IRÁN</p>
+    `,
+    author: "Contacto : Amir Hezajifar",
+    role: "🇬🇮",
+    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/roasbean.avif",
+    avatarAlt: "Avatar de Amir Hezajifar de Roasbean Coffee Roastery",
+  },
+  {
+    content: `
+      <p>MARIPOSA COFFEE 🇸🇮</p>
+      <p>Modelo : KRF-06</p>
+      <p>instagram : @mariposa_coffee</p>
+      <p>📍 Domžale, ESLOVENIA</p>
+    `,
+    author: "Contacto : Klemen Macek",
+    role: "🇸🇮",
+    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/Mariposa1.avif",
+    avatarAlt: "Avatar de Klemen Macek de Mariposa Coffee",
+  },
+  {
+    content: `
+      <p>HANNES STAMMLER 🇦🇹</p>
+      <p>weltladen-linz.at</p>
+      <p>Modelo : KRF-12</p>
+      <p>📍 Linz, AUSTRIA</p>
+    `,
+    author: "Contacto : Hannes Stammler",
+    role: "🇦🇹",
+    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/hannes.webp",
+    avatarAlt: "Avatar de Hannes Stammler",
+  },
+  {
+    content: `
+      <p>SANPAOLO COFFEE ROASTER 🇭🇺</p>
+      <p>instagram : @SANPAOLO_COFFEE_ROASTER</p>
+      <p>Modelo : KRF-30</p>
+      <p>📍 Dunaszentpál, HUNGRÍA</p>
+    `,
+    author: "Contacto : Safran Gergely",
+    role: "🇭🇺",
+    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/sanpaolo.avif",
+    avatarAlt: "Avatar de Safran Gergely de Sanpaolo Coffee Roaster",
+  },
+  {
+    content: `
+      <p>FIKA COFFEE 🇦🇿</p>
+      <p>instagram : @FIKA.COFFEE.CULTURE</p>
+      <p>Modelo : KRF-03</p>
+      <p>📍 Bakú, AZERBAIYÁN</p>
+    `,
+    author: "Contacto : Камран Пирджанов",
+    role: "🇦🇿",
+    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/fika.webp",
+    avatarAlt: "Avatar de Fika Coffee",
+  },
+  {
+    content: `
+      <p>KUANTA COFFEE ROASTERY 🇹🇷</p>
+      <p>instagram : @kuantakahvekavurma</p>
+      <p>Modelo : KRF-03</p>
+      <p>📍 Esmirna, TURQUÍA</p>
+    `,
+    author: "Contacto : Özlem Goral",
+    role: "🇹🇷",
+    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/kuanta.avif",
+    avatarAlt: "Avatar de Özlem Goral de Kuanta Coffee Roastery",
+  },
+  {
+    content: `
+      <p>CASA SALVO ROASTERY 🇺🇸</p>
+      <p>instagram : @REALCHEFSALVOLOCASTRO</p>
+      <p>Modelo : KRF-03</p>
+      <p>📍 Nueva York, EE. UU.</p>
+    `,
+    author: "Contacto : Salvatore Lo Castro",
+    role: "🇺🇸",
+    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/salvo.avif",
+    avatarAlt: "Avatar de Salvatore Lo Castro de Casa Salvo Roastery",
+  },
+  {
+    content: `
+      <p>DUO PRO INZENJERING 🇷🇸</p>
+      <p>duopro.rs</p>
+      <p>Modelo : KRF-03</p>
+      <p>📍 Ćuprija, SERBIA</p>
+    `,
+    author: "Contacto: Djordje Brankovic",
+    role: "🇷🇸",
+    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/duo.avif",
+    avatarAlt: "Avatar de Djordje Brankovic de Duo Pro Inzenjering",
+  },
+];
+
+const pageTitle_es: string = `Máquinas Tostadoras de Café | Catálogo Kraffe Roasters`;
+const metaDescription_es: string = "Catálogo de máquinas tostadoras de café comerciales e industriales de 1 a 240 kg. Alta precisión, quemadores modulados y control térmico avanzado.";
+---
+
+<MainLayout
+  title={pageTitle_es}
+  meta={metaDescription_es}
+  lang="es"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${SITE.url}/es/products`,
+    "url": `${SITE.url}/es/products`,
+    "name": pageTitle_es,
+    "description": metaDescription_es,
+    "isPartOf": {
+      "@type": "WebSite",
+      "url": `${SITE.url}/es`,
+      "name": "Kraffe Roasters",
+      "description": "Máquinas tostadoras de café comerciales e industriales de alta precisión Kraffe Roasters."
+    },
+    "inLanguage": "es-ES"
+  }}
+>
+  <div
+    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  >
+    <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
+      <div class="flex items-center gap-12">
+        <h1
+          class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
+        >
+          {title_es}
+        </h1>
+        {
+          subTitle_es && (
+            <p class="hidden max-w-(--breakpoint-sm) text-pretty text-neutral-600 dark:text-neutral-400 md:block">
+              {subTitle_es}
+            </p>
+          )
+        }
+      </div>
+      <PrimaryCTA title="▼ Referencias" url="#testimonials" noArrow={true} />
+    </div>
+
+    <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+      {
+        product_es.map((product_item) => {
+          return <CardSmall product={product_item} productLocale="es" />;
+        })
+      }
+    </section>
+
+  </div>
+  <FeaturesStatsAlt
+    title={featuresStatsTitle_es}
+    subTitle={featuresStatsSubTitle_es}
+    benefits={featuresStatsBenefits_es}
+  />
+  <TestimonialsSectionAlt
+    title={testimonialsTitle_es}
+    testimonials={testimonials_es}
+  />
+</MainLayout>

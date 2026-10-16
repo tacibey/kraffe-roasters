@@ -1,19 +1,28 @@
 ---
 // src/components/HreflangLinks.astro
+import { getLanguageAlternates } from "@/utils/i18n";
+
+interface Props {
+  alternates?: {
+    en?: string;
+    fr?: string;
+    es?: string;
+  };
+}
+
 const { pathname } = Astro.url;
+const { alternates: propAlternates } = Astro.props;
 
-// Mevcut path'in /fr ile başlayıp başlamadığını kontrol et
-const isFrench = pathname.startsWith('/fr');
+const { hreflang } = await getLanguageAlternates(pathname, propAlternates);
 
-// /fr/ prefix'ini kaldırarak base path'i bul
-const basePath = isFrench ? pathname.substring(3) : pathname;
-
-// Her iki dil için de tam URL'leri oluştur (Astro.site'ı kullanarak)
-// Ana sayfa için özel durum: basePath boşsa '/' kullan
-const englishUrl = new URL(basePath || '/', Astro.site).href;
-const frenchUrl = new URL(`/fr${basePath || '/'}`, Astro.site).href;
+const site = Astro.site || "https://krafferoasters.com";
+const enHref = hreflang.en ? new URL(hreflang.en, site).href : undefined;
+const frHref = hreflang.fr ? new URL(hreflang.fr, site).href : undefined;
+const esHref = hreflang.es ? new URL(hreflang.es, site).href : undefined;
+const defaultHref = hreflang["x-default"] ? new URL(hreflang["x-default"], site).href : enHref;
 ---
 
-<link rel="alternate" hreflang="en" href={englishUrl} />
-<link rel="alternate" hreflang="fr" href={frenchUrl} />
-<link rel="alternate" hreflang="x-default" href={englishUrl} />
+{enHref && <link rel="alternate" hreflang="en" href={enHref} />}
+{frHref && <link rel="alternate" hreflang="fr" href={frHref} />}
+{esHref && <link rel="alternate" hreflang="es" href={esHref} />}
+{defaultHref && <link rel="alternate" hreflang="x-default" href={defaultHref} />}

@@ -1,4 +1,5 @@
 ---
+translationKey: "how-to-start-coffee-roasting-business"
 title: "Comment Créer une Entreprise de Torréfaction de Café (Guide Complet 2026)"
 description: "Le guide étape par étape pour lancer votre atelier de torréfaction en 2026 : choix du modèle économique, investissements, sélection du torréfacteur et rentabilité."
 author: "Kraffe Team"

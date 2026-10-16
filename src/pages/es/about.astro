@@ -1,0 +1,143 @@
+---
+// src/pages/es/about.astro
+
+import MainLayout from "@/layouts/MainLayout.astro";
+import MainSection from "@components/ui/blocks/MainSection.astro";
+import LeftSection from "@components/ui/blocks/LeftSection.astro";
+import FeaturesStats from "@components/sections/features/FeaturesStats.astro";
+import { SITE } from "@data/constants";
+import type { ImageMetadata } from 'astro';
+
+import imgPlaceholder1 from "@images/etude-kraffe.avif";
+import imgPlaceholder2 from "@images/kraffeabout.avif";
+
+interface Article {
+  isRightSection: boolean;
+  title: string;
+  subTitle: string;
+  btnExists?: boolean;
+  btnTitle?: string;
+  btnURL?: string;
+  img: ImageMetadata;
+  imgAlt: string;
+}
+
+const articles_es: Article[] = [
+  {
+    isRightSection: false,
+    title: "Por qué elegir Kraffe Roasters",
+    subTitle: `
+      <p>En KRAFFE ROASTERS creemos que las características consideradas “opcionales” en otros lugares deben ser el estándar. Por eso cada máquina Kraffe incluye:</p>
+      <ul class="list-disc list-inside mt-2 space-y-1 text-neutral-600 dark:text-neutral-400">
+        <li>Ingeniería de precisión para una consistencia lote tras lote</li>
+        <li>Alto aislamiento térmico y sistemas de control variable avanzados</li>
+        <li>Pruebas completas en fábrica y riguroso control de calidad</li>
+        <li>Diseñada para durabilidad a largo plazo y máxima eficiencia operativa</li>
+      </ul>
+      <p class="mt-2">Ya sea que necesite una tostadora de muestras de 1 kg o una planta industrial de 240 kg, cada máquina KRAFFE ofrece un rendimiento de tueste confiable y un valor duradero para su negocio.</p>
+    `,
+    img: imgPlaceholder1,
+    imgAlt: "Esquema de diseño de tostadoras de café Kraffe",
+    btnExists: true,
+    btnTitle: "Contáctenos",
+    btnURL: "/es/contact",
+  },
+  {
+    isRightSection: false,
+    title: "Nuestro Compromiso con su Tostaduría",
+    subTitle: `
+      <p>KRAFFE ROASTERS ofrece la asistencia técnica más rápida del sector. Sabemos que cada minuto cuenta en la producción de café, por lo que garantizamos:</p>
+      <ul class="list-disc list-inside mt-2 space-y-1 text-neutral-600 dark:text-neutral-400">
+        <li>Tiempo de respuesta de 24 horas a todas las consultas de clientes</li>
+        <li>Acceso directo 24/7 a ingenieros de control de calidad — no intermediarios</li>
+        <li>Diagnóstico rápido, suministro de repuestos y soporte remoto</li>
+        <li>Una red de soporte global que mantiene su operación en marcha</li>
+      </ul>
+      <p class="mt-2">Duradera. Consistente. Rápida. Más que una promesa, es nuestro estándar de fabricación.</p>
+    `,
+    img: imgPlaceholder2,
+    imgAlt: "Mantenimiento y soporte técnico de tostadoras de café Kraffe",
+    btnExists: false,
+  },
+];
+
+const featuresStatsTitle_es: string = "Nuestros Principios Fundamentales";
+const featuresStatsSubTitle_es: string = "Estos pilares definen la experiencia Kraffe Roasters, garantizando calidad, fiabilidad y cercanía.";
+const featuresStatsMainStatTitle_es: string = "Compromiso";
+const featuresStatsMainStatSubTitle_es: string = "Creemos en la construcción de relaciones duraderas con nuestros clientes, acompañándolos en el crecimiento de su tostaduría.";
+const statsData_es = [
+    {
+        stat: "100%",
+        description: "Garantía de Calidad: Pruebas técnicas rigurosas antes de cada envío.",
+    },
+    {
+        stat: "Flexible",
+        description: "Diseño Orientado a Soluciones: Adaptado a las necesidades de su producción.",
+    },
+    {
+        stat: "Intuitivo",
+        description: "Fácil Manejo: Configuración rápida, operación clara y mantenimiento sencillo.",
+    },
+    {
+        stat: "24/7",
+        description: "Soporte Continuo: Asistencia especializada siempre que lo requiera.",
+    },
+];
+
+const pageTitle_es: string = `Sobre Kraffe Roasters | Fabricante de Tostadoras de Café`;
+const metaDescription_es: string = "Conozca Kraffe Roasters: ingenieros expertos en la fabricación de máquinas tostadoras de café comerciales e industriales de alta precisión.";
+const mainSectionTitle_es: string = "Quiénes Somos";
+const mainSectionSubTitle_es: string = "Fundada en 2022, KRAFFE ROASTERS es una empresa innovadora dirigida por ingenieros y profesionales del café con más de una década de experiencia en la fabricación de máquinas tostadoras. Al frente del proyecto se encuentra el fundador e ingeniero jefe de una marca líder de tostadoras, aportando un profundo conocimiento en desarrollo de maquinaria, combustión térmica y soluciones orientadas al cliente. Kraffe nació con la visión de construir las tostadoras más consistentes, resistentes y receptivas del mercado. Cada decisión que tomamos está orientada a esa misión.";
+const mainSectionBtnTitle_es: string = "Contáctenos";
+---
+
+<MainLayout
+  title={pageTitle_es}
+  meta={metaDescription_es}
+  lang="es"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${SITE.url}/es/about`,
+    "url": `${SITE.url}/es/about`,
+    "name": pageTitle_es,
+    "description": metaDescription_es,
+    "isPartOf": {
+        "@type": "WebSite",
+        "url": `${SITE.url}/es`,
+        "name": "Kraffe Roasters",
+        "description": "Máquinas tostadoras de café comerciales e industriales de alta precisión Kraffe Roasters."
+    },
+    "inLanguage": "es-ES"
+  }}
+>
+  <MainSection
+    title={mainSectionTitle_es}
+    subTitle={mainSectionSubTitle_es}
+    btnExists={true}
+    btnTitle={mainSectionBtnTitle_es}
+    btnURL="/es/contact"
+  />
+
+  {
+    articles_es.map(article => (
+        <LeftSection
+          title={article.title}
+          subTitle={article.subTitle}
+          img={article.img}
+          imgAlt={article.imgAlt}
+          btnExists={article.btnExists}
+          btnTitle={article.btnTitle}
+          btnURL={article.btnURL}
+        />
+    ))
+  }
+
+  <FeaturesStats
+    title={featuresStatsTitle_es}
+    subTitle={featuresStatsSubTitle_es}
+    mainStatTitle={featuresStatsMainStatTitle_es}
+    mainStatSubTitle={featuresStatsMainStatSubTitle_es}
+    stats={statsData_es}
+  />
+</MainLayout>

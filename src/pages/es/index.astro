@@ -1,0 +1,183 @@
+---
+// src/pages/es/index.astro
+
+import MainLayout from "@/layouts/MainLayout.astro";
+import HeroSection from "@components/sections/landing/HeroSection.astro";
+import HeroSectionAlt from "@components/sections/landing/HeroSectionAlt.astro";
+import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
+import FeaturesNavs from "@components/sections/features/FeaturesNavs.astro";
+import TestimonialsSection from "@components/sections/testimonials/TestimonialsSection.astro";
+import PricingSection from "@components/sections/pricing/PricingSection.astro";
+import FAQ from "@components/sections/misc/FAQ.astro";
+
+import heroImage from "@images/hero-kraffe.avif";
+import thermalControlImage from "@images/features5.avif";
+import precisionSystemImage from "@images/sample-coffee-roaster.webp";
+import smartIntegrationImage from "@images/kf2.avif";
+import amirAvatar from "@images/Amir+Montazer.avif";
+import logoForSchema from "@images/kraffe-logo.png";
+
+import faqs_es from "@data/es/faqs.json";
+import features_es from "@data/es/features.json";
+import pricing_es from "@data/es/pricing.json";
+
+import { SITE, OG } from "@data/constants";
+import { getImage } from "astro:assets";
+
+const avatarSrcs: Array<string> = [
+  "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+  "https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+  "https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80",
+  "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+];
+
+const heroTitle_es = `Domine el Arte del Tueste: <span class="text-yellow-500 dark:text-yellow-400">Máquinas Tostadoras de Café KRAFFE</span>`;
+const heroSubTitle_es = "Obtenga precisión, durabilidad y consistencia con las tostadoras industriales KRAFFE — diseñadas para profesionales con soporte de por vida.";
+const heroPrimaryBtn_es = "Explorar Nuestras Máquinas";
+const heroSecondaryBtn_es = "Solicitar Presupuesto";
+const heroReviews_es = `De confianza para <span class="font-bold">Tostadores</span> de todo el mundo`;
+const featuresGeneralTitle_es = "Diseñadas para la Perfección en el Tueste";
+const featuresGeneralSubTitle_es = "Las TOSTADORAS KRAFFE están diseñadas por expertos para ofrecer un control excepcional, consistencia entre lotes y máxima eficiencia en cada grano.";
+const featuresNavsTitle_es = `En el Corazón de KRAFFE: <span class="text-yellow-500 dark:text-yellow-400">Donde la Precisión se Une a la Potencia</span>`;
+const featuresNavsTabs_es = [
+   { heading: "Tueste con Total Confianza en Cualquier Entorno", content: "Tome el control absoluto de la transferencia térmica con el sistema de control térmico avanzado de KRAFFE, termopares de precisión de 3 mm y aislamiento reforzado.", svg: "dashboard", src: thermalControlImage, alt: "Aislamiento de tambor de doble pared en tostadora Kraffe", first: true },
+   { heading: "Sistema de Tueste de Precisión", content: "El tueste llevado a la perfección con quemadores premix modulados, flujo de aire calibrado y control de velocidad de tambor.", svg: "dashboard", src: precisionSystemImage, alt: "Sistema de quemador de precisión Kraffe", second: true },
+   { heading: "Integración Inteligente con Software de Tueste", content: "Compatibilidad nativa con Cropster y Artisan para registro de datos en tiempo real y repetibilidad de perfiles.", svg: "dashboard", src: smartIntegrationImage, alt: "Integración de software de tostadoras Kraffe con Artisan y Cropster" },
+];
+const testimonialsTitle_es = "Aprobado por Tostadores Profesionales";
+const testimonialsSubTitle_es = "Descubra por qué las principales tostadurías eligen KRAFFE ROASTERS por calidad, consistencia y soporte técnico continuo.";
+const testimonialsData_es = [{ content: "La máquina es increíblemente fácil de usar y ofrece resultados consistentes lote tras lote. Nos permite alcanzar el perfil perfecto para cada origen.", author: "Amir Montazer", role: "Etude Coffee Co.", avatarSrc: amirAvatar, avatarAlt: "Retrato de Amir Montazer" }];
+const statisticsData_es = [
+    { count: "Control de Calidad 100%", description: "Cada máquina es rigurosamente probada en fábrica antes de ser enviada para garantizar el máximo rendimiento." },
+    { count: "Diseño Orientado a Soluciones", description: "Enfoque flexible adaptado a las necesidades específicas de su tostaduría." },
+    { count: "Fácil de Operar", description: "Diseñada para una experiencia óptima: configuración sencilla, manejo intuitivo y mantenimiento accesible." },
+    { count: "Soporte Continuo 24/7", description: "Asistencia técnica directa de nuestros ingenieros especializados ante cualquier necesidad operativa." },
+];
+const heroAltTitle_es = "¿Listo para Transformar su Tostaduría?";
+const heroAltSubTitle_es = "Póngase en contacto con nuestro equipo para encontrar la tostadora comercial o industrial ideal para su volumen de producción.";
+const heroAltBtnTitle_es = "Contactar al Equipo";
+const faqTitle_es = "Preguntas Frecuentes";
+
+const pageTitle_es_seo = `Tostadoras de Café Comerciales e Industriales | KRAFFE`;
+const metaDescription_es = "Máquinas tostadoras de café de alta precisión comercial e industrial. Tambor de doble pared, control térmico avanzado y soporte técnico de por vida.";
+
+const logoImage = await getImage({ src: logoForSchema, format: 'png' });
+const socialImage = await getImage({ src: OG.image, width: 1200, height: 600, format: 'png' });
+const logoUrl = new URL(logoImage.src, Astro.site || "https://krafferoasters.com").href;
+const socialImageUrl = new URL(socialImage.src, Astro.site || "https://krafferoasters.com").href;
+
+const faqEntities_es = faqs_es.faqs.map(faq => ({
+  "@type": "Question",
+  "name": faq.question,
+  "acceptedAnswer": {
+    "@type": "Answer",
+    "text": faq.answer
+  }
+}));
+
+const structuredData_es = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://krafferoasters.com/#organization",
+      "name": "Kraffe Roasters",
+      "url": "https://krafferoasters.com",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://krafferoasters.com/#logo",
+        "url": logoUrl,
+        "caption": "Kraffe Roasters Logo"
+      },
+      "image": {
+        "@id": "https://krafferoasters.com/#logo"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://krafferoasters.com/es/#website",
+      "url": "https://krafferoasters.com/es",
+      "name": "Kraffe Roasters",
+      "description": metaDescription_es,
+      "publisher": {
+        "@id": "https://krafferoasters.com/#organization"
+      },
+      "inLanguage": "es-ES"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://krafferoasters.com/es/#webpage",
+      "url": "https://krafferoasters.com/es",
+      "name": pageTitle_es_seo,
+      "isPartOf": {
+        "@id": "https://krafferoasters.com/es/#website"
+      },
+      "about": {
+        "@id": "https://krafferoasters.com/#organization"
+      },
+      "description": metaDescription_es,
+      "inLanguage": "es-ES"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://krafferoasters.com/es/#faq",
+      "isPartOf": {
+        "@id": "https://krafferoasters.com/es/#webpage"
+      },
+      "mainEntity": faqEntities_es
+    }
+  ]
+};
+---
+
+<MainLayout
+  title={pageTitle_es_seo}
+  meta={metaDescription_es}
+  structuredData={structuredData_es}
+  lang="es"
+>
+    <HeroSection
+    title={heroTitle_es}
+    subTitle={heroSubTitle_es}
+    primaryBtn={heroPrimaryBtn_es}
+    primaryBtnURL="/es/products"
+    secondaryBtn={heroSecondaryBtn_es}
+    secondaryBtnURL="/es/contact"
+    withReview={true}
+    avatars={avatarSrcs}
+    rating=`<span class="font-bold">4,8</span> / 5`
+    starCount={4}
+    reviews={heroReviews_es}
+    src={heroImage}
+    alt="Máquina tostadora de café comercial e industrial Kraffe Roasters"
+  />
+
+    <FeaturesGeneral
+    title={featuresGeneralTitle_es}
+    subTitle={featuresGeneralSubTitle_es}
+    features={features_es}
+  />
+
+    <FeaturesNavs
+    title={featuresNavsTitle_es}
+    tabs={featuresNavsTabs_es}
+  />
+
+    <TestimonialsSection
+    title={testimonialsTitle_es}
+    subTitle={testimonialsSubTitle_es}
+    testimonials={testimonialsData_es}
+    statistics={statisticsData_es}
+  />
+
+    <PricingSection pricing={pricing_es} />
+
+    <FAQ title={faqTitle_es} faqs={faqs_es} />
+
+    <HeroSectionAlt
+    title={heroAltTitle_es}
+    subTitle={heroAltSubTitle_es}
+    url="/es/contact"
+    btnTitle={heroAltBtnTitle_es}
+/>
+</MainLayout>

@@ -1,4 +1,5 @@
 ---
+translationKey: "gas-vs-electric-coffee-roasters"
 title: "Torréfacteurs Gaz vs Électrique : Lequel Choisir pour Votre Entreprise ?"
 description: "Comparez les torréfacteurs à gaz et électriques pour un usage commercial. Analyse détaillée des coûts, de la réactivité thermique, de la maintenance et de la scalabilité."
 author: "Kraffe Team"

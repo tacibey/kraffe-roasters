@@ -4,10 +4,17 @@ import { Image } from "astro:assets";
 import Icon from "@components/ui/icons/Icon.astro";
 import type { CollectionEntry } from "astro:content";
 
+const readMoreLabels: Record<string, string> = {
+  en: "Read more",
+  fr: "Lire plus",
+  es: "Leer más",
+};
+const defaultLabel = readMoreLabels[Astro.currentLocale || "en"] || "Read more";
+
 const {
   insightEntry,
   insightLocale,
-  label = Astro.currentLocale === "fr" ? "Lire plus" : "Read more",
+  label = defaultLabel,
 } = Astro.props;
 
 interface Props {
@@ -21,7 +28,7 @@ interface Props {
 <a
   class="group rounded-xl outline-hidden ring-zinc-500 transition duration-300 focus-visible:ring-3 dark:ring-zinc-200 dark:focus:outline-hidden"
   href={insightLocale && insightLocale !== "en"
-    ? `/${insightLocale}/insights/${insightEntry.id.replace(/^fr\//, "")}/`
+    ? `/${insightLocale}/insights/${insightEntry.id.replace(/^(fr|es)\//, "")}/`
     : `/insights/${insightEntry.id.replace(/^en\//, "")}/`}
 >
   <!-- This is the container for the insight's cover image. -->

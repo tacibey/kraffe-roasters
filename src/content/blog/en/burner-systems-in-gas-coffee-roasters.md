@@ -1,4 +1,5 @@
 ---
+translationKey: "burner-systems-in-gas-coffee-roasters"
 title: "Burner Systems in Gas Coffee Roasters: The Real Engine Behind Roast Control"
 description: "Learn how burner systems affect heat transfer, roast control, airflow, flame stability, and consistency in commercial gas coffee roasters."
 author: "Kraffe Team"

@@ -1,5 +1,17 @@
----
-const { label = Astro.currentLocale === "fr" ? "Adresse e-mail" : "Email address", id, errorId } = Astro.props;
+const labels: Record<string, string> = {
+  en: "Email address",
+  fr: "Adresse e-mail",
+  es: "Correo electrónico",
+};
+const errorMessages: Record<string, string> = {
+  en: "Please include a valid email address so we can get back to you",
+  fr: "Veuillez inclure une adresse e-mail valide afin que nous puissions vous répondre",
+  es: "Por favor ingrese un correo electrónico válido para que podamos responderle",
+};
+const currentLocale = Astro.currentLocale || "en";
+const defaultLabel = labels[currentLocale] || labels.en;
+const defaultErrorMessage = errorMessages[currentLocale] || errorMessages.en;
+const { label = defaultLabel, id, errorId } = Astro.props;
 
 interface Props {
   label?: string;
@@ -46,6 +58,6 @@ interface Props {
   </div>
   <!-- Validation message which is hidden by default -->
   <p class="mt-2 hidden text-xs text-red-600" id={errorId}>
-    Please include a valid email address so we can get back to you
+    {defaultErrorMessage}
   </p>
 </div>

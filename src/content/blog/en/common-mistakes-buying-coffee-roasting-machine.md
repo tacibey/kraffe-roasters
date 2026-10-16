@@ -1,4 +1,5 @@
 ---
+translationKey: "common-mistakes-buying-coffee-roasting-machine"
 title: "Common Mistakes When Buying a Coffee Roasting Machine"
 description: "Avoid costly mistakes when buying a coffee roasting machine. Learn what to check before investing in a commercial coffee roaster."
 author: "Kraffe Team"

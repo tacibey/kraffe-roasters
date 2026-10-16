@@ -1,4 +1,5 @@
 ---
+translationKey: "choosing-the-right-coffee-roaster-for-a-startup"
 title: "Choosing the Right Coffee Roaster for a Startup"
 description: "Learn how to choose the right coffee roaster for your startup in 2026. Compare 3 kg, 6 kg, 12 kg, and 20 kg commercial coffee roasters based on production capacity, budget, growth plans, and business model."
 author: "Kraffe Team"

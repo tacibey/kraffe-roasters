@@ -1,4 +1,5 @@
 ---
+translationKey: "how-to-start-coffee-roasting-business"
 title: "How to Start a Coffee Roasting Business (2026 Complete Guide)"
 description: "Step-by-step guide to starting a coffee roasting business in 2026. Learn costs, roaster selection, capacity planning, and how to build a profitable operation."
 author: "Kraffe Team"

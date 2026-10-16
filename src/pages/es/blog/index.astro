@@ -1,0 +1,110 @@
+---
+// src/pages/es/blog/index.astro
+
+import MainLayout from "@/layouts/MainLayout.astro";
+import CardBlog from "@components/ui/cards/CardBlog.astro";
+import CardInsight from "@components/ui/cards/CardInsight.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { SITE } from "@data/constants";
+
+const spanishBlogEntries = await getCollection("blog", ({ id }) => {
+  return id.startsWith("es/");
+});
+
+const spanishInsightsEntries = await getCollection("insights", ({ id }) => {
+  return id.startsWith("es/");
+});
+
+const blogPosts: CollectionEntry<"blog">[] = spanishBlogEntries.sort(
+  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+    b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const insightPosts: CollectionEntry<"insights">[] = spanishInsightsEntries;
+
+const title_es: string = "Su Pasarela hacia la Excelencia en el Tueste de Café";
+const subTitle_es: string =
+  "Explore los últimos avances, recomendaciones técnicas y análisis de KRAFFE ROASTERS en la industria del tostado de café. Desde innovaciones de maquinaria hasta estrategias para optimizar perfiles de tueste.";
+const secondTitle_es: string = "Perspectivas de la Industria";
+const secondSubTitle_es: string =
+  "Manténgase al día con las principales tendencias del sector cafetero gracias al análisis técnico de nuestro equipo de ingenieros y especialistas.";
+
+const pageTitle_es: string = `Blog de Tueste de Café | Kraffe Roasters`;
+const metaDescription_es: string = "Artículos técnicos, guías de tueste de café, control de RoR y novedades del sector por los ingenieros y especialistas de Kraffe Roasters.";
+---
+
+<MainLayout
+  title={pageTitle_es}
+  meta={metaDescription_es}
+  lang="es"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${SITE.url}/es/blog`,
+    url: `${SITE.url}/es/blog`,
+    name: pageTitle_es,
+    description: metaDescription_es,
+    isPartOf: {
+      "@type": "WebSite",
+      url: `${SITE.url}/es`,
+      name: "Kraffe Roasters",
+      description: "Artículos, guías y consejos técnicos sobre el tueste de café comercial e industrial por Kraffe Roasters."
+    },
+    "inLanguage": "es-ES"
+  }}
+>
+  <section
+    class="mx-auto max-w-[85rem] space-y-8 px-4 pt-16 sm:px-6 lg:px-8 2xl:max-w-full"
+  >
+    <div class="mx-auto max-w-3xl text-left sm:text-center">
+      <h1
+        class="block text-balance text-4xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-5xl lg:text-6xl"
+      >
+        {title_es}
+      </h1>
+
+      <p
+        class="mt-4 text-pretty text-lg text-neutral-600 dark:text-neutral-400"
+      >
+        {subTitle_es}
+      </p>
+    </div>
+  </section>
+
+  <section
+    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  >
+    {blogPosts.length > 0 ? (
+      <div class="grid gap-6 lg:grid-cols-2">
+        {blogPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} blogLocale="es" />)}
+      </div>
+    ) : (
+      <p class="text-center text-lg text-neutral-600 dark:text-neutral-400">No hay publicaciones de blog disponibles en este momento.</p>
+    )}
+  </section>
+
+  {insightPosts.length > 0 && (
+    <section
+      class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+    >
+      <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
+        <h2
+          class="text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
+        >
+          {secondTitle_es}
+        </h2>
+        <p class="mt-1 text-pretty text-neutral-600 dark:text-neutral-400">
+          {secondSubTitle_es}
+        </p>
+      </div>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          insightPosts.map((insightEntry) => (
+            <CardInsight insightEntry={insightEntry} insightLocale="es" />
+          ))
+        }
+      </div>
+    </section>
+  )}
+</MainLayout>

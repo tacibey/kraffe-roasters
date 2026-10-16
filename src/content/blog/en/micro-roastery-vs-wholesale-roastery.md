@@ -1,4 +1,5 @@
 ---
+translationKey: "micro-roastery-vs-wholesale-roastery"
 title: "Micro Roastery vs Wholesale Roastery: Which Model Should You Start With?"
 description: "Learn the differences between micro roastery and wholesale roastery business models. Compare investment, machine size, profitability, scaling potential, and risks to choose the right coffee roasting business strategy."
 author: "Kraffe Team"

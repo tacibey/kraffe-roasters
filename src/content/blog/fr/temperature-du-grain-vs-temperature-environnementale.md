@@ -1,4 +1,5 @@
 ---
+translationKey: "bean-temperature-vs-environmental-temperature"
 title: "Température du grain vs température environnementale : où placer les sondes thermocouples ?"
 description: "Découvrez les différences fondamentales entre température du grain (BT) et température environnementale (ET), l'emplacement idéal des sondes, le choix des thermocouples et les diagnostics clés."
 author: "Kraffe Team"

@@ -1,7 +1,20 @@
----
+const titles: Record<string, string> = {
+  en: "Subscribe",
+  fr: "S'abonner",
+  es: "Suscribirse",
+};
+const placeholders: Record<string, string> = {
+  en: "Enter your email",
+  fr: "Entrez votre email",
+  es: "Ingrese su correo electrónico",
+};
+const currentLocale = Astro.currentLocale || "en";
+const defaultTitle = titles[currentLocale] || titles.en;
+const placeholder = placeholders[currentLocale] || placeholders.en;
+
 const {
   label = "Search",
-  title = Astro.currentLocale === "fr" ? "S'abonner" : "Subscribe",
+  title = defaultTitle,
   id = "footer-input",
 } = Astro.props;
 
@@ -10,8 +23,6 @@ interface Props {
   title?: string;
   id?: string;
 }
-
-const placeholder = Astro.currentLocale === "fr" ? "Entrez votre email" : "Enter your email";
 ---
 
 <div

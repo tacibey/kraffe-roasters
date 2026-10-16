@@ -1,4 +1,5 @@
 ---
+translationKey: "rate-of-rise-ror-explained"
 title: "Taux de montée (RoR) expliqué : comment lire et maîtriser votre courbe de torréfaction avec Artisan et Cropster"
 description: "Maîtrisez le taux de montée (RoR) en torréfaction du café. Apprenez à interpréter votre courbe phase par phase, à éviter le crash et le flick, et à paramétrer Artisan et Cropster."
 author: "Kraffe Team"

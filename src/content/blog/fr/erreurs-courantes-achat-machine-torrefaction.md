@@ -1,4 +1,5 @@
 ---
+translationKey: "common-mistakes-buying-coffee-roasting-machine"
 title: "Les Erreurs Courantes Lors de l'Achat d'une Machine à Torréfier le Café"
 description: "Évitez les erreurs coûteuses lors de l'achat de votre torréfacteur commercial. Découvrez les pièges fréquents : prix trompeur, mauvaise estimation de capacité et maintenance négligée."
 author: "Kraffe Team"

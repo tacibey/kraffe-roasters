@@ -1,4 +1,5 @@
 ---
+translationKey: "coffee-roasting-business-profitability-2026"
 title: "How Profitable Is a Coffee Roasting Business in 2026?"
 description: "Discover real profit margins, costs, and income scenarios for coffee roasting businesses in 2026. Includes wholesale vs retail comparisons and scaling examples."
 author: "Kraffe Team"

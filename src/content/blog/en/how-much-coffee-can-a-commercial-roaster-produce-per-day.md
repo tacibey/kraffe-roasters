@@ -1,4 +1,5 @@
 ---
+translationKey: "how-much-coffee-can-a-commercial-roaster-produce-per-day"
 title: "How Much Coffee Can a Commercial Roaster Produce Per Day?"
 description: "Learn how much coffee a commercial roaster can produce per day based on batch size, roast time, and weight loss. Includes real production examples for 3 kg, 6 kg, 12 kg, and 20 kg coffee roasters."
 author: "Kraffe Team"

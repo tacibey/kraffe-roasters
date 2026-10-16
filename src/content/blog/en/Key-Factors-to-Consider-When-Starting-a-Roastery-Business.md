@@ -1,4 +1,5 @@
 ---
+translationKey: "key-factors-to-consider-when-starting-a-roastery-business"
 title: "Key Factors to Consider When Starting a Roastery Business"
 description: "Starting a roastery? Our guide covers key business factors to consider, from choosing the right capacity roaster to budget and space planning."
 author: "Kraffe Technics"

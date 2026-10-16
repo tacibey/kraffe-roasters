@@ -1,4 +1,5 @@
 ---
+translationKey: "how-to-create-coffee-roasting-profiles"
 title: "A Comprehensive Guide to Creating Coffee Roasting Profiles"
 description: "Learn Step-by-Step How to Create Perfect Roasting Profiles"
 author: "Kraffe Technics"

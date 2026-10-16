@@ -1,4 +1,5 @@
 ---
+translationKey: "etude-coffee-sprudge-recognition-kraffe-partnership"
 title: "Un Parcours d'Excellence en Torréfaction : Etude Coffee à l'Honneur sur Sprudge"
 description: "Kraffe Roasters célèbre la prestigieuse mention de son client Etude Coffee sur Sprudge.com, soulignant leur dévouement à la qualité et notre succès partagé dans le café de spécialité."
 author: "Kraffe Technics"

@@ -1,4 +1,5 @@
 ---
+translationKey: "key-factors-to-consider-when-starting-a-roastery-business"
 title: "Choisir le Bon Torréfacteur pour Votre Entreprise : Un Guide Complet"
 description: "Naviguez dans la complexité du choix d'un torréfacteur. Ce guide couvre la capacité, le budget, les styles de torréfaction, la durabilité et le support pour vous aider à faire le meilleur choix."
 author: "Kraffe Technics"

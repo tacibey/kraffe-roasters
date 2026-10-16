@@ -1,4 +1,5 @@
 ---
+translationKey: "how-professional-coffee-roasters-are-engineered"
 title: "Comment les Torréfacteurs Professionnels Sont Conçus : Secrets d'Ingénierie"
 description: "Découvrez les principes d'ingénierie qui régissent la conception d'un torréfacteur professionnel : géométrie du tambour, régulation aéraulique, stabilité thermique et endurance mécanique."
 author: "Kraffe Team"

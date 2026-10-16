@@ -1,4 +1,5 @@
 ---
+translationKey: "how-to-compare-commercial-coffee-roasting-machines"
 title: "How to Compare Commercial Coffee Roasting Machines"
 description: "Learn how to compare commercial coffee roasting machines. Discover key features, capacity planning, heat systems, maintenance, and long-term ROI factors."
 author: "Kraffe Team"

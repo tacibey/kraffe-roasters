@@ -1,4 +1,5 @@
 ---
+translationKey: "rate-of-rise-ror-explained"
 title: "Rate of Rise (RoR) Explained: How to Read and Control Your Roast Curve in Artisan & Cropster"
 description: "Master Rate of Rise (RoR) in coffee roasting. Learn how to interpret your roast curve phase by phase, prevent crash and flick, and configure Artisan and Cropster for total consistency."
 author: "Kraffe Team"

@@ -1,4 +1,5 @@
 ---
+translationKey: "unlocking-roast-potential"
 title: "Libérer le Potentiel de Torréfaction : La Synergie de la Précision, de la Technologie et de l'Expertise"
 description: "Un aperçu de la manière dont un contrôle méticuleux des étapes de torréfaction, soutenu par une technologie de torréfacteur avancée et une connaissance approfondie du café, transforme les grains verts en café exceptionnel."
 cardImage: "@/images/insights/insight-new-1.avif"

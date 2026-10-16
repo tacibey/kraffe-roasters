@@ -1,4 +1,5 @@
 ---
+translationKey: "how-to-compare-commercial-coffee-roasting-machines"
 title: "Comment Comparer les Machines de Torréfaction Commerciales (Sans Regrets)"
 description: "Méthode pas-à-pas pour comparer les torréfacteurs commerciaux : calcul du débit horaire réel, stabilité thermique, bac de refroidissement, maintenance et valeur long terme."
 author: "Kraffe Team"

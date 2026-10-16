@@ -1,4 +1,5 @@
 ---
+translationKey: "etude-coffee-sprudge-recognition-kraffe-partnership"
 title: "A Journey of Excellence in Coffee Roasting: Etude Coffee's Sprudge Feature"
 description: "Kraffe Roasters celebrates client Etude Coffee's prestigious mention on Sprudge.com, highlighting their dedication to quality and our shared success in specialty coffee."
 author: "Kraffe Technics"

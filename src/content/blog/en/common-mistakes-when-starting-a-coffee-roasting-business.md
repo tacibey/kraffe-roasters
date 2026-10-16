@@ -1,4 +1,5 @@
 ---
+translationKey: "common-mistakes-when-starting-a-coffee-roasting-business"
 title: "Common Mistakes When Starting a Coffee Roasting Business (And How to Avoid Them)"
 description: "Discover the most common mistakes when starting a coffee roasting business and learn how to avoid costly errors in equipment selection, budgeting, production planning, and growth strategy."
 author: "Kraffe Team"

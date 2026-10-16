@@ -1,4 +1,5 @@
 ---
+translationKey: "what-makes-a-professional-coffee-roaster-different"
 title: "What Makes a Professional Coffee Roaster Different?"
 description: "Discover what makes a professional coffee roaster different from entry-level machines. Engineering, stability, consistency, and long-term reliability explained."
 author: "Kraffe Team"

@@ -1,4 +1,5 @@
 ---
+translationKey: "kraffe-coffee-bean-roaster-guide"
 title: "Torréfacteur de Grains de Café : Créez des Torréfactions Exceptionnelles avec Kraffe"
 description: "Explorez le torréfacteur de grains de café de pointe de Kraffe Roasters, conçu pour la précision, la complexité des saveurs, l'efficacité et la facilité d'utilisation. Sublimez votre art de la torréfaction."
 author: "Kraffe Technics"

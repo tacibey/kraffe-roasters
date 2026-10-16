@@ -1,4 +1,5 @@
 ---
+translationKey: "bean-temperature-vs-environmental-temperature"
 title: "Bean Temperature vs Environmental Temperature: Where Should Thermocouples Be Placed?"
 description: "Discover the critical differences between bean temperature (BT) and environmental temperature (ET), optimal probe placement, thermocouple sizing, and diagnostic tips for consistent roasting."
 author: "Kraffe Team"

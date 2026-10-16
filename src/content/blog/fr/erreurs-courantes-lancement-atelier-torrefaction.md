@@ -1,4 +1,5 @@
 ---
+translationKey: "common-mistakes-when-starting-a-coffee-roasting-business"
 title: "Erreurs Courantes Lors du Lancement d'un Atelier de Torréfaction (Et Comment les Éviter)"
 description: "Découvrez les erreurs stratégiques les plus fréquentes lors de la création d'une brûlerie de café : mauvais dimensionnement, oubli de la perte de masse, gestion des stocks et coûts cachés."
 author: "Kraffe Team"

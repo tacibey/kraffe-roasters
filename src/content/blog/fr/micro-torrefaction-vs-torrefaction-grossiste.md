@@ -1,4 +1,5 @@
 ---
+translationKey: "micro-roastery-vs-wholesale-roastery"
 title: "Micro-Torréfaction vs Torréfaction de Gros (Wholesale) : Quel Modèle Choisir ?"
 description: "Comparez les modèles économiques de la micro-brûlerie et de la torréfaction en gros (B2B). Analyse des investissements, taille de machine, marges et gestion du risque."
 author: "Kraffe Team"

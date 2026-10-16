@@ -1,4 +1,5 @@
 ---
+translationKey: "mastering-art-coffee-roasting"
 title: "Mastering the Art of Coffee Roasting: A Profile Crafting Guide"
 description: "Elevate your coffee roasting game. Learn to craft ideal roast profiles, from understanding bean stages to fine-tuning variables for exceptional flavor and consistency."
 author: "Kraffe Technics"

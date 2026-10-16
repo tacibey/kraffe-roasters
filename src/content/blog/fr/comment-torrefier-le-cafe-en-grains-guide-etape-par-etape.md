@@ -1,4 +1,5 @@
 ---
+translationKey: "how-to-roast-coffee-beans-a-step-by-step-guide"
 title: "Comment torréfier le café en grains : guide étape par étape du vert au brun"
 description: "Apprenez à torréfier le café étape par étape : sélection du grain vert, phases de torréfaction (séchage, Maillard, premier crack), méthodes et astuces pour réussir."
 author: "Kraffe Team"

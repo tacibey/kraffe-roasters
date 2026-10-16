@@ -1,4 +1,5 @@
 ---
+translationKey: "unleashing-the-art-of-coffee-roasting-with-primi-sample-roaster"
 title: "Unleashing the Art of Coffee Roasting with the Primi Sample Roaster"
 description: "Explore how the Primi Sample Roaster empowers coffee enthusiasts and professionals to achieve precision, customization, and consistency in every batch. Elevate your roasting skills."
 author: "Kraffe Technics"

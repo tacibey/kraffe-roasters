@@ -1,4 +1,5 @@
 ---
+translationKey: "how-to-roast-coffee-beans-a-step-by-step-guide"
 title: "How to Roast Coffee Beans: A Step-by-Step Guide from Green to Brown"
 description: "Learn how to roast coffee beans step by step: essential equipment, choosing green coffee, mastering every roast stage from drying to drop, and avoiding common roasting defects."
 author: "Kraffe Team"

@@ -71,6 +71,7 @@ const blogCollection = defineCollection({
   loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/blog" }),
   schema: ({ image }) => z.object ({
     title: z.string(),
+    metaTitle: z.string().optional(),
     description: z.string(),
     author: z.string(),
     role: z.string().optional(),
@@ -83,6 +84,7 @@ const blogCollection = defineCollection({
     readTime: z.number(),
     tags: z.array(z.string()).optional(),
     keyTakeaways: z.array(z.string()).optional(),
+    translationKey: z.string().optional(),
   }),
 });
 
@@ -90,9 +92,11 @@ const insightsCollection = defineCollection({
   loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/insights" }),
   schema: ({ image }) => z.object ({
     title: z.string(),
+    metaTitle: z.string().optional(),
     description: z.string(),
     cardImage: image(),
     cardImageAlt: z.string(),
+    translationKey: z.string().optional(),
   }),
 });
 

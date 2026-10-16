@@ -1,4 +1,5 @@
 ---
+translationKey: "what-is-light-roast-coffee-a-roasters-guide"
 title: "What Is Light Roast Coffee? A Roaster's Guide"
 description: "Discover what light roast coffee is, how it tastes, its caffeine content compared to dark roast, how to brew it, and commercial roasting techniques for maximum consistency."
 author: "Kraffe Team"

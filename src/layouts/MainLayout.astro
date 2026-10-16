@@ -10,21 +10,70 @@ import "@styles/global.css";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { ORGANIZATION_SCHEMA } from "../data_files/site_meta.ts";
 
-const { title = SITE.title, meta, structuredData, lang = "en" } = Astro.props;
-
 interface Props {
   title?: string;
-  meta?: string;
+  meta?: string | { title?: string; description?: string };
   structuredData?: object;
   lang?: string;
+  alternates?: {
+    en?: string;
+    fr?: string;
+    es?: string;
+  };
 }
 
-const currentLang = Astro.currentLocale || 'en';
+let { title, meta, structuredData, lang, alternates } = Astro.props;
+
+const currentLang = Astro.currentLocale || lang || 'en';
+
+// Support meta passed as an object ({ title, description })
+let metaDescription: string | undefined;
+if (typeof meta === "object" && meta !== null) {
+  if (!title && (meta as any).title) {
+    title = (meta as any).title;
+  }
+  metaDescription = (meta as any).description;
+} else if (typeof meta === "string") {
+  metaDescription = meta;
+}
+
+// Localized default title if none provided
+const defaultTitles: Record<string, string> = {
+  en: SITE.title,
+  fr: "Kraffe Roasters | Machines à Torréfier Commerciales et Industrielles",
+  es: "Kraffe Roasters | Tostadoras de Café Comerciales e Industriales",
+};
+
+let processedTitle = (title || defaultTitles[currentLang] || defaultTitles.en).trim();
+
+// Strip any trailing global English suffix like:
+// " | Kraffe Roasters | Industrial & Commercial Coffee Roasting Machines"
+// or " | Industrial & Commercial Coffee Roasting Machines"
+const longSuffixPattern = /\s*\|\s*Kraffe Roasters\s*\|\s*Industrial & Commercial Coffee Roasting Machines\s*$/i;
+const genericSuffixPattern = /\s*\|\s*Industrial & Commercial Coffee Roasting Machines\s*$/i;
+
+if (longSuffixPattern.test(processedTitle)) {
+  processedTitle = processedTitle.replace(longSuffixPattern, "").trim();
+} else if (genericSuffixPattern.test(processedTitle)) {
+  processedTitle = processedTitle.replace(genericSuffixPattern, "").trim();
+}
+
+// User rule:
+// "Use no suffix when the page title already contains "Kraffe", otherwise " | Kraffe Roasters"."
+if (!/kraffe/i.test(processedTitle)) {
+  processedTitle = `${processedTitle} | Kraffe Roasters`;
+}
+
 const contactUrl = getRelativeLocaleUrl(currentLang, 'contact');
-const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
+const buttonTexts: Record<string, string> = {
+  en: 'Get Offer',
+  fr: 'Obtenir une offre',
+  es: 'Solicitar Presupuesto',
+};
+const buttonText = buttonTexts[currentLang] || buttonTexts.en;
 ---
 
-<html lang={lang} class="dark scrollbar-hide lenis lenis-smooth scroll-pt-16">
+<html lang={currentLang} class="dark scrollbar-hide lenis lenis-smooth scroll-pt-16">
   <head>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
@@ -59,8 +108,8 @@ const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
     <link rel="stylesheet" 
     href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.css">
 
-    <Meta meta={meta} structuredData={structuredData} />
-    <title>{title}</title>
+    <Meta title={processedTitle} meta={metaDescription} structuredData={structuredData} alternates={alternates} />
+    <title>{processedTitle}</title>
     
     <script type="application/ld+json" set:html={JSON.stringify(ORGANIZATION_SCHEMA)} />
 
@@ -118,7 +167,7 @@ const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
       }
     </style>
 
-    <script type="module">
+    <script type="module" define:vars={{ currentLang }}>
       import * as CookieConsent from "https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.esm.js";
       
       function updateGtmConsent(categories) {
@@ -169,7 +218,7 @@ const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
           }
         },
         language: {
-          default: 'en',
+          default: currentLang || 'en',
           translations: {
             en: {
               consentModal: {
@@ -177,7 +226,7 @@ const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
                 description: 'We use cookies to enhance your experience, provide personalized content, and analyze our traffic.',
                 acceptAllBtn: 'Accept All',
                 showPreferencesBtn: 'Manage Preferences',
-                footer: '<a href="/cookie-policy">Cookie Policy</a>'
+                footer: '<a href="/privacy-policy-and-terms">Privacy Policy</a>'
               },
               preferencesModal: {
                 title: 'Cookie Preferences',
@@ -199,6 +248,72 @@ const buttonText = currentLang === 'fr' ? 'Obtenir une offre' : 'Get Offer';
                   {
                     title: 'Advertisement & Targeting',
                     description: 'These cookies may be set through our site by our advertising partners to build a profile of your interests.',
+                    linkedCategory: 'advertising'
+                  }
+                ]
+              }
+            },
+            fr: {
+              consentModal: {
+                title: 'Nous respectons votre vie privée 🍪',
+                description: 'Nous utilisons des cookies pour améliorer votre expérience, personnaliser le contenu et analyser notre trafic.',
+                acceptAllBtn: 'Tout Accepter',
+                showPreferencesBtn: 'Gérer les Préférences',
+                footer: '<a href="/privacy-policy-and-terms">Politique de Confidentialité</a>'
+              },
+              preferencesModal: {
+                title: 'Préférences des Cookies',
+                acceptAllBtn: 'Tout Accepter',
+                acceptNecessaryBtn: 'Tout Refuser',
+                savePreferencesBtn: 'Enregistrer les Préférences',
+                closeIconLabel: 'Fermer',
+                sections: [
+                  {
+                    title: 'Strictement Nécessaires',
+                    description: 'Ces cookies sont indispensables au bon fonctionnement du site web.',
+                    linkedCategory: 'necessary'
+                  },
+                  {
+                    title: 'Performance & Analyse',
+                    description: 'Ces cookies nous permettent de mesurer et d’améliorer les performances de notre site.',
+                    linkedCategory: 'analytics'
+                  },
+                  {
+                    title: 'Publicité & Ciblage',
+                    description: 'Ces cookies peuvent être configurés par nos partenaires publicitaires pour établir un profil de vos intérêts.',
+                    linkedCategory: 'advertising'
+                  }
+                ]
+              }
+            },
+            es: {
+              consentModal: {
+                title: 'Valoramos su privacidad 🍪',
+                description: 'Utilizamos cookies para optimizar su experiencia, personalizar contenidos y analizar el tráfico de nuestro sitio.',
+                acceptAllBtn: 'Aceptar Todo',
+                showPreferencesBtn: 'Gestionar Preferencias',
+                footer: '<a href="/privacy-policy-and-terms">Política de Privacidad</a>'
+              },
+              preferencesModal: {
+                title: 'Preferencias de Cookies',
+                acceptAllBtn: 'Aceptar Todo',
+                acceptNecessaryBtn: 'Rechazar Todo',
+                savePreferencesBtn: 'Guardar Preferencias',
+                closeIconLabel: 'Cerrar',
+                sections: [
+                  {
+                    title: 'Estrictamente Necesarias',
+                    description: 'Estas cookies son indispensables para el correcto funcionamiento del sitio web.',
+                    linkedCategory: 'necessary'
+                  },
+                  {
+                    title: 'Rendimiento y Analítica',
+                    description: 'Estas cookies nos permiten contar las visitas y fuentes de tráfico para medir y mejorar el rendimiento de nuestro sitio.',
+                    linkedCategory: 'analytics'
+                  },
+                  {
+                    title: 'Publicidad y Personalización',
+                    description: 'Estas cookies pueden ser establecidas por nuestros socios publicitarios para elaborar un perfil de sus intereses.',
                     linkedCategory: 'advertising'
                   }
                 ]

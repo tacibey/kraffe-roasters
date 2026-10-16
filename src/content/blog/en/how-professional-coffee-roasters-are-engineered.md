@@ -1,4 +1,5 @@
 ---
+translationKey: "how-professional-coffee-roasters-are-engineered"
 title: "How Professional Coffee Roasters Are Engineered"
 description: "Learn how professional coffee roasters are engineered for consistency, efficiency, and long-term reliability. Discover the role of drum design, heat transfer, airflow control, burner systems, and thermal stability in commercial coffee roasting machines."
 author: "Kraffe Team"

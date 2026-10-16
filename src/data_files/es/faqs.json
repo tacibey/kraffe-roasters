@@ -1,0 +1,101 @@
+{
+  "subTitle": "Pregúntenos cualquier duda sobre Kraffe Roasters, nuestras máquinas tostadoras de café comerciales e industriales y nuestros servicios. Obtenga respuestas claras y precisas para guiar su decisión.",
+  "faqs": [
+    {
+      "question": "¿Cuáles son las principales ventajas de las tostadoras de café Kraffe?",
+      "answer": "Las tostadoras de café Kraffe combinan ingeniería de precisión, eficiencia energética y fabricación personalizada con componentes europeos de primera calidad. Ofrecen control flexible de variables, soporte técnico global y un tueste consistente de alta calidad tanto para tostadores experimentados como para proyectos en expansión."
+    },
+    {
+      "question": "¿Son compatibles las tostadoras Kraffe con Artisan y Cropster?",
+      "answer": "Sí. Las tostadoras Kraffe se integran de forma nativa con Artisan y Cropster mediante conexión a computadora portátil, permitiendo registrar y controlar perfiles de tueste en tiempo real con estas plataformas líderes del sector."
+    },
+    {
+      "question": "¿Qué tipo de soporte al cliente ofrece Kraffe?",
+      "answer": "Kraffe ofrece soporte técnico en línea de por vida sin costo adicional, diagnóstico remoto y tiempos de respuesta rápidos. Además, colaboramos con socios de servicio certificados en todo el mundo para garantizar asistencia técnica posventa confiable."
+    },
+    {
+      "question": "¿Qué sistemas de seguridad incorporan las tostadoras Kraffe?",
+      "answer": "Las máquinas tostadoras Kraffe cuentan con monitoreo constante de temperatura y presión del tambor, apagado automático de seguridad ante anomalías y alertas visuales y acústicas para proteger tanto al operador como al equipo durante el ciclo de tueste."
+    },
+    {
+      "question": "¿Qué componentes se utilizan en las tostadoras Kraffe?",
+      "answer": "Kraffe utiliza componentes europeos de alta gama: motores Bonfiglioli (Italia), sistemas eléctricos Siemens y Schneider (Alemania/Francia) y termopares de precisión de 3 mm. Todas las máquinas cumplen estrictamente con las directivas de seguridad CE."
+    },
+    {
+      "question": "¿Por qué Kraffe utiliza software de tueste de terceros?",
+      "answer": "Priorizamos la compatibilidad con herramientas estándar de la industria como Artisan y Cropster en lugar de obligar al usuario a sistemas propietarios cerrados. Esto garantiza flexibilidad operativa, actualizaciones continuas y una interfaz familiar para los tostadores de todo el mundo."
+    },
+    {
+      "question": "¿Qué son los modos de precalentamiento y final del día?",
+      "answer": "El modo de precalentamiento eleva el tambor a la temperatura inicial exacta para asegurar la consistencia desde el primer lote. El modo de final del día enfría el sistema de manera progresiva y controlada, preparando la máquina para un apagado seguro y eficiente."
+    },
+    {
+      "question": "¿Qué funciones de automatización ofrecen las tostadoras Kraffe?",
+      "answer": "Kraffe permite la repetición automática de perfiles de tueste, control táctil en pantalla y conexión a computadora portátil, con opción de automatización completa. Puede ajustar con precisión el flujo de aire, la potencia de llama y la velocidad del tambor, guardando y replicando perfiles exitosos."
+    },
+    {
+      "question": "¿Cómo aseguran las tostadoras Kraffe la consistencia entre lotes?",
+      "answer": "La consistencia se logra mediante termopares rápidos de 3 mm para datos térmicos exactos, tambor de doble pared con aislamiento reforzado para aislar de cambios térmicos ambientales y controles precisos y repetibles para cada etapa de la curva de tueste."
+    },
+    {
+      "question": "¿Cuál es el tiempo de entrega y el proceso de transporte?",
+      "answer": "El plazo de fabricación estándar es de 4 a 8 semanas, según el nivel de personalización solicitado. Organizamos envíos internacionales marítimos o aéreos con socios logísticos especializados de confianza."
+    },
+    {
+      "question": "¿Qué rango de capacidad cubren las tostadoras Kraffe?",
+      "answer": "Nuestra gama abarca desde capacidades de muestra de 0,5 kg hasta plantas industriales de 240 kg por lote, cubriendo desde laboratorios de control de calidad hasta instalaciones de tostado a gran escala. La producción por hora varía según el modelo elegido."
+    },
+    {
+      "question": "¿Qué define un 'lote' y cuál es la duración del ciclo de tueste?",
+      "answer": "Un lote corresponde a una carga completa de café verde en el tambor. El proceso de tueste suele durar entre 12 y 14 minutos por lote (según el perfil deseado), seguido de 2 a 4 minutos de enfriamiento rápido."
+    },
+    {
+      "question": "¿Pueden las tostadoras Kraffe trabajar estilos de tueste claro y oscuro?",
+      "answer": "Sí. El sistema de quemadores premix modulados de Kraffe permite ejecutar cualquier estilo de tueste con total estabilidad, desde desarrollos rápidos y claros para café de especialidad hasta tuestes oscuros intensos, operando de manera uniforme en cualquier clima."
+    },
+    {
+      "question": "¿Qué tipo de quemador utilizan las tostadoras Kraffe?",
+      "answer": "Todos los modelos de gas incorporan quemadores de premezcla (premix) de alta eficiencia energética, diseñados para una modulación precisa de llama, respuesta térmica inmediata y menor consumo de combustible."
+    },
+    {
+      "question": "¿Qué controles están disponibles en las tostadoras Kraffe?",
+      "answer": "El operador puede regular de forma manual o automática el flujo de aire, la potencia del quemador y la velocidad de rotación del tambor para afinar el perfil de tueste según las características de cada grano."
+    },
+    {
+      "question": "¿Cuáles son las ventajas de la pantalla táctil de 10 pulgadas?",
+      "answer": "La pantalla táctil industrial muestra métricas en tiempo real (temperatura de grano, RoR, tiempo de desarrollo), permite guardar y nombrar perfiles, ofrece soporte multilingüe y brinda un manejo intuitivo de todos los parámetros operativos."
+    },
+    {
+      "question": "¿Qué nivel de eficiencia energética ofrecen las tostadoras Kraffe?",
+      "answer": "El aislamiento térmico optimizado de alta densidad, los quemadores de premezcla y el control preciso del flujo de aire minimizan las pérdidas térmicas y el consumo de gas, reduciendo notablemente los costos operativos de su tostaduría."
+    },
+    {
+      "question": "¿Cuál es la vida útil estimada de una tostadora Kraffe?",
+      "answer": "Con una estructura de alta resistencia, componentes industriales de primer nivel y un mantenimiento periódico adecuado, las tostadoras Kraffe están construidas para operar de manera óptima durante más de 15 a 20 años."
+    },
+    {
+      "question": "¿Qué tan sencillo es el mantenimiento de las máquinas Kraffe?",
+      "answer": "Están diseñadas pensando en la practicidad operativa: accesos directos a piezas clave, rutinas de limpieza fáciles de ejecutar y guías paso a paso de mantenimiento preventivo con soporte remoto continuo."
+    },
+    {
+      "question": "¿Cuáles son los requisitos de instalación?",
+      "answer": "Se requiere un conducto adecuado de extracción de humos hacia el exterior, conexiones reglamentarias de gas y electricidad según el modelo, ventilación suficiente en sala y espacio libre de mantenimiento. Proporcionamos esquemas técnicos detallados y asesoría previa."
+    },
+    {
+      "question": "¿Qué opciones eléctricas y de gas están disponibles?",
+      "answer": "Kraffe ofrece configuraciones monofásicas o trifásicas (según el modelo) y sistemas de alimentación para gas GLP (propano) o gas natural según la infraestructura de su tostaduría."
+    },
+    {
+      "question": "¿Ofrecen capacitación para los operadores?",
+      "answer": "Sí. A través de nuestros especialistas y socios certificados, ofrecemos capacitación integral (virtual o presencial) en operación técnica, diseño de perfiles de tueste, seguridad y mantenimiento preventivo."
+    },
+    {
+      "question": "¿Tiene Kraffe distribuidores internacionales?",
+      "answer": "Sí. Contamos con una red internacional de distribuidores autorizados y socios de servicio que aseguran atención local, soporte técnico calificado y entrega ágil de repuestos."
+    },
+    {
+      "question": "¿Cuál es el período de garantía de los equipos?",
+      "answer": "Todas nuestras máquinas incluyen 2 años de garantía estándar sobre componentes y defectos de fabricación. Existen opciones de extensión de garantía bajo solicitud."
+    }
+  ]
+}

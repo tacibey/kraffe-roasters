@@ -4,7 +4,15 @@ import SecondaryCTA from "@components/ui/buttons/SecondaryCTA.astro";
 import Icon from "@components/ui/icons/Icon.astro";
 
 // Define props from Astro
-const { pricing } = Astro.props;
+const { pricing, btnUrl } = Astro.props;
+
+const currentPath = Astro.url.pathname;
+const defaultProductsUrl = currentPath.startsWith("/es")
+  ? "/es/products"
+  : currentPath.startsWith("/fr")
+  ? "/fr/products"
+  : "/products";
+const sampleRoasterUrl = btnUrl || defaultProductsUrl;
 
 // Define TypeScript type for products.
 type Product = {
@@ -147,6 +155,6 @@ interface PricingSectionProps {
       {pricing.thirdOption}
     </p>
 
-    <SecondaryCTA title={pricing.btnText} url="/products" />
+    <SecondaryCTA title={pricing.btnText} url={sampleRoasterUrl} />
   </div>
 </section>

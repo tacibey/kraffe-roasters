@@ -1,4 +1,5 @@
 ---
+translationKey: "commercial-coffee-roasting-machine-buying-guide"
 title: "Guide d'Achat d'une Machine à Torréfier Commerciale"
 description: "Comment choisir le torréfacteur commercial adapté à votre entreprise ? Comparez capacité, gaz vs électrique, compatibilité logicielle et facteurs de rentabilité."
 author: "Kraffe Team"

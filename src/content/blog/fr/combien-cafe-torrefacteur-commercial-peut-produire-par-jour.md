@@ -1,4 +1,5 @@
 ---
+translationKey: "how-much-coffee-can-a-commercial-roaster-produce-per-day"
 title: "Combien de Café un Torréfacteur Commercial Peut-il Produire par Jour ?"
 description: "Calculez la production réelle quotidienne d'un torréfacteur selon la taille du lot, le temps de cycle et la perte au feu (15%). Exemples concrets pour 3 kg, 6 kg, 12 kg et 20 kg."
 author: "Kraffe Team"

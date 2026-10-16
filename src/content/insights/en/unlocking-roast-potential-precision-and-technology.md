@@ -1,4 +1,5 @@
 ---
+translationKey: "unlocking-roast-potential"
 title: "Unlocking Roast Potential: The Synergy of Precision, Technology, and Expertise"
 description: "An insight into how meticulous control over roasting stages, powered by advanced roaster technology and deep coffee knowledge, transforms green beans into exceptional coffee."
 cardImage: "@/images/insights/insight-new-1.avif" 

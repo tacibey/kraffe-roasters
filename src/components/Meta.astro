@@ -6,37 +6,76 @@ import { OG, SEO, SITE } from "@data/constants";
 import faviconSvgSrc from "@images/icon.svg";
 import faviconSrc from "@images/icon2.png";
 import HreflangLinks from "@components/HreflangLinks.astro";
+import { ES_READY } from "@/config/i18n";
 
-const defaultProps = {
-  meta: SITE.description,
-  structuredData: SEO.structuredData,
+interface Props {
+  title?: string;
+  meta?: string;
+  structuredData?: object;
+  alternates?: {
+    en?: string;
+    fr?: string;
+    es?: string;
+  };
+}
+
+const currentLocale = Astro.currentLocale || "en";
+
+const defaultDescriptions: Record<string, string> = {
+  en: SITE.description,
+  fr: "Kraffe Roasters conçoit et fabrique des machines à torréfier le café commerciales et industrielles de haute précision pour les professionnels du café.",
+  es: "Kraffe Roasters diseña y fabrica máquinas tostadoras de café comerciales e industriales de alta precisión para profesionales del café.",
 };
 
 const {
-  meta = defaultProps.meta,
-  structuredData = defaultProps.structuredData,
+  title = SITE.title,
+  meta = defaultDescriptions[currentLocale] || SITE.description,
+  structuredData = SEO.structuredData,
+  alternates,
 } = Astro.props;
 
-// --- DÜZELTME: Değişken adı 'URL' yerine 'siteBaseURL' yapıldı ---
-// Böylece JavaScript'in global URL sınıfı ile çakışmayacak.
-const siteBaseURL = `${Astro.site}`;
+const siteBaseURL = `${Astro.site || "https://krafferoasters.com"}`;
 const author = SITE.author;
 
-// Canonical URL oluşturma (Artık global URL sınıfı çalışacak)
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-if (!canonicalURL.pathname.endsWith('/')) {
-  canonicalURL.pathname += '/';
+// Canonical URL oluşturma
+const canonicalURL = new URL(Astro.url.pathname, siteBaseURL);
+if (!canonicalURL.pathname.endsWith("/")) {
+  canonicalURL.pathname += "/";
 }
 const canonical = canonicalURL.href;
 
-const ogTitle = OG.title;
-const ogDescription = OG.description;
+// Page specific meta titles and descriptions
+const ogTitle = title || OG.title;
+const ogDescription = meta || OG.description;
+
+const localeMap: Record<string, string> = {
+  en: "en_US",
+  fr: "fr_FR",
+  es: "es_ES",
+};
+const ogLocale = localeMap[currentLocale] || "en_US";
+
+const siteNames: Record<string, string> = {
+  en: "Kraffe Roasters",
+  fr: "Kraffe Roasters",
+  es: "Kraffe Roasters",
+};
+const ogSiteName = siteNames[currentLocale] || "Kraffe Roasters";
+
+// Determine alternate locales (exclude Spanish if not ready yet)
+const availableLocales = ["en_US", "fr_FR", ...(ES_READY ? ["es_ES"] : [])];
+const alternateLocales = availableLocales.filter((loc) => loc !== ogLocale);
+
+// Temporary noindex for Spanish pages while containing placeholders
+const isSpanish = currentLocale === "es" || Astro.url.pathname.startsWith("/es");
+const shouldNoIndex = isSpanish && !ES_READY;
+
 const socialImageRes = await getImage({
   src: OG.image,
   width: 1200,
   height: 600,
 });
-const socialImage = Astro.url.origin + socialImageRes.src;
+const socialImage = new URL(socialImageRes.src, siteBaseURL).href;
 
 const faviconSvg = await getImage({
   src: faviconSvgSrc,
@@ -69,14 +108,19 @@ const appleTouchIcon = await getImage({
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <link rel="canonical" href={canonical} />
 
-<HreflangLinks />
+{shouldNoIndex && <meta name="robots" content="noindex, nofollow" />}
+
+<HreflangLinks alternates={alternates} />
 
 <!-- Facebook Meta Tags -->
-<meta property="og:locale" content="en_US" />
+<meta property="og:locale" content={ogLocale} />
+{alternateLocales.map((altLoc) => (
+  <meta property="og:locale:alternate" content={altLoc} />
+))}
 <meta property="og:url" content={canonical} />
 <meta property="og:type" content="website" />
 <meta property="og:title" content={ogTitle} />
-<meta property="og:site_name" content={SITE.title} />
+<meta property="og:site_name" content={ogSiteName} />
 <meta property="og:description" content={ogDescription} />
 <meta property="og:image" content={socialImage} />
 <meta content="1200" property="og:image:width" />
@@ -85,7 +129,6 @@ const appleTouchIcon = await getImage({
 
 <!-- Twitter Meta Tags -->
 <meta name="twitter:card" content="summary_large_image" />
-<!-- DÜZELTME: Burada da siteBaseURL kullanıyoruz -->
 <meta property="twitter:domain" content={siteBaseURL} />
 <meta property="twitter:url" content={canonical} />
 <meta name="twitter:title" content={ogTitle} />
@@ -102,5 +145,4 @@ const appleTouchIcon = await getImage({
 <meta name="mobile-web-app-capable" content="yes" />
 <link href={appleTouchIcon.src} rel="apple-touch-icon" />
 <link href={appleTouchIcon.src} rel="shortcut icon" />
-<!-- Set theme color -->
 <meta name="theme-color" content="#facc15" />

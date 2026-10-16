@@ -1,9 +1,16 @@
 ---
 import Icon from "@components/ui/icons/Icon.astro";
+const titles: Record<string, string> = {
+  en: "Share",
+  fr: "Partager",
+  es: "Compartir",
+};
+const defaultTitle = titles[Astro.currentLocale || "en"] || "Share";
+
 // Destructure the properties from Astro.props
 const {
   pageTitle,
-  title = Astro.currentLocale === "fr" ? "Partager" : "Share",
+  title = defaultTitle,
 } = Astro.props;
 
 // Define TypeScript interface for the properties
