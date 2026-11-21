@@ -1,6 +1,7 @@
 ---
 // src/components/HreflangLinks.astro
 import { getLanguageAlternates } from "@/utils/i18n";
+import { HREFLANG_REGIONS } from "@/config/i18n";
 
 interface Props {
   alternates?: {
@@ -21,6 +22,16 @@ const enHref = hreflang.en ? new URL(hreflang.en, site).href : undefined;
 const frHref = hreflang.fr ? new URL(hreflang.fr, site).href : undefined;
 const esHref = hreflang.es ? new URL(hreflang.es, site).href : undefined;
 const ruHref = hreflang.ru ? new URL(hreflang.ru, site).href : undefined;
+// Regional variants (e.g. en-FR, fr-GB) pointing to the same URL as the language-only tag
+const languageHrefs: Array<[string, string | undefined]> = [
+  ["en", enHref],
+  ["fr", frHref],
+  ["es", esHref],
+  ["ru", ruHref],
+];
+const regionalLinks = languageHrefs.flatMap(([lang, href]) =>
+  href ? HREFLANG_REGIONS.map((region) => ({ hreflang: `${lang}-${region}`, href })) : []
+);
 const defaultHref = hreflang["x-default"] ? new URL(hreflang["x-default"], site).href : enHref;
 ---
 
@@ -28,4 +39,5 @@ const defaultHref = hreflang["x-default"] ? new URL(hreflang["x-default"], site)
 {frHref && <link rel="alternate" hreflang="fr" href={frHref} />}
 {esHref && <link rel="alternate" hreflang="es" href={esHref} />}
 {ruHref && <link rel="alternate" hreflang="ru" href={ruHref} />}
+{regionalLinks.map(({ hreflang, href }) => <link rel="alternate" hreflang={hreflang} href={href} />)}
 {defaultHref && <link rel="alternate" hreflang="x-default" href={defaultHref} />}
