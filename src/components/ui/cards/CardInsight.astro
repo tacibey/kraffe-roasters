@@ -8,6 +8,7 @@ const readMoreLabels: Record<string, string> = {
   en: "Read more",
   fr: "Lire plus",
   es: "Leer más",
+  ru: "Читать далее",
 };
 const defaultLabel = readMoreLabels[Astro.currentLocale || "en"] || "Read more";
 
@@ -28,7 +29,7 @@ interface Props {
 <a
   class="group rounded-xl outline-hidden ring-zinc-500 transition duration-300 focus-visible:ring-3 dark:ring-zinc-200 dark:focus:outline-hidden"
   href={insightLocale && insightLocale !== "en"
-    ? `/${insightLocale}/insights/${insightEntry.id.replace(/^(fr|es)\//, "")}/`
+    ? `/${insightLocale}/insights/${insightEntry.id.replace(/^(fr|es|ru)\//, "")}/`
     : `/insights/${insightEntry.id.replace(/^en\//, "")}/`}
 >
   <!-- This is the container for the insight's cover image. -->

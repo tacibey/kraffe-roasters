@@ -1,0 +1,110 @@
+---
+// src/pages/ru/blog/index.astro
+
+import MainLayout from "@/layouts/MainLayout.astro";
+import CardBlog from "@components/ui/cards/CardBlog.astro";
+import CardInsight from "@components/ui/cards/CardInsight.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { SITE } from "@data/constants";
+
+const russianBlogEntries = await getCollection("blog", ({ id }) => {
+  return id.startsWith("ru/");
+});
+
+const russianInsightsEntries = await getCollection("insights", ({ id }) => {
+  return id.startsWith("ru/");
+});
+
+const blogPosts: CollectionEntry<"blog">[] = russianBlogEntries.sort(
+  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+    b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const insightPosts: CollectionEntry<"insights">[] = russianInsightsEntries;
+
+const title_ru: string = "Ваш путь к совершенству в обжарке кофе";
+const subTitle_ru: string =
+  "Последние новости, технические рекомендации и аналитика KRAFFE ROASTERS об индустрии обжарки кофе — от инноваций в оборудовании до стратегий оптимизации профилей обжарки.";
+const secondTitle_ru: string = "Взгляд на индустрию";
+const secondSubTitle_ru: string =
+  "Следите за ключевыми тенденциями кофейной отрасли благодаря техническому анализу наших инженеров и специалистов.";
+
+const pageTitle_ru: string = `Блог об обжарке кофе | Kraffe Roasters`;
+const metaDescription_ru: string = "Технические статьи, руководства по обжарке кофе, контроль RoR и новости отрасли от инженеров и специалистов Kraffe Roasters.";
+---
+
+<MainLayout
+  title={pageTitle_ru}
+  meta={metaDescription_ru}
+  lang="ru"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${SITE.url}/ru/blog`,
+    url: `${SITE.url}/ru/blog`,
+    name: pageTitle_ru,
+    description: metaDescription_ru,
+    isPartOf: {
+      "@type": "WebSite",
+      url: `${SITE.url}/ru`,
+      name: "Kraffe Roasters",
+      description: "Статьи, руководства и технические советы по коммерческой и промышленной обжарке кофе от Kraffe Roasters."
+    },
+    "inLanguage": "ru-RU"
+  }}
+>
+  <section
+    class="mx-auto max-w-[85rem] space-y-8 px-4 pt-16 sm:px-6 lg:px-8 2xl:max-w-full"
+  >
+    <div class="mx-auto max-w-3xl text-left sm:text-center">
+      <h1
+        class="block text-balance text-4xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-5xl lg:text-6xl"
+      >
+        {title_ru}
+      </h1>
+
+      <p
+        class="mt-4 text-pretty text-lg text-neutral-600 dark:text-neutral-400"
+      >
+        {subTitle_ru}
+      </p>
+    </div>
+  </section>
+
+  <section
+    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  >
+    {blogPosts.length > 0 ? (
+      <div class="grid gap-6 lg:grid-cols-2">
+        {blogPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} blogLocale="ru" />)}
+      </div>
+    ) : (
+      <p class="text-center text-lg text-neutral-600 dark:text-neutral-400">В настоящее время публикаций в блоге нет.</p>
+    )}
+  </section>
+
+  {insightPosts.length > 0 && (
+    <section
+      class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+    >
+      <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
+        <h2
+          class="text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
+        >
+          {secondTitle_ru}
+        </h2>
+        <p class="mt-1 text-pretty text-neutral-600 dark:text-neutral-400">
+          {secondSubTitle_ru}
+        </p>
+      </div>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          insightPosts.map((insightEntry) => (
+            <CardInsight insightEntry={insightEntry} insightLocale="ru" />
+          ))
+        }
+      </div>
+    </section>
+  )}
+</MainLayout>

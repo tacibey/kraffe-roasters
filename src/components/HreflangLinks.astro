@@ -7,6 +7,7 @@ interface Props {
     en?: string;
     fr?: string;
     es?: string;
+    ru?: string;
   };
 }
 
@@ -19,10 +20,12 @@ const site = Astro.site || "https://krafferoasters.com";
 const enHref = hreflang.en ? new URL(hreflang.en, site).href : undefined;
 const frHref = hreflang.fr ? new URL(hreflang.fr, site).href : undefined;
 const esHref = hreflang.es ? new URL(hreflang.es, site).href : undefined;
+const ruHref = hreflang.ru ? new URL(hreflang.ru, site).href : undefined;
 const defaultHref = hreflang["x-default"] ? new URL(hreflang["x-default"], site).href : enHref;
 ---
 
 {enHref && <link rel="alternate" hreflang="en" href={enHref} />}
 {frHref && <link rel="alternate" hreflang="fr" href={frHref} />}
 {esHref && <link rel="alternate" hreflang="es" href={esHref} />}
+{ruHref && <link rel="alternate" hreflang="ru" href={ruHref} />}
 {defaultHref && <link rel="alternate" hreflang="x-default" href={defaultHref} />}

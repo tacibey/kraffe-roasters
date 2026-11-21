@@ -2,6 +2,7 @@ const labels: Record<string, string> = {
   en: "Email",
   fr: "E-mail",
   es: "Correo electrónico",
+  ru: "E-mail",
 };
 const defaultLabel = labels[Astro.currentLocale || "en"] || labels.en;
 const { label = defaultLabel, id } = Astro.props;

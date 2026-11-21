@@ -6,7 +6,7 @@ import { OG, SEO, SITE } from "@data/constants";
 import faviconSvgSrc from "@images/icon.svg";
 import faviconSrc from "@images/icon2.png";
 import HreflangLinks from "@components/HreflangLinks.astro";
-import { ES_READY } from "@/config/i18n";
+import { ES_READY, RU_READY } from "@/config/i18n";
 
 interface Props {
   title?: string;
@@ -16,6 +16,7 @@ interface Props {
     en?: string;
     fr?: string;
     es?: string;
+    ru?: string;
   };
 }
 
@@ -25,6 +26,7 @@ const defaultDescriptions: Record<string, string> = {
   en: SITE.description,
   fr: "Kraffe Roasters conçoit et fabrique des machines à torréfier le café commerciales et industrielles de haute précision pour les professionnels du café.",
   es: "Kraffe Roasters diseña y fabrica máquinas tostadoras de café comerciales e industriales de alta precisión para profesionales del café.",
+  ru: "Kraffe Roasters проектирует и производит высокоточные коммерческие и промышленные ростеры для обжарки кофе для профессионалов кофейной индустрии.",
 };
 
 const {
@@ -52,6 +54,7 @@ const localeMap: Record<string, string> = {
   en: "en_US",
   fr: "fr_FR",
   es: "es_ES",
+  ru: "ru_RU",
 };
 const ogLocale = localeMap[currentLocale] || "en_US";
 
@@ -59,16 +62,18 @@ const siteNames: Record<string, string> = {
   en: "Kraffe Roasters",
   fr: "Kraffe Roasters",
   es: "Kraffe Roasters",
+  ru: "Kraffe Roasters",
 };
 const ogSiteName = siteNames[currentLocale] || "Kraffe Roasters";
 
 // Determine alternate locales (exclude Spanish if not ready yet)
-const availableLocales = ["en_US", "fr_FR", ...(ES_READY ? ["es_ES"] : [])];
+const availableLocales = ["en_US", "fr_FR", ...(ES_READY ? ["es_ES"] : []), ...(RU_READY ? ["ru_RU"] : [])];
 const alternateLocales = availableLocales.filter((loc) => loc !== ogLocale);
 
 // Temporary noindex for Spanish pages while containing placeholders
 const isSpanish = currentLocale === "es" || Astro.url.pathname.startsWith("/es");
-const shouldNoIndex = isSpanish && !ES_READY;
+const isRussian = currentLocale === "ru" || Astro.url.pathname.startsWith("/ru");
+const shouldNoIndex = (isSpanish && !ES_READY) || (isRussian && !RU_READY);
 
 const socialImageRes = await getImage({
   src: OG.image,

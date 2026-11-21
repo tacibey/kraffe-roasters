@@ -2,11 +2,13 @@ const labels: Record<string, string> = {
   en: "Email address",
   fr: "Adresse e-mail",
   es: "Correo electrónico",
+  ru: "Адрес e-mail",
 };
 const errorMessages: Record<string, string> = {
   en: "Please include a valid email address so we can get back to you",
   fr: "Veuillez inclure une adresse e-mail valide afin que nous puissions vous répondre",
   es: "Por favor ingrese un correo electrónico válido para que podamos responderle",
+  ru: "Укажите корректный адрес e-mail, чтобы мы могли вам ответить",
 };
 const currentLocale = Astro.currentLocale || "en";
 const defaultLabel = labels[currentLocale] || labels.en;

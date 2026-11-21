@@ -4,8 +4,30 @@ const titles: Record<string, string> = {
   en: "Share",
   fr: "Partager",
   es: "Compartir",
+  ru: "Поделиться",
 };
 const defaultTitle = titles[Astro.currentLocale || "en"] || "Share";
+const shareOnLabels: Record<string, string> = {
+  en: "Share on",
+  fr: "Partager sur",
+  es: "Compartir en",
+  ru: "Поделиться в",
+};
+const copyLinkLabels: Record<string, string> = {
+  en: "Copy link",
+  fr: "Copier le lien",
+  es: "Copiar enlace",
+  ru: "Скопировать ссылку",
+};
+const shareOn = shareOnLabels[Astro.currentLocale || "en"] || shareOnLabels.en;
+const copiedLabels: Record<string, string> = {
+  en: "Copied",
+  fr: "Copié",
+  es: "Copiado",
+  ru: "Скопировано",
+};
+const copied = copiedLabels[Astro.currentLocale || "en"] || copiedLabels.en;
+const copyLink = copyLinkLabels[Astro.currentLocale || "en"] || copyLinkLabels.en;
 
 // Destructure the properties from Astro.props
 const {
@@ -71,10 +93,10 @@ const socialPlatforms: SocialPlatform[] = [
             href={platform.url}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`Share on ${platform.name}`}
+            aria-label={`${shareOn} ${platform.name}`}
           >
             <Icon name={platform.svg} />
-            Share on {platform.name}
+            {shareOn} {platform.name}
           </a>
         ))
       }
@@ -83,7 +105,7 @@ const socialPlatforms: SocialPlatform[] = [
       <button
         type="button"
         class="js-clipboard hover:text-dark focus-visible:ring-secondary group inline-flex w-full items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-200 focus:bg-neutral-100 focus:outline-hidden focus-visible:outline-hidden focus-visible:ring-1 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
-        data-clipboard-success-text="Copied"
+        data-clipboard-success-text={copied}
       >
         <svg
           class="js-clipboard-default h-4 w-4 transition group-hover:rotate-6"
@@ -115,7 +137,7 @@ const socialPlatforms: SocialPlatform[] = [
         >
           <polyline points="20 6 9 17 4 12"></polyline>
         </svg>
-        <span class="js-clipboard-success-text">Copy link</span>
+        <span class="js-clipboard-success-text">{copyLink}</span>
       </button>
     </div>
   </div>

@@ -199,6 +199,103 @@ const esFooter = {
   backToTop: "Volver arriba",
 };
 
+const ruFooter = {
+  trustItems: [
+    {
+      title: "Точная обжарка",
+      desc: "Точное управление воздушным потоком и скоростью барабана, запись профилей в Artisan и Cropster.",
+      icon: "flame",
+    },
+    {
+      title: "Экспорт и запуск по всему миру",
+      desc: "Поставки в 40+ стран с таможенным сопровождением и технической пусконаладкой.",
+      icon: "globe",
+    },
+    {
+      title: "Гарантия 2 года и сервис",
+      desc: "Надёжные промышленные компоненты, инженерная поддержка и запчасти на весь срок службы.",
+      icon: "shield",
+    },
+    {
+      title: "Загрузка от 1 до 240 кг",
+      desc: "От ростеров для кофеен до крупных промышленных обжарочных линий.",
+      icon: "layers",
+    },
+  ],
+  brandDesc:
+    "Kraffe Roasters проектирует и производит высокопроизводительные коммерческие и промышленные ростеры для обжарки кофе. Термостойкие материалы и продвинутая автоматизация профилей — для профессиональных обжарщиков по всему миру.",
+  statusText: "Экспорт и поддержка по всему миру",
+  address:
+    "Adalet Mah. Manas Blv. No:39 Folkart Towers A Kule Kat:34 Bayraklı / İzmir, Турция",
+  phone: "+90 533 566 7061",
+  email: "info@krafferoasters.com",
+  whatsappText: "Написать в WhatsApp",
+  cta: {
+    badge: "Индивидуальная сборка",
+    title: "Планируете обжарочный цех?",
+    desc: "Получите инженерное предложение под ваш объём партии, индивидуальные цвета RAL и монтаж под ключ.",
+    btn: "Запросить предложение →",
+    url: "/ru/contact",
+  },
+  sections: [
+    {
+      title: "Коммерческие ростеры",
+      links: [
+        { name: "Primi (сэмпл-ростер 1 кг)", url: "/ru/products/primi" },
+        { name: "Dimi (сэмпл-ростер 0,5 кг)", url: "/ru/products/dimi" },
+        { name: "KRF-03 (коммерческий ростер 3 кг)", url: "/ru/products/krf-03" },
+        { name: "KRF-06 (коммерческий ростер 6 кг)", url: "/ru/products/krf-06" },
+        { name: "KRF-15 (ростер 15 кг)", url: "/ru/products/krf-15" },
+        { name: "KRF-20 (ростер 20 кг)", url: "/ru/products/krf-20" },
+        {
+          name: "Все ростеры →",
+          url: "/ru/products",
+          isAccent: true,
+        },
+      ],
+    },
+    {
+      title: "Промышленное оборудование",
+      links: [
+        { name: "KRF-30 (промышленный, 30 кг)", url: "/ru/products/krf-30" },
+        { name: "KRF-60 (промышленный, 60 кг)", url: "/ru/products/krf-60" },
+        { name: "KRF-120 (производственный, 120 кг)", url: "/ru/products/krf-120" },
+        { name: "KRF-240 (высокая производительность, 240 кг)", url: "/ru/products/krf-240" },
+        {
+          name: "Промышленные камнеотделители",
+          url: "/ru/products/destoner-equipment",
+        },
+        {
+          name: "Пневмозагрузчики кофе",
+          url: "/ru/products/loader-equipment",
+        },
+        {
+          name: "Каталитические дожигатели",
+          url: "/ru/products/afterburner-equipment",
+        },
+      ],
+    },
+    {
+      title: "Компания и ресурсы",
+      links: [
+        { name: "О Kraffe Roasters", url: "/ru/about" },
+        { name: "Блог и технические руководства", url: "/ru/blog" },
+        { name: "Выставки и события", url: "/ru/events" },
+        { name: "Официальные дилеры", url: "/ru/dealers" },
+        { name: "Контакты и техподдержка", url: "/ru/contact" },
+        {
+          name: "Политика конфиденциальности и условия",
+          url: "/privacy-policy-and-terms",
+        },
+      ],
+    },
+  ],
+  bottomTagline:
+    "Производитель коммерческих и промышленных ростеров для обжарки кофе.",
+  rightsReserved: "Все права защищены.",
+  backToTop: "Наверх",
+};
+
 const enFooter = {
   trustItems: [
     {
@@ -306,6 +403,7 @@ const footerMap: Record<string, typeof enFooter> = {
   en: enFooter,
   fr: frFooter,
   es: esFooter,
+  ru: ruFooter,
 };
 
 const content = footerMap[currentLocale] || footerMap.en;

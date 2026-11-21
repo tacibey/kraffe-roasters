@@ -1,0 +1,143 @@
+---
+// src/pages/ru/about.astro
+
+import MainLayout from "@/layouts/MainLayout.astro";
+import MainSection from "@components/ui/blocks/MainSection.astro";
+import LeftSection from "@components/ui/blocks/LeftSection.astro";
+import FeaturesStats from "@components/sections/features/FeaturesStats.astro";
+import { SITE } from "@data/constants";
+import type { ImageMetadata } from 'astro';
+
+import imgPlaceholder1 from "@images/etude-kraffe.avif";
+import imgPlaceholder2 from "@images/kraffeabout.avif";
+
+interface Article {
+  isRightSection: boolean;
+  title: string;
+  subTitle: string;
+  btnExists?: boolean;
+  btnTitle?: string;
+  btnURL?: string;
+  img: ImageMetadata;
+  imgAlt: string;
+}
+
+const articles_ru: Article[] = [
+  {
+    isRightSection: false,
+    title: "Почему стоит выбрать Kraffe Roasters",
+    subTitle: `
+      <p>В KRAFFE ROASTERS мы убеждены, что функции, которые у других считаются «опциональными», должны быть стандартом. Поэтому каждый ростер Kraffe включает:</p>
+      <ul class="list-disc list-inside mt-2 space-y-1 text-neutral-600 dark:text-neutral-400">
+        <li>Точную инженерию для стабильного результата от партии к партии</li>
+        <li>Высокую теплоизоляцию и продвинутые системы плавного регулирования</li>
+        <li>Полные заводские испытания и строгий контроль качества</li>
+        <li>Конструкцию, рассчитанную на долгий срок службы и максимальную эффективность</li>
+      </ul>
+      <p class="mt-2">Нужен ли вам сэмпл-ростер на 1 кг или промышленная установка на 240 кг — каждый ростер KRAFFE обеспечивает надёжную обжарку и долгосрочную ценность для вашего бизнеса.</p>
+    `,
+    img: imgPlaceholder1,
+    imgAlt: "Схема конструкции ростеров для кофе Kraffe",
+    btnExists: true,
+    btnTitle: "Связаться с нами",
+    btnURL: "/ru/contact",
+  },
+  {
+    isRightSection: false,
+    title: "Наши обязательства перед вашей обжаркой",
+    subTitle: `
+      <p>KRAFFE ROASTERS обеспечивает самую быструю техническую поддержку в отрасли. Мы знаем, что в производстве кофе важна каждая минута, поэтому гарантируем:</p>
+      <ul class="list-disc list-inside mt-2 space-y-1 text-neutral-600 dark:text-neutral-400">
+        <li>Ответ на любой запрос клиента в течение 24 часов</li>
+        <li>Прямой доступ 24/7 к инженерам по контролю качества — без посредников</li>
+        <li>Быструю диагностику, поставку запчастей и удалённую поддержку</li>
+        <li>Глобальную сеть поддержки, которая не даёт вашему производству остановиться</li>
+      </ul>
+      <p class="mt-2">Долговечно. Стабильно. Быстро. Это не просто обещание — это наш производственный стандарт.</p>
+    `,
+    img: imgPlaceholder2,
+    imgAlt: "Обслуживание и техническая поддержка ростеров для кофе Kraffe",
+    btnExists: false,
+  },
+];
+
+const featuresStatsTitle_ru: string = "Наши ключевые принципы";
+const featuresStatsSubTitle_ru: string = "Эти принципы определяют опыт работы с Kraffe Roasters: качество, надёжность и близость к клиенту.";
+const featuresStatsMainStatTitle_ru: string = "Ответственность";
+const featuresStatsMainStatSubTitle_ru: string = "Мы строим долгосрочные отношения с клиентами и сопровождаем их на каждом этапе роста обжарочного производства.";
+const statsData_ru = [
+    {
+        stat: "100%",
+        description: "Гарантия качества: строгие технические испытания перед каждой отгрузкой.",
+    },
+    {
+        stat: "Гибкость",
+        description: "Решения под задачу: адаптация к потребностям вашего производства.",
+    },
+    {
+        stat: "Простота",
+        description: "Удобство в работе: быстрая настройка, понятное управление и простое обслуживание.",
+    },
+    {
+        stat: "24/7",
+        description: "Постоянная поддержка: помощь специалистов всегда, когда она нужна.",
+    },
+];
+
+const pageTitle_ru: string = `О Kraffe Roasters | Производитель ростеров для кофе`;
+const metaDescription_ru: string = "Познакомьтесь с Kraffe Roasters: инженеры-эксперты в производстве высокоточных коммерческих и промышленных ростеров для кофе.";
+const mainSectionTitle_ru: string = "Кто мы";
+const mainSectionSubTitle_ru: string = "KRAFFE ROASTERS — инновационная компания, основанная в 2022 году инженерами и профессионалами кофейной индустрии с более чем десятилетним опытом производства ростеров. Во главе проекта стоит основатель и главный инженер ведущего бренда ростеров, обладающий глубокими знаниями в разработке оборудования, термическом горении и клиентоориентированных решениях. Kraffe создана с целью выпускать самые стабильные, прочные и отзывчивые ростеры на рынке. Каждое наше решение подчинено этой миссии.";
+const mainSectionBtnTitle_ru: string = "Связаться с нами";
+---
+
+<MainLayout
+  title={pageTitle_ru}
+  meta={metaDescription_ru}
+  lang="ru"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${SITE.url}/ru/about`,
+    "url": `${SITE.url}/ru/about`,
+    "name": pageTitle_ru,
+    "description": metaDescription_ru,
+    "isPartOf": {
+        "@type": "WebSite",
+        "url": `${SITE.url}/ru`,
+        "name": "Kraffe Roasters",
+        "description": "Высокоточные коммерческие и промышленные ростеры для кофе Kraffe Roasters."
+    },
+    "inLanguage": "ru-RU"
+  }}
+>
+  <MainSection
+    title={mainSectionTitle_ru}
+    subTitle={mainSectionSubTitle_ru}
+    btnExists={true}
+    btnTitle={mainSectionBtnTitle_ru}
+    btnURL="/ru/contact"
+  />
+
+  {
+    articles_ru.map(article => (
+        <LeftSection
+          title={article.title}
+          subTitle={article.subTitle}
+          img={article.img}
+          imgAlt={article.imgAlt}
+          btnExists={article.btnExists}
+          btnTitle={article.btnTitle}
+          btnURL={article.btnURL}
+        />
+    ))
+  }
+
+  <FeaturesStats
+    title={featuresStatsTitle_ru}
+    subTitle={featuresStatsSubTitle_ru}
+    mainStatTitle={featuresStatsMainStatTitle_ru}
+    mainStatSubTitle={featuresStatsMainStatSubTitle_ru}
+    stats={statsData_ru}
+  />
+</MainLayout>

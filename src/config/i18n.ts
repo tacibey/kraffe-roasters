@@ -9,3 +9,8 @@
  * - Flip to true after Phase 3 translations are complete.
  */
 export const ES_READY = true;
+
+/**
+ * Flag controlling Russian (ru) readiness. Same behaviour as ES_READY for /ru/.
+ */
+export const RU_READY = true;

@@ -1,0 +1,164 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import { SITE } from "@data/constants";
+import { Image } from "astro:assets";
+
+import topImage from "@images/events/woc-geneva-4.avif";
+import middleImage from "@images/events/woc-geneva-3.avif";
+
+import galleryPhoto1 from "@images/events/woc-geneva-1.avif";
+import galleryPhoto2 from "@images/events/woc-geneva-2.avif";
+import galleryPhoto3 from "@images/events/woc-geneva-3.avif";
+import galleryPhoto4 from "@images/events/woc-geneva-4.avif";
+import galleryPhoto5 from "@images/events/woc-geneva-5.avif";
+import galleryPhoto6 from "@images/events/woc-geneva-6.avif";
+import galleryPhoto7 from "@images/events/woc-geneva-7.avif";
+import galleryPhoto8 from "@images/events/woc-geneva-8.avif";
+import galleryPhoto9 from "@images/events/woc-geneva-9.avif";
+import galleryPhoto10 from "@images/events/woc-geneva-10.avif";
+import galleryPhoto11 from "@images/events/woc-geneva-11.avif";
+import galleryPhoto12 from "@images/events/woc-geneva-12.avif";
+import galleryPhoto13 from "@images/events/woc-geneva-13.avif";
+import galleryPhoto14 from "@images/events/woc-geneva-14.avif";
+import galleryPhoto15 from "@images/events/woc-geneva-15.avif";
+import galleryPhoto16 from "@images/events/woc-geneva-16.avif";
+
+const pageTitle = `Kraffe Roasters на World of Coffee Женева 2025`;
+const metaDescription = "Обзор участия Kraffe Roasters в World of Coffee 2025 в Женеве: наши коммерческие ростеры для кофе и новости кофейного сообщества.";
+
+const introText = `
+  <p class="mb-4">В конце июня мировое кофейное сообщество собралось на ежегодной выставке <strong>World of Coffee 2025</strong> в Женеве (Швейцария) — ключевом событии, организованном <a href="https://www.worldofcoffee.org/" target="_blank" rel="nofollow noopener noreferrer" class="text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 underline">Specialty Coffee Association (SCA)</a>. Команда Kraffe Roasters с удовольствием приняла участие и пообщалась с клиентами, партнёрами и профессионалами кофейной индустрии со всего мира.</p>
+  <p class="mb-4">Мероприятие проходило в PALEXPO — современном выставочном центре в окружении большого зелёного парка. Благодарим команду SCA за выбор такой удобной и красивой площадки.</p>
+`;
+
+const mainContent = `
+  <p class="mb-4">За день до открытия мы посетили наш стенд в Palexpo. Павильон оказался невероятно просторным. Наш <a href="/ru/products" class="text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 underline"><strong>коммерческий ростер</strong></a> доставили быстро, и мы без труда его установили. Всё было готово к торжественному открытию.</p>
+  <p class="mb-4">В дни выставки наш стенд посетили многочисленные гости и специалисты отрасли, интересующиеся нашим оборудованием и технологиями коммерческой и промышленной обжарки.</p>
+  <p>Так завершилась ещё одна вдохновляющая выставка World of Coffee. Большое спасибо всем, кто посетил нас, и организаторам!</p>
+`;
+
+const tags = ["World of Coffee", "Женева 2025", "SCA", "коммерческий ростер", "кофейные мероприятия", "Kraffe Roasters"];
+
+const galleryImages = [
+    { src: galleryPhoto1, alt: "Стенд Kraffe Roasters на World of Coffee в Женеве" },
+    { src: galleryPhoto2, alt: "Посетители осматривают коммерческий ростер" },
+    { src: galleryPhoto3, alt: "Оживлённая атмосфера в выставочном центре Palexpo" },
+    { src: galleryPhoto4, alt: "Красный коммерческий ростер Kraffe" },
+    { src: galleryPhoto5, alt: "Сцена кофейного чемпионата" },
+    { src: galleryPhoto6, alt: "Фото команды на стенде Kraffe Roasters" },
+    { src: galleryPhoto7, alt: "Kraffe Roasters на World of Coffee в Женеве" },
+    { src: galleryPhoto8, alt: "Kraffe Roasters на World of Coffee в Женеве" },
+    { src: galleryPhoto9, alt: "Kraffe Roasters на World of Coffee в Женеве" },
+    { src: galleryPhoto10, alt: "Kraffe Roasters на World of Coffee в Женеве" },
+    { src: galleryPhoto11, alt: "Kraffe Roasters на World of Coffee в Женеве" },
+    { src: galleryPhoto12, alt: "Kraffe Roasters на World of Coffee в Женеве" },
+    { src: galleryPhoto13, alt: "Kraffe Roasters на World of Coffee в Женеве" },
+    { src: galleryPhoto14, alt: "Kraffe Roasters на World of Coffee в Женеве" },
+    { src: galleryPhoto15, alt: "Kraffe Roasters на World of Coffee в Женеве" },
+    { src: galleryPhoto16, alt: "Kraffe Roasters на World of Coffee в Женеве" },
+];
+---
+
+<MainLayout
+  title={pageTitle}
+  meta={metaDescription}
+  lang="ru"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": Astro.url.href
+    },
+    "headline": "World of Coffee 2025 в Женеве: незабываемая встреча",
+    "image": new URL(topImage.src, Astro.site).href,
+    "datePublished": "2025-07-05T08:00:00+00:00",
+    "dateModified": new Date().toISOString(),
+    "author": {
+      "@type": "Organization",
+      "name": "Kraffe Roasters"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Kraffe Roasters",
+      "logo": {
+        "@type": "ImageObject",
+        "url": new URL("/kraffe-logo.png", Astro.site).href
+      }
+    },
+    "description": metaDescription,
+    "keywords": tags.join(", "),
+    "inLanguage": "ru-RU"
+  }}
+>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-zoom.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-thumbnail.min.css" />
+
+  <section class="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      
+      <h1 class="text-balance">World of Coffee 2025 в Женеве: незабываемая встреча мирового кофейного сообщества</h1>
+      
+      <div class="not-prose my-8">
+        <Image src={topImage} alt="Команда и стенд Kraffe Roasters на World of Coffee Женева 2025" class="w-full h-auto rounded-xl shadow-lg" loading="eager" />
+      </div>
+
+      <article set:html={introText} />
+      
+      <div class="not-prose my-8">
+        <Image src={middleImage} alt="Оживлённая атмосфера в центре Palexpo" class="w-full h-auto rounded-xl shadow-lg" loading="lazy"/>
+      </div>
+
+      <article set:html={mainContent} />
+
+      <h2 class="mt-12">Галерея мероприятия</h2>
+      <div id="lightgallery-container" class="not-prose mt-6 grid grid-cols-2 gap-4 md:grid-cols-3">
+        {galleryImages.map(img => (
+          <a
+            href={img.src.src}
+            data-sub-html={`<h4>${img.alt}</h4>`}
+            class="group block overflow-hidden rounded-lg shadow-md focus:outline-none focus:ring-4 focus:ring-orange-400 focus:ring-offset-2 dark:focus:ring-offset-neutral-800"
+          >
+            <Image 
+              src={img.src} 
+              alt={img.alt} 
+              class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110" 
+              loading="lazy" 
+            />
+          </a>
+        ))}
+      </div>
+
+      <div class="not-prose mt-12 border-t border-neutral-200 dark:border-neutral-700 pt-6">
+        <h3 class="text-lg font-semibold">Теги:</h3>
+        <div class="flex fill-wrap gap-2 mt-2">
+          {tags.map(tag => (
+            <span class="inline-flex items-center gap-x-1.5 rounded-full bg-neutral-100 px-3 py-1.5 text-xs font-medium text-neutral-800 dark:bg-neutral-700 dark:text-neutral-200">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </section>
+</MainLayout>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/zoom/lg-zoom.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/thumbnail/lg-thumbnail.min.js" defer></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const galleryContainer = document.getElementById('lightgallery-container');
+    if (galleryContainer) {
+      (window as any).lightGallery(galleryContainer, {
+        plugins: [(window as any).lgZoom, (window as any).lgThumbnail],
+        speed: 500,
+        download: false,
+        selector: 'a',
+      });
+    }
+  });
+</script>

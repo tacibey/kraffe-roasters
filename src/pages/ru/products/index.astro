@@ -1,0 +1,222 @@
+---
+// src/pages/ru/products/index.astro
+
+import MainLayout from "@/layouts/MainLayout.astro";
+import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
+import CardSmall from "@components/ui/cards/CardSmall.astro";
+import FeaturesStatsAlt from "@components/sections/features/FeaturesStatsAlt.astro";
+import TestimonialsSectionAlt from "@components/sections/testimonials/TestimonialsSectionAlt.astro";
+
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { SITE } from "@data/constants";
+
+const product_ru: CollectionEntry<"products">[] = (
+  await getCollection("products", ({ id }) => {
+    return id.startsWith("ru/");
+  })
+).sort(
+  (a: CollectionEntry<"products">, b: CollectionEntry<"products">) =>
+    a.data.main.id - b.data.main.id,
+);
+
+const title_ru: string = "Продукция";
+const subTitle_ru: string =
+  "Каждая машина Kraffe Roasters проходит 100% проверку на всех этапах производства — от проектирования до отгрузки. Независимо от температурных режимов и размера партии, Kraffe Roasters дает вам полный контроль над процессом, чтобы повысить качество обжарки.";
+const testimonialsTitle_ru: string = "KRAFFE по всему миру";
+const featuresStatsTitle_ru: string = "Созданы для безупречной обжарки";
+const featuresStatsSubTitle_ru: string = "Каждый ростер KRAFFE спроектирован для исключительного контроля, стабильности от партии к партии и энергоэффективности.";
+const featuresStatsBenefits_ru = [
+      "Точный контроль",
+      "Исключительная стабильность от партии к партии",
+      "Надежный, стабильный, простой в обслуживании",
+      "Интеграция и техническая поддержка",
+];
+
+const testimonials_ru = [
+  {
+    content: `
+      <p>ETUDE COFFEE 🇬🇧</p>
+      <p>Модель : KRF-06</p>
+      <p>instagram : @etude.coffee</p>
+      <p>📍 Лондон, Бангей, ВЕЛИКОБРИТАНИЯ</p>
+    `,
+    author: "Контакт : Amir Montazer",
+    role: "🇬🇧",
+    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/etude.webp",
+    avatarAlt: "Аватар Amir Montazer, Etude Coffee",
+  },
+  {
+    content: `
+      <p>BAROMAN TORRÉFACTION DE CAFÉ 🇫🇷</p>
+      <p>Модель : KRF-12</p>
+      <p>instagram : @baroman_official</p>
+      <p>📍 Париж, ФРАНЦИЯ</p>
+    `,
+    author: "Контакт : Saad El Darazi",
+    role: "🇫🇷",
+    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/baroman.avif",
+    avatarAlt: "Аватар Saad El Darazi, Baroman Torréfaction de Café",
+  },
+  {
+    content: `
+      <p>ROASBEAN COFFEE ROASTERY 🇬🇮</p>
+      <p>Модель : KRF-30 / KRF-06</p>
+      <p>instagram : @roasbean.coffee</p>
+      <p>📍 Шираз, ИРАН</p>
+    `,
+    author: "Контакт : Amir Hezajifar",
+    role: "🇬🇮",
+    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/roasbean.avif",
+    avatarAlt: "Аватар Amir Hezajifar, Roasbean Coffee Roastery",
+  },
+  {
+    content: `
+      <p>MARIPOSA COFFEE 🇸🇮</p>
+      <p>Модель : KRF-06</p>
+      <p>instagram : @mariposa_coffee</p>
+      <p>📍 Домжале, СЛОВЕНИЯ</p>
+    `,
+    author: "Контакт : Klemen Macek",
+    role: "🇸🇮",
+    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/Mariposa1.avif",
+    avatarAlt: "Аватар Klemen Macek, Mariposa Coffee",
+  },
+  {
+    content: `
+      <p>HANNES STAMMLER 🇦🇹</p>
+      <p>weltladen-linz.at</p>
+      <p>Модель : KRF-12</p>
+      <p>📍 Линц, АВСТРИЯ</p>
+    `,
+    author: "Контакт : Hannes Stammler",
+    role: "🇦🇹",
+    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/hannes.webp",
+    avatarAlt: "Аватар Hannes Stammler",
+  },
+  {
+    content: `
+      <p>SANPAOLO COFFEE ROASTER 🇭🇺</p>
+      <p>instagram : @SANPAOLO_COFFEE_ROASTER</p>
+      <p>Модель : KRF-30</p>
+      <p>📍 Дунасентпал, ВЕНГРИЯ</p>
+    `,
+    author: "Контакт : Safran Gergely",
+    role: "🇭🇺",
+    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/sanpaolo.avif",
+    avatarAlt: "Аватар Safran Gergely, Sanpaolo Coffee Roaster",
+  },
+  {
+    content: `
+      <p>FIKA COFFEE 🇦🇿</p>
+      <p>instagram : @FIKA.COFFEE.CULTURE</p>
+      <p>Модель : KRF-03</p>
+      <p>📍 Баку, АЗЕРБАЙДЖАН</p>
+    `,
+    author: "Контакт : Камран Пирджанов",
+    role: "🇦🇿",
+    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/fika.webp",
+    avatarAlt: "Аватар Fika Coffee",
+  },
+  {
+    content: `
+      <p>KUANTA COFFEE ROASTERY 🇹🇷</p>
+      <p>instagram : @kuantakahvekavurma</p>
+      <p>Модель : KRF-03</p>
+      <p>📍 Измир, ТУРЦИЯ</p>
+    `,
+    author: "Контакт : Özlem Goral",
+    role: "🇹🇷",
+    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/kuanta.avif",
+    avatarAlt: "Аватар Özlem Goral, Kuanta Coffee Roastery",
+  },
+  {
+    content: `
+      <p>CASA SALVO ROASTERY 🇺🇸</p>
+      <p>instagram : @REALCHEFSALVOLOCASTRO</p>
+      <p>Модель : KRF-03</p>
+      <p>📍 Нью-Йорк, США</p>
+    `,
+    author: "Контакт : Salvatore Lo Castro",
+    role: "🇺🇸",
+    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/salvo.avif",
+    avatarAlt: "Аватар Salvatore Lo Castro, Casa Salvo Roastery",
+  },
+  {
+    content: `
+      <p>DUO PRO INZENJERING 🇷🇸</p>
+      <p>duopro.rs</p>
+      <p>Модель : KRF-03</p>
+      <p>📍 Чуприя, СЕРБИЯ</p>
+    `,
+    author: "Контакт : Djordje Brankovic",
+    role: "🇷🇸",
+    avatarSrc: "https://raw.githubusercontent.com/tacibey/kraffe6/refs/heads/main/src/images/duo.avif",
+    avatarAlt: "Аватар Djordje Brankovic, Duo Pro Inzenjering",
+  },
+];
+
+const pageTitle_ru: string = `Ростеры для кофе | Каталог Kraffe Roasters`;
+const metaDescription_ru: string = "Каталог коммерческих и промышленных ростеров для кофе от 1 до 240 кг. Высокая точность, модулируемые горелки и продвинутый контроль температуры.";
+---
+
+<MainLayout
+  title={pageTitle_ru}
+  meta={metaDescription_ru}
+  lang="ru"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${SITE.url}/ru/products`,
+    "url": `${SITE.url}/ru/products`,
+    "name": pageTitle_ru,
+    "description": metaDescription_ru,
+    "isPartOf": {
+      "@type": "WebSite",
+      "url": `${SITE.url}/ru`,
+      "name": "Kraffe Roasters",
+      "description": "Высокоточные коммерческие и промышленные ростеры для кофе Kraffe Roasters."
+    },
+    "inLanguage": "ru-RU"
+  }}
+>
+  <div
+    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  >
+    <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
+      <div class="flex items-center gap-12">
+        <h1
+          class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
+        >
+          {title_ru}
+        </h1>
+        {
+          subTitle_ru && (
+            <p class="hidden max-w-(--breakpoint-sm) text-pretty text-neutral-600 dark:text-neutral-400 md:block">
+              {subTitle_ru}
+            </p>
+          )
+        }
+      </div>
+      <PrimaryCTA title="▼ Отзывы клиентов" url="#testimonials" noArrow={true} />
+    </div>
+
+    <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+      {
+        product_ru.map((product_item) => {
+          return <CardSmall product={product_item} productLocale="ru" />;
+        })
+      }
+    </section>
+
+  </div>
+  <FeaturesStatsAlt
+    title={featuresStatsTitle_ru}
+    subTitle={featuresStatsSubTitle_ru}
+    benefits={featuresStatsBenefits_ru}
+  />
+  <TestimonialsSectionAlt
+    title={testimonialsTitle_ru}
+    testimonials={testimonials_ru}
+  />
+</MainLayout>

@@ -2,11 +2,13 @@ const titles: Record<string, string> = {
   en: "Subscribe",
   fr: "S'abonner",
   es: "Suscribirse",
+  ru: "Подписаться",
 };
 const placeholders: Record<string, string> = {
   en: "Enter your email",
   fr: "Entrez votre email",
   es: "Ingrese su correo electrónico",
+  ru: "Введите ваш e-mail",
 };
 const currentLocale = Astro.currentLocale || "en";
 const defaultTitle = titles[currentLocale] || titles.en;

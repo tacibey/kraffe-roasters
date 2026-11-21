@@ -2,7 +2,7 @@
 interface Props {
   title?: string;
   items?: string[];
-  lang?: "en" | "fr" | "es";
+  lang?: "en" | "fr" | "es" | "ru";
 }
 
 const { title, items = [], lang = "en" } = Astro.props;
@@ -11,6 +11,7 @@ const titles: Record<string, string> = {
   en: "KEY TAKEAWAYS",
   fr: "POINTS CLÉS",
   es: "PUNTOS CLAVE",
+  ru: "КЛЮЧЕВЫЕ ВЫВОДЫ",
 };
 const defaultTitle = titles[lang] || titles.en;
 const displayTitle = title || defaultTitle;

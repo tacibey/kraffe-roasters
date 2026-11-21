@@ -1,0 +1,52 @@
+---
+// src/pages/ru/contact.astro
+
+import MainLayout from "@/layouts/MainLayout.astro";
+import ContactSection_ru from "@components/sections/ru/ContactSection_ru.astro";
+import { SITE } from "@data/constants";
+import amirAvatar from "@images/Amir+Montazer.avif";
+import Icon from "@components/ui/icons/Icon.astro";
+
+const pageTitle_ru: string = `Контакты и техническая поддержка | Kraffe Roasters`;
+const metaDescription_ru: string = "Свяжитесь с Kraffe Roasters, чтобы получить предложение на коммерческие и промышленные ростеры для кофе, технические характеристики и сервис.";
+const canonicalUrl_ru = `${SITE.url}/ru/contact`;
+---
+
+<MainLayout
+  title={pageTitle_ru}
+  meta={metaDescription_ru}
+  lang="ru"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": canonicalUrl_ru,
+    "url": canonicalUrl_ru,
+    "name": pageTitle_ru,
+    "description": metaDescription_ru,
+    "isPartOf": {
+        "@type": "WebSite",
+        "url": `${SITE.url}/ru`,
+        "name": "Kraffe Roasters",
+        "description": "Высокоточные коммерческие и промышленные ростеры для кофе Kraffe Roasters."
+    },
+    "inLanguage": "ru-RU"
+  }}
+>
+  <ContactSection_ru amirAvatarData={amirAvatar} />
+
+  <section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <div class="rounded-lg bg-white p-6 text-center shadow-lg dark:bg-neutral-700">
+      <h2 class="text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-100">
+        Ищете местного партнёра?
+      </h2>
+      <p class="mt-3 text-lg text-neutral-600 dark:text-neutral-300">
+        Хотите связаться с местным дилером? Посетите страницу дилеров, чтобы найти официального партнёра рядом с вами.
+      </p>
+      <a href="/ru/dealers" class="mt-6 inline-flex items-center justify-center gap-x-2 rounded-lg border border-transparent bg-orange-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-orange-600 disabled:pointer-events-none disabled:opacity-50">
+        Найти дилера
+        <Icon name="arrowRightStatic" class="h-4 w-4" />
+      </a>
+    </div>
+  </section>
+
+</MainLayout>

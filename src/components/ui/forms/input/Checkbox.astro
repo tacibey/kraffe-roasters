@@ -2,6 +2,7 @@ const labels: Record<string, string> = {
   en: "Remember me",
   fr: "Me rappeler",
   es: "Recordarme",
+  ru: "Запомнить меня",
 };
 const defaultLabel = labels[Astro.currentLocale || "en"] || labels.en;
 const { label = defaultLabel, id } = Astro.props;

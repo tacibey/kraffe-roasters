@@ -5,6 +5,7 @@ import NavLink from "@components/ui/links/NavLink.astro";
 import enStrings from "@utils/navigation.ts";
 import frStrings from "@utils/fr/navigation.ts";
 import esStrings from "@utils/es/navigation.ts";
+import ruStrings from "@utils/ru/navigation.ts";
 import BrandLogo from "@components/BrandLogo.astro";
 import LanguagePicker from "@components/ui/LanguagePicker.astro";
 
@@ -12,11 +13,12 @@ const navStrings: Record<string, typeof enStrings> = {
   en: enStrings,
   fr: frStrings,
   es: esStrings,
+  ru: ruStrings,
 };
 const currentLocale = Astro.currentLocale || "en";
 const strings = navStrings[currentLocale] || enStrings;
 const homeUrl = currentLocale === "en" ? "/" : `/${currentLocale}`;
-const toggleAriaLabel = currentLocale === "es" ? "Alternar navegación" : currentLocale === "fr" ? "Basculer la navigation" : "Toggle navigation";
+const toggleAriaLabel = currentLocale === "ru" ? "Переключить навигацию" : currentLocale === "es" ? "Alternar navegación" : currentLocale === "fr" ? "Basculer la navigation" : "Toggle navigation";
 ---
 
 <!-- Main header component -->

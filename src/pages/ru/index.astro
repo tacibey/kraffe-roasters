@@ -1,0 +1,183 @@
+---
+// src/pages/ru/index.astro
+
+import MainLayout from "@/layouts/MainLayout.astro";
+import HeroSection from "@components/sections/landing/HeroSection.astro";
+import HeroSectionAlt from "@components/sections/landing/HeroSectionAlt.astro";
+import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
+import FeaturesNavs from "@components/sections/features/FeaturesNavs.astro";
+import TestimonialsSection from "@components/sections/testimonials/TestimonialsSection.astro";
+import PricingSection from "@components/sections/pricing/PricingSection.astro";
+import FAQ from "@components/sections/misc/FAQ.astro";
+
+import heroImage from "@images/hero-kraffe.avif";
+import thermalControlImage from "@images/features5.avif";
+import precisionSystemImage from "@images/sample-coffee-roaster.webp";
+import smartIntegrationImage from "@images/kf2.avif";
+import amirAvatar from "@images/Amir+Montazer.avif";
+import logoForSchema from "@images/kraffe-logo.png";
+
+import faqs_ru from "@data/ru/faqs.json";
+import features_ru from "@data/ru/features.json";
+import pricing_ru from "@data/ru/pricing.json";
+
+import { SITE, OG } from "@data/constants";
+import { getImage } from "astro:assets";
+
+const avatarSrcs: Array<string> = [
+  "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+  "https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+  "https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80",
+  "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+];
+
+const heroTitle_ru = `Овладейте искусством обжарки: <span class="text-yellow-500 dark:text-yellow-400">ростеры для кофе KRAFFE</span>`;
+const heroSubTitle_ru = "Точность, надежность и стабильность с промышленными ростерами KRAFFE — созданы для профессионалов и обеспечены пожизненной поддержкой.";
+const heroPrimaryBtn_ru = "Смотреть наши машины";
+const heroSecondaryBtn_ru = "Запросить коммерческое предложение";
+const heroReviews_ru = `Нам доверяют <span class="font-bold">обжарщики</span> по всему миру`;
+const featuresGeneralTitle_ru = "Созданы для безупречной обжарки";
+const featuresGeneralSubTitle_ru = "Ростеры KRAFFE спроектированы экспертами для исключительного контроля, стабильности от партии к партии и максимальной эффективности с каждым зерном.";
+const featuresNavsTitle_ru = `В основе KRAFFE: <span class="text-yellow-500 dark:text-yellow-400">точность в союзе с мощностью</span>`;
+const featuresNavsTabs_ru = [
+   { heading: "Уверенная обжарка в любых условиях", content: "Полностью контролируйте теплопередачу благодаря продвинутой системе термоконтроля KRAFFE, прецизионным термопарам 3 мм и усиленной теплоизоляции.", svg: "dashboard", src: thermalControlImage, alt: "Двустенный изолированный барабан ростера Kraffe", first: true },
+   { heading: "Система точной обжарки", content: "Обжарка, доведенная до совершенства: модулируемые горелки premix, калиброванный воздушный поток и регулировка скорости барабана.", svg: "dashboard", src: precisionSystemImage, alt: "Прецизионная система горелок Kraffe", second: true },
+   { heading: "Умная интеграция с ПО для обжарки", content: "Встроенная совместимость с Cropster и Artisan для записи данных в реальном времени и воспроизводимости профилей.", svg: "dashboard", src: smartIntegrationImage, alt: "Интеграция ростеров Kraffe с ПО Artisan и Cropster" },
+];
+const testimonialsTitle_ru = "Признание профессиональных обжарщиков";
+const testimonialsSubTitle_ru = "Узнайте, почему ведущие обжарочные цеха выбирают KRAFFE ROASTERS за качество, стабильность и постоянную техническую поддержку.";
+const testimonialsData_ru = [{ content: "Машина невероятно проста в работе и дает стабильный результат от партии к партии. Она позволяет нам выстраивать идеальный профиль для каждого происхождения.", author: "Amir Montazer", role: "Etude Coffee Co.", avatarSrc: amirAvatar, avatarAlt: "Портрет Amir Montazer" }];
+const statisticsData_ru = [
+    { count: "100% контроль качества", description: "Каждая машина проходит строгие заводские испытания перед отгрузкой, чтобы гарантировать максимальную производительность." },
+    { count: "Проектирование под задачу", description: "Гибкий подход с учетом конкретных потребностей вашего обжарочного цеха." },
+    { count: "Простота в работе", description: "Создана для удобной работы: простая настройка, интуитивное управление и доступное обслуживание." },
+    { count: "Поддержка 24/7", description: "Прямая техническая помощь наших профильных инженеров по любым эксплуатационным вопросам." },
+];
+const heroAltTitle_ru = "Готовы вывести свою обжарку на новый уровень?";
+const heroAltSubTitle_ru = "Свяжитесь с нашей командой, чтобы подобрать коммерческий или промышленный ростер под ваш объем производства.";
+const heroAltBtnTitle_ru = "Связаться с командой";
+const faqTitle_ru = "Часто задаваемые вопросы";
+
+const pageTitle_ru_seo = `Коммерческие и промышленные ростеры для кофе | KRAFFE`;
+const metaDescription_ru = "Высокоточные коммерческие и промышленные ростеры для кофе. Двустенный барабан, продвинутый термоконтроль и пожизненная техническая поддержка.";
+
+const logoImage = await getImage({ src: logoForSchema, format: 'png' });
+const socialImage = await getImage({ src: OG.image, width: 1200, height: 600, format: 'png' });
+const logoUrl = new URL(logoImage.src, Astro.site || "https://krafferoasters.com").href;
+const socialImageUrl = new URL(socialImage.src, Astro.site || "https://krafferoasters.com").href;
+
+const faqEntities_ru = faqs_ru.faqs.map(faq => ({
+  "@type": "Question",
+  "name": faq.question,
+  "acceptedAnswer": {
+    "@type": "Answer",
+    "text": faq.answer
+  }
+}));
+
+const structuredData_ru = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://krafferoasters.com/#organization",
+      "name": "Kraffe Roasters",
+      "url": "https://krafferoasters.com",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://krafferoasters.com/#logo",
+        "url": logoUrl,
+        "caption": "Kraffe Roasters Logo"
+      },
+      "image": {
+        "@id": "https://krafferoasters.com/#logo"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://krafferoasters.com/ru/#website",
+      "url": "https://krafferoasters.com/ru",
+      "name": "Kraffe Roasters",
+      "description": metaDescription_ru,
+      "publisher": {
+        "@id": "https://krafferoasters.com/#organization"
+      },
+      "inLanguage": "ru-RU"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://krafferoasters.com/ru/#webpage",
+      "url": "https://krafferoasters.com/ru",
+      "name": pageTitle_ru_seo,
+      "isPartOf": {
+        "@id": "https://krafferoasters.com/ru/#website"
+      },
+      "about": {
+        "@id": "https://krafferoasters.com/#organization"
+      },
+      "description": metaDescription_ru,
+      "inLanguage": "ru-RU"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://krafferoasters.com/ru/#faq",
+      "isPartOf": {
+        "@id": "https://krafferoasters.com/ru/#webpage"
+      },
+      "mainEntity": faqEntities_ru
+    }
+  ]
+};
+---
+
+<MainLayout
+  title={pageTitle_ru_seo}
+  meta={metaDescription_ru}
+  structuredData={structuredData_ru}
+  lang="ru"
+>
+    <HeroSection
+    title={heroTitle_ru}
+    subTitle={heroSubTitle_ru}
+    primaryBtn={heroPrimaryBtn_ru}
+    primaryBtnURL="/ru/products"
+    secondaryBtn={heroSecondaryBtn_ru}
+    secondaryBtnURL="/ru/contact"
+    withReview={true}
+    avatars={avatarSrcs}
+    rating=`<span class="font-bold">4,8</span> / 5`
+    starCount={4}
+    reviews={heroReviews_ru}
+    src={heroImage}
+    alt="Коммерческий и промышленный ростер для кофе Kraffe Roasters"
+  />
+
+    <FeaturesGeneral
+    title={featuresGeneralTitle_ru}
+    subTitle={featuresGeneralSubTitle_ru}
+    features={features_ru}
+  />
+
+    <FeaturesNavs
+    title={featuresNavsTitle_ru}
+    tabs={featuresNavsTabs_ru}
+  />
+
+    <TestimonialsSection
+    title={testimonialsTitle_ru}
+    subTitle={testimonialsSubTitle_ru}
+    testimonials={testimonialsData_ru}
+    statistics={statisticsData_ru}
+  />
+
+    <PricingSection pricing={pricing_ru} />
+
+    <FAQ title={faqTitle_ru} faqs={faqs_ru} />
+
+    <HeroSectionAlt
+    title={heroAltTitle_ru}
+    subTitle={heroAltSubTitle_ru}
+    url="/ru/contact"
+    btnTitle={heroAltBtnTitle_ru}
+/>
+</MainLayout>

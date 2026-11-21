@@ -19,6 +19,7 @@ interface Props {
     en?: string;
     fr?: string;
     es?: string;
+    ru?: string;
   };
 }
 
@@ -42,6 +43,7 @@ const defaultTitles: Record<string, string> = {
   en: SITE.title,
   fr: "Kraffe Roasters | Machines à Torréfier Commerciales et Industrielles",
   es: "Kraffe Roasters | Tostadoras de Café Comerciales e Industriales",
+  ru: "Kraffe Roasters | Коммерческие и промышленные ростеры для кофе",
 };
 
 let processedTitle = (title || defaultTitles[currentLang] || defaultTitles.en).trim();
@@ -69,6 +71,7 @@ const buttonTexts: Record<string, string> = {
   en: 'Get Offer',
   fr: 'Obtenir une offre',
   es: 'Solicitar Presupuesto',
+  ru: 'Получить предложение',
 };
 const buttonText = buttonTexts[currentLang] || buttonTexts.en;
 ---
@@ -314,6 +317,39 @@ const buttonText = buttonTexts[currentLang] || buttonTexts.en;
                   {
                     title: 'Publicidad y Personalización',
                     description: 'Estas cookies pueden ser establecidas por nuestros socios publicitarios para elaborar un perfil de sus intereses.',
+                    linkedCategory: 'advertising'
+                  }
+                ]
+              }
+            },
+            ru: {
+              consentModal: {
+                title: 'Мы ценим вашу конфиденциальность 🍪',
+                description: 'Мы используем файлы cookie, чтобы сделать работу с сайтом удобнее, показывать персонализированный контент и анализировать трафик.',
+                acceptAllBtn: 'Принять все',
+                showPreferencesBtn: 'Настроить',
+                footer: '<a href="/privacy-policy-and-terms">Политика конфиденциальности</a>'
+              },
+              preferencesModal: {
+                title: 'Настройки cookie',
+                acceptAllBtn: 'Принять все',
+                acceptNecessaryBtn: 'Отклонить все',
+                savePreferencesBtn: 'Сохранить настройки',
+                closeIconLabel: 'Закрыть',
+                sections: [
+                  {
+                    title: 'Строго необходимые',
+                    description: 'Эти файлы cookie необходимы для корректной работы сайта.',
+                    linkedCategory: 'necessary'
+                  },
+                  {
+                    title: 'Производительность и аналитика',
+                    description: 'Эти файлы cookie позволяют нам подсчитывать посещения и источники трафика, чтобы измерять и улучшать работу сайта.',
+                    linkedCategory: 'analytics'
+                  },
+                  {
+                    title: 'Реклама и таргетинг',
+                    description: 'Эти файлы cookie могут устанавливаться нашими рекламными партнёрами для формирования профиля ваших интересов.',
                     linkedCategory: 'advertising'
                   }
                 ]

@@ -3,7 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 import mdx from "@astrojs/mdx";
-import { ES_READY } from "./src/config/i18n.ts";
+import { ES_READY, RU_READY } from "./src/config/i18n.ts";
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,7 +13,7 @@ export default defineConfig({
   },
   i18n: {
     defaultLocale: "en",
-    locales: ["en", "fr", "es"],
+    locales: ["en", "fr", "es", "ru"],
     routing: {
       prefixDefaultLocale: false,
     },
@@ -27,10 +27,14 @@ export default defineConfig({
           en: 'en',
           fr: 'fr',
           ...(ES_READY ? { es: 'es' } : {}),
+          ...(RU_READY ? { ru: 'ru' } : {}),
         },
       },
       filter: (page) => {
         if (!ES_READY && page.includes('/es/')) {
+          return false;
+        }
+        if (!RU_READY && page.includes('/ru/')) {
           return false;
         }
         return true;
